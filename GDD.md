@@ -63,8 +63,8 @@ liveops:
 | Estrellas | Calor mínimo | Policías que aparecen | Nivel en que se desbloquea el techo |
 | --- | --- | --- | --- |
 | ★1 | 20 | Patrullero Patata (2) | 1 |
-| ★2 | 60 | + Capibara Motorizada | 1 |
-| ★3 | 120 | + Tiburón Zapatilla SWAT | 6 |
+| ★2 | 60 | Más Patatas (3), solo Patatas | 1 |
+| ★3 | 120 | + Capibara Motorizada y Tiburón Zapatilla SWAT | 6 |
 | ★4 | 200 | + Cafetera K-9 | 14 |
 | ★5 | 320 | + Helicóptero Banana | 26 |
 | ★6 | 480 | + Comisario Cerebrote (jefe) | 40 |
@@ -81,12 +81,13 @@ liveops:
 | Policía | Desde | Velocidad | Visión | Habilidad | Cómo vencerlo / derribarlo |
 | --- | --- | --- | --- | --- | --- |
 | **Patrullero Patata** (papa con gorra) | ★1 | 14 | 40 studs, 100° | Corre en línea recta, grita "¡Alto, tubérculo!" | Más lento que el nivel 1: tutorial del escape. Embestida poder ≥ 12 |
-| **Capibara Motorizada** | ★2 | 22 (en calles) | 55 studs | Moto: se frena en cruces con semáforo trucado | Pasar por callejones o escaleras. Poder ≥ 18 |
+| **Capibara Motorizada** | ★3 | 22 (en calles) | 55 studs | Moto: se frena en cruces con semáforo trucado | Pasar por callejones o escaleras. Poder ≥ 18 |
 | **Tiburón Zapatilla SWAT** | ★3 | 30 | 60 studs | Salto-embestida cada 6 s con aviso de 0,6 s | Esquivar el aviso; Banana. Poder ≥ 30 |
 | **Cafetera K-9** (perro-cafetera) | ★4 | 38 | 65 studs + olfato 25 | Vapor: ralentiza 30 % por 3 s, rastrea tu camino | Humo la despista. Poder ≥ 40 |
 | **Helicóptero Banana** | ★5 | 46 (aire) | 80 studs, foco | Marca tu posición con foco; lanza red (ralentiza 60 % 2 s) | No se derriba: bajo techos/túneles o Bomba de confeti |
 | **Comisario Cerebrote** (jefe) | ★6 | 52 | 90 studs | Grito sónico (aturde 1 s, aviso 1 s) | Combo de trampas (3 impactos de herramientas); soltar **Medalla** (recompensa grande) |
 
+- **Alerta progresiva.** Los valores de la tabla son los de un policía a pleno rendimiento. Lo que ve y corre cada policía se multiplica por las **estrellas actuales** del jugador (sin estrellas, p. ej. en plena travesura, vale ★1): visión ×0,45 / 0,6 / 0,7 / 0,8 / 0,9 / 1,0 para ★1 a ★6, velocidad ×0,85 / 0,92 / 0,96 / 1 / 1 / 1 y barra de detección ×1,4 / 1,25 / 1,1 / 1 / 0,9 / 0,8 de tiempo. Así el Patata de ★1 ve a ≈ 18 studs y corre a ≈ 12 (más lento que el nivel 1), el de ★2 a ≈ 24 studs, y el Comisario de ★6 ve a 90. En el Barrio Papa (techo ★2) solo hay Patatas, ambientales y de persecución; el resto debuta con la estrella que lo trae.
 - **Cantidad.** Máximo 14 policías activos por persecución; el desglose por estrella está en parámetros (`Cops.CountByStar`).
 - **Dificultad de ciudad.** Cada Ascensión aumenta velocidad y visión de los policías un 4 % (tope 40 %): la ciudad "se pone al día" con tu poder.
 - **Derribar policías.** Dos formas: **Empujón** (siempre, solo contra Patata) y **Embestida** (Dash con cooldown de 5 s). La Embestida derriba si el **Poder de Embestida** = `Velocidad actual × (1 + 0,08 × nivel de Fortachón)` es ≥ la resistencia del policía. El policía queda en ragdoll 4 s y suelta una "propina" (pequeña recompensa de XP y Botín). Eso vuelve útil la velocidad **y** la mejora de fuerza.
@@ -576,6 +577,9 @@ El builder los copia a `src/shared/Config.luau` y el juego los lee con `Tuning.g
 | `Hide.MinCopDistance` | 8 | Distancia mínima de policías al esconderse |
 | `Detect.FillSecondsNear` | 0.5 | Detección de cerca |
 | `Detect.FillSecondsFar` | 1.6 | Detección de lejos |
+| `Cops.AlertVisionByStar` | 0.45,0.6,0.7,0.8,0.9,1.0 | Multiplicador de visión por estrella |
+| `Cops.AlertSpeedByStar` | 0.85,0.92,0.96,1,1,1 | Multiplicador de velocidad por estrella |
+| `Cops.AlertFillByStar` | 1.4,1.25,1.1,1,0.9,0.8 | Multiplicador de segundos de detección por estrella |
 | `Cops.Patata.Speed` | 14 | Velocidad Patata |
 | `Cops.Capibara.Speed` | 22 | Velocidad Capibara |
 | `Cops.Tiburon.Speed` | 30 | Velocidad Tiburón |
@@ -813,7 +817,7 @@ La interfaz solo presenta lo que decide el servidor.
 | `Level`, `Xp`, `XpNeeded` | número | `Progress` | Nivel (1 a 50), XP en el nivel y XP para el siguiente (0 en el nivel máximo) |
 | `Dinero`, `Cerebros` | número | `Economy` | Saldos guardados |
 | `Botin`, `BotinCap` | número | `Economy` | Botín sin depositar y capacidad |
-| `Stars` (0–6), `Heat`, `WantedState` (`clear`, `seen`, `searching`) | número, número, texto | `Wanted` | Estrellas, calor y estado: `searching` = estrellas parpadeando |
+| `Stars` (0–6), `Heat`, `WantedState` (`clear`, `seen`, `searching`), `Spotted` | número, número, texto, booleano | `Wanted` | Estrellas, calor y estado: `searching` = estrellas parpadeando; `Spotted` = un policía te ve ahora mismo (`seen` dura 10 s más) |
 | `Hidden` | booleano | `Game/World` | Está escondido y bajando estrellas |
 | `District` | texto | `Game/World` | Id del nivel de `Levels.json` donde está (`lobby` o un distrito) |
 | `PlotId` | texto | `Plots` | Id de la parcela reclamada (vacío si no tiene) |

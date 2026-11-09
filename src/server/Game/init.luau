@@ -156,6 +156,7 @@ function Game.start(context: Context)
 		end,
 		sigiloFor = PlayerStats.sigilo,
 		difficultyFor = PlayerStats.difficulty,
+		starsFor = Wanted.stars,
 		speedMultAt = function(position)
 			return if Areas.containing(position, "sand") then Tuning.get("World.SandSpeedMult") else 1
 		end,

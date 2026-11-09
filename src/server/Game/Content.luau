@@ -31,9 +31,10 @@ Content.copTypes = {
 }
 
 -- Qué patrulla ambiental ve un jugador según el techo de estrellas de su nivel.
+-- Barrio Papa (techo ★1 a ★2): solo Patatas. Cada tipo nuevo debuta con la estrella que lo trae.
 Content.patrolByCap = {
 	[1] = { "patata" },
-	[2] = { "patata", "capibara" },
+	[2] = { "patata" },
 	[3] = { "patata", "capibara", "tiburon" },
 	[4] = { "patata", "capibara", "tiburon", "cafetera" },
 	[5] = { "patata", "capibara", "tiburon", "cafetera" },

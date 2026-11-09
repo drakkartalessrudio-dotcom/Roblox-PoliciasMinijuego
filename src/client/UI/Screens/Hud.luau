@@ -73,10 +73,15 @@ function Hud.mount(Kit: any)
 		local state = player:GetAttribute("WantedState")
 		count = if type(count) == "number" then count else 0
 		starLabel.Text = stars(count)
-		stateLabel.Text = if state == "seen" then "¡Te están viendo!" elseif state == "searching" then "Te buscan… sigue escondido" else ""
+		-- "Te están viendo" solo con un policía mirándote de verdad; el estado "seen" sigue unos segundos después.
+		stateLabel.Text = if player:GetAttribute("Spotted") == true
+			then "¡Te están viendo!"
+			elseif state == "seen" or state == "searching" then "Te buscan… sigue escondido"
+			else ""
 	end
 	Kit.bindAttribute(player, "Stars", renderStars)
 	Kit.bindAttribute(player, "WantedState", renderStars)
+	Kit.bindAttribute(player, "Spotted", renderStars)
 
 	-- Las estrellas parpadean mientras te buscan (salvo con movimiento reducido).
 	task.spawn(function()

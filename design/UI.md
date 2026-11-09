@@ -14,7 +14,7 @@ Fuente: `GDD.md` (loop, onboarding, plataformas y Estado para la UI) y `design/A
 
 | Pantalla | Módulo | Dónde | Qué muestra | Estado que usa |
 | --- | --- | --- | --- | --- |
-| HUD | `Screens/Hud.luau` | Slots `top`, `right` y `bottom` | Estrellas y estado de búsqueda, nivel y barra de XP; Dinero, Botín con tope, Cerebros, distrito y velocidad; pista del tutorial y, en el lobby, qué hacer allí | `Stars`, `WantedState`, `Level`, `Xp`, `XpNeeded`, `Dinero`, `Botin`, `BotinCap`, `Cerebros`, `District`, `Speed`, `TutorialStep`, `PlotId` |
+| HUD | `Screens/Hud.luau` | Slots `top`, `right` y `bottom` | Estrellas y estado de búsqueda, nivel y barra de XP; Dinero, Botín con tope, Cerebros, distrito y velocidad; pista del tutorial y, en el lobby, qué hacer allí | `Stars`, `WantedState`, `Spotted`, `Level`, `Xp`, `XpNeeded`, `Dinero`, `Botin`, `BotinCap`, `Cerebros`, `District`, `Speed`, `TutorialStep`, `PlotId` |
 | Avisos | `Screens/Alerts.luau` | Capa `toast` | Resultado de cada travesura, estrellas, escape, arresto, depósito, subida de nivel, medalla, Ascensión, logros, viajes bloqueados por nivel y errores | Mensaje `notify` |
 | Acciones | `Screens/Actions.luau` | Slot `actions` | Embestida, Empujón, herramientas compradas con su enfriamiento y, con el pase del teléfono, Depositar | `Tool_<id>`, `ToolReady_<id>`, `Pass_phone`, `Botin`, `Stars`; envía `use_tool`, `deposit` |
 | Minijuegos | `Screens/Minigames.luau` | Capa `menu` (ventana arriba) | Los cinco minijuegos de las travesuras (secuencia, mantener, tocar rápido, ritmo, memoria) con temporizador | Mensaje `mischief_start`; envía `mischief_submit` y `mischief_cancel` |

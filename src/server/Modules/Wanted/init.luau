@@ -13,7 +13,8 @@
 
 	No sabe quién ve al jugador ni qué es un policía: Cops_Wanted llama a setSeen.
 
-	Publica atributos del jugador: Stars, Heat, WantedState.
+	Publica atributos del jugador: Stars, Heat, WantedState y Spotted (true solo mientras un
+	policía lo ve de verdad; `seen` en WantedState dura hasta LoseSightSeconds tras perder la vista).
 
 	API:
 	  Wanted.init(options)                  { capFor(player), decayBonus(player) }
@@ -82,6 +83,7 @@ local function publish(player: Player, state: State)
 	player:SetAttribute("Stars", state.stars)
 	player:SetAttribute("Heat", math.floor(state.heat))
 	player:SetAttribute("WantedState", state.status)
+	player:SetAttribute("Spotted", state.seen)
 end
 
 local function refresh(player: Player, state: State)
@@ -114,6 +116,7 @@ function Wanted.start()
 		player:SetAttribute("Stars", 0)
 		player:SetAttribute("Heat", 0)
 		player:SetAttribute("WantedState", "clear")
+		player:SetAttribute("Spotted", false)
 	end
 	Players.PlayerAdded:Connect(onPlayerAdded)
 	Players.PlayerRemoving:Connect(function(player)
@@ -217,6 +220,7 @@ function Wanted.setSeen(player: Player, seen: boolean)
 		return
 	end
 	state.seen = seen
+	player:SetAttribute("Spotted", seen)
 	if seen then
 		state.lastSeenAt = os.clock()
 		if state.status == "clear" then

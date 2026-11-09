@@ -71,10 +71,17 @@ local Config = {
 		Cafetera = { Speed = 38, VisionRange = 65, Resistance = 40 },
 		Helicoptero = { Speed = 46, VisionRange = 80, Resistance = 999 },
 		Comisario = { Speed = 52, VisionRange = 90, Resistance = 999 },
+		-- Progresión de alerta: los policías se "espabilan" con las estrellas del jugador. Índice = estrellas
+		-- (1 a 6; sin estrellas, p. ej. en plena travesura, se usa la entrada de ★1). Multiplican a
+		-- Speed y VisionRange de cada tipo, y a los segundos de la barra de detección.
+		AlertVisionByStar = { 0.45, 0.6, 0.7, 0.8, 0.9, 1.0 }, -- Patata ★1: 40 × 0,45 = 18 studs; Comisario ★6: 90
+		AlertSpeedByStar = { 0.85, 0.92, 0.96, 1.0, 1.0, 1.0 }, -- Patata ★1: 14 × 0,85 ≈ 12 (más lenta que el nivel 1)
+		AlertFillByStar = { 1.4, 1.25, 1.1, 1.0, 0.9, 0.8 }, -- ×segundos de detección: de ★1 cuesta más fijarte
 		-- Policías por estrella: lista de { tipo, cantidad } acumulativa (se toma la entrada de la estrella actual).
+		-- Barrio Papa (techo ★2): solo Patatas. La Capibara debuta en ★3 (Colegio, nivel 6).
 		RosterByStar = {
 			{ { "patata", 2 } },
-			{ { "patata", 2 }, { "capibara", 1 } },
+			{ { "patata", 3 } },
 			{ { "patata", 2 }, { "capibara", 1 }, { "tiburon", 2 } },
 			{ { "patata", 2 }, { "capibara", 2 }, { "tiburon", 2 }, { "cafetera", 2 } },
 			{ { "patata", 2 }, { "capibara", 2 }, { "tiburon", 3 }, { "cafetera", 2 }, { "helicoptero", 1 } },

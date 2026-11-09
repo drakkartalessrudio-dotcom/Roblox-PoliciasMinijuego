@@ -4,10 +4,12 @@
 
 	Detección: cada policía tiene un cono de visión y un alcance (con Sigilo y la
 	dificultad de la ciudad). Estar en el cono con línea de vista llena una barra
-	(Detect.FillSecondsNear/Far); al llenarse el policía te persigue. Pero un policía
-	de patrulla solo mira a quien `canEngage` deja: sin estrellas y sin una travesura en
-	curso, un jugador puede pasar delante de la patrulla sin que lo persigan. El ruido de
-	una travesura alerta a los policías cercanos hacia ese punto (Cops.alert).
+	(Detect.FillSecondsNear/Far); al llenarse el policía te persigue. Visión, velocidad y
+	tiempo de detección crecen con las estrellas del jugador (Cops.Alert*ByStar): un Patata
+	de ★1 ve poco y corre lento. Un policía de patrulla solo mira a quien `canEngage` deja:
+	sin estrellas y sin una travesura en curso, un jugador puede pasar delante de la patrulla
+	sin que lo persigan. El ruido de una travesura alerta a los policías cercanos hacia ese
+	punto (Cops.alert).
 
 	Persecución: se mueve hacia el jugador (o hacia su última posición, o hacia un
 	señuelo), con salto ante obstáculos y PathfindingService solo si se atasca. Agarra si
@@ -107,6 +109,7 @@ export type Options = {
 	isCovered: (player: Player) -> boolean, -- bajo una cubierta (el helicóptero no ve)
 	sigiloFor: (player: Player) -> number, -- 0 a 1: reducción de visión y ruido
 	difficultyFor: (player: Player) -> number, -- aumento por Ascensión (0 a DifficultyCap)
+	starsFor: (player: Player) -> number, -- estrellas de búsqueda actuales (la alerta de los policías crece con ellas)
 	speedMultAt: (position: Vector3) -> number, -- arena y similares
 	collisionGroup: string?,
 }
@@ -160,9 +163,23 @@ local function difficulty(cop: Cop): number
 	return scale
 end
 
+-- Progresión de alerta (Cops.Alert*ByStar): multiplicador según las estrellas del jugador;
+-- sin estrellas (p. ej. en plena travesura) vale el de ★1.
+local function alertOf(player: Player?, key: string): number
+	assert(options)
+	local list = Tuning.get(`Cops.{key}`)
+	local stars = if player then options.starsFor(player) else 0
+	return list[math.clamp(stars, 1, #list)]
+end
+
+-- Alcance de visión de un policía contra un jugador, sin Sigilo.
+local function visionRange(cop: Cop, player: Player): number
+	return def(cop).VisionRange * alertOf(player, "AlertVisionByStar") * (1 + difficulty(cop))
+end
+
 local function speedOf(cop: Cop, now: number): number
 	assert(options)
-	local base = (cop.speedOverride or def(cop).Speed) * (1 + difficulty(cop))
+	local base = (cop.speedOverride or def(cop).Speed * alertOf(cop.owner, "AlertSpeedByStar")) * (1 + difficulty(cop))
 	if cop.state == "patrol" or cop.state == "suspicious" then
 		base *= 0.5
 	end
@@ -203,8 +220,7 @@ local function canSee(cop: Cop, player: Player, root: BasePart): (boolean, numbe
 	if options.isProtected(player) then
 		return false, math.huge
 	end
-	local config = def(cop)
-	local range = config.VisionRange * (1 + difficulty(cop)) * (1 - math.clamp(options.sigiloFor(player), 0, 0.8))
+	local range = visionRange(cop, player) * (1 - math.clamp(options.sigiloFor(player), 0, 0.8))
 	local offset = root.Position - cop.root.Position
 	local distance = offset.Magnitude
 	if distance > range then
@@ -475,8 +491,6 @@ local function think(cop: Cop, now: number, tick: number)
 		end
 		return
 	end
-	local config = def(cop)
-
 	-- Detección: cada jugador cercano llena o vacía su barra.
 	local seenTarget = false
 	local visibleTo: { Player } = {}
@@ -490,9 +504,11 @@ local function think(cop: Cop, now: number, tick: number)
 					visible, distance = canSee(cop, player, root)
 				end
 				if visible then
-					local range = config.VisionRange * (1 + difficulty(cop))
-					local fill = Tuning.get("Detect.FillSecondsNear")
+					local range = visionRange(cop, player)
+					local fill = (
+						Tuning.get("Detect.FillSecondsNear")
 						+ (Tuning.get("Detect.FillSecondsFar") - Tuning.get("Detect.FillSecondsNear")) * math.clamp(distance / range, 0, 1)
+					) * alertOf(player, "AlertFillByStar")
 					local value = (cop.detect[player] or 0) + tick / fill
 					cop.detect[player] = value
 					if value >= 1 then
