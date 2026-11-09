@@ -77,7 +77,8 @@ Todo lo jugable son piezas `zone` con `name`. El builder las convierte en puntos
 | `guarida` | 24 × 8 × 24 | Zona segura: depósito de Botín, tienda, reaparición y alijo. Los policías no entran |
 | `afk` | 14 × 8 × 14 | Volumen `AfkZone` de la Sala de Entrenamiento (6 jugadores). Se activa desde el nivel 8 |
 | `payspray` | 20 × 8 × 20 | Lavadero Pay'n'Spray |
-| `cop_spawn` | 10 × 4 × 10 | Aparición de policías de patrulla, fuera de la vista inmediata |
+| `cop_spawn` | 10 × 4 × 10 | Aparición de los caminantes (patrulla ambiental), fuera de la vista inmediata; también su destino |
+| `guard_post` | 3 × 4 × 3 | Punto de ruta de una guardia fija. Campos: `post` (la travesura que vigila), `order` (1, 2…) y `cop` (tipo de policía); el giro Y de la zona es hacia dónde mira |
 | `heli_spawn` | 10 × 4 × 10 | Aparición del Helicóptero Banana (★5) |
 | `comisario_spawn`, `arena_jefe` | 10 × 4 × 10, 180 × 12 × 140 | Jefe ★6 y su plaza |
 | `hide` | 6 × 6 × 6 | Escondite (arbusto o contenedor) para perder las estrellas |
@@ -94,6 +95,19 @@ Todo lo jugable son piezas `zone` con `name`. El builder las convierte en puntos
 | `mischief_contenedor` | 10 × 8 × 10 | Travesura de nivel 40 (Puerto) |
 | `coop_mural`, `coop_sinfonia`, `coop_cajafuerte` | 40 × 12 × 8, 40 × 8 × 16, 10 × 8 × 30 | Travesuras de banda (2–8, 3–8 y 4–8 jugadores) |
 | `tutorial_graffiti`, `tutorial_cop_spawn`, `tutorial_hide` | — | Pasos guionados del onboarding en el Barrio |
+
+### Guardias de las travesuras
+
+Cada travesura tiene un puesto de dos puntos (`guard_post`, ids `guard-<travesura>-1/2`): el primero a 8–12 studs del borde de la travesura con vista libre hacia ella, el segundo a 14–28 studs del primero por calle libre (generados con comprobación contra edificios, muros y zonas seguras). La guardia mira hacia la travesura en cada punto. **Barrio Papa** deja solo dos travesuras custodiadas (`mischief-graffiti-4` y `mischief-timbrazo-3`); los demás distritos custodian todas.
+
+| Distrito | Puestos | Tipos de guardia |
+| --- | --- | --- |
+| Barrio Papa | 2 de 11 travesuras | Patata |
+| Colegio Brainrot | 17 | Patata, Capibara |
+| Playa Podrida | 14 | Capibara, Tiburón |
+| Centro Neón | 18 | Tiburón, Capibara |
+| Distrito Queso | 9 | Tiburón, Cafetera |
+| Puerto Podrido | 5 | Cafetera, Tiburón |
 
 Cantidades por distrito:
 

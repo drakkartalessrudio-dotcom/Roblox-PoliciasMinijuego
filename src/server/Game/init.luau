@@ -144,6 +144,7 @@ function Game.start(context: Context)
 	Cops.init({
 		types = Content.copTypes,
 		spawnPoints = Areas.parts("cop_spawn"),
+		guardPosts = Areas.parts("guard_post"),
 		heliPoints = Areas.parts("heli_spawn"),
 		bossPoints = Areas.parts("comisario_spawn"),
 		rosterFor = rosterFor,

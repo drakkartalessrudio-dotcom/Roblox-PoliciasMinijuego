@@ -3614,6 +3614,102 @@
      "note": "Lavadero Pay'n'Spray: quita las estrellas por dinero"
     },
     {
+     "id": "guard-graffiti-4-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-graffiti-4",
+     "order": 1,
+     "cop": "patata",
+     "position": [
+      245.0,
+      2,
+      136.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -108.4,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-graffiti-4: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-graffiti-4-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-graffiti-4",
+     "order": 2,
+     "cop": "patata",
+     "position": [
+      273.0,
+      2,
+      136.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      104.0,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-graffiti-4: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-timbrazo-3-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-timbrazo-3",
+     "order": 1,
+     "cop": "patata",
+     "position": [
+      2.0,
+      2,
+      -128.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      9.5,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-timbrazo-3: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-timbrazo-3-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-timbrazo-3",
+     "order": 2,
+     "cop": "patata",
+     "position": [
+      -24.0,
+      2,
+      -138.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -85.2,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-timbrazo-3: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
      "id": "cop-spawn-1",
      "kind": "zone",
      "position": [
@@ -4718,6 +4814,822 @@
      "note": "Lavadero Pay'n'Spray: quita las estrellas por dinero"
     },
     {
+     "id": "guard-graffiti-1-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-graffiti-1",
+     "order": 1,
+     "cop": "patata",
+     "position": [
+      -267.0,
+      2,
+      -99.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -108.4,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-graffiti-1: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-graffiti-1-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-graffiti-1",
+     "order": 2,
+     "cop": "patata",
+     "position": [
+      -239.0,
+      2,
+      -99.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      104.0,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-graffiti-1: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-graffiti-2-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-graffiti-2",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      257.0,
+      2,
+      107.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      9.5,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-graffiti-2: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-graffiti-2-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-graffiti-2",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      231.0,
+      2,
+      97.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -85.2,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-graffiti-2: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-graffiti-3-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-graffiti-3",
+     "order": 1,
+     "cop": "patata",
+     "position": [
+      107.0,
+      2,
+      212.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      82.9,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-graffiti-3: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-graffiti-3-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-graffiti-3",
+     "order": 2,
+     "cop": "patata",
+     "position": [
+      93.0,
+      2,
+      188.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -174.9,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-graffiti-3: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-timbrazo-1-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-timbrazo-1",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      198.0,
+      2,
+      -97.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -99.1,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-timbrazo-1: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-timbrazo-1-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-timbrazo-1",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      226.0,
+      2,
+      -97.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      97.4,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-timbrazo-1: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-timbrazo-2-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-timbrazo-2",
+     "order": 1,
+     "cop": "patata",
+     "position": [
+      -107.0,
+      2,
+      -206.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -69.4,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-timbrazo-2: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-timbrazo-2-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-timbrazo-2",
+     "order": 2,
+     "cop": "patata",
+     "position": [
+      -97.0,
+      2,
+      -232.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -174.7,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-timbrazo-2: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-timbrazo-3-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-timbrazo-3",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      107.0,
+      2,
+      257.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      80.5,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-timbrazo-3: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-timbrazo-3-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-timbrazo-3",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      97.0,
+      2,
+      231.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      175.2,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-timbrazo-3: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-hidrante-1-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-hidrante-1",
+     "order": 1,
+     "cop": "patata",
+     "position": [
+      0.0,
+      2,
+      -148.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -0.0,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-hidrante-1: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-hidrante-1-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-hidrante-1",
+     "order": 2,
+     "cop": "patata",
+     "position": [
+      -24.0,
+      2,
+      -162.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -94.8,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-hidrante-1: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-hidrante-2-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-hidrante-2",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      42.0,
+      2,
+      -7.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -2.4,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-hidrante-2: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-hidrante-2-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-hidrante-2",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      66.0,
+      2,
+      -21.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      94.9,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-hidrante-2: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-hidrante-3-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-hidrante-3",
+     "order": 1,
+     "cop": "patata",
+     "position": [
+      -222.0,
+      2,
+      152.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -124.8,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-hidrante-3: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-hidrante-3-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-hidrante-3",
+     "order": 2,
+     "cop": "patata",
+     "position": [
+      -194.0,
+      2,
+      152.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      115.9,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-hidrante-3: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-hidrante-4-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-hidrante-4",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      -208.0,
+      2,
+      -107.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      168.2,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-hidrante-4: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-hidrante-4-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-hidrante-4",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      -234.0,
+      2,
+      -97.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -94.9,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-hidrante-4: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-hidrante-5-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-hidrante-5",
+     "order": 1,
+     "cop": "patata",
+     "position": [
+      -97.0,
+      2,
+      -287.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -9.1,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-hidrante-5: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-hidrante-5-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-hidrante-5",
+     "order": 2,
+     "cop": "patata",
+     "position": [
+      -97.0,
+      2,
+      -315.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -172.6,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-hidrante-5: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-carrito-1-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-carrito-1",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      108.0,
+      2,
+      -205.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      67.1,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-carrito-1: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-carrito-1-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-carrito-1",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      108.0,
+      2,
+      -233.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      150.0,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-carrito-1: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-carrito-2-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-carrito-2",
+     "order": 1,
+     "cop": "patata",
+     "position": [
+      -147.0,
+      2,
+      41.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      105.1,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-carrito-2: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-carrito-2-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-carrito-2",
+     "order": 2,
+     "cop": "patata",
+     "position": [
+      -157.0,
+      2,
+      67.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      7.6,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-carrito-2: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-carrito-3-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-carrito-3",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      -306.0,
+      2,
+      147.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -153.4,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-carrito-3: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-carrito-3-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-carrito-3",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      -278.0,
+      2,
+      147.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      121.2,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-carrito-3: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-carrito-4-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-carrito-4",
+     "order": 1,
+     "cop": "patata",
+     "position": [
+      -300.0,
+      2,
+      108.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -2.2,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-carrito-4: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-carrito-4-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-carrito-4",
+     "order": 2,
+     "cop": "patata",
+     "position": [
+      -324.0,
+      2,
+      94.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -92.3,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-carrito-4: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-mural-1-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "coop-mural-1",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      210.0,
+      2,
+      -148.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -2.4,
+      0
+     ],
+     "note": "Punto 1 de la guardia de coop-mural-1: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-mural-1-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "coop-mural-1",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      182.0,
+      2,
+      -148.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -67.2,
+      0
+     ],
+     "note": "Punto 2 de la guardia de coop-mural-1: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-mural-2-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "coop-mural-2",
+     "order": 1,
+     "cop": "patata",
+     "position": [
+      -311.0,
+      2,
+      -148.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -43.8,
+      0
+     ],
+     "note": "Punto 1 de la guardia de coop-mural-2: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-mural-2-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "coop-mural-2",
+     "order": 2,
+     "cop": "patata",
+     "position": [
+      -283.0,
+      2,
+      -148.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      54.0,
+      0
+     ],
+     "note": "Punto 2 de la guardia de coop-mural-2: el policía (patata) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
      "id": "cop-spawn-1",
      "kind": "zone",
      "position": [
@@ -5709,6 +6621,678 @@
      ],
      "name": "payspray",
      "note": "Lavadero Pay'n'Spray: quita las estrellas por dinero"
+    },
+    {
+     "id": "guard-castillo-1-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-castillo-1",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      227.0,
+      2,
+      185.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      25.5,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-castillo-1: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-castillo-1-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-castillo-1",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      199.0,
+      2,
+      185.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -59.4,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-castillo-1: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-castillo-2-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-castillo-2",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      -434.0,
+      2,
+      40.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -159.3,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-castillo-2: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-castillo-2-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-castillo-2",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      -434.0,
+      2,
+      68.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -18.4,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-castillo-2: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-castillo-3-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-castillo-3",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      388.0,
+      2,
+      138.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -173.8,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-castillo-3: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-castillo-3-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-castillo-3",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      388.0,
+      2,
+      166.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -5.6,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-castillo-3: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-castillo-4-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-castillo-4",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      -463.0,
+      2,
+      142.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      164.2,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-castillo-4: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-castillo-4-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-castillo-4",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      -463.0,
+      2,
+      170.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      14.6,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-castillo-4: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-castillo-5-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-castillo-5",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      -237.0,
+      2,
+      59.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -138.8,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-castillo-5: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-castillo-5-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-castillo-5",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      -237.0,
+      2,
+      87.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -31.5,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-castillo-5: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-castillo-6-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-castillo-6",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      103.0,
+      2,
+      51.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      32.9,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-castillo-6: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-castillo-6-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-castillo-6",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      75.0,
+      2,
+      51.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -57.1,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-castillo-6: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-sombrillas-1-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-sombrillas-1",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      11.0,
+      2,
+      164.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -128.2,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-sombrillas-1: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-sombrillas-1-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-sombrillas-1",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      11.0,
+      2,
+      192.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -33.9,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-sombrillas-1: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-sombrillas-2-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-sombrillas-2",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      481.0,
+      2,
+      69.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -164.3,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-sombrillas-2: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-sombrillas-2-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-sombrillas-2",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      481.0,
+      2,
+      97.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -13.9,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-sombrillas-2: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-sombrillas-3-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-sombrillas-3",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      271.0,
+      2,
+      -49.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -115.2,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-sombrillas-3: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-sombrillas-3-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-sombrillas-3",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      271.0,
+      2,
+      -21.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -30.8,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-sombrillas-3: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-sombrillas-4-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-sombrillas-4",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      326.0,
+      2,
+      83.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -141.4,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-sombrillas-4: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-sombrillas-4-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-sombrillas-4",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      326.0,
+      2,
+      111.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -30.9,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-sombrillas-4: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-sombrillas-5-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-sombrillas-5",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      525.0,
+      2,
+      136.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -73.4,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-sombrillas-5: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-sombrillas-5-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-sombrillas-5",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      553.0,
+      2,
+      136.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      74.0,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-sombrillas-5: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-graffiti-1-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-graffiti-1",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      -110.0,
+      2,
+      -124.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -161.6,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-graffiti-1: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-graffiti-1-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-graffiti-1",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      -110.0,
+      2,
+      -96.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -14.0,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-graffiti-1: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-graffiti-2-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-graffiti-2",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      -528.0,
+      2,
+      -124.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -161.6,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-graffiti-2: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-graffiti-2-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-graffiti-2",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      -528.0,
+      2,
+      -96.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -14.0,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-graffiti-2: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-graffiti-3-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-graffiti-3",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      -238.0,
+      2,
+      -87.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      9.5,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-graffiti-3: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-graffiti-3-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-graffiti-3",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      -264.0,
+      2,
+      -97.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -85.2,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-graffiti-3: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
     },
     {
      "id": "cop-spawn-1",
@@ -6827,6 +8411,870 @@
      ],
      "name": "payspray",
      "note": "Lavadero Pay'n'Spray: quita las estrellas por dinero"
+    },
+    {
+     "id": "guard-semaforos-1-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-semaforos-1",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      27.0,
+      2,
+      40.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -111.0,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-semaforos-1: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-semaforos-1-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-semaforos-1",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      27.0,
+      2,
+      68.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -29.5,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-semaforos-1: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-semaforos-2-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-semaforos-2",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      -413.0,
+      2,
+      32.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -167.0,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-semaforos-2: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-semaforos-2-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-semaforos-2",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      -423.0,
+      2,
+      58.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -45.0,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-semaforos-2: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-semaforos-3-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-semaforos-3",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      409.0,
+      2,
+      -32.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -4.4,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-semaforos-3: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-semaforos-3-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-semaforos-3",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      435.0,
+      2,
+      -42.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      83.2,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-semaforos-3: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-semaforos-4-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-semaforos-4",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      -27.0,
+      2,
+      46.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      85.6,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-semaforos-4: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-semaforos-4-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-semaforos-4",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      -37.0,
+      2,
+      20.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      173.2,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-semaforos-4: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-semaforos-5-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-semaforos-5",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      -487.0,
+      2,
+      32.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      167.0,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-semaforos-5: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-semaforos-5-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-semaforos-5",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      -477.0,
+      2,
+      58.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      45.0,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-semaforos-5: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-semaforos-6-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-semaforos-6",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      -27.0,
+      2,
+      -40.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      69.0,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-semaforos-6: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-semaforos-6-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-semaforos-6",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      -27.0,
+      2,
+      -68.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      150.5,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-semaforos-6: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-bocinas-1-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-bocinas-1",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      315.0,
+      2,
+      -13.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -49.1,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-bocinas-1: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-bocinas-1-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-bocinas-1",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      343.0,
+      2,
+      -13.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      45.0,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-bocinas-1: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-bocinas-2-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-bocinas-2",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      147.0,
+      2,
+      -29.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -97.4,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-bocinas-2: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-bocinas-2-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-bocinas-2",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      157.0,
+      2,
+      -3.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -29.5,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-bocinas-2: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-bocinas-3-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-bocinas-3",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      -181.0,
+      2,
+      -13.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -40.2,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-bocinas-3: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-bocinas-3-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-bocinas-3",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      -153.0,
+      2,
+      -13.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      52.6,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-bocinas-3: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-bocinas-4-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-bocinas-4",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      -353.0,
+      2,
+      27.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -87.5,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-bocinas-4: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-bocinas-4-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-bocinas-4",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      -343.0,
+      2,
+      1.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -152.5,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-bocinas-4: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-sinfonia-1-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "coop-sinfonia-1",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      542.0,
+      2,
+      10.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -131.6,
+      0
+     ],
+     "note": "Punto 1 de la guardia de coop-sinfonia-1: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-sinfonia-1-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "coop-sinfonia-1",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      570.0,
+      2,
+      10.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      148.0,
+      0
+     ],
+     "note": "Punto 2 de la guardia de coop-sinfonia-1: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-sinfonia-2-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "coop-sinfonia-2",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      -588.0,
+      2,
+      28.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -85.9,
+      0
+     ],
+     "note": "Punto 1 de la guardia de coop-sinfonia-2: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-sinfonia-2-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "coop-sinfonia-2",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      -588.0,
+      2,
+      0.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -132.9,
+      0
+     ],
+     "note": "Punto 2 de la guardia de coop-sinfonia-2: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-graffiti-1-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-graffiti-1",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      -432.0,
+      2,
+      -95.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -105.2,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-graffiti-1: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-graffiti-1-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-graffiti-1",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      -422.0,
+      2,
+      -69.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -5.0,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-graffiti-1: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-graffiti-2-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-graffiti-2",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      540.0,
+      2,
+      -23.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      9.5,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-graffiti-2: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-graffiti-2-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-graffiti-2",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      514.0,
+      2,
+      -33.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -85.2,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-graffiti-2: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-graffiti-3-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-graffiti-3",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      -130.0,
+      2,
+      23.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      177.6,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-graffiti-3: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-graffiti-3-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-graffiti-3",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      -154.0,
+      2,
+      37.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -85.1,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-graffiti-3: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-hidrante-1-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-hidrante-1",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      420.0,
+      2,
+      -130.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -0.0,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-hidrante-1: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-hidrante-1-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-hidrante-1",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      420.0,
+      2,
+      -158.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -180.0,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-hidrante-1: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-hidrante-2-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-hidrante-2",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      -315.0,
+      2,
+      -23.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      20.6,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-hidrante-2: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-hidrante-2-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-hidrante-2",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      -341.0,
+      2,
+      -33.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -84.7,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-hidrante-2: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-hidrante-3-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-hidrante-3",
+     "order": 1,
+     "cop": "capibara",
+     "position": [
+      422.0,
+      2,
+      79.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      171.1,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-hidrante-3: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-hidrante-3-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-hidrante-3",
+     "order": 2,
+     "cop": "capibara",
+     "position": [
+      422.0,
+      2,
+      107.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      7.5,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-hidrante-3: el policía (capibara) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
     },
     {
      "id": "cop-spawn-1",
@@ -8095,6 +10543,438 @@
      "note": "Lavadero Pay'n'Spray: quita las estrellas por dinero"
     },
     {
+     "id": "guard-cajafuerte-1-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "coop-cajafuerte-1",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      27.0,
+      2,
+      -15.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -139.1,
+      0
+     ],
+     "note": "Punto 1 de la guardia de coop-cajafuerte-1: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-cajafuerte-1-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "coop-cajafuerte-1",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      27.0,
+      2,
+      13.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -45.0,
+      0
+     ],
+     "note": "Punto 2 de la guardia de coop-cajafuerte-1: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-cajero-1-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-cajero-1",
+     "order": 1,
+     "cop": "cafetera",
+     "position": [
+      -226.0,
+      2,
+      12.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      18.4,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-cajero-1: el policía (cafetera) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-cajero-1-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-cajero-1",
+     "order": 2,
+     "cop": "cafetera",
+     "position": [
+      -226.0,
+      2,
+      -16.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      166.0,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-cajero-1: el policía (cafetera) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-cajero-2-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-cajero-2",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      328.0,
+      2,
+      -170.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -90.0,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-cajero-2: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-cajero-2-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-cajero-2",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      356.0,
+      2,
+      -170.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      90.0,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-cajero-2: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-cajero-3-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-cajero-3",
+     "order": 1,
+     "cop": "cafetera",
+     "position": [
+      -170.0,
+      2,
+      276.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -180.0,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-cajero-3: el policía (cafetera) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-cajero-3-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-cajero-3",
+     "order": 2,
+     "cop": "cafetera",
+     "position": [
+      -170.0,
+      2,
+      304.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -0.0,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-cajero-3: el policía (cafetera) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-cajero-4-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-cajero-4",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      28.0,
+      2,
+      344.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -71.6,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-cajero-4: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-cajero-4-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-cajero-4",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      38.0,
+      2,
+      318.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -174.8,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-cajero-4: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-cajero-5-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-cajero-5",
+     "order": 1,
+     "cop": "cafetera",
+     "position": [
+      232.0,
+      2,
+      -352.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      170.5,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-cajero-5: el policía (cafetera) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-cajero-5-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-cajero-5",
+     "order": 2,
+     "cop": "cafetera",
+     "position": [
+      232.0,
+      2,
+      -324.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      7.1,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-cajero-5: el policía (cafetera) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-estatua-1-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-estatua-1",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      -295.0,
+      2,
+      215.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -155.0,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-estatua-1: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-estatua-1-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-estatua-1",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      -267.0,
+      2,
+      215.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      125.5,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-estatua-1: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-estatua-2-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-estatua-2",
+     "order": 1,
+     "cop": "cafetera",
+     "position": [
+      -303.0,
+      2,
+      -175.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -108.4,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-estatua-2: el policía (cafetera) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-estatua-2-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-estatua-2",
+     "order": 2,
+     "cop": "cafetera",
+     "position": [
+      -275.0,
+      2,
+      -175.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      111.0,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-estatua-2: el policía (cafetera) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-estatua-3-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-estatua-3",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      33.0,
+      2,
+      -407.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -155.0,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-estatua-3: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-estatua-3-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-estatua-3",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      33.0,
+      2,
+      -379.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -28.3,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-estatua-3: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
      "id": "cop-spawn-1",
      "kind": "zone",
      "position": [
@@ -9361,6 +12241,246 @@
      ],
      "name": "payspray",
      "note": "Lavadero Pay'n'Spray: quita las estrellas por dinero"
+    },
+    {
+     "id": "guard-contenedor-1-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-contenedor-1",
+     "order": 1,
+     "cop": "cafetera",
+     "position": [
+      283.0,
+      2,
+      351.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      105.1,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-contenedor-1: el policía (cafetera) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-contenedor-1-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-contenedor-1",
+     "order": 2,
+     "cop": "cafetera",
+     "position": [
+      273.0,
+      2,
+      377.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      7.6,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-contenedor-1: el policía (cafetera) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-contenedor-2-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-contenedor-2",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      92.0,
+      2,
+      183.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -4.4,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-contenedor-2: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-contenedor-2-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-contenedor-2",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      118.0,
+      2,
+      173.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      83.2,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-contenedor-2: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-contenedor-3-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-contenedor-3",
+     "order": 1,
+     "cop": "cafetera",
+     "position": [
+      376.0,
+      2,
+      217.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      177.8,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-contenedor-3: el policía (cafetera) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-contenedor-3-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-contenedor-3",
+     "order": 2,
+     "cop": "cafetera",
+     "position": [
+      352.0,
+      2,
+      231.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -87.6,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-contenedor-3: el policía (cafetera) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-contenedor-4-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-contenedor-4",
+     "order": 1,
+     "cop": "tiburon",
+     "position": [
+      210.0,
+      2,
+      217.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      167.0,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-contenedor-4: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-contenedor-4-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-contenedor-4",
+     "order": 2,
+     "cop": "tiburon",
+     "position": [
+      184.0,
+      2,
+      227.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -97.4,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-contenedor-4: el policía (tiburon) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-contenedor-5-1",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-contenedor-5",
+     "order": 1,
+     "cop": "cafetera",
+     "position": [
+      -220.0,
+      2,
+      233.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      -77.0,
+      0
+     ],
+     "note": "Punto 1 de la guardia de mischief-contenedor-5: el policía (cafetera) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
+    },
+    {
+     "id": "guard-contenedor-5-2",
+     "kind": "zone",
+     "name": "guard_post",
+     "post": "mischief-contenedor-5",
+     "order": 2,
+     "cop": "cafetera",
+     "position": [
+      -192.0,
+      2,
+      233.0
+     ],
+     "size": [
+      3,
+      4,
+      3
+     ],
+     "rotation": [
+      0,
+      78.7,
+      0
+     ],
+     "note": "Punto 2 de la guardia de mischief-contenedor-5: el policía (cafetera) llega, espera, mira de lado a lado hacia la travesura y pasa al otro punto"
     },
     {
      "id": "cop-spawn-1",

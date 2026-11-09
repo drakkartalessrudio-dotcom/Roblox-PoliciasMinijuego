@@ -88,6 +88,14 @@ liveops:
 | **Comisario Cerebrote** (jefe) | ★6 | 52 | 90 studs | Grito sónico (aturde 1 s, aviso 1 s) | Combo de trampas (3 impactos de herramientas); soltar **Medalla** (recompensa grande) |
 
 - **Alerta progresiva.** Los valores de la tabla son los de un policía a pleno rendimiento. Lo que ve y corre cada policía se multiplica por las **estrellas actuales** del jugador (sin estrellas, p. ej. en plena travesura, vale ★1): visión ×0,45 / 0,6 / 0,7 / 0,8 / 0,9 / 1,0 para ★1 a ★6, velocidad ×0,85 / 0,92 / 0,96 / 1 / 1 / 1 y barra de detección ×1,4 / 1,25 / 1,1 / 1 / 0,9 / 0,8 de tiempo. Así el Patata de ★1 ve a ≈ 18 studs y corre a ≈ 12 (más lento que el nivel 1), el de ★2 a ≈ 24 studs, y el Comisario de ★6 ve a 90. En el Barrio Papa (techo ★2) solo hay Patatas, ambientales y de persecución; el resto debuta con la estrella que lo trae.
+### Patrullas de la ciudad: guardias, caminantes y cazadores
+
+Hay tres clases de policía en la calle, además de los perseguidores de la plantilla de estrellas:
+
+- **Guardias (puestos fijos).** Cada travesura de un distrito tiene su guardia, **salvo en el Barrio Papa, donde solo dos travesuras están custodiadas** (un graffiti y un timbrazo; el resto del barrio se aprende sin presión). Cada puesto tiene dos puntos de ruta cerca de la travesura. La guardia va a un punto, **espera**, **mira de derecha a izquierda** (100° en 3 s) y pasa al siguiente. Aparece cuando un jugador está a 260 studs del puesto y se retira cuando se aleja. Si ve al jugador haciendo una travesura (o buscado) pasa a **persecución**. Al perderlo **vuelve a su último punto de guardia** y, si no llega en **5 s**, se **teletransporta** allí. El ruido de la travesura también la alerta hacia el punto. Su tipo sube con el distrito: Patata (Barrio), Patata/Capibara (Colegio), Capibara/Tiburón (Playa), Tiburón/Capibara (Centro), Tiburón/Cafetera (Queso), Cafetera/Tiburón (Puerto).
+- **Caminantes (patrulla que aparece).** Un policía aparece en un punto de patrulla fuera de la vista, **camina hasta otro punto lejano** (90 a 320 studs) y **desaparece** al llegar si nadie lo mira de cerca. Aparecen a goteo (uno cada 5–12 s por jugador, hasta 3 cerca). Al perseguir y perder al jugador se convierten también en caminantes y se van.
+- **Cazadores (prioridad al más buscado).** Helicóptero Banana y Comisario Cerebrote no persiguen al jugador más cercano sino al que tiene **más estrellas** (a igualdad, al más cercano), dentro de 1 500 studs. Si en una partida con varios jugadores uno sube de estrellas, los cazadores que perseguían a otro cambian de objetivo. Cualquier policía de patrulla que vea a varios jugadores a la vez se fija también en el más buscado.
+
 - **Cantidad.** Máximo 14 policías activos por persecución; el desglose por estrella está en parámetros (`Cops.CountByStar`).
 - **Dificultad de ciudad.** Cada Ascensión aumenta velocidad y visión de los policías un 4 % (tope 40 %): la ciudad "se pone al día" con tu poder.
 - **Derribar policías.** Dos formas: **Empujón** (siempre, solo contra Patata) y **Embestida** (Dash con cooldown de 5 s). La Embestida derriba si el **Poder de Embestida** = `Velocidad actual × (1 + 0,08 × nivel de Fortachón)` es ≥ la resistencia del policía. El policía queda en ragdoll 4 s y suelta una "propina" (pequeña recompensa de XP y Botín). Eso vuelve útil la velocidad **y** la mejora de fuerza.
@@ -577,6 +585,20 @@ El builder los copia a `src/shared/Config.luau` y el juego los lee con `Tuning.g
 | `Hide.MinCopDistance` | 8 | Distancia mínima de policías al esconderse |
 | `Detect.FillSecondsNear` | 0.5 | Detección de cerca |
 | `Detect.FillSecondsFar` | 1.6 | Detección de lejos |
+| `Guard.ActivateRadius` | 260 | Distancia a la que aparece la guardia de un puesto |
+| `Guard.RespawnSeconds` | 10 | Espera para reponer una guardia retirada |
+| `Guard.WaitSeconds` | 2 | Pausa al llegar a un punto de guardia |
+| `Guard.ScanDegrees` | 100 | Barrido de la mirada, de derecha a izquierda |
+| `Guard.ScanSeconds` | 3 | Duración del barrido |
+| `Guard.TurnDegreesPerSecond` | 240 | Rapidez de giro de la guardia |
+| `Guard.ArriveRadius` | 3.5 | Distancia a la que cuenta como llegada |
+| `Guard.WalkTimeoutSeconds` | 20 | Si no llega al siguiente punto, se teletransporta |
+| `Guard.ReturnSeconds` | 5 | Tras perder al jugador, tiempo para volver al punto antes de teletransportarse |
+| `Cops.WalkerSpawnMin` / `Cops.WalkerSpawnMax` | 5 / 12 | Segundos entre apariciones de caminantes (por jugador) |
+| `Cops.WalkerMinTrip` / `Cops.WalkerMaxTrip` | 90 / 320 | Distancia del trayecto de un caminante |
+| `Cops.WalkerMaxSeconds` | 120 | Tiempo máximo de un caminante |
+| `Cops.WalkerVanishDistance` | 70 | No desaparece si un jugador está más cerca |
+| `Cops.HunterRange` | 1500 | Radio en que un cazador busca al más buscado |
 | `Cops.AlertVisionByStar` | 0.45,0.6,0.7,0.8,0.9,1.0 | Multiplicador de visión por estrella |
 | `Cops.AlertSpeedByStar` | 0.85,0.92,0.96,1,1,1 | Multiplicador de velocidad por estrella |
 | `Cops.AlertFillByStar` | 1.4,1.25,1.1,1,0.9,0.8 | Multiplicador de segundos de detección por estrella |
@@ -793,7 +815,7 @@ src/client/       Controls.client (la interfaz es del UI designer: src/client/UI
 | `Stats` | core | Contadores para misiones, logros y KPIs | `init`, `start`, `increment`, `get`; `incremented` | `stats` | — | propio |
 | `Shop` | core | Compras con Robux: `ProcessReceipt` único y propiedad de pases | `init`, `start`, `requestProduct`, `requestPass`, `owns`, `passState`; `productGranted`, `passChanged` | `purchases` (vía `PlayerData.grantPurchase`) | — | propio |
 | `Wanted` | core | Calor y estrellas (1 a 6) por jugador | `init`, `start`, `addHeat`, `setSeen`, `setHidden`, `clear`, `stars`; `heatAdded`, `starsChanged`, `starReached`, `cleared` | — | — | propio |
-| `Cops` | core | Policías: patrulla, detección, persecución, agarre y habilidades | `init`, `start`, `alert`, `witnessed`, `within`, `knockdown`, `stun`, `blind`, `decoy`, `summon`, `dismiss`; `sightChanged`, `caught`, `knockedDown`, `abilityHit`, `bossDefeated` | — | — | propio |
+| `Cops` | core | Policías: guardias de puesto, caminantes, cazadores, detección, persecución, agarre y habilidades | `init`, `start`, `alert`, `witnessed`, `within`, `knockdown`, `stun`, `blind`, `decoy`, `summon`, `dismiss`; `sightChanged`, `caught`, `knockedDown`, `abilityHit`, `bossDefeated` | — | — | propio |
 | `Band` | core | Bandas co-op de hasta 8 (sesión) | `init`, `start`, `create`, `invite`, `accept`, `join`, `leave`, `kick`, `setOpen`, `bonus`, `nearby`; `changed`, `inviteReceived` | — | — | propio |
 | `Tools` | core | Uso y enfriamiento de acciones y herramientas | `init`, `start`, `use`, `setActive`, `isActive`; `used` | — | — | propio |
 | `Arrest` | core | Camioneta, ventana de rescate y arresto | `init`, `start`, `begin`, `isHeld`, `release`; `resolved` | — | — | propio |

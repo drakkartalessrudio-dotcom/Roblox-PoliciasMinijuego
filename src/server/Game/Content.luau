@@ -8,7 +8,8 @@ local CopModels = require(script.Parent.CopModels)
 
 local Content = {}
 
--- Policías: id, clave en Config.Cops y aspecto. Tres de ellos (Helicóptero y Comisario) tienen reglas propias.
+-- Policías: id, clave en Config.Cops y aspecto. El Helicóptero y el Comisario tienen reglas propias y son
+-- cazadores (`hunter`): van a por el jugador con más estrellas, no al más cercano.
 Content.copTypes = {
 	patata = { id = "patata", configKey = "Patata", name = "Patrullero Patata", build = function()
 		return CopModels.build("patata")
@@ -22,10 +23,10 @@ Content.copTypes = {
 	cafetera = { id = "cafetera", configKey = "Cafetera", name = "Cafetera K-9", build = function()
 		return CopModels.build("cafetera")
 	end },
-	helicoptero = { id = "helicoptero", configKey = "Helicoptero", name = "Helicóptero Banana", flying = true, build = function()
+	helicoptero = { id = "helicoptero", configKey = "Helicoptero", name = "Helicóptero Banana", flying = true, hunter = true, build = function()
 		return CopModels.build("helicoptero")
 	end },
-	comisario = { id = "comisario", configKey = "Comisario", name = "Comisario Cerebrote", boss = true, build = function()
+	comisario = { id = "comisario", configKey = "Comisario", name = "Comisario Cerebrote", boss = true, hunter = true, build = function()
 		return CopModels.build("comisario")
 	end },
 }

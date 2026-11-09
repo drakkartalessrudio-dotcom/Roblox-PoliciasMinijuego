@@ -246,6 +246,14 @@ local function buildPiece(piece: any, level: BuiltLevel, origin: Vector3, defaul
 		part:SetAttribute("Value", tonumber(piece.value) or 1)
 	elseif kind == "zone" then
 		part:SetAttribute("ZoneName", tostring(piece.name))
+		if type(piece.post) == "string" then
+			-- Punto de ruta de una guardia (zona guard_post): a qué puesto pertenece, en qué orden y quién vigila.
+			part:SetAttribute("Post", piece.post)
+			part:SetAttribute("Order", tonumber(piece.order) or 0)
+			if type(piece.cop) == "string" then
+				part:SetAttribute("CopType", piece.cop)
+			end
+		end
 		if type(piece.target) == "string" then
 			part:SetAttribute("Target", piece.target) -- a dónde lleva una zona "portal" (id de Destinations)
 		end

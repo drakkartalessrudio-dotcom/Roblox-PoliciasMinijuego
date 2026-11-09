@@ -64,6 +64,17 @@ local Config = {
 		HearingScale = 1.0, -- multiplicador del radio de oído (ruido de las travesuras)
 		TickSeconds = 0.15, -- cada cuánto piensan los policías
 	},
+	Guard = {
+		ActivateRadius = 260, -- una guardia aparece en su puesto cuando un jugador está a esta distancia
+		RespawnSeconds = 10, -- espera antes de reponer una guardia retirada o derribada del todo
+		WaitSeconds = 2, -- pausa al llegar a un punto de guardia, antes de mirar
+		ScanDegrees = 100, -- barrido de la mirada, de derecha a izquierda
+		ScanSeconds = 3, -- duración del barrido
+		TurnDegreesPerSecond = 240, -- rapidez máxima para girar la cabeza
+		ArriveRadius = 3.5, -- distancia a la que cuenta como llegado a un punto
+		WalkTimeoutSeconds = 20, -- si no llega a su siguiente punto, se teletransporta
+		ReturnSeconds = 5, -- tras perderte, si no vuelve a su último punto en este tiempo, se teletransporta
+	},
 	Cops = {
 		Patata = { Speed = 14, VisionRange = 40, Resistance = 12 },
 		Capibara = { Speed = 22, VisionRange = 55, Resistance = 18 },
@@ -88,7 +99,14 @@ local Config = {
 			{ { "patata", 3 }, { "capibara", 2 }, { "tiburon", 3 }, { "cafetera", 3 }, { "helicoptero", 2 }, { "comisario", 1 } },
 		},
 		MaxPerPlayer = 14, -- máximo de policías perseguidores por jugador
-		PatrolPerPlayer = 3, -- policías de patrulla ambiental cerca de cada jugador
+		PatrolPerPlayer = 3, -- caminantes (patrulla ambiental que aparece, cruza y desaparece) cerca de cada jugador
+		WalkerSpawnMin = 5, -- segundos mínimos entre la aparición de un caminante y el siguiente (por jugador)
+		WalkerSpawnMax = 12, -- segundos máximos
+		WalkerMinTrip = 90, -- distancia mínima entre el punto de aparición y el destino de un caminante
+		WalkerMaxTrip = 320, -- distancia máxima del trayecto
+		WalkerMaxSeconds = 120, -- tiempo máximo de un caminante antes de irse
+		WalkerVanishDistance = 70, -- un caminante no desaparece si hay un jugador más cerca que esto
+		HunterRange = 1500, -- los cazadores (Helicóptero, Comisario) buscan al jugador con más estrellas dentro de este radio
 		PatrolRadius = 320, -- distancia máxima de una patrulla ambiental a su jugador
 		SpawnMinDistance = 70, -- distancia mínima para aparecer fuera de la vista
 		SpawnMaxDistance = 260, -- distancia máxima para aparecer
