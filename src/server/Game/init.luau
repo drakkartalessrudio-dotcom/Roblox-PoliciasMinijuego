@@ -152,6 +152,7 @@ function Game.start(context: Context)
 		maxFor = maxCopsFor,
 		isProtected = isProtected,
 		canEngage = canEngage,
+		inMischief = Mischief.active,
 		isCovered = function(player)
 			return Areas.inside(player, "cubierta") ~= nil
 		end,

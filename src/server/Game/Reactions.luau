@@ -171,6 +171,7 @@ local function onMischiefCompleted(player: Player, result: Mischief.Result)
 	Progress.addXp(player, math.floor(xp + 0.5))
 	if witnessed then
 		Wanted.addHeat(player, cfg.Heat, "travesura")
+		Wanted.raiseTo(player, 1, "travesura") -- que te vean hacerla ya vale la primera estrella
 	end
 	Band.touch(player)
 
@@ -281,6 +282,15 @@ function Reactions.start()
 	Progress.leveledUp:Connect(onLevelUp)
 
 	Mischief.completed:Connect(onMischiefCompleted)
+	-- Un policía te detecta en plena travesura: se corta el minijuego (el cliente lo cierra con el aviso),
+	-- cuenta el calor de la travesura y la persecución sigue con las estrellas que correspondan.
+	Cops.spotted:Connect(function(player)
+		local session = Mischief.interrupt(player, "spotted")
+		if session then
+			Wanted.addHeat(player, Catalog.mischiefConfig(session.spot.def).Heat, "travesura")
+			Wanted.raiseTo(player, 1, "travesura")
+		end
+	end)
 	Mischief.failed:Connect(function(player, defId, reason)
 		notify(player, { kind = "mischief_failed", reason = reason, id = defId })
 	end)

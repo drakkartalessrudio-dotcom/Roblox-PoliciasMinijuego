@@ -23,6 +23,7 @@ local FAIL = {
 	fast = "Muy rápido: no cuenta",
 	late = "Se acabó el tiempo",
 	slow = "Te quedaste cerca del timbre",
+	spotted = "¡Te vieron! Se cortó la travesura",
 }
 
 function Alerts.mount(Kit: any)

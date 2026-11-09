@@ -21,6 +21,7 @@
 	  Mischief.request(player, spotKey)      -> (boolean, string?)  lo llama Net
 	  Mischief.submit(player, sessionId, success) -> (boolean, string?)
 	  Mischief.cancel(player)
+	  Mischief.interrupt(player, reason)     -> Session? corta la travesura en curso (p. ej. "spotted") y publica `failed`
 	  Mischief.active(player)                -> boolean ¿está haciendo una travesura ahora mismo?
 	  Mischief.unlockDesign(player, designId) -> boolean
 	  Mischief.started                       Signal (player, session)
@@ -281,6 +282,17 @@ end
 
 function Mischief.cancel(player: Player)
 	finish(player)
+end
+
+-- Corta la travesura en curso desde el servidor (lo vio un policía). Devuelve la sesión cortada.
+function Mischief.interrupt(player: Player, reason: string): Session?
+	local session = sessions[player]
+	if not session or not Mischief.active(player) then
+		return nil
+	end
+	finish(player)
+	Mischief.failed:Fire(player, session.spot.def.id, reason)
+	return session
 end
 
 -- ¿Está en medio de una travesura? Una sesión que se pasó de tiempo sin enviar resultado ya no cuenta.

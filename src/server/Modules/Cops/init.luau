@@ -138,6 +138,7 @@ export type Options = {
 	isCovered: (player: Player) -> boolean, -- bajo una cubierta (el helicóptero no ve)
 	sigiloFor: (player: Player) -> number, -- 0 a 1: reducción de visión y ruido
 	difficultyFor: (player: Player) -> number, -- aumento por Ascensión (0 a DifficultyCap)
+	inMischief: (player: Player) -> boolean, -- ¿está en plena travesura? (más visible)
 	starsFor: (player: Player) -> number, -- estrellas de búsqueda actuales (la alerta de los policías crece con ellas)
 	speedMultAt: (position: Vector3) -> number, -- arena y similares
 	collisionGroup: string?,
@@ -147,6 +148,7 @@ export type Options = {
 local Cops = {}
 
 Cops.sightChanged = Signal.new() :: Signal.Signal<Player, boolean>
+Cops.spotted = Signal.new() :: Signal.Signal<Player, Cop> -- un policía lo detectó en plena travesura
 Cops.caught = Signal.new() :: Signal.Signal<Player, Cop>
 Cops.knockedDown = Signal.new() :: Signal.Signal<Cop, Player?>
 Cops.abilityHit = Signal.new() :: Signal.Signal<Player, string, Cop>
@@ -204,9 +206,10 @@ local function alertOf(player: Player?, key: string): number
 	return list[math.clamp(stars, 1, #list)]
 end
 
--- Alcance de visión de un policía contra un jugador, sin Sigilo.
-local function visionRange(cop: Cop, player: Player): number
-	return def(cop).VisionRange * alertOf(player, "AlertVisionByStar") * (1 + difficulty(cop))
+-- Alcance de visión de un policía contra un jugador, sin Sigilo. En plena travesura se nota más.
+local function visionRange(cop: Cop, player: Player, exposed: boolean): number
+	local range = def(cop).VisionRange * alertOf(player, "AlertVisionByStar") * (1 + difficulty(cop))
+	return if exposed then range * Tuning.get("Detect.MischiefVisionMult") else range
 end
 
 local function speedOf(cop: Cop, now: number): number
@@ -247,12 +250,12 @@ local function lineOfSight(cop: Cop, player: Player, from: Vector3, to: Vector3)
 end
 
 -- ¿Este policía ve al jugador ahora mismo (sin contar la barra de detección)?
-local function canSee(cop: Cop, player: Player, root: BasePart): (boolean, number)
+local function canSee(cop: Cop, player: Player, root: BasePart, exposed: boolean): (boolean, number)
 	assert(options)
 	if options.isProtected(player) then
 		return false, math.huge
 	end
-	local range = visionRange(cop, player) * (1 - math.clamp(options.sigiloFor(player), 0, 0.8))
+	local range = visionRange(cop, player, exposed) * (1 - math.clamp(options.sigiloFor(player), 0, 0.8))
 	local offset = root.Position - cop.root.Position
 	local distance = offset.Magnitude
 	if distance > range then
@@ -687,19 +690,23 @@ local function think(cop: Cop, now: number, tick: number)
 			if root then
 				-- La patrulla ignora a quien no está buscado ni haciendo una travesura; quien ya persigue a su dueño no pierde la vista.
 				local visible, distance = false, math.huge
+				local exposed = options.inMischief(player)
 				if cop.owner == player or options.canEngage(player) then
-					visible, distance = canSee(cop, player, root)
+					visible, distance = canSee(cop, player, root, exposed)
 				end
 				if visible then
-					local range = visionRange(cop, player)
+					local range = visionRange(cop, player, exposed)
 					local fill = (
 						Tuning.get("Detect.FillSecondsNear")
 						+ (Tuning.get("Detect.FillSecondsFar") - Tuning.get("Detect.FillSecondsNear")) * math.clamp(distance / range, 0, 1)
-					) * alertOf(player, "AlertFillByStar")
+					) * alertOf(player, "AlertFillByStar") * (if exposed then Tuning.get("Detect.MischiefFillMult") else 1)
 					local value = (cop.detect[player] or 0) + tick / fill
 					cop.detect[player] = value
 					if value >= 1 then
 						table.insert(visibleTo, player)
+						if exposed then
+							Cops.spotted:Fire(player, cop) -- corta la travesura; el calor y la persecución siguen su curso
+						end
 						if cop.owner == player or cop.owner == nil then
 							seenTarget = seenTarget or cop.owner == player
 						end
@@ -1177,7 +1184,7 @@ function Cops.witnessed(player: Player, position: Vector3, radius: number): bool
 			if distance <= radius * Tuning.get("Detect.HearingScale") * (1 - math.clamp(options.sigiloFor(player), 0, 0.8)) then
 				return true
 			end
-			local visible = canSee(cop, player, root)
+			local visible = canSee(cop, player, root, true)
 			if visible then
 				return true
 			end

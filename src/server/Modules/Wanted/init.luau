@@ -21,6 +21,7 @@
 	  Wanted.start()
 	  Wanted.addHeat(player, cantidad, motivo?)   -> number estrellas tras sumar (motivo "contagio" no se contagia)
 	  Wanted.setSeen(player, visto)         lo llama el puente con Cops
+	  Wanted.raiseTo(player, estrellas, motivo?)  sube el calor hasta el umbral de esas estrellas (si no lo tenía ya)
 	  Wanted.setHidden(player, escondido)   Game, según Areas y la distancia de los policías
 	  Wanted.clear(player, motivo)          quita todas las estrellas ("escape", "spray", "arrest", "leave")
 	  Wanted.stars(player)                  -> number
@@ -212,6 +213,15 @@ function Wanted.addHeat(player: Player, amount: number, reason: string?): number
 	refresh(player, state)
 	Wanted.heatAdded:Fire(player, amount, why)
 	return state.stars
+end
+
+function Wanted.raiseTo(player: Player, stars: number, reason: string?)
+	local state = states[player]
+	local thresholds = Tuning.get("Heat.StarThresholds")
+	local target = thresholds[math.clamp(stars, 1, #thresholds)]
+	if state and state.heat < target then
+		Wanted.addHeat(player, target - state.heat, reason)
+	end
 end
 
 function Wanted.setSeen(player: Player, seen: boolean)

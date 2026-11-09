@@ -63,6 +63,8 @@ local Config = {
 		ConeDegrees = 100, -- ángulo del cono de visión
 		HearingScale = 1.0, -- multiplicador del radio de oído (ruido de las travesuras)
 		TickSeconds = 0.15, -- cada cuánto piensan los policías
+		MischiefVisionMult = 1.6, -- una travesura a la vista llama la atención: multiplica el alcance de visión
+		MischiefFillMult = 0.7, -- y acorta la barra de detección
 	},
 	Guard = {
 		ActivateRadius = 260, -- una guardia aparece en su puesto cuando un jugador está a esta distancia
