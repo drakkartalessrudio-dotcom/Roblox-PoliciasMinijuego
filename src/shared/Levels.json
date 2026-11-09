@@ -1,0 +1,9599 @@
+{
+ "schemaVersion": 1,
+ "physics": {
+  "walkSpeed": 16,
+  "jumpHeight": 7.2,
+  "gravity": 196.2
+ },
+ "defaults": {
+  "material": "Asphalt",
+  "color": "#4A4E69"
+ },
+ "budget": {
+  "maxParts": 2500
+ },
+ "levels": [
+  {
+   "id": "lobby",
+   "name": "La Guarida",
+   "layout": "hub",
+   "expectedSeconds": 120,
+   "origin": [
+    0,
+    0,
+    0
+   ],
+   "start": "suelo",
+   "note": "Hub social y zona segura: todos aparecen aquí, reclaman una parcela, comparan logros y viajan a los distritos.",
+   "pieces": [
+    {
+     "id": "suelo",
+     "kind": "platform",
+     "position": [
+      0,
+      -1,
+      0
+     ],
+     "size": [
+      760,
+      2,
+      760
+     ],
+     "material": "Concrete",
+     "color": "#3B2F6B",
+     "note": "Suelo del lobby"
+    },
+    {
+     "id": "plaza",
+     "kind": "platform",
+     "position": [
+      0,
+      0.4,
+      0
+     ],
+     "size": [
+      150,
+      0.8,
+      150
+     ],
+     "material": "Marble",
+     "color": "#C9C2E8",
+     "note": "Plaza central: aquí aparecen todos"
+    },
+    {
+     "id": "monumento",
+     "kind": "prop",
+     "position": [
+      0,
+      4.8,
+      0
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "material": "Concrete",
+     "color": "#2B2250",
+     "note": "Pedestal central con el cartel de La Guarida"
+    },
+    {
+     "id": "monumento-cima",
+     "kind": "prop",
+     "position": [
+      0,
+      14,
+      0
+     ],
+     "size": [
+      8,
+      12,
+      8
+     ],
+     "material": "Neon",
+     "color": "#19D3F3",
+     "note": "Obelisco luminoso",
+     "collide": true
+    },
+    {
+     "id": "spawn-1",
+     "kind": "spawn",
+     "position": [
+      0.0,
+      1.3,
+      -30.0
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": true,
+     "note": "Aparición de los jugadores al entrar"
+    },
+    {
+     "id": "spawn-2",
+     "kind": "spawn",
+     "position": [
+      21.21,
+      1.3,
+      -21.21
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": true,
+     "note": "Aparición de los jugadores al entrar"
+    },
+    {
+     "id": "spawn-3",
+     "kind": "spawn",
+     "position": [
+      30.0,
+      1.3,
+      -0.0
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": true,
+     "note": "Aparición de los jugadores al entrar"
+    },
+    {
+     "id": "spawn-4",
+     "kind": "spawn",
+     "position": [
+      21.21,
+      1.3,
+      21.21
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": true,
+     "note": "Aparición de los jugadores al entrar"
+    },
+    {
+     "id": "spawn-5",
+     "kind": "spawn",
+     "position": [
+      0.0,
+      1.3,
+      30.0
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": true,
+     "note": "Aparición de los jugadores al entrar"
+    },
+    {
+     "id": "spawn-6",
+     "kind": "spawn",
+     "position": [
+      -21.21,
+      1.3,
+      21.21
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": true,
+     "note": "Aparición de los jugadores al entrar"
+    },
+    {
+     "id": "spawn-7",
+     "kind": "spawn",
+     "position": [
+      -30.0,
+      1.3,
+      0.0
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": true,
+     "note": "Aparición de los jugadores al entrar"
+    },
+    {
+     "id": "spawn-8",
+     "kind": "spawn",
+     "position": [
+      -21.21,
+      1.3,
+      -21.21
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": true,
+     "note": "Aparición de los jugadores al entrar"
+    },
+    {
+     "id": "deposito-pad",
+     "kind": "platform",
+     "position": [
+      0,
+      0.95,
+      -62
+     ],
+     "size": [
+      26,
+      0.3,
+      26
+     ],
+     "material": "Neon",
+     "color": "#19D3F3",
+     "transparency": 0.35,
+     "note": "Punto de depósito de La Guarida"
+    },
+    {
+     "id": "guarida-1",
+     "kind": "zone",
+     "name": "guarida",
+     "position": [
+      0,
+      5,
+      -62
+     ],
+     "size": [
+      26,
+      9,
+      26
+     ],
+     "note": "Depósito de Botín, tienda, Ascensión y alijo"
+    },
+    {
+     "id": "sala-pad-1",
+     "kind": "platform",
+     "position": [
+      -95,
+      0.95,
+      -48
+     ],
+     "size": [
+      18,
+      0.3,
+      18
+     ],
+     "material": "DiamondPlate",
+     "color": "#B97CFF",
+     "note": "Tapete de la Sala de Entrenamiento"
+    },
+    {
+     "id": "afk-1",
+     "kind": "zone",
+     "name": "afk",
+     "position": [
+      -95,
+      5,
+      -48
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "note": "Sala de Entrenamiento del lobby"
+    },
+    {
+     "id": "sala-pad-2",
+     "kind": "platform",
+     "position": [
+      95,
+      0.95,
+      -48
+     ],
+     "size": [
+      18,
+      0.3,
+      18
+     ],
+     "material": "DiamondPlate",
+     "color": "#B97CFF",
+     "note": "Tapete de la Sala de Entrenamiento"
+    },
+    {
+     "id": "afk-2",
+     "kind": "zone",
+     "name": "afk",
+     "position": [
+      95,
+      5,
+      -48
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "note": "Sala de Entrenamiento del lobby"
+    },
+    {
+     "id": "portal-barrio-papa-pad",
+     "kind": "platform",
+     "position": [
+      75.0,
+      0.5,
+      -129.9
+     ],
+     "size": [
+      18,
+      1,
+      18
+     ],
+     "rotation": [
+      0,
+      -30.0,
+      0
+     ],
+     "material": "Neon",
+     "color": "#FFD60A",
+     "transparency": 0.2,
+     "note": "Plataforma del portal a Barrio Papa"
+    },
+    {
+     "id": "portal-barrio-papa-pilar-a",
+     "kind": "prop",
+     "position": [
+      68.07,
+      9,
+      -133.9
+     ],
+     "size": [
+      3,
+      17,
+      3
+     ],
+     "material": "Metal",
+     "color": "#1A1233",
+     "note": "Pilar del portal"
+    },
+    {
+     "id": "portal-barrio-papa-pilar-b",
+     "kind": "prop",
+     "position": [
+      81.93,
+      9,
+      -125.9
+     ],
+     "size": [
+      3,
+      17,
+      3
+     ],
+     "material": "Metal",
+     "color": "#1A1233",
+     "note": "Pilar del portal"
+    },
+    {
+     "id": "portal-barrio-papa-dintel",
+     "kind": "prop",
+     "position": [
+      75.0,
+      18.5,
+      -129.9
+     ],
+     "size": [
+      20,
+      3,
+      3.4
+     ],
+     "rotation": [
+      0,
+      -30.0,
+      0
+     ],
+     "material": "Neon",
+     "color": "#FFD60A",
+     "note": "Dintel del portal a Barrio Papa (nivel 1)"
+    },
+    {
+     "id": "portal-barrio-papa",
+     "kind": "zone",
+     "name": "portal",
+     "target": "barrio-papa",
+     "position": [
+      75.0,
+      5,
+      -129.9
+     ],
+     "size": [
+      14,
+      10,
+      14
+     ],
+     "rotation": [
+      0,
+      -30.0,
+      0
+     ],
+     "note": "Viaje a Barrio Papa (nivel 1)"
+    },
+    {
+     "id": "portal-colegio-pad",
+     "kind": "platform",
+     "position": [
+      150.0,
+      0.5,
+      -0.0
+     ],
+     "size": [
+      18,
+      1,
+      18
+     ],
+     "rotation": [
+      0,
+      -90.0,
+      0
+     ],
+     "material": "Neon",
+     "color": "#4ADE80",
+     "transparency": 0.2,
+     "note": "Plataforma del portal a Colegio Brainrot"
+    },
+    {
+     "id": "portal-colegio-pilar-a",
+     "kind": "prop",
+     "position": [
+      150.0,
+      9,
+      -8.0
+     ],
+     "size": [
+      3,
+      17,
+      3
+     ],
+     "material": "Metal",
+     "color": "#1A1233",
+     "note": "Pilar del portal"
+    },
+    {
+     "id": "portal-colegio-pilar-b",
+     "kind": "prop",
+     "position": [
+      150.0,
+      9,
+      8.0
+     ],
+     "size": [
+      3,
+      17,
+      3
+     ],
+     "material": "Metal",
+     "color": "#1A1233",
+     "note": "Pilar del portal"
+    },
+    {
+     "id": "portal-colegio-dintel",
+     "kind": "prop",
+     "position": [
+      150.0,
+      18.5,
+      -0.0
+     ],
+     "size": [
+      20,
+      3,
+      3.4
+     ],
+     "rotation": [
+      0,
+      -90.0,
+      0
+     ],
+     "material": "Neon",
+     "color": "#4ADE80",
+     "note": "Dintel del portal a Colegio Brainrot (nivel 6)"
+    },
+    {
+     "id": "portal-colegio",
+     "kind": "zone",
+     "name": "portal",
+     "target": "colegio",
+     "position": [
+      150.0,
+      5,
+      -0.0
+     ],
+     "size": [
+      14,
+      10,
+      14
+     ],
+     "rotation": [
+      0,
+      -90.0,
+      0
+     ],
+     "note": "Viaje a Colegio Brainrot (nivel 6)"
+    },
+    {
+     "id": "portal-playa-podrida-pad",
+     "kind": "platform",
+     "position": [
+      75.0,
+      0.5,
+      129.9
+     ],
+     "size": [
+      18,
+      1,
+      18
+     ],
+     "rotation": [
+      0,
+      -150.0,
+      0
+     ],
+     "material": "Neon",
+     "color": "#7CC8FF",
+     "transparency": 0.2,
+     "note": "Plataforma del portal a Playa Podrida"
+    },
+    {
+     "id": "portal-playa-podrida-pilar-a",
+     "kind": "prop",
+     "position": [
+      81.93,
+      9,
+      125.9
+     ],
+     "size": [
+      3,
+      17,
+      3
+     ],
+     "material": "Metal",
+     "color": "#1A1233",
+     "note": "Pilar del portal"
+    },
+    {
+     "id": "portal-playa-podrida-pilar-b",
+     "kind": "prop",
+     "position": [
+      68.07,
+      9,
+      133.9
+     ],
+     "size": [
+      3,
+      17,
+      3
+     ],
+     "material": "Metal",
+     "color": "#1A1233",
+     "note": "Pilar del portal"
+    },
+    {
+     "id": "portal-playa-podrida-dintel",
+     "kind": "prop",
+     "position": [
+      75.0,
+      18.5,
+      129.9
+     ],
+     "size": [
+      20,
+      3,
+      3.4
+     ],
+     "rotation": [
+      0,
+      -150.0,
+      0
+     ],
+     "material": "Neon",
+     "color": "#7CC8FF",
+     "note": "Dintel del portal a Playa Podrida (nivel 14)"
+    },
+    {
+     "id": "portal-playa-podrida",
+     "kind": "zone",
+     "name": "portal",
+     "target": "playa-podrida",
+     "position": [
+      75.0,
+      5,
+      129.9
+     ],
+     "size": [
+      14,
+      10,
+      14
+     ],
+     "rotation": [
+      0,
+      -150.0,
+      0
+     ],
+     "note": "Viaje a Playa Podrida (nivel 14)"
+    },
+    {
+     "id": "portal-centro-neon-pad",
+     "kind": "platform",
+     "position": [
+      -75.0,
+      0.5,
+      129.9
+     ],
+     "size": [
+      18,
+      1,
+      18
+     ],
+     "rotation": [
+      0,
+      -210.0,
+      0
+     ],
+     "material": "Neon",
+     "color": "#B97CFF",
+     "transparency": 0.2,
+     "note": "Plataforma del portal a Centro Neón"
+    },
+    {
+     "id": "portal-centro-neon-pilar-a",
+     "kind": "prop",
+     "position": [
+      -68.07,
+      9,
+      133.9
+     ],
+     "size": [
+      3,
+      17,
+      3
+     ],
+     "material": "Metal",
+     "color": "#1A1233",
+     "note": "Pilar del portal"
+    },
+    {
+     "id": "portal-centro-neon-pilar-b",
+     "kind": "prop",
+     "position": [
+      -81.93,
+      9,
+      125.9
+     ],
+     "size": [
+      3,
+      17,
+      3
+     ],
+     "material": "Metal",
+     "color": "#1A1233",
+     "note": "Pilar del portal"
+    },
+    {
+     "id": "portal-centro-neon-dintel",
+     "kind": "prop",
+     "position": [
+      -75.0,
+      18.5,
+      129.9
+     ],
+     "size": [
+      20,
+      3,
+      3.4
+     ],
+     "rotation": [
+      0,
+      -210.0,
+      0
+     ],
+     "material": "Neon",
+     "color": "#B97CFF",
+     "note": "Dintel del portal a Centro Neón (nivel 20)"
+    },
+    {
+     "id": "portal-centro-neon",
+     "kind": "zone",
+     "name": "portal",
+     "target": "centro-neon",
+     "position": [
+      -75.0,
+      5,
+      129.9
+     ],
+     "size": [
+      14,
+      10,
+      14
+     ],
+     "rotation": [
+      0,
+      -210.0,
+      0
+     ],
+     "note": "Viaje a Centro Neón (nivel 20)"
+    },
+    {
+     "id": "portal-distrito-queso-pad",
+     "kind": "platform",
+     "position": [
+      -150.0,
+      0.5,
+      0.0
+     ],
+     "size": [
+      18,
+      1,
+      18
+     ],
+     "rotation": [
+      0,
+      -270.0,
+      0
+     ],
+     "material": "Neon",
+     "color": "#FF9F1C",
+     "transparency": 0.2,
+     "note": "Plataforma del portal a Distrito Queso"
+    },
+    {
+     "id": "portal-distrito-queso-pilar-a",
+     "kind": "prop",
+     "position": [
+      -150.0,
+      9,
+      8.0
+     ],
+     "size": [
+      3,
+      17,
+      3
+     ],
+     "material": "Metal",
+     "color": "#1A1233",
+     "note": "Pilar del portal"
+    },
+    {
+     "id": "portal-distrito-queso-pilar-b",
+     "kind": "prop",
+     "position": [
+      -150.0,
+      9,
+      -8.0
+     ],
+     "size": [
+      3,
+      17,
+      3
+     ],
+     "material": "Metal",
+     "color": "#1A1233",
+     "note": "Pilar del portal"
+    },
+    {
+     "id": "portal-distrito-queso-dintel",
+     "kind": "prop",
+     "position": [
+      -150.0,
+      18.5,
+      0.0
+     ],
+     "size": [
+      20,
+      3,
+      3.4
+     ],
+     "rotation": [
+      0,
+      -270.0,
+      0
+     ],
+     "material": "Neon",
+     "color": "#FF9F1C",
+     "note": "Dintel del portal a Distrito Queso (nivel 26)"
+    },
+    {
+     "id": "portal-distrito-queso",
+     "kind": "zone",
+     "name": "portal",
+     "target": "distrito-queso",
+     "position": [
+      -150.0,
+      5,
+      0.0
+     ],
+     "size": [
+      14,
+      10,
+      14
+     ],
+     "rotation": [
+      0,
+      -270.0,
+      0
+     ],
+     "note": "Viaje a Distrito Queso (nivel 26)"
+    },
+    {
+     "id": "portal-puerto-podrido-pad",
+     "kind": "platform",
+     "position": [
+      -75.0,
+      0.5,
+      -129.9
+     ],
+     "size": [
+      18,
+      1,
+      18
+     ],
+     "rotation": [
+      0,
+      -330.0,
+      0
+     ],
+     "material": "Neon",
+     "color": "#FF6B8A",
+     "transparency": 0.2,
+     "note": "Plataforma del portal a Puerto Podrido"
+    },
+    {
+     "id": "portal-puerto-podrido-pilar-a",
+     "kind": "prop",
+     "position": [
+      -81.93,
+      9,
+      -125.9
+     ],
+     "size": [
+      3,
+      17,
+      3
+     ],
+     "material": "Metal",
+     "color": "#1A1233",
+     "note": "Pilar del portal"
+    },
+    {
+     "id": "portal-puerto-podrido-pilar-b",
+     "kind": "prop",
+     "position": [
+      -68.07,
+      9,
+      -133.9
+     ],
+     "size": [
+      3,
+      17,
+      3
+     ],
+     "material": "Metal",
+     "color": "#1A1233",
+     "note": "Pilar del portal"
+    },
+    {
+     "id": "portal-puerto-podrido-dintel",
+     "kind": "prop",
+     "position": [
+      -75.0,
+      18.5,
+      -129.9
+     ],
+     "size": [
+      20,
+      3,
+      3.4
+     ],
+     "rotation": [
+      0,
+      -330.0,
+      0
+     ],
+     "material": "Neon",
+     "color": "#FF6B8A",
+     "note": "Dintel del portal a Puerto Podrido (nivel 40)"
+    },
+    {
+     "id": "portal-puerto-podrido",
+     "kind": "zone",
+     "name": "portal",
+     "target": "puerto-podrido",
+     "position": [
+      -75.0,
+      5,
+      -129.9
+     ],
+     "size": [
+      14,
+      10,
+      14
+     ],
+     "rotation": [
+      0,
+      -330.0,
+      0
+     ],
+     "note": "Viaje a Puerto Podrido (nivel 40)"
+    },
+    {
+     "id": "parcela-pad-1",
+     "kind": "platform",
+     "position": [
+      52.67,
+      0.3,
+      -264.81
+     ],
+     "size": [
+      60,
+      0.6,
+      60
+     ],
+     "rotation": [
+      0,
+      -11.25,
+      0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8",
+     "note": "Piso de la parcela 1"
+    },
+    {
+     "id": "parcela-1",
+     "kind": "zone",
+     "name": "plot",
+     "position": [
+      52.67,
+      12,
+      -264.81
+     ],
+     "size": [
+      60,
+      24,
+      60
+     ],
+     "rotation": [
+      0,
+      -11.25,
+      0
+     ],
+     "note": "Parcela 1: se reclama en el pedestal"
+    },
+    {
+     "id": "parcela-pedestal-1",
+     "kind": "prop",
+     "position": [
+      52.67,
+      1.85,
+      -264.81
+     ],
+     "size": [
+      10,
+      2.5,
+      10
+     ],
+     "rotation": [
+      0,
+      -11.25,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Pedestal donde se reclama y se exhibe la parcela"
+    },
+    {
+     "id": "parcela-cartel-1",
+     "kind": "prop",
+     "position": [
+      48.38,
+      6,
+      -243.23
+     ],
+     "size": [
+      16,
+      9,
+      1
+     ],
+     "rotation": [
+      0,
+      168.75,
+      0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#1A1233",
+     "note": "Cartel con los datos del dueño"
+    },
+    {
+     "id": "parcela-poste-1",
+     "kind": "prop",
+     "position": [
+      48.38,
+      1.4,
+      -243.23
+     ],
+     "size": [
+      3,
+      1.6,
+      3
+     ],
+     "rotation": [
+      0,
+      168.75,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Base del cartel"
+    },
+    {
+     "id": "parcela-pad-2",
+     "kind": "platform",
+     "position": [
+      150.0,
+      0.3,
+      -224.5
+     ],
+     "size": [
+      60,
+      0.6,
+      60
+     ],
+     "rotation": [
+      0,
+      -33.75,
+      0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8",
+     "note": "Piso de la parcela 2"
+    },
+    {
+     "id": "parcela-2",
+     "kind": "zone",
+     "name": "plot",
+     "position": [
+      150.0,
+      12,
+      -224.5
+     ],
+     "size": [
+      60,
+      24,
+      60
+     ],
+     "rotation": [
+      0,
+      -33.75,
+      0
+     ],
+     "note": "Parcela 2: se reclama en el pedestal"
+    },
+    {
+     "id": "parcela-pedestal-2",
+     "kind": "prop",
+     "position": [
+      150.0,
+      1.85,
+      -224.5
+     ],
+     "size": [
+      10,
+      2.5,
+      10
+     ],
+     "rotation": [
+      0,
+      -33.75,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Pedestal donde se reclama y se exhibe la parcela"
+    },
+    {
+     "id": "parcela-cartel-2",
+     "kind": "prop",
+     "position": [
+      137.78,
+      6,
+      -206.2
+     ],
+     "size": [
+      16,
+      9,
+      1
+     ],
+     "rotation": [
+      0,
+      146.25,
+      0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#1A1233",
+     "note": "Cartel con los datos del dueño"
+    },
+    {
+     "id": "parcela-poste-2",
+     "kind": "prop",
+     "position": [
+      137.78,
+      1.4,
+      -206.2
+     ],
+     "size": [
+      3,
+      1.6,
+      3
+     ],
+     "rotation": [
+      0,
+      146.25,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Base del cartel"
+    },
+    {
+     "id": "parcela-pad-3",
+     "kind": "platform",
+     "position": [
+      224.5,
+      0.3,
+      -150.0
+     ],
+     "size": [
+      60,
+      0.6,
+      60
+     ],
+     "rotation": [
+      0,
+      -56.25,
+      0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8",
+     "note": "Piso de la parcela 3"
+    },
+    {
+     "id": "parcela-3",
+     "kind": "zone",
+     "name": "plot",
+     "position": [
+      224.5,
+      12,
+      -150.0
+     ],
+     "size": [
+      60,
+      24,
+      60
+     ],
+     "rotation": [
+      0,
+      -56.25,
+      0
+     ],
+     "note": "Parcela 3: se reclama en el pedestal"
+    },
+    {
+     "id": "parcela-pedestal-3",
+     "kind": "prop",
+     "position": [
+      224.5,
+      1.85,
+      -150.0
+     ],
+     "size": [
+      10,
+      2.5,
+      10
+     ],
+     "rotation": [
+      0,
+      -56.25,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Pedestal donde se reclama y se exhibe la parcela"
+    },
+    {
+     "id": "parcela-cartel-3",
+     "kind": "prop",
+     "position": [
+      206.2,
+      6,
+      -137.78
+     ],
+     "size": [
+      16,
+      9,
+      1
+     ],
+     "rotation": [
+      0,
+      123.75,
+      0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#1A1233",
+     "note": "Cartel con los datos del dueño"
+    },
+    {
+     "id": "parcela-poste-3",
+     "kind": "prop",
+     "position": [
+      206.2,
+      1.4,
+      -137.78
+     ],
+     "size": [
+      3,
+      1.6,
+      3
+     ],
+     "rotation": [
+      0,
+      123.75,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Base del cartel"
+    },
+    {
+     "id": "parcela-pad-4",
+     "kind": "platform",
+     "position": [
+      264.81,
+      0.3,
+      -52.67
+     ],
+     "size": [
+      60,
+      0.6,
+      60
+     ],
+     "rotation": [
+      0,
+      -78.75,
+      0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8",
+     "note": "Piso de la parcela 4"
+    },
+    {
+     "id": "parcela-4",
+     "kind": "zone",
+     "name": "plot",
+     "position": [
+      264.81,
+      12,
+      -52.67
+     ],
+     "size": [
+      60,
+      24,
+      60
+     ],
+     "rotation": [
+      0,
+      -78.75,
+      0
+     ],
+     "note": "Parcela 4: se reclama en el pedestal"
+    },
+    {
+     "id": "parcela-pedestal-4",
+     "kind": "prop",
+     "position": [
+      264.81,
+      1.85,
+      -52.67
+     ],
+     "size": [
+      10,
+      2.5,
+      10
+     ],
+     "rotation": [
+      0,
+      -78.75,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Pedestal donde se reclama y se exhibe la parcela"
+    },
+    {
+     "id": "parcela-cartel-4",
+     "kind": "prop",
+     "position": [
+      243.23,
+      6,
+      -48.38
+     ],
+     "size": [
+      16,
+      9,
+      1
+     ],
+     "rotation": [
+      0,
+      101.25,
+      0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#1A1233",
+     "note": "Cartel con los datos del dueño"
+    },
+    {
+     "id": "parcela-poste-4",
+     "kind": "prop",
+     "position": [
+      243.23,
+      1.4,
+      -48.38
+     ],
+     "size": [
+      3,
+      1.6,
+      3
+     ],
+     "rotation": [
+      0,
+      101.25,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Base del cartel"
+    },
+    {
+     "id": "parcela-pad-5",
+     "kind": "platform",
+     "position": [
+      264.81,
+      0.3,
+      52.67
+     ],
+     "size": [
+      60,
+      0.6,
+      60
+     ],
+     "rotation": [
+      0,
+      -101.25,
+      0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8",
+     "note": "Piso de la parcela 5"
+    },
+    {
+     "id": "parcela-5",
+     "kind": "zone",
+     "name": "plot",
+     "position": [
+      264.81,
+      12,
+      52.67
+     ],
+     "size": [
+      60,
+      24,
+      60
+     ],
+     "rotation": [
+      0,
+      -101.25,
+      0
+     ],
+     "note": "Parcela 5: se reclama en el pedestal"
+    },
+    {
+     "id": "parcela-pedestal-5",
+     "kind": "prop",
+     "position": [
+      264.81,
+      1.85,
+      52.67
+     ],
+     "size": [
+      10,
+      2.5,
+      10
+     ],
+     "rotation": [
+      0,
+      -101.25,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Pedestal donde se reclama y se exhibe la parcela"
+    },
+    {
+     "id": "parcela-cartel-5",
+     "kind": "prop",
+     "position": [
+      243.23,
+      6,
+      48.38
+     ],
+     "size": [
+      16,
+      9,
+      1
+     ],
+     "rotation": [
+      0,
+      78.75,
+      0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#1A1233",
+     "note": "Cartel con los datos del dueño"
+    },
+    {
+     "id": "parcela-poste-5",
+     "kind": "prop",
+     "position": [
+      243.23,
+      1.4,
+      48.38
+     ],
+     "size": [
+      3,
+      1.6,
+      3
+     ],
+     "rotation": [
+      0,
+      78.75,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Base del cartel"
+    },
+    {
+     "id": "parcela-pad-6",
+     "kind": "platform",
+     "position": [
+      224.5,
+      0.3,
+      150.0
+     ],
+     "size": [
+      60,
+      0.6,
+      60
+     ],
+     "rotation": [
+      0,
+      -123.75,
+      0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8",
+     "note": "Piso de la parcela 6"
+    },
+    {
+     "id": "parcela-6",
+     "kind": "zone",
+     "name": "plot",
+     "position": [
+      224.5,
+      12,
+      150.0
+     ],
+     "size": [
+      60,
+      24,
+      60
+     ],
+     "rotation": [
+      0,
+      -123.75,
+      0
+     ],
+     "note": "Parcela 6: se reclama en el pedestal"
+    },
+    {
+     "id": "parcela-pedestal-6",
+     "kind": "prop",
+     "position": [
+      224.5,
+      1.85,
+      150.0
+     ],
+     "size": [
+      10,
+      2.5,
+      10
+     ],
+     "rotation": [
+      0,
+      -123.75,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Pedestal donde se reclama y se exhibe la parcela"
+    },
+    {
+     "id": "parcela-cartel-6",
+     "kind": "prop",
+     "position": [
+      206.2,
+      6,
+      137.78
+     ],
+     "size": [
+      16,
+      9,
+      1
+     ],
+     "rotation": [
+      0,
+      56.25,
+      0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#1A1233",
+     "note": "Cartel con los datos del dueño"
+    },
+    {
+     "id": "parcela-poste-6",
+     "kind": "prop",
+     "position": [
+      206.2,
+      1.4,
+      137.78
+     ],
+     "size": [
+      3,
+      1.6,
+      3
+     ],
+     "rotation": [
+      0,
+      56.25,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Base del cartel"
+    },
+    {
+     "id": "parcela-pad-7",
+     "kind": "platform",
+     "position": [
+      150.0,
+      0.3,
+      224.5
+     ],
+     "size": [
+      60,
+      0.6,
+      60
+     ],
+     "rotation": [
+      0,
+      -146.25,
+      0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8",
+     "note": "Piso de la parcela 7"
+    },
+    {
+     "id": "parcela-7",
+     "kind": "zone",
+     "name": "plot",
+     "position": [
+      150.0,
+      12,
+      224.5
+     ],
+     "size": [
+      60,
+      24,
+      60
+     ],
+     "rotation": [
+      0,
+      -146.25,
+      0
+     ],
+     "note": "Parcela 7: se reclama en el pedestal"
+    },
+    {
+     "id": "parcela-pedestal-7",
+     "kind": "prop",
+     "position": [
+      150.0,
+      1.85,
+      224.5
+     ],
+     "size": [
+      10,
+      2.5,
+      10
+     ],
+     "rotation": [
+      0,
+      -146.25,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Pedestal donde se reclama y se exhibe la parcela"
+    },
+    {
+     "id": "parcela-cartel-7",
+     "kind": "prop",
+     "position": [
+      137.78,
+      6,
+      206.2
+     ],
+     "size": [
+      16,
+      9,
+      1
+     ],
+     "rotation": [
+      0,
+      33.75,
+      0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#1A1233",
+     "note": "Cartel con los datos del dueño"
+    },
+    {
+     "id": "parcela-poste-7",
+     "kind": "prop",
+     "position": [
+      137.78,
+      1.4,
+      206.2
+     ],
+     "size": [
+      3,
+      1.6,
+      3
+     ],
+     "rotation": [
+      0,
+      33.75,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Base del cartel"
+    },
+    {
+     "id": "parcela-pad-8",
+     "kind": "platform",
+     "position": [
+      52.67,
+      0.3,
+      264.81
+     ],
+     "size": [
+      60,
+      0.6,
+      60
+     ],
+     "rotation": [
+      0,
+      -168.75,
+      0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8",
+     "note": "Piso de la parcela 8"
+    },
+    {
+     "id": "parcela-8",
+     "kind": "zone",
+     "name": "plot",
+     "position": [
+      52.67,
+      12,
+      264.81
+     ],
+     "size": [
+      60,
+      24,
+      60
+     ],
+     "rotation": [
+      0,
+      -168.75,
+      0
+     ],
+     "note": "Parcela 8: se reclama en el pedestal"
+    },
+    {
+     "id": "parcela-pedestal-8",
+     "kind": "prop",
+     "position": [
+      52.67,
+      1.85,
+      264.81
+     ],
+     "size": [
+      10,
+      2.5,
+      10
+     ],
+     "rotation": [
+      0,
+      -168.75,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Pedestal donde se reclama y se exhibe la parcela"
+    },
+    {
+     "id": "parcela-cartel-8",
+     "kind": "prop",
+     "position": [
+      48.38,
+      6,
+      243.23
+     ],
+     "size": [
+      16,
+      9,
+      1
+     ],
+     "rotation": [
+      0,
+      11.25,
+      0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#1A1233",
+     "note": "Cartel con los datos del dueño"
+    },
+    {
+     "id": "parcela-poste-8",
+     "kind": "prop",
+     "position": [
+      48.38,
+      1.4,
+      243.23
+     ],
+     "size": [
+      3,
+      1.6,
+      3
+     ],
+     "rotation": [
+      0,
+      11.25,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Base del cartel"
+    },
+    {
+     "id": "parcela-pad-9",
+     "kind": "platform",
+     "position": [
+      -52.67,
+      0.3,
+      264.81
+     ],
+     "size": [
+      60,
+      0.6,
+      60
+     ],
+     "rotation": [
+      0,
+      -191.25,
+      0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8",
+     "note": "Piso de la parcela 9"
+    },
+    {
+     "id": "parcela-9",
+     "kind": "zone",
+     "name": "plot",
+     "position": [
+      -52.67,
+      12,
+      264.81
+     ],
+     "size": [
+      60,
+      24,
+      60
+     ],
+     "rotation": [
+      0,
+      -191.25,
+      0
+     ],
+     "note": "Parcela 9: se reclama en el pedestal"
+    },
+    {
+     "id": "parcela-pedestal-9",
+     "kind": "prop",
+     "position": [
+      -52.67,
+      1.85,
+      264.81
+     ],
+     "size": [
+      10,
+      2.5,
+      10
+     ],
+     "rotation": [
+      0,
+      -191.25,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Pedestal donde se reclama y se exhibe la parcela"
+    },
+    {
+     "id": "parcela-cartel-9",
+     "kind": "prop",
+     "position": [
+      -48.38,
+      6,
+      243.23
+     ],
+     "size": [
+      16,
+      9,
+      1
+     ],
+     "rotation": [
+      0,
+      -11.25,
+      0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#1A1233",
+     "note": "Cartel con los datos del dueño"
+    },
+    {
+     "id": "parcela-poste-9",
+     "kind": "prop",
+     "position": [
+      -48.38,
+      1.4,
+      243.23
+     ],
+     "size": [
+      3,
+      1.6,
+      3
+     ],
+     "rotation": [
+      0,
+      -11.25,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Base del cartel"
+    },
+    {
+     "id": "parcela-pad-10",
+     "kind": "platform",
+     "position": [
+      -150.0,
+      0.3,
+      224.5
+     ],
+     "size": [
+      60,
+      0.6,
+      60
+     ],
+     "rotation": [
+      0,
+      -213.75,
+      0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8",
+     "note": "Piso de la parcela 10"
+    },
+    {
+     "id": "parcela-10",
+     "kind": "zone",
+     "name": "plot",
+     "position": [
+      -150.0,
+      12,
+      224.5
+     ],
+     "size": [
+      60,
+      24,
+      60
+     ],
+     "rotation": [
+      0,
+      -213.75,
+      0
+     ],
+     "note": "Parcela 10: se reclama en el pedestal"
+    },
+    {
+     "id": "parcela-pedestal-10",
+     "kind": "prop",
+     "position": [
+      -150.0,
+      1.85,
+      224.5
+     ],
+     "size": [
+      10,
+      2.5,
+      10
+     ],
+     "rotation": [
+      0,
+      -213.75,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Pedestal donde se reclama y se exhibe la parcela"
+    },
+    {
+     "id": "parcela-cartel-10",
+     "kind": "prop",
+     "position": [
+      -137.78,
+      6,
+      206.2
+     ],
+     "size": [
+      16,
+      9,
+      1
+     ],
+     "rotation": [
+      0,
+      -33.75,
+      0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#1A1233",
+     "note": "Cartel con los datos del dueño"
+    },
+    {
+     "id": "parcela-poste-10",
+     "kind": "prop",
+     "position": [
+      -137.78,
+      1.4,
+      206.2
+     ],
+     "size": [
+      3,
+      1.6,
+      3
+     ],
+     "rotation": [
+      0,
+      -33.75,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Base del cartel"
+    },
+    {
+     "id": "parcela-pad-11",
+     "kind": "platform",
+     "position": [
+      -224.5,
+      0.3,
+      150.0
+     ],
+     "size": [
+      60,
+      0.6,
+      60
+     ],
+     "rotation": [
+      0,
+      -236.25,
+      0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8",
+     "note": "Piso de la parcela 11"
+    },
+    {
+     "id": "parcela-11",
+     "kind": "zone",
+     "name": "plot",
+     "position": [
+      -224.5,
+      12,
+      150.0
+     ],
+     "size": [
+      60,
+      24,
+      60
+     ],
+     "rotation": [
+      0,
+      -236.25,
+      0
+     ],
+     "note": "Parcela 11: se reclama en el pedestal"
+    },
+    {
+     "id": "parcela-pedestal-11",
+     "kind": "prop",
+     "position": [
+      -224.5,
+      1.85,
+      150.0
+     ],
+     "size": [
+      10,
+      2.5,
+      10
+     ],
+     "rotation": [
+      0,
+      -236.25,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Pedestal donde se reclama y se exhibe la parcela"
+    },
+    {
+     "id": "parcela-cartel-11",
+     "kind": "prop",
+     "position": [
+      -206.2,
+      6,
+      137.78
+     ],
+     "size": [
+      16,
+      9,
+      1
+     ],
+     "rotation": [
+      0,
+      -56.25,
+      0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#1A1233",
+     "note": "Cartel con los datos del dueño"
+    },
+    {
+     "id": "parcela-poste-11",
+     "kind": "prop",
+     "position": [
+      -206.2,
+      1.4,
+      137.78
+     ],
+     "size": [
+      3,
+      1.6,
+      3
+     ],
+     "rotation": [
+      0,
+      -56.25,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Base del cartel"
+    },
+    {
+     "id": "parcela-pad-12",
+     "kind": "platform",
+     "position": [
+      -264.81,
+      0.3,
+      52.67
+     ],
+     "size": [
+      60,
+      0.6,
+      60
+     ],
+     "rotation": [
+      0,
+      -258.75,
+      0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8",
+     "note": "Piso de la parcela 12"
+    },
+    {
+     "id": "parcela-12",
+     "kind": "zone",
+     "name": "plot",
+     "position": [
+      -264.81,
+      12,
+      52.67
+     ],
+     "size": [
+      60,
+      24,
+      60
+     ],
+     "rotation": [
+      0,
+      -258.75,
+      0
+     ],
+     "note": "Parcela 12: se reclama en el pedestal"
+    },
+    {
+     "id": "parcela-pedestal-12",
+     "kind": "prop",
+     "position": [
+      -264.81,
+      1.85,
+      52.67
+     ],
+     "size": [
+      10,
+      2.5,
+      10
+     ],
+     "rotation": [
+      0,
+      -258.75,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Pedestal donde se reclama y se exhibe la parcela"
+    },
+    {
+     "id": "parcela-cartel-12",
+     "kind": "prop",
+     "position": [
+      -243.23,
+      6,
+      48.38
+     ],
+     "size": [
+      16,
+      9,
+      1
+     ],
+     "rotation": [
+      0,
+      -78.75,
+      0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#1A1233",
+     "note": "Cartel con los datos del dueño"
+    },
+    {
+     "id": "parcela-poste-12",
+     "kind": "prop",
+     "position": [
+      -243.23,
+      1.4,
+      48.38
+     ],
+     "size": [
+      3,
+      1.6,
+      3
+     ],
+     "rotation": [
+      0,
+      -78.75,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Base del cartel"
+    },
+    {
+     "id": "parcela-pad-13",
+     "kind": "platform",
+     "position": [
+      -264.81,
+      0.3,
+      -52.67
+     ],
+     "size": [
+      60,
+      0.6,
+      60
+     ],
+     "rotation": [
+      0,
+      -281.25,
+      0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8",
+     "note": "Piso de la parcela 13"
+    },
+    {
+     "id": "parcela-13",
+     "kind": "zone",
+     "name": "plot",
+     "position": [
+      -264.81,
+      12,
+      -52.67
+     ],
+     "size": [
+      60,
+      24,
+      60
+     ],
+     "rotation": [
+      0,
+      -281.25,
+      0
+     ],
+     "note": "Parcela 13: se reclama en el pedestal"
+    },
+    {
+     "id": "parcela-pedestal-13",
+     "kind": "prop",
+     "position": [
+      -264.81,
+      1.85,
+      -52.67
+     ],
+     "size": [
+      10,
+      2.5,
+      10
+     ],
+     "rotation": [
+      0,
+      -281.25,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Pedestal donde se reclama y se exhibe la parcela"
+    },
+    {
+     "id": "parcela-cartel-13",
+     "kind": "prop",
+     "position": [
+      -243.23,
+      6,
+      -48.38
+     ],
+     "size": [
+      16,
+      9,
+      1
+     ],
+     "rotation": [
+      0,
+      -101.25,
+      0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#1A1233",
+     "note": "Cartel con los datos del dueño"
+    },
+    {
+     "id": "parcela-poste-13",
+     "kind": "prop",
+     "position": [
+      -243.23,
+      1.4,
+      -48.38
+     ],
+     "size": [
+      3,
+      1.6,
+      3
+     ],
+     "rotation": [
+      0,
+      -101.25,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Base del cartel"
+    },
+    {
+     "id": "parcela-pad-14",
+     "kind": "platform",
+     "position": [
+      -224.5,
+      0.3,
+      -150.0
+     ],
+     "size": [
+      60,
+      0.6,
+      60
+     ],
+     "rotation": [
+      0,
+      -303.75,
+      0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8",
+     "note": "Piso de la parcela 14"
+    },
+    {
+     "id": "parcela-14",
+     "kind": "zone",
+     "name": "plot",
+     "position": [
+      -224.5,
+      12,
+      -150.0
+     ],
+     "size": [
+      60,
+      24,
+      60
+     ],
+     "rotation": [
+      0,
+      -303.75,
+      0
+     ],
+     "note": "Parcela 14: se reclama en el pedestal"
+    },
+    {
+     "id": "parcela-pedestal-14",
+     "kind": "prop",
+     "position": [
+      -224.5,
+      1.85,
+      -150.0
+     ],
+     "size": [
+      10,
+      2.5,
+      10
+     ],
+     "rotation": [
+      0,
+      -303.75,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Pedestal donde se reclama y se exhibe la parcela"
+    },
+    {
+     "id": "parcela-cartel-14",
+     "kind": "prop",
+     "position": [
+      -206.2,
+      6,
+      -137.78
+     ],
+     "size": [
+      16,
+      9,
+      1
+     ],
+     "rotation": [
+      0,
+      -123.75,
+      0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#1A1233",
+     "note": "Cartel con los datos del dueño"
+    },
+    {
+     "id": "parcela-poste-14",
+     "kind": "prop",
+     "position": [
+      -206.2,
+      1.4,
+      -137.78
+     ],
+     "size": [
+      3,
+      1.6,
+      3
+     ],
+     "rotation": [
+      0,
+      -123.75,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Base del cartel"
+    },
+    {
+     "id": "parcela-pad-15",
+     "kind": "platform",
+     "position": [
+      -150.0,
+      0.3,
+      -224.5
+     ],
+     "size": [
+      60,
+      0.6,
+      60
+     ],
+     "rotation": [
+      0,
+      -326.25,
+      0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8",
+     "note": "Piso de la parcela 15"
+    },
+    {
+     "id": "parcela-15",
+     "kind": "zone",
+     "name": "plot",
+     "position": [
+      -150.0,
+      12,
+      -224.5
+     ],
+     "size": [
+      60,
+      24,
+      60
+     ],
+     "rotation": [
+      0,
+      -326.25,
+      0
+     ],
+     "note": "Parcela 15: se reclama en el pedestal"
+    },
+    {
+     "id": "parcela-pedestal-15",
+     "kind": "prop",
+     "position": [
+      -150.0,
+      1.85,
+      -224.5
+     ],
+     "size": [
+      10,
+      2.5,
+      10
+     ],
+     "rotation": [
+      0,
+      -326.25,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Pedestal donde se reclama y se exhibe la parcela"
+    },
+    {
+     "id": "parcela-cartel-15",
+     "kind": "prop",
+     "position": [
+      -137.78,
+      6,
+      -206.2
+     ],
+     "size": [
+      16,
+      9,
+      1
+     ],
+     "rotation": [
+      0,
+      -146.25,
+      0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#1A1233",
+     "note": "Cartel con los datos del dueño"
+    },
+    {
+     "id": "parcela-poste-15",
+     "kind": "prop",
+     "position": [
+      -137.78,
+      1.4,
+      -206.2
+     ],
+     "size": [
+      3,
+      1.6,
+      3
+     ],
+     "rotation": [
+      0,
+      -146.25,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Base del cartel"
+    },
+    {
+     "id": "parcela-pad-16",
+     "kind": "platform",
+     "position": [
+      -52.67,
+      0.3,
+      -264.81
+     ],
+     "size": [
+      60,
+      0.6,
+      60
+     ],
+     "rotation": [
+      0,
+      -348.75,
+      0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8",
+     "note": "Piso de la parcela 16"
+    },
+    {
+     "id": "parcela-16",
+     "kind": "zone",
+     "name": "plot",
+     "position": [
+      -52.67,
+      12,
+      -264.81
+     ],
+     "size": [
+      60,
+      24,
+      60
+     ],
+     "rotation": [
+      0,
+      -348.75,
+      0
+     ],
+     "note": "Parcela 16: se reclama en el pedestal"
+    },
+    {
+     "id": "parcela-pedestal-16",
+     "kind": "prop",
+     "position": [
+      -52.67,
+      1.85,
+      -264.81
+     ],
+     "size": [
+      10,
+      2.5,
+      10
+     ],
+     "rotation": [
+      0,
+      -348.75,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Pedestal donde se reclama y se exhibe la parcela"
+    },
+    {
+     "id": "parcela-cartel-16",
+     "kind": "prop",
+     "position": [
+      -48.38,
+      6,
+      -243.23
+     ],
+     "size": [
+      16,
+      9,
+      1
+     ],
+     "rotation": [
+      0,
+      -168.75,
+      0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#1A1233",
+     "note": "Cartel con los datos del dueño"
+    },
+    {
+     "id": "parcela-poste-16",
+     "kind": "prop",
+     "position": [
+      -48.38,
+      1.4,
+      -243.23
+     ],
+     "size": [
+      3,
+      1.6,
+      3
+     ],
+     "rotation": [
+      0,
+      -168.75,
+      0
+     ],
+     "material": "Metal",
+     "color": "#2B2250",
+     "note": "Base del cartel"
+    },
+    {
+     "id": "distrito-1",
+     "kind": "zone",
+     "name": "distrito",
+     "position": [
+      0,
+      30,
+      0
+     ],
+     "size": [
+      760,
+      60,
+      760
+     ],
+     "note": "Distrito: lobby"
+    },
+    {
+     "id": "lobby-1",
+     "kind": "zone",
+     "name": "lobby",
+     "position": [
+      0,
+      30,
+      0
+     ],
+     "size": [
+      760,
+      60,
+      760
+     ],
+     "note": "Zona segura: los policías no entran ni ven"
+    },
+    {
+     "id": "limite-1",
+     "kind": "wall",
+     "position": [
+      0,
+      25,
+      -378.0
+     ],
+     "size": [
+      760,
+      50,
+      4
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-2",
+     "kind": "wall",
+     "position": [
+      0,
+      25,
+      378.0
+     ],
+     "size": [
+      760,
+      50,
+      4
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-3",
+     "kind": "wall",
+     "position": [
+      -378.0,
+      25,
+      0
+     ],
+     "size": [
+      4,
+      50,
+      760
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-4",
+     "kind": "wall",
+     "position": [
+      378.0,
+      25,
+      0
+     ],
+     "size": [
+      4,
+      50,
+      760
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    }
+   ]
+  },
+  {
+   "id": "barrio-papa",
+   "name": "Barrio Papa",
+   "layout": "hub",
+   "expectedSeconds": 300,
+   "origin": [
+    -5000,
+    0,
+    0
+   ],
+   "start": "suelo",
+   "pieces": [
+    {
+     "id": "suelo",
+     "kind": "platform",
+     "position": [
+      0,
+      -1,
+      0
+     ],
+     "size": [
+      600,
+      2,
+      600
+     ],
+     "material": "Asphalt",
+     "color": "#4A4E69",
+     "note": "Suelo del distrito (calle)"
+    },
+    {
+     "id": "distrito-1",
+     "kind": "zone",
+     "position": [
+      0,
+      30,
+      0
+     ],
+     "size": [
+      600,
+      60,
+      600
+     ],
+     "name": "distrito",
+     "note": "Límites del distrito; nivel mínimo 1; preset de iluminación 'default'"
+    },
+    {
+     "id": "acera-1",
+     "kind": "platform",
+     "position": [
+      -220.0,
+      0.3,
+      -220.0
+     ],
+     "size": [
+      160.0,
+      0.6,
+      160.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-1",
+     "kind": "prop",
+     "position": [
+      -220.0,
+      7.0,
+      -220.0
+     ],
+     "size": [
+      148.0,
+      14,
+      148.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#BDE9FF",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-2",
+     "kind": "platform",
+     "position": [
+      -220.0,
+      0.3,
+      0.0
+     ],
+     "size": [
+      160.0,
+      0.6,
+      160.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-2",
+     "kind": "prop",
+     "position": [
+      -220.0,
+      11.0,
+      0.0
+     ],
+     "size": [
+      148.0,
+      22,
+      148.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#C4F2D2",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-3",
+     "kind": "platform",
+     "position": [
+      -220.0,
+      0.3,
+      220.0
+     ],
+     "size": [
+      160.0,
+      0.6,
+      160.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-3",
+     "kind": "prop",
+     "position": [
+      -220.0,
+      7.0,
+      220.0
+     ],
+     "size": [
+      148.0,
+      14,
+      148.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFD9E4",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-4",
+     "kind": "platform",
+     "position": [
+      0.0,
+      0.3,
+      -220.0
+     ],
+     "size": [
+      160.0,
+      0.6,
+      160.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-4",
+     "kind": "prop",
+     "position": [
+      0.0,
+      11.0,
+      -220.0
+     ],
+     "size": [
+      148.0,
+      22,
+      148.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#C4F2D2",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-5",
+     "kind": "platform",
+     "position": [
+      0.0,
+      0.3,
+      0.0
+     ],
+     "size": [
+      160.0,
+      0.6,
+      160.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-5",
+     "kind": "prop",
+     "position": [
+      0.0,
+      11.0,
+      0.0
+     ],
+     "size": [
+      148.0,
+      22,
+      148.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFE9A8",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-6",
+     "kind": "platform",
+     "position": [
+      0.0,
+      0.3,
+      220.0
+     ],
+     "size": [
+      160.0,
+      0.6,
+      160.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-6",
+     "kind": "prop",
+     "position": [
+      0.0,
+      11.0,
+      220.0
+     ],
+     "size": [
+      148.0,
+      22,
+      148.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#C4F2D2",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-7",
+     "kind": "platform",
+     "position": [
+      220.0,
+      0.3,
+      -220.0
+     ],
+     "size": [
+      160.0,
+      0.6,
+      160.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-7",
+     "kind": "prop",
+     "position": [
+      220.0,
+      10.0,
+      -220.0
+     ],
+     "size": [
+      148.0,
+      20,
+      148.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#E3D4FF",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-8",
+     "kind": "platform",
+     "position": [
+      220.0,
+      0.3,
+      0.0
+     ],
+     "size": [
+      160.0,
+      0.6,
+      160.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-8",
+     "kind": "prop",
+     "position": [
+      220.0,
+      11.0,
+      0.0
+     ],
+     "size": [
+      148.0,
+      22,
+      148.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFE9A8",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-9",
+     "kind": "platform",
+     "position": [
+      220.0,
+      0.3,
+      220.0
+     ],
+     "size": [
+      160.0,
+      0.6,
+      160.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-9",
+     "kind": "prop",
+     "position": [
+      220.0,
+      8.0,
+      220.0
+     ],
+     "size": [
+      148.0,
+      16,
+      148.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#C9B6FF",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "guarida-1",
+     "kind": "zone",
+     "position": [
+      -110,
+      4,
+      -110
+     ],
+     "size": [
+      24,
+      8,
+      24
+     ],
+     "name": "guarida",
+     "note": "Guarida: zona segura. Depósito de Botín, tienda, reaparición y alijo. Los policías no entran. No se entra buscado"
+    },
+    {
+     "id": "afk-1",
+     "kind": "zone",
+     "position": [
+      -88,
+      4,
+      -88
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "name": "afk",
+     "note": "Sala de Entrenamiento (AFK, volumen AfkZone, 6 jugadores). Desbloquea el nivel 8"
+    },
+    {
+     "id": "spawn-1",
+     "kind": "spawn",
+     "position": [
+      -110,
+      0.5,
+      -110
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": false,
+     "note": "Reaparición de la Guarida más cercana"
+    },
+    {
+     "id": "guarida-2",
+     "kind": "zone",
+     "position": [
+      110,
+      4,
+      110
+     ],
+     "size": [
+      24,
+      8,
+      24
+     ],
+     "name": "guarida",
+     "note": "Guarida: zona segura. Depósito de Botín, tienda, reaparición y alijo. Los policías no entran. No se entra buscado"
+    },
+    {
+     "id": "afk-2",
+     "kind": "zone",
+     "position": [
+      132,
+      4,
+      132
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "name": "afk",
+     "note": "Sala de Entrenamiento (AFK, volumen AfkZone, 6 jugadores). Desbloquea el nivel 8"
+    },
+    {
+     "id": "spawn-2",
+     "kind": "spawn",
+     "position": [
+      110,
+      0.5,
+      110
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": false,
+     "note": "Reaparición de la Guarida más cercana"
+    },
+    {
+     "id": "tutorial-graffiti-1",
+     "kind": "zone",
+     "position": [
+      -142,
+      3,
+      -146
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "tutorial_graffiti",
+     "note": "Primer muro del tutorial: a ~26 studs del spawn"
+    },
+    {
+     "id": "tutorial-cop-1",
+     "kind": "zone",
+     "position": [
+      -110,
+      2,
+      -230
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "tutorial_cop_spawn",
+     "note": "Aparece el Patrullero Patata guionado (velocidad 14) cuando el jugador termina el primer graffiti"
+    },
+    {
+     "id": "tutorial-hide-1",
+     "kind": "zone",
+     "position": [
+      -135,
+      3,
+      -45
+     ],
+     "size": [
+      8,
+      6,
+      8
+     ],
+     "name": "tutorial_hide",
+     "note": "Arbusto resaltado para esconderse en el tutorial"
+    },
+    {
+     "id": "mischief-graffiti-1",
+     "kind": "zone",
+     "position": [
+      257.0,
+      3,
+      -140.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_graffiti",
+     "note": "Muro de graffiti. Nivel 1"
+    },
+    {
+     "id": "mischief-graffiti-2",
+     "kind": "zone",
+     "position": [
+      140.0,
+      3,
+      -257.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_graffiti",
+     "note": "Muro de graffiti. Nivel 1"
+    },
+    {
+     "id": "mischief-graffiti-3",
+     "kind": "zone",
+     "position": [
+      80.0,
+      3,
+      257.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_graffiti",
+     "note": "Muro de graffiti. Nivel 1"
+    },
+    {
+     "id": "mischief-graffiti-4",
+     "kind": "zone",
+     "position": [
+      257.0,
+      3,
+      140.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_graffiti",
+     "note": "Muro de graffiti. Nivel 1"
+    },
+    {
+     "id": "mischief-graffiti-5",
+     "kind": "zone",
+     "position": [
+      140.0,
+      3,
+      257.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_graffiti",
+     "note": "Muro de graffiti. Nivel 1"
+    },
+    {
+     "id": "mischief-timbrazo-1",
+     "kind": "zone",
+     "position": [
+      140.0,
+      3,
+      -220.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_timbrazo",
+     "note": "Timbre de casa. Nivel 1. El vecino NPC persigue brevemente"
+    },
+    {
+     "id": "mischief-timbrazo-2",
+     "kind": "zone",
+     "position": [
+      -183.0,
+      3,
+      140.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_timbrazo",
+     "note": "Timbre de casa. Nivel 1. El vecino NPC persigue brevemente"
+    },
+    {
+     "id": "mischief-timbrazo-3",
+     "kind": "zone",
+     "position": [
+      0.0,
+      3,
+      -140.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_timbrazo",
+     "note": "Timbre de casa. Nivel 1. El vecino NPC persigue brevemente"
+    },
+    {
+     "id": "mischief-timbrazo-4",
+     "kind": "zone",
+     "position": [
+      257.0,
+      3,
+      -80.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_timbrazo",
+     "note": "Timbre de casa. Nivel 1. El vecino NPC persigue brevemente"
+    },
+    {
+     "id": "mischief-timbrazo-5",
+     "kind": "zone",
+     "position": [
+      -37.0,
+      3,
+      -80.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_timbrazo",
+     "note": "Timbre de casa. Nivel 1. El vecino NPC persigue brevemente"
+    },
+    {
+     "id": "mischief-timbrazo-6",
+     "kind": "zone",
+     "position": [
+      -220.0,
+      3,
+      80.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_timbrazo",
+     "note": "Timbre de casa. Nivel 1. El vecino NPC persigue brevemente"
+    },
+    {
+     "id": "hide-1",
+     "kind": "zone",
+     "position": [
+      80.0,
+      3,
+      -183.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (arbusto o contenedor)"
+    },
+    {
+     "id": "hide-2",
+     "kind": "zone",
+     "position": [
+      -80.0,
+      3,
+      220.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (arbusto o contenedor)"
+    },
+    {
+     "id": "hide-3",
+     "kind": "zone",
+     "position": [
+      -220.0,
+      3,
+      -140.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (arbusto o contenedor)"
+    },
+    {
+     "id": "hide-4",
+     "kind": "zone",
+     "position": [
+      140.0,
+      3,
+      -37.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (arbusto o contenedor)"
+    },
+    {
+     "id": "hide-5",
+     "kind": "zone",
+     "position": [
+      -140.0,
+      3,
+      0.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (arbusto o contenedor)"
+    },
+    {
+     "id": "hide-6",
+     "kind": "zone",
+     "position": [
+      183.0,
+      3,
+      140.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (arbusto o contenedor)"
+    },
+    {
+     "id": "hide-7",
+     "kind": "zone",
+     "position": [
+      257.0,
+      3,
+      80.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (arbusto o contenedor)"
+    },
+    {
+     "id": "hide-8",
+     "kind": "zone",
+     "position": [
+      80.0,
+      3,
+      220.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (arbusto o contenedor)"
+    },
+    {
+     "id": "hide-9",
+     "kind": "zone",
+     "position": [
+      -80.0,
+      3,
+      -220.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (arbusto o contenedor)"
+    },
+    {
+     "id": "hide-10",
+     "kind": "zone",
+     "position": [
+      80.0,
+      3,
+      -257.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (arbusto o contenedor)"
+    },
+    {
+     "id": "payspray-1",
+     "kind": "zone",
+     "position": [
+      195.0,
+      4,
+      -110
+     ],
+     "size": [
+      20,
+      8,
+      20
+     ],
+     "name": "payspray",
+     "note": "Lavadero Pay'n'Spray: quita las estrellas por dinero"
+    },
+    {
+     "id": "cop-spawn-1",
+     "kind": "zone",
+     "position": [
+      110,
+      2,
+      -165.0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-2",
+     "kind": "zone",
+     "position": [
+      -255.0,
+      2,
+      110
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-3",
+     "kind": "zone",
+     "position": [
+      -110,
+      2,
+      -255.0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-4",
+     "kind": "zone",
+     "position": [
+      -110,
+      2,
+      195.0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-5",
+     "kind": "zone",
+     "position": [
+      -255.0,
+      2,
+      -110
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-6",
+     "kind": "zone",
+     "position": [
+      110,
+      2,
+      15.0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "limite-1",
+     "kind": "wall",
+     "position": [
+      0,
+      25,
+      -298.0
+     ],
+     "size": [
+      600.0,
+      50,
+      4
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-2",
+     "kind": "wall",
+     "position": [
+      0,
+      25,
+      298.0
+     ],
+     "size": [
+      600.0,
+      50,
+      4
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-3",
+     "kind": "wall",
+     "position": [
+      -298.0,
+      25,
+      0
+     ],
+     "size": [
+      4,
+      50,
+      600.0
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-4",
+     "kind": "wall",
+     "position": [
+      298.0,
+      25,
+      0
+     ],
+     "size": [
+      4,
+      50,
+      600.0
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "portal-pad-lobby",
+     "kind": "platform",
+     "position": [
+      -110,
+      0.6,
+      -82
+     ],
+     "size": [
+      14,
+      1,
+      14
+     ],
+     "material": "Neon",
+     "color": "#19D3F3",
+     "note": "Plataforma del portal de regreso a La Guarida"
+    },
+    {
+     "id": "portal-lobby",
+     "kind": "zone",
+     "name": "portal",
+     "target": "lobby",
+     "position": [
+      -110,
+      4,
+      -82
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "note": "Viaje a La Guarida (lobby)"
+    }
+   ],
+   "note": "Distrito aislado: se llega por el portal del lobby (La Guarida)."
+  },
+  {
+   "id": "colegio",
+   "name": "Colegio Brainrot",
+   "layout": "hub",
+   "expectedSeconds": 1440,
+   "origin": [
+    5000,
+    0,
+    0
+   ],
+   "start": "suelo",
+   "pieces": [
+    {
+     "id": "suelo",
+     "kind": "platform",
+     "position": [
+      0,
+      -1,
+      0
+     ],
+     "size": [
+      700,
+      2,
+      700
+     ],
+     "material": "Asphalt",
+     "color": "#4A4E69",
+     "note": "Suelo del distrito (calle)"
+    },
+    {
+     "id": "distrito-1",
+     "kind": "zone",
+     "position": [
+      0,
+      30,
+      0
+     ],
+     "size": [
+      700,
+      60,
+      700
+     ],
+     "name": "distrito",
+     "note": "Límites del distrito; nivel mínimo 6; preset de iluminación 'default'"
+    },
+    {
+     "id": "acera-1",
+     "kind": "platform",
+     "position": [
+      -255.0,
+      0.3,
+      -255.0
+     ],
+     "size": [
+      190.0,
+      0.6,
+      190.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-1",
+     "kind": "prop",
+     "position": [
+      -255.0,
+      9.0,
+      -255.0
+     ],
+     "size": [
+      178.0,
+      18,
+      178.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFD9E4",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-2",
+     "kind": "platform",
+     "position": [
+      -255.0,
+      0.3,
+      0.0
+     ],
+     "size": [
+      190.0,
+      0.6,
+      190.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-2",
+     "kind": "prop",
+     "position": [
+      -255.0,
+      9.0,
+      0.0
+     ],
+     "size": [
+      178.0,
+      18,
+      178.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFD9E4",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-3",
+     "kind": "platform",
+     "position": [
+      -255.0,
+      0.3,
+      255.0
+     ],
+     "size": [
+      190.0,
+      0.6,
+      190.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-3",
+     "kind": "prop",
+     "position": [
+      -255.0,
+      9.0,
+      255.0
+     ],
+     "size": [
+      178.0,
+      18,
+      178.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFE9A8",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-4",
+     "kind": "platform",
+     "position": [
+      0.0,
+      0.3,
+      -255.0
+     ],
+     "size": [
+      190.0,
+      0.6,
+      190.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-4",
+     "kind": "prop",
+     "position": [
+      0.0,
+      10.0,
+      -255.0
+     ],
+     "size": [
+      178.0,
+      20,
+      178.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#E3D4FF",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-5",
+     "kind": "platform",
+     "position": [
+      0.0,
+      0.3,
+      0.0
+     ],
+     "size": [
+      190.0,
+      0.6,
+      190.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "colegio",
+     "kind": "prop",
+     "position": [
+      0,
+      12,
+      -55
+     ],
+     "size": [
+      170,
+      24,
+      60
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFE9A8",
+     "note": "Edificio del colegio (referencia)"
+    },
+    {
+     "id": "patio",
+     "kind": "platform",
+     "position": [
+      0,
+      0.4,
+      35
+     ],
+     "size": [
+      170,
+      0.8,
+      100
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8",
+     "note": "Patio del colegio: cancha y recreo"
+    },
+    {
+     "id": "acera-6",
+     "kind": "platform",
+     "position": [
+      0.0,
+      0.3,
+      255.0
+     ],
+     "size": [
+      190.0,
+      0.6,
+      190.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-5",
+     "kind": "prop",
+     "position": [
+      0.0,
+      10.0,
+      255.0
+     ],
+     "size": [
+      178.0,
+      20,
+      178.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#BDE9FF",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-7",
+     "kind": "platform",
+     "position": [
+      255.0,
+      0.3,
+      -255.0
+     ],
+     "size": [
+      190.0,
+      0.6,
+      190.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-6",
+     "kind": "prop",
+     "position": [
+      255.0,
+      10.0,
+      -255.0
+     ],
+     "size": [
+      178.0,
+      20,
+      178.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFD9E4",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-8",
+     "kind": "platform",
+     "position": [
+      255.0,
+      0.3,
+      0.0
+     ],
+     "size": [
+      190.0,
+      0.6,
+      190.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-7",
+     "kind": "prop",
+     "position": [
+      255.0,
+      9.0,
+      0.0
+     ],
+     "size": [
+      178.0,
+      18,
+      178.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#C4F2D2",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-9",
+     "kind": "platform",
+     "position": [
+      255.0,
+      0.3,
+      255.0
+     ],
+     "size": [
+      190.0,
+      0.6,
+      190.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-8",
+     "kind": "prop",
+     "position": [
+      255.0,
+      10.0,
+      255.0
+     ],
+     "size": [
+      178.0,
+      20,
+      178.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFE9A8",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "guarida-1",
+     "kind": "zone",
+     "position": [
+      -127.5,
+      4,
+      127.5
+     ],
+     "size": [
+      24,
+      8,
+      24
+     ],
+     "name": "guarida",
+     "note": "Guarida: zona segura. Depósito de Botín, tienda, reaparición y alijo. Los policías no entran. No se entra buscado"
+    },
+    {
+     "id": "afk-1",
+     "kind": "zone",
+     "position": [
+      -105.5,
+      4,
+      149.5
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "name": "afk",
+     "note": "Sala de Entrenamiento (AFK, volumen AfkZone, 6 jugadores). Desbloquea el nivel 8"
+    },
+    {
+     "id": "spawn-1",
+     "kind": "spawn",
+     "position": [
+      -127.5,
+      0.5,
+      127.5
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": false,
+     "note": "Reaparición de la Guarida más cercana"
+    },
+    {
+     "id": "guarida-2",
+     "kind": "zone",
+     "position": [
+      127.5,
+      4,
+      -127.5
+     ],
+     "size": [
+      24,
+      8,
+      24
+     ],
+     "name": "guarida",
+     "note": "Guarida: zona segura. Depósito de Botín, tienda, reaparición y alijo. Los policías no entran. No se entra buscado"
+    },
+    {
+     "id": "afk-2",
+     "kind": "zone",
+     "position": [
+      149.5,
+      4,
+      -105.5
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "name": "afk",
+     "note": "Sala de Entrenamiento (AFK, volumen AfkZone, 6 jugadores). Desbloquea el nivel 8"
+    },
+    {
+     "id": "spawn-2",
+     "kind": "spawn",
+     "position": [
+      127.5,
+      0.5,
+      -127.5
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": false,
+     "note": "Reaparición de la Guarida más cercana"
+    },
+    {
+     "id": "mischief-graffiti-1",
+     "kind": "zone",
+     "position": [
+      -255.0,
+      3,
+      -95.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_graffiti",
+     "note": "Muro de graffiti. Nivel 1"
+    },
+    {
+     "id": "mischief-graffiti-2",
+     "kind": "zone",
+     "position": [
+      255.0,
+      3,
+      95.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_graffiti",
+     "note": "Muro de graffiti. Nivel 1"
+    },
+    {
+     "id": "mischief-graffiti-3",
+     "kind": "zone",
+     "position": [
+      95.0,
+      3,
+      210.5
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_graffiti",
+     "note": "Muro de graffiti. Nivel 1"
+    },
+    {
+     "id": "mischief-timbrazo-1",
+     "kind": "zone",
+     "position": [
+      210.5,
+      3,
+      -95.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_timbrazo",
+     "note": "Timbre. Nivel 1"
+    },
+    {
+     "id": "mischief-timbrazo-2",
+     "kind": "zone",
+     "position": [
+      -95.0,
+      3,
+      -210.5
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_timbrazo",
+     "note": "Timbre. Nivel 1"
+    },
+    {
+     "id": "mischief-timbrazo-3",
+     "kind": "zone",
+     "position": [
+      95.0,
+      3,
+      255.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_timbrazo",
+     "note": "Timbre. Nivel 1"
+    },
+    {
+     "id": "mischief-hidrante-1",
+     "kind": "zone",
+     "position": [
+      0.0,
+      3,
+      -160.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_hidrante",
+     "note": "Hidrante del patio y la calle. Nivel 6"
+    },
+    {
+     "id": "mischief-hidrante-2",
+     "kind": "zone",
+     "position": [
+      42.5,
+      3,
+      -19.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_hidrante",
+     "note": "Hidrante del patio y la calle. Nivel 6"
+    },
+    {
+     "id": "mischief-hidrante-3",
+     "kind": "zone",
+     "position": [
+      -210.5,
+      3,
+      160.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_hidrante",
+     "note": "Hidrante del patio y la calle. Nivel 6"
+    },
+    {
+     "id": "mischief-hidrante-4",
+     "kind": "zone",
+     "position": [
+      -210.5,
+      3,
+      -95.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_hidrante",
+     "note": "Hidrante del patio y la calle. Nivel 6"
+    },
+    {
+     "id": "mischief-hidrante-5",
+     "kind": "zone",
+     "position": [
+      -95.0,
+      3,
+      -299.5
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_hidrante",
+     "note": "Hidrante del patio y la calle. Nivel 6"
+    },
+    {
+     "id": "mischief-carrito-1",
+     "kind": "zone",
+     "position": [
+      95.0,
+      3,
+      -210.5
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_carrito",
+     "note": "Carrito de la cantina. Nivel 6. El vendedor NPC persigue brevemente"
+    },
+    {
+     "id": "mischief-carrito-2",
+     "kind": "zone",
+     "position": [
+      -160.0,
+      3,
+      44.5
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_carrito",
+     "note": "Carrito de la cantina. Nivel 6. El vendedor NPC persigue brevemente"
+    },
+    {
+     "id": "mischief-carrito-3",
+     "kind": "zone",
+     "position": [
+      -299.5,
+      3,
+      160.0
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_carrito",
+     "note": "Carrito de la cantina. Nivel 6. El vendedor NPC persigue brevemente"
+    },
+    {
+     "id": "mischief-carrito-4",
+     "kind": "zone",
+     "position": [
+      -299.5,
+      3,
+      95.0
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_carrito",
+     "note": "Carrito de la cantina. Nivel 6. El vendedor NPC persigue brevemente"
+    },
+    {
+     "id": "coop-mural-1",
+     "kind": "zone",
+     "position": [
+      210.5,
+      3,
+      -160.0
+     ],
+     "size": [
+      40,
+      12,
+      8
+     ],
+     "name": "coop_mural",
+     "note": "Pared grande para el Mural Gigante (banda, 2 a 8 jugadores). Nivel 6"
+    },
+    {
+     "id": "coop-mural-2",
+     "kind": "zone",
+     "position": [
+      -299.5,
+      3,
+      -160.0
+     ],
+     "size": [
+      40,
+      12,
+      8
+     ],
+     "name": "coop_mural",
+     "note": "Pared grande para el Mural Gigante (banda, 2 a 8 jugadores). Nivel 6"
+    },
+    {
+     "id": "hide-1",
+     "kind": "zone",
+     "position": [
+      -95.0,
+      3,
+      255.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (arbusto o contenedor)"
+    },
+    {
+     "id": "hide-2",
+     "kind": "zone",
+     "position": [
+      160.0,
+      3,
+      44.5
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (arbusto o contenedor)"
+    },
+    {
+     "id": "hide-3",
+     "kind": "zone",
+     "position": [
+      -210.5,
+      3,
+      -160.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (arbusto o contenedor)"
+    },
+    {
+     "id": "hide-4",
+     "kind": "zone",
+     "position": [
+      95.0,
+      3,
+      299.5
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (arbusto o contenedor)"
+    },
+    {
+     "id": "hide-5",
+     "kind": "zone",
+     "position": [
+      -160.0,
+      3,
+      -210.5
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (arbusto o contenedor)"
+    },
+    {
+     "id": "hide-6",
+     "kind": "zone",
+     "position": [
+      299.5,
+      3,
+      160.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (arbusto o contenedor)"
+    },
+    {
+     "id": "hide-7",
+     "kind": "zone",
+     "position": [
+      160.0,
+      3,
+      -299.5
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (arbusto o contenedor)"
+    },
+    {
+     "id": "hide-8",
+     "kind": "zone",
+     "position": [
+      -160.0,
+      3,
+      255.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (arbusto o contenedor)"
+    },
+    {
+     "id": "hide-9",
+     "kind": "zone",
+     "position": [
+      299.5,
+      3,
+      95.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (arbusto o contenedor)"
+    },
+    {
+     "id": "hide-10",
+     "kind": "zone",
+     "position": [
+      0.0,
+      3,
+      160.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (arbusto o contenedor)"
+    },
+    {
+     "id": "payspray-1",
+     "kind": "zone",
+     "position": [
+      -127.5,
+      4,
+      -125.0
+     ],
+     "size": [
+      20,
+      8,
+      20
+     ],
+     "name": "payspray",
+     "note": "Lavadero Pay'n'Spray: quita las estrellas por dinero"
+    },
+    {
+     "id": "cop-spawn-1",
+     "kind": "zone",
+     "position": [
+      -305.0,
+      2,
+      127.5
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-2",
+     "kind": "zone",
+     "position": [
+      -215.0,
+      2,
+      -127.5
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-3",
+     "kind": "zone",
+     "position": [
+      55.0,
+      2,
+      -127.5
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-4",
+     "kind": "zone",
+     "position": [
+      145.0,
+      2,
+      127.5
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-5",
+     "kind": "zone",
+     "position": [
+      235.0,
+      2,
+      -127.5
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-6",
+     "kind": "zone",
+     "position": [
+      -127.5,
+      2,
+      55.0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "limite-1",
+     "kind": "wall",
+     "position": [
+      0,
+      25,
+      -348.0
+     ],
+     "size": [
+      700.0,
+      50,
+      4
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-2",
+     "kind": "wall",
+     "position": [
+      0,
+      25,
+      348.0
+     ],
+     "size": [
+      700.0,
+      50,
+      4
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-3",
+     "kind": "wall",
+     "position": [
+      -348.0,
+      25,
+      0
+     ],
+     "size": [
+      4,
+      50,
+      700.0
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-4",
+     "kind": "wall",
+     "position": [
+      348.0,
+      25,
+      0
+     ],
+     "size": [
+      4,
+      50,
+      700.0
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "portal-pad-lobby",
+     "kind": "platform",
+     "position": [
+      -127.5,
+      0.6,
+      155.5
+     ],
+     "size": [
+      14,
+      1,
+      14
+     ],
+     "material": "Neon",
+     "color": "#19D3F3",
+     "note": "Plataforma del portal de regreso a La Guarida"
+    },
+    {
+     "id": "portal-lobby",
+     "kind": "zone",
+     "name": "portal",
+     "target": "lobby",
+     "position": [
+      -127.5,
+      4,
+      155.5
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "note": "Viaje a La Guarida (lobby)"
+    }
+   ],
+   "note": "Distrito aislado: se llega por el portal del lobby (La Guarida)."
+  },
+  {
+   "id": "playa-podrida",
+   "name": "Playa Podrida",
+   "layout": "hub",
+   "expectedSeconds": 1620,
+   "origin": [
+    0,
+    0,
+    5000
+   ],
+   "start": "suelo",
+   "pieces": [
+    {
+     "id": "suelo",
+     "kind": "platform",
+     "position": [
+      0,
+      -1,
+      0
+     ],
+     "size": [
+      1200,
+      2,
+      600
+     ],
+     "material": "Asphalt",
+     "color": "#4A4E69",
+     "note": "Suelo del distrito (calle)"
+    },
+    {
+     "id": "distrito-1",
+     "kind": "zone",
+     "position": [
+      0,
+      30,
+      0
+     ],
+     "size": [
+      1200,
+      60,
+      600
+     ],
+     "name": "distrito",
+     "note": "Límites del distrito; nivel mínimo 14; preset de iluminación 'playa'"
+    },
+    {
+     "id": "calle",
+     "kind": "platform",
+     "position": [
+      0,
+      0.3,
+      -250
+     ],
+     "size": [
+      1200,
+      0.6,
+      100
+     ],
+     "material": "Asphalt",
+     "color": "#4A4E69",
+     "note": "Calle costera del norte"
+    },
+    {
+     "id": "paseo",
+     "kind": "platform",
+     "position": [
+      0,
+      0.5,
+      -170
+     ],
+     "size": [
+      1200,
+      1,
+      60
+     ],
+     "material": "WoodPlanks",
+     "color": "#C9A27A",
+     "note": "Paseo marítimo: recta de 1200 studs a velocidad completa"
+    },
+    {
+     "id": "arena",
+     "kind": "platform",
+     "position": [
+      0,
+      0.4,
+      80
+     ],
+     "size": [
+      1200,
+      0.8,
+      440
+     ],
+     "material": "Sand",
+     "color": "#E8D7A6",
+     "note": "Playa de arena: la velocidad baja 15 % a jugadores y policías terrestres"
+    },
+    {
+     "id": "arena-lenta-1",
+     "kind": "zone",
+     "position": [
+      0,
+      3,
+      80
+     ],
+     "size": [
+      1200,
+      8,
+      440
+     ],
+     "name": "sand",
+     "note": "Zona de arena: World.SandSpeedMult 0.85"
+    },
+    {
+     "id": "kiosco-1",
+     "kind": "prop",
+     "position": [
+      -540,
+      6,
+      -112
+     ],
+     "size": [
+      20,
+      12,
+      14
+     ],
+     "material": "SmoothPlastic",
+     "color": "#C4F2D2",
+     "note": "Kiosco de playa (referencia)"
+    },
+    {
+     "id": "kiosco-2",
+     "kind": "prop",
+     "position": [
+      -390,
+      6,
+      -112
+     ],
+     "size": [
+      20,
+      12,
+      14
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFE9A8",
+     "note": "Kiosco de playa (referencia)"
+    },
+    {
+     "id": "kiosco-3",
+     "kind": "prop",
+     "position": [
+      -240,
+      6,
+      -112
+     ],
+     "size": [
+      20,
+      12,
+      14
+     ],
+     "material": "SmoothPlastic",
+     "color": "#BDE9FF",
+     "note": "Kiosco de playa (referencia)"
+    },
+    {
+     "id": "kiosco-4",
+     "kind": "prop",
+     "position": [
+      -90,
+      6,
+      -112
+     ],
+     "size": [
+      20,
+      12,
+      14
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFE9A8",
+     "note": "Kiosco de playa (referencia)"
+    },
+    {
+     "id": "kiosco-5",
+     "kind": "prop",
+     "position": [
+      60,
+      6,
+      -112
+     ],
+     "size": [
+      20,
+      12,
+      14
+     ],
+     "material": "SmoothPlastic",
+     "color": "#BDE9FF",
+     "note": "Kiosco de playa (referencia)"
+    },
+    {
+     "id": "kiosco-6",
+     "kind": "prop",
+     "position": [
+      210,
+      6,
+      -112
+     ],
+     "size": [
+      20,
+      12,
+      14
+     ],
+     "material": "SmoothPlastic",
+     "color": "#E3D4FF",
+     "note": "Kiosco de playa (referencia)"
+    },
+    {
+     "id": "kiosco-7",
+     "kind": "prop",
+     "position": [
+      360,
+      6,
+      -112
+     ],
+     "size": [
+      20,
+      12,
+      14
+     ],
+     "material": "SmoothPlastic",
+     "color": "#BDE9FF",
+     "note": "Kiosco de playa (referencia)"
+    },
+    {
+     "id": "kiosco-8",
+     "kind": "prop",
+     "position": [
+      510,
+      6,
+      -112
+     ],
+     "size": [
+      20,
+      12,
+      14
+     ],
+     "material": "SmoothPlastic",
+     "color": "#C9B6FF",
+     "note": "Kiosco de playa (referencia)"
+    },
+    {
+     "id": "guarida-1",
+     "kind": "zone",
+     "position": [
+      -400,
+      4,
+      -170
+     ],
+     "size": [
+      24,
+      8,
+      24
+     ],
+     "name": "guarida",
+     "note": "Guarida: zona segura. Depósito de Botín, tienda, reaparición y alijo. Los policías no entran. No se entra buscado"
+    },
+    {
+     "id": "afk-1",
+     "kind": "zone",
+     "position": [
+      -378,
+      4,
+      -148
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "name": "afk",
+     "note": "Sala de Entrenamiento (AFK, volumen AfkZone, 6 jugadores). Desbloquea el nivel 8"
+    },
+    {
+     "id": "spawn-1",
+     "kind": "spawn",
+     "position": [
+      -400,
+      0.5,
+      -170
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": false,
+     "note": "Reaparición de la Guarida más cercana"
+    },
+    {
+     "id": "guarida-2",
+     "kind": "zone",
+     "position": [
+      0,
+      4,
+      -170
+     ],
+     "size": [
+      24,
+      8,
+      24
+     ],
+     "name": "guarida",
+     "note": "Guarida: zona segura. Depósito de Botín, tienda, reaparición y alijo. Los policías no entran. No se entra buscado"
+    },
+    {
+     "id": "afk-2",
+     "kind": "zone",
+     "position": [
+      22,
+      4,
+      -148
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "name": "afk",
+     "note": "Sala de Entrenamiento (AFK, volumen AfkZone, 6 jugadores). Desbloquea el nivel 8"
+    },
+    {
+     "id": "spawn-2",
+     "kind": "spawn",
+     "position": [
+      0,
+      0.5,
+      -170
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": false,
+     "note": "Reaparición de la Guarida más cercana"
+    },
+    {
+     "id": "guarida-3",
+     "kind": "zone",
+     "position": [
+      400,
+      4,
+      -170
+     ],
+     "size": [
+      24,
+      8,
+      24
+     ],
+     "name": "guarida",
+     "note": "Guarida: zona segura. Depósito de Botín, tienda, reaparición y alijo. Los policías no entran. No se entra buscado"
+    },
+    {
+     "id": "afk-3",
+     "kind": "zone",
+     "position": [
+      422,
+      4,
+      -148
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "name": "afk",
+     "note": "Sala de Entrenamiento (AFK, volumen AfkZone, 6 jugadores). Desbloquea el nivel 8"
+    },
+    {
+     "id": "spawn-3",
+     "kind": "spawn",
+     "position": [
+      400,
+      0.5,
+      -170
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": false,
+     "note": "Reaparición de la Guarida más cercana"
+    },
+    {
+     "id": "mischief-castillo-1",
+     "kind": "zone",
+     "position": [
+      220.83,
+      3,
+      172.08
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_castillo",
+     "note": "Castillo de arena. Nivel 14"
+    },
+    {
+     "id": "mischief-castillo-2",
+     "kind": "zone",
+     "position": [
+      -429.05,
+      3,
+      53.12
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_castillo",
+     "note": "Castillo de arena. Nivel 14"
+    },
+    {
+     "id": "mischief-castillo-3",
+     "kind": "zone",
+     "position": [
+      389.45,
+      3,
+      151.25
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_castillo",
+     "note": "Castillo de arena. Nivel 14"
+    },
+    {
+     "id": "mischief-castillo-4",
+     "kind": "zone",
+     "position": [
+      -466.79,
+      3,
+      155.4
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_castillo",
+     "note": "Castillo de arena. Nivel 14"
+    },
+    {
+     "id": "mischief-castillo-5",
+     "kind": "zone",
+     "position": [
+      -226.91,
+      3,
+      70.54
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_castillo",
+     "note": "Castillo de arena. Nivel 14"
+    },
+    {
+     "id": "mischief-castillo-6",
+     "kind": "zone",
+     "position": [
+      94.76,
+      3,
+      38.24
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_castillo",
+     "note": "Castillo de arena. Nivel 14"
+    },
+    {
+     "id": "mischief-sombrillas-1",
+     "kind": "zone",
+     "position": [
+      23.31,
+      3,
+      173.68
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_sombrillas",
+     "note": "Sombrillas voladoras. Nivel 14"
+    },
+    {
+     "id": "mischief-sombrillas-2",
+     "kind": "zone",
+     "position": [
+      484.68,
+      3,
+      82.12
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_sombrillas",
+     "note": "Sombrillas voladoras. Nivel 14"
+    },
+    {
+     "id": "mischief-sombrillas-3",
+     "kind": "zone",
+     "position": [
+      284.02,
+      3,
+      -42.86
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_sombrillas",
+     "note": "Sombrillas voladoras. Nivel 14"
+    },
+    {
+     "id": "mischief-sombrillas-4",
+     "kind": "zone",
+     "position": [
+      335.58,
+      3,
+      94.98
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_sombrillas",
+     "note": "Sombrillas voladoras. Nivel 14"
+    },
+    {
+     "id": "mischief-sombrillas-5",
+     "kind": "zone",
+     "position": [
+      538.76,
+      3,
+      131.91
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_sombrillas",
+     "note": "Sombrillas voladoras. Nivel 14"
+    },
+    {
+     "id": "hide-1",
+     "kind": "zone",
+     "position": [
+      -21.64,
+      3,
+      41.83
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (palmeras, kioscos, caseta del salvavidas)"
+    },
+    {
+     "id": "hide-2",
+     "kind": "zone",
+     "position": [
+      332.99,
+      3,
+      197.7
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (palmeras, kioscos, caseta del salvavidas)"
+    },
+    {
+     "id": "hide-3",
+     "kind": "zone",
+     "position": [
+      -323.37,
+      3,
+      220.07
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (palmeras, kioscos, caseta del salvavidas)"
+    },
+    {
+     "id": "hide-4",
+     "kind": "zone",
+     "position": [
+      399.63,
+      3,
+      40.95
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (palmeras, kioscos, caseta del salvavidas)"
+    },
+    {
+     "id": "hide-5",
+     "kind": "zone",
+     "position": [
+      406.49,
+      3,
+      171.32
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (palmeras, kioscos, caseta del salvavidas)"
+    },
+    {
+     "id": "hide-6",
+     "kind": "zone",
+     "position": [
+      253.29,
+      3,
+      -21.94
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (palmeras, kioscos, caseta del salvavidas)"
+    },
+    {
+     "id": "hide-7",
+     "kind": "zone",
+     "position": [
+      360.0,
+      3,
+      -125.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (palmeras, kioscos, caseta del salvavidas)"
+    },
+    {
+     "id": "hide-8",
+     "kind": "zone",
+     "position": [
+      -390.0,
+      3,
+      -125.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (palmeras, kioscos, caseta del salvavidas)"
+    },
+    {
+     "id": "hide-9",
+     "kind": "zone",
+     "position": [
+      210.0,
+      3,
+      -125.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (palmeras, kioscos, caseta del salvavidas)"
+    },
+    {
+     "id": "hide-10",
+     "kind": "zone",
+     "position": [
+      -224.0,
+      3,
+      -112.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (palmeras, kioscos, caseta del salvavidas)"
+    },
+    {
+     "id": "mischief-graffiti-1",
+     "kind": "zone",
+     "position": [
+      -106.0,
+      3,
+      -112.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_graffiti",
+     "note": "Muro de graffiti. Nivel 1"
+    },
+    {
+     "id": "mischief-graffiti-2",
+     "kind": "zone",
+     "position": [
+      -524.0,
+      3,
+      -112.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_graffiti",
+     "note": "Muro de graffiti. Nivel 1"
+    },
+    {
+     "id": "mischief-graffiti-3",
+     "kind": "zone",
+     "position": [
+      -240.0,
+      3,
+      -99.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_graffiti",
+     "note": "Muro de graffiti. Nivel 1"
+    },
+    {
+     "id": "payspray-1",
+     "kind": "zone",
+     "position": [
+      250,
+      4,
+      -250
+     ],
+     "size": [
+      20,
+      8,
+      20
+     ],
+     "name": "payspray",
+     "note": "Lavadero Pay'n'Spray: quita las estrellas por dinero"
+    },
+    {
+     "id": "cop-spawn-1",
+     "kind": "zone",
+     "position": [
+      -250,
+      2,
+      -250
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-2",
+     "kind": "zone",
+     "position": [
+      500,
+      2,
+      -250
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-3",
+     "kind": "zone",
+     "position": [
+      -375,
+      2,
+      -250
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-4",
+     "kind": "zone",
+     "position": [
+      -500,
+      2,
+      -250
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-5",
+     "kind": "zone",
+     "position": [
+      -125,
+      2,
+      -250
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-6",
+     "kind": "zone",
+     "position": [
+      125,
+      2,
+      -250
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "limite-1",
+     "kind": "wall",
+     "position": [
+      0,
+      25,
+      -298.0
+     ],
+     "size": [
+      1200.0,
+      50,
+      4
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-2",
+     "kind": "wall",
+     "position": [
+      0,
+      25,
+      298.0
+     ],
+     "size": [
+      1200.0,
+      50,
+      4
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-3",
+     "kind": "wall",
+     "position": [
+      -598.0,
+      25,
+      0
+     ],
+     "size": [
+      4,
+      50,
+      600.0
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-4",
+     "kind": "wall",
+     "position": [
+      598.0,
+      25,
+      0
+     ],
+     "size": [
+      4,
+      50,
+      600.0
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "portal-pad-lobby",
+     "kind": "platform",
+     "position": [
+      -400,
+      0.6,
+      -142
+     ],
+     "size": [
+      14,
+      1,
+      14
+     ],
+     "material": "Neon",
+     "color": "#19D3F3",
+     "note": "Plataforma del portal de regreso a La Guarida"
+    },
+    {
+     "id": "portal-lobby",
+     "kind": "zone",
+     "name": "portal",
+     "target": "lobby",
+     "position": [
+      -400,
+      4,
+      -142
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "note": "Viaje a La Guarida (lobby)"
+    }
+   ],
+   "note": "Distrito aislado: se llega por el portal del lobby (La Guarida)."
+  },
+  {
+   "id": "centro-neon",
+   "name": "Centro Neón",
+   "layout": "hub",
+   "expectedSeconds": 2040,
+   "origin": [
+    0,
+    0,
+    -5000
+   ],
+   "start": "suelo",
+   "pieces": [
+    {
+     "id": "suelo",
+     "kind": "platform",
+     "position": [
+      0,
+      -1,
+      0
+     ],
+     "size": [
+      1400,
+      2,
+      500
+     ],
+     "material": "Asphalt",
+     "color": "#4A4E69",
+     "note": "Suelo del distrito (calle)"
+    },
+    {
+     "id": "distrito-1",
+     "kind": "zone",
+     "position": [
+      0,
+      30,
+      0
+     ],
+     "size": [
+      1400,
+      60,
+      500
+     ],
+     "name": "distrito",
+     "note": "Límites del distrito; nivel mínimo 20; preset de iluminación 'neon'"
+    },
+    {
+     "id": "acera-1",
+     "kind": "platform",
+     "position": [
+      -590.0,
+      0.3,
+      -142.5
+     ],
+     "size": [
+      220.0,
+      0.6,
+      215.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-1",
+     "kind": "prop",
+     "position": [
+      -590.0,
+      32.0,
+      -142.5
+     ],
+     "size": [
+      208.0,
+      64,
+      203.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFD2B5",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-2",
+     "kind": "platform",
+     "position": [
+      -590.0,
+      0.3,
+      142.5
+     ],
+     "size": [
+      220.0,
+      0.6,
+      215.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-2",
+     "kind": "prop",
+     "position": [
+      -590.0,
+      54.0,
+      142.5
+     ],
+     "size": [
+      208.0,
+      108,
+      203.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFD2B5",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-3",
+     "kind": "platform",
+     "position": [
+      -225.0,
+      0.3,
+      -142.5
+     ],
+     "size": [
+      390.0,
+      0.6,
+      215.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-3",
+     "kind": "prop",
+     "position": [
+      -225.0,
+      44.0,
+      -142.5
+     ],
+     "size": [
+      378.0,
+      88,
+      203.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFE9A8",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-4",
+     "kind": "platform",
+     "position": [
+      -225.0,
+      0.3,
+      142.5
+     ],
+     "size": [
+      390.0,
+      0.6,
+      215.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-4",
+     "kind": "prop",
+     "position": [
+      -225.0,
+      27.0,
+      142.5
+     ],
+     "size": [
+      378.0,
+      54,
+      203.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#C9B6FF",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-5",
+     "kind": "platform",
+     "position": [
+      225.0,
+      0.3,
+      -142.5
+     ],
+     "size": [
+      390.0,
+      0.6,
+      215.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-5",
+     "kind": "prop",
+     "position": [
+      225.0,
+      25.0,
+      -142.5
+     ],
+     "size": [
+      378.0,
+      50,
+      203.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#C9B6FF",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-6",
+     "kind": "platform",
+     "position": [
+      225.0,
+      0.3,
+      142.5
+     ],
+     "size": [
+      390.0,
+      0.6,
+      215.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-6",
+     "kind": "prop",
+     "position": [
+      225.0,
+      49.0,
+      142.5
+     ],
+     "size": [
+      378.0,
+      98,
+      203.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#C4F2D2",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-7",
+     "kind": "platform",
+     "position": [
+      590.0,
+      0.3,
+      -142.5
+     ],
+     "size": [
+      220.0,
+      0.6,
+      215.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-7",
+     "kind": "prop",
+     "position": [
+      590.0,
+      41.0,
+      -142.5
+     ],
+     "size": [
+      208.0,
+      82,
+      203.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#C4F2D2",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-8",
+     "kind": "platform",
+     "position": [
+      590.0,
+      0.3,
+      142.5
+     ],
+     "size": [
+      220.0,
+      0.6,
+      215.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-8",
+     "kind": "prop",
+     "position": [
+      590.0,
+      50.0,
+      142.5
+     ],
+     "size": [
+      208.0,
+      100,
+      203.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFE9A8",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "guarida-1",
+     "kind": "zone",
+     "position": [
+      -450,
+      4,
+      0
+     ],
+     "size": [
+      24,
+      8,
+      24
+     ],
+     "name": "guarida",
+     "note": "Guarida: zona segura. Depósito de Botín, tienda, reaparición y alijo. Los policías no entran. No se entra buscado"
+    },
+    {
+     "id": "afk-1",
+     "kind": "zone",
+     "position": [
+      -428,
+      4,
+      22
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "name": "afk",
+     "note": "Sala de Entrenamiento (AFK, volumen AfkZone, 6 jugadores). Desbloquea el nivel 8"
+    },
+    {
+     "id": "spawn-1",
+     "kind": "spawn",
+     "position": [
+      -450,
+      0.5,
+      0
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": false,
+     "note": "Reaparición de la Guarida más cercana"
+    },
+    {
+     "id": "guarida-2",
+     "kind": "zone",
+     "position": [
+      0,
+      4,
+      0
+     ],
+     "size": [
+      24,
+      8,
+      24
+     ],
+     "name": "guarida",
+     "note": "Guarida: zona segura. Depósito de Botín, tienda, reaparición y alijo. Los policías no entran. No se entra buscado"
+    },
+    {
+     "id": "afk-2",
+     "kind": "zone",
+     "position": [
+      22,
+      4,
+      22
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "name": "afk",
+     "note": "Sala de Entrenamiento (AFK, volumen AfkZone, 6 jugadores). Desbloquea el nivel 8"
+    },
+    {
+     "id": "spawn-2",
+     "kind": "spawn",
+     "position": [
+      0,
+      0.5,
+      0
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": false,
+     "note": "Reaparición de la Guarida más cercana"
+    },
+    {
+     "id": "guarida-3",
+     "kind": "zone",
+     "position": [
+      450,
+      4,
+      0
+     ],
+     "size": [
+      24,
+      8,
+      24
+     ],
+     "name": "guarida",
+     "note": "Guarida: zona segura. Depósito de Botín, tienda, reaparición y alijo. Los policías no entran. No se entra buscado"
+    },
+    {
+     "id": "afk-3",
+     "kind": "zone",
+     "position": [
+      472,
+      4,
+      22
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "name": "afk",
+     "note": "Sala de Entrenamiento (AFK, volumen AfkZone, 6 jugadores). Desbloquea el nivel 8"
+    },
+    {
+     "id": "spawn-3",
+     "kind": "spawn",
+     "position": [
+      450,
+      0.5,
+      0
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": false,
+     "note": "Reaparición de la Guarida más cercana"
+    },
+    {
+     "id": "mischief-semaforos-1",
+     "kind": "zone",
+     "position": [
+      40,
+      3,
+      45
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_semaforos",
+     "note": "Semáforo de esquina. Nivel 20. Atasca los autos patrulla de la esquina 20 s"
+    },
+    {
+     "id": "mischief-semaforos-2",
+     "kind": "zone",
+     "position": [
+      -410,
+      3,
+      45
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_semaforos",
+     "note": "Semáforo de esquina. Nivel 20. Atasca los autos patrulla de la esquina 20 s"
+    },
+    {
+     "id": "mischief-semaforos-3",
+     "kind": "zone",
+     "position": [
+      410,
+      3,
+      -45
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_semaforos",
+     "note": "Semáforo de esquina. Nivel 20. Atasca los autos patrulla de la esquina 20 s"
+    },
+    {
+     "id": "mischief-semaforos-4",
+     "kind": "zone",
+     "position": [
+      -40,
+      3,
+      45
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_semaforos",
+     "note": "Semáforo de esquina. Nivel 20. Atasca los autos patrulla de la esquina 20 s"
+    },
+    {
+     "id": "mischief-semaforos-5",
+     "kind": "zone",
+     "position": [
+      -490,
+      3,
+      45
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_semaforos",
+     "note": "Semáforo de esquina. Nivel 20. Atasca los autos patrulla de la esquina 20 s"
+    },
+    {
+     "id": "mischief-semaforos-6",
+     "kind": "zone",
+     "position": [
+      -40,
+      3,
+      -45
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_semaforos",
+     "note": "Semáforo de esquina. Nivel 20. Atasca los autos patrulla de la esquina 20 s"
+    },
+    {
+     "id": "mischief-bocinas-1",
+     "kind": "zone",
+     "position": [
+      330,
+      3,
+      -26
+     ],
+     "size": [
+      30,
+      8,
+      10
+     ],
+     "name": "mischief_bocinas",
+     "note": "Autos estacionados para el Concierto de bocinas. Nivel 20"
+    },
+    {
+     "id": "mischief-bocinas-2",
+     "kind": "zone",
+     "position": [
+      170,
+      3,
+      -26
+     ],
+     "size": [
+      30,
+      8,
+      10
+     ],
+     "name": "mischief_bocinas",
+     "note": "Autos estacionados para el Concierto de bocinas. Nivel 20"
+    },
+    {
+     "id": "mischief-bocinas-3",
+     "kind": "zone",
+     "position": [
+      -170,
+      3,
+      -26
+     ],
+     "size": [
+      30,
+      8,
+      10
+     ],
+     "name": "mischief_bocinas",
+     "note": "Autos estacionados para el Concierto de bocinas. Nivel 20"
+    },
+    {
+     "id": "mischief-bocinas-4",
+     "kind": "zone",
+     "position": [
+      -330,
+      3,
+      26
+     ],
+     "size": [
+      30,
+      8,
+      10
+     ],
+     "name": "mischief_bocinas",
+     "note": "Autos estacionados para el Concierto de bocinas. Nivel 20"
+    },
+    {
+     "id": "coop-sinfonia-1",
+     "kind": "zone",
+     "position": [
+      560,
+      3,
+      26
+     ],
+     "size": [
+      40,
+      8,
+      16
+     ],
+     "name": "coop_sinfonia",
+     "note": "Fila de autos para la Sinfonía de bocinas (banda, 3 a 8 jugadores). Nivel 20"
+    },
+    {
+     "id": "coop-sinfonia-2",
+     "kind": "zone",
+     "position": [
+      -560,
+      3,
+      26
+     ],
+     "size": [
+      40,
+      8,
+      16
+     ],
+     "name": "coop_sinfonia",
+     "note": "Fila de autos para la Sinfonía de bocinas (banda, 3 a 8 jugadores). Nivel 20"
+    },
+    {
+     "id": "hide-1",
+     "kind": "zone",
+     "position": [
+      30.0,
+      3,
+      -91.75
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (callejón, contenedor)"
+    },
+    {
+     "id": "hide-2",
+     "kind": "zone",
+     "position": [
+      -225.0,
+      3,
+      -35.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (callejón, contenedor)"
+    },
+    {
+     "id": "hide-3",
+     "kind": "zone",
+     "position": [
+      420.0,
+      3,
+      -91.75
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (callejón, contenedor)"
+    },
+    {
+     "id": "hide-4",
+     "kind": "zone",
+     "position": [
+      225.0,
+      3,
+      35.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (callejón, contenedor)"
+    },
+    {
+     "id": "hide-5",
+     "kind": "zone",
+     "position": [
+      130.5,
+      3,
+      35.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (callejón, contenedor)"
+    },
+    {
+     "id": "hide-6",
+     "kind": "zone",
+     "position": [
+      30.0,
+      3,
+      -193.25
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (callejón, contenedor)"
+    },
+    {
+     "id": "hide-7",
+     "kind": "zone",
+     "position": [
+      480.0,
+      3,
+      193.25
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (callejón, contenedor)"
+    },
+    {
+     "id": "hide-8",
+     "kind": "zone",
+     "position": [
+      -420.0,
+      3,
+      -142.5
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (callejón, contenedor)"
+    },
+    {
+     "id": "hide-9",
+     "kind": "zone",
+     "position": [
+      480.0,
+      3,
+      142.5
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (callejón, contenedor)"
+    },
+    {
+     "id": "hide-10",
+     "kind": "zone",
+     "position": [
+      -642.0,
+      3,
+      -35.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (callejón, contenedor)"
+    },
+    {
+     "id": "mischief-graffiti-1",
+     "kind": "zone",
+     "position": [
+      -420.0,
+      3,
+      -91.75
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_graffiti",
+     "note": "Muro de graffiti. Nivel 1"
+    },
+    {
+     "id": "mischief-graffiti-2",
+     "kind": "zone",
+     "position": [
+      538.0,
+      3,
+      -35.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_graffiti",
+     "note": "Muro de graffiti. Nivel 1"
+    },
+    {
+     "id": "mischief-graffiti-3",
+     "kind": "zone",
+     "position": [
+      -130.5,
+      3,
+      35.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_graffiti",
+     "note": "Muro de graffiti. Nivel 1"
+    },
+    {
+     "id": "mischief-hidrante-1",
+     "kind": "zone",
+     "position": [
+      420.0,
+      3,
+      -142.5
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_hidrante",
+     "note": "Hidrante. Nivel 6"
+    },
+    {
+     "id": "mischief-hidrante-2",
+     "kind": "zone",
+     "position": [
+      -319.5,
+      3,
+      -35.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_hidrante",
+     "note": "Hidrante. Nivel 6"
+    },
+    {
+     "id": "mischief-hidrante-3",
+     "kind": "zone",
+     "position": [
+      420.0,
+      3,
+      91.75
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_hidrante",
+     "note": "Hidrante. Nivel 6"
+    },
+    {
+     "id": "payspray-1",
+     "kind": "zone",
+     "position": [
+      450,
+      4,
+      155.0
+     ],
+     "size": [
+      20,
+      8,
+      20
+     ],
+     "name": "payspray",
+     "note": "Lavadero Pay'n'Spray: quita las estrellas por dinero"
+    },
+    {
+     "id": "cop-spawn-1",
+     "kind": "zone",
+     "position": [
+      335.0,
+      2,
+      0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-2",
+     "kind": "zone",
+     "position": [
+      0,
+      2,
+      155.0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-3",
+     "kind": "zone",
+     "position": [
+      155.0,
+      2,
+      0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-4",
+     "kind": "zone",
+     "position": [
+      0,
+      2,
+      -205.0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-5",
+     "kind": "zone",
+     "position": [
+      -450,
+      2,
+      65.0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-6",
+     "kind": "zone",
+     "position": [
+      -450,
+      2,
+      -115.0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-7",
+     "kind": "zone",
+     "position": [
+      0,
+      2,
+      -115.0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-8",
+     "kind": "zone",
+     "position": [
+      605.0,
+      2,
+      0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "limite-1",
+     "kind": "wall",
+     "position": [
+      0,
+      25,
+      -248.0
+     ],
+     "size": [
+      1400.0,
+      50,
+      4
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-2",
+     "kind": "wall",
+     "position": [
+      0,
+      25,
+      248.0
+     ],
+     "size": [
+      1400.0,
+      50,
+      4
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-3",
+     "kind": "wall",
+     "position": [
+      -698.0,
+      25,
+      0
+     ],
+     "size": [
+      4,
+      50,
+      500.0
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-4",
+     "kind": "wall",
+     "position": [
+      698.0,
+      25,
+      0
+     ],
+     "size": [
+      4,
+      50,
+      500.0
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "portal-pad-lobby",
+     "kind": "platform",
+     "position": [
+      -450,
+      0.6,
+      28
+     ],
+     "size": [
+      14,
+      1,
+      14
+     ],
+     "material": "Neon",
+     "color": "#19D3F3",
+     "note": "Plataforma del portal de regreso a La Guarida"
+    },
+    {
+     "id": "portal-lobby",
+     "kind": "zone",
+     "name": "portal",
+     "target": "lobby",
+     "position": [
+      -450,
+      4,
+      28
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "note": "Viaje a La Guarida (lobby)"
+    }
+   ],
+   "note": "Distrito aislado: se llega por el portal del lobby (La Guarida)."
+  },
+  {
+   "id": "distrito-queso",
+   "name": "Distrito Queso",
+   "layout": "hub",
+   "expectedSeconds": 5940,
+   "origin": [
+    5000,
+    0,
+    5000
+   ],
+   "start": "suelo",
+   "pieces": [
+    {
+     "id": "suelo",
+     "kind": "platform",
+     "position": [
+      0,
+      -1,
+      0
+     ],
+     "size": [
+      900,
+      2,
+      900
+     ],
+     "material": "Asphalt",
+     "color": "#4A4E69",
+     "note": "Suelo del distrito (calle)"
+    },
+    {
+     "id": "distrito-1",
+     "kind": "zone",
+     "position": [
+      0,
+      30,
+      0
+     ],
+     "size": [
+      900,
+      60,
+      900
+     ],
+     "name": "distrito",
+     "note": "Límites del distrito; nivel mínimo 26; preset de iluminación 'queso'"
+    },
+    {
+     "id": "acera-1",
+     "kind": "platform",
+     "position": [
+      -340.0,
+      0.3,
+      -340.0
+     ],
+     "size": [
+      220.0,
+      0.6,
+      220.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-1",
+     "kind": "prop",
+     "position": [
+      -340.0,
+      55.0,
+      -340.0
+     ],
+     "size": [
+      208.0,
+      110,
+      208.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#C9B6FF",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-2",
+     "kind": "platform",
+     "position": [
+      -340.0,
+      0.3,
+      0.0
+     ],
+     "size": [
+      220.0,
+      0.6,
+      340.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-2",
+     "kind": "prop",
+     "position": [
+      -340.0,
+      90.0,
+      0.0
+     ],
+     "size": [
+      208.0,
+      180,
+      328.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#BDE9FF",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-3",
+     "kind": "platform",
+     "position": [
+      -340.0,
+      0.3,
+      340.0
+     ],
+     "size": [
+      220.0,
+      0.6,
+      220.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-3",
+     "kind": "prop",
+     "position": [
+      -340.0,
+      51.0,
+      340.0
+     ],
+     "size": [
+      208.0,
+      102,
+      208.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFD9E4",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-4",
+     "kind": "platform",
+     "position": [
+      -105.0,
+      0.3,
+      -340.0
+     ],
+     "size": [
+      130.0,
+      0.6,
+      220.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-4",
+     "kind": "prop",
+     "position": [
+      -105.0,
+      71.0,
+      -340.0
+     ],
+     "size": [
+      118.0,
+      142,
+      208.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFD2B5",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-5",
+     "kind": "platform",
+     "position": [
+      -105.0,
+      0.3,
+      0.0
+     ],
+     "size": [
+      130.0,
+      0.6,
+      340.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-5",
+     "kind": "prop",
+     "position": [
+      -105.0,
+      54.0,
+      0.0
+     ],
+     "size": [
+      118.0,
+      108,
+      328.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFD9E4",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-6",
+     "kind": "platform",
+     "position": [
+      -105.0,
+      0.3,
+      340.0
+     ],
+     "size": [
+      130.0,
+      0.6,
+      220.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-6",
+     "kind": "prop",
+     "position": [
+      -105.0,
+      81.0,
+      340.0
+     ],
+     "size": [
+      118.0,
+      162,
+      208.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFE9A8",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-7",
+     "kind": "platform",
+     "position": [
+      105.0,
+      0.3,
+      -340.0
+     ],
+     "size": [
+      130.0,
+      0.6,
+      220.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-7",
+     "kind": "prop",
+     "position": [
+      105.0,
+      81.0,
+      -340.0
+     ],
+     "size": [
+      118.0,
+      162,
+      208.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#C4F2D2",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-8",
+     "kind": "platform",
+     "position": [
+      105.0,
+      0.3,
+      0.0
+     ],
+     "size": [
+      130.0,
+      0.6,
+      340.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-8",
+     "kind": "prop",
+     "position": [
+      105.0,
+      88.0,
+      0.0
+     ],
+     "size": [
+      118.0,
+      176,
+      328.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFE9A8",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-9",
+     "kind": "platform",
+     "position": [
+      105.0,
+      0.3,
+      340.0
+     ],
+     "size": [
+      130.0,
+      0.6,
+      220.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-9",
+     "kind": "prop",
+     "position": [
+      105.0,
+      76.0,
+      340.0
+     ],
+     "size": [
+      118.0,
+      152,
+      208.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#BDE9FF",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-10",
+     "kind": "platform",
+     "position": [
+      340.0,
+      0.3,
+      -340.0
+     ],
+     "size": [
+      220.0,
+      0.6,
+      220.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-10",
+     "kind": "prop",
+     "position": [
+      340.0,
+      46.0,
+      -340.0
+     ],
+     "size": [
+      208.0,
+      92,
+      208.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFE9A8",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-11",
+     "kind": "platform",
+     "position": [
+      340.0,
+      0.3,
+      0.0
+     ],
+     "size": [
+      220.0,
+      0.6,
+      340.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-11",
+     "kind": "prop",
+     "position": [
+      340.0,
+      73.0,
+      0.0
+     ],
+     "size": [
+      208.0,
+      146,
+      328.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#BDE9FF",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "acera-12",
+     "kind": "platform",
+     "position": [
+      340.0,
+      0.3,
+      340.0
+     ],
+     "size": [
+      220.0,
+      0.6,
+      220.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "edificio-12",
+     "kind": "prop",
+     "position": [
+      340.0,
+      58.0,
+      340.0
+     ],
+     "size": [
+      208.0,
+      116,
+      208.0
+     ],
+     "material": "SmoothPlastic",
+     "color": "#FFD9E4",
+     "note": "Edificio de referencia; el pase de arte lo viste"
+    },
+    {
+     "id": "guarida-1",
+     "kind": "zone",
+     "position": [
+      0,
+      4,
+      -200
+     ],
+     "size": [
+      24,
+      8,
+      24
+     ],
+     "name": "guarida",
+     "note": "Guarida: zona segura. Depósito de Botín, tienda, reaparición y alijo. Los policías no entran. No se entra buscado"
+    },
+    {
+     "id": "afk-1",
+     "kind": "zone",
+     "position": [
+      22,
+      4,
+      -178
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "name": "afk",
+     "note": "Sala de Entrenamiento (AFK, volumen AfkZone, 6 jugadores). Desbloquea el nivel 8"
+    },
+    {
+     "id": "spawn-1",
+     "kind": "spawn",
+     "position": [
+      0,
+      0.5,
+      -200
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": false,
+     "note": "Reaparición de la Guarida más cercana"
+    },
+    {
+     "id": "guarida-2",
+     "kind": "zone",
+     "position": [
+      -200,
+      4,
+      200
+     ],
+     "size": [
+      24,
+      8,
+      24
+     ],
+     "name": "guarida",
+     "note": "Guarida: zona segura. Depósito de Botín, tienda, reaparición y alijo. Los policías no entran. No se entra buscado"
+    },
+    {
+     "id": "afk-2",
+     "kind": "zone",
+     "position": [
+      -178,
+      4,
+      222
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "name": "afk",
+     "note": "Sala de Entrenamiento (AFK, volumen AfkZone, 6 jugadores). Desbloquea el nivel 8"
+    },
+    {
+     "id": "spawn-2",
+     "kind": "spawn",
+     "position": [
+      -200,
+      0.5,
+      200
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": false,
+     "note": "Reaparición de la Guarida más cercana"
+    },
+    {
+     "id": "guarida-3",
+     "kind": "zone",
+     "position": [
+      200,
+      4,
+      200
+     ],
+     "size": [
+      24,
+      8,
+      24
+     ],
+     "name": "guarida",
+     "note": "Guarida: zona segura. Depósito de Botín, tienda, reaparición y alijo. Los policías no entran. No se entra buscado"
+    },
+    {
+     "id": "afk-3",
+     "kind": "zone",
+     "position": [
+      222,
+      4,
+      222
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "name": "afk",
+     "note": "Sala de Entrenamiento (AFK, volumen AfkZone, 6 jugadores). Desbloquea el nivel 8"
+    },
+    {
+     "id": "spawn-3",
+     "kind": "spawn",
+     "position": [
+      200,
+      0.5,
+      200
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": false,
+     "note": "Reaparición de la Guarida más cercana"
+    },
+    {
+     "id": "coop-cajafuerte-1",
+     "kind": "zone",
+     "position": [
+      40.0,
+      3,
+      0.0
+     ],
+     "size": [
+      10,
+      8,
+      30
+     ],
+     "name": "coop_cajafuerte",
+     "note": "Banco de Queso: Caja Fuerte (banda, 4 a 8 jugadores). Nivel 26"
+    },
+    {
+     "id": "mischief-cajero-1",
+     "kind": "zone",
+     "position": [
+      -230.0,
+      3,
+      0.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_cajero",
+     "note": "Cajero automático glitcheado. Nivel 26"
+    },
+    {
+     "id": "mischief-cajero-2",
+     "kind": "zone",
+     "position": [
+      340.0,
+      3,
+      -170.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_cajero",
+     "note": "Cajero automático glitcheado. Nivel 26"
+    },
+    {
+     "id": "mischief-cajero-3",
+     "kind": "zone",
+     "position": [
+      -170.0,
+      3,
+      288.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_cajero",
+     "note": "Cajero automático glitcheado. Nivel 26"
+    },
+    {
+     "id": "mischief-cajero-4",
+     "kind": "zone",
+     "position": [
+      40.0,
+      3,
+      340.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_cajero",
+     "note": "Cajero automático glitcheado. Nivel 26"
+    },
+    {
+     "id": "mischief-cajero-5",
+     "kind": "zone",
+     "position": [
+      230.0,
+      3,
+      -340.0
+     ],
+     "size": [
+      8,
+      8,
+      8
+     ],
+     "name": "mischief_cajero",
+     "note": "Cajero automático glitcheado. Nivel 26"
+    },
+    {
+     "id": "mischief-estatua-1",
+     "kind": "zone",
+     "position": [
+      -288.0,
+      3,
+      230.0
+     ],
+     "size": [
+      14,
+      14,
+      14
+     ],
+     "name": "mischief_estatua",
+     "note": "Estatua con bigote. Nivel 26"
+    },
+    {
+     "id": "mischief-estatua-2",
+     "kind": "zone",
+     "position": [
+      -288.0,
+      3,
+      -170.0
+     ],
+     "size": [
+      14,
+      14,
+      14
+     ],
+     "name": "mischief_estatua",
+     "note": "Estatua con bigote. Nivel 26"
+    },
+    {
+     "id": "mischief-estatua-3",
+     "kind": "zone",
+     "position": [
+      40.0,
+      3,
+      -392.0
+     ],
+     "size": [
+      14,
+      14,
+      14
+     ],
+     "name": "mischief_estatua",
+     "note": "Estatua con bigote. Nivel 26"
+    },
+    {
+     "id": "hide-1",
+     "kind": "zone",
+     "position": [
+      -230.0,
+      3,
+      340.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (portal, contenedor)"
+    },
+    {
+     "id": "hide-2",
+     "kind": "zone",
+     "position": [
+      -40.0,
+      3,
+      340.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (portal, contenedor)"
+    },
+    {
+     "id": "hide-3",
+     "kind": "zone",
+     "position": [
+      392.0,
+      3,
+      170.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (portal, contenedor)"
+    },
+    {
+     "id": "hide-4",
+     "kind": "zone",
+     "position": [
+      105.0,
+      3,
+      170.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (portal, contenedor)"
+    },
+    {
+     "id": "hide-5",
+     "kind": "zone",
+     "position": [
+      -340.0,
+      3,
+      170.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (portal, contenedor)"
+    },
+    {
+     "id": "hide-6",
+     "kind": "zone",
+     "position": [
+      230.0,
+      3,
+      82.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (portal, contenedor)"
+    },
+    {
+     "id": "hide-7",
+     "kind": "zone",
+     "position": [
+      392.0,
+      3,
+      -230.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (portal, contenedor)"
+    },
+    {
+     "id": "hide-8",
+     "kind": "zone",
+     "position": [
+      288.0,
+      3,
+      -170.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (portal, contenedor)"
+    },
+    {
+     "id": "hide-9",
+     "kind": "zone",
+     "position": [
+      230.0,
+      3,
+      -288.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (portal, contenedor)"
+    },
+    {
+     "id": "hide-10",
+     "kind": "zone",
+     "position": [
+      -40.0,
+      3,
+      -82.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (portal, contenedor)"
+    },
+    {
+     "id": "hide-11",
+     "kind": "zone",
+     "position": [
+      -230.0,
+      3,
+      288.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (portal, contenedor)"
+    },
+    {
+     "id": "hide-12",
+     "kind": "zone",
+     "position": [
+      -392.0,
+      3,
+      -230.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (portal, contenedor)"
+    },
+    {
+     "id": "cubierta-1",
+     "kind": "zone",
+     "position": [
+      -40.0,
+      3,
+      288.0
+     ],
+     "size": [
+      30,
+      20,
+      40
+     ],
+     "name": "cubierta",
+     "note": "Galería cubierta: el Helicóptero no ve a quien está debajo"
+    },
+    {
+     "id": "cubierta-2",
+     "kind": "zone",
+     "position": [
+      170.0,
+      3,
+      -340.0
+     ],
+     "size": [
+      30,
+      20,
+      40
+     ],
+     "name": "cubierta",
+     "note": "Galería cubierta: el Helicóptero no ve a quien está debajo"
+    },
+    {
+     "id": "cubierta-3",
+     "kind": "zone",
+     "position": [
+      -170.0,
+      3,
+      -288.0
+     ],
+     "size": [
+      30,
+      20,
+      40
+     ],
+     "name": "cubierta",
+     "note": "Galería cubierta: el Helicóptero no ve a quien está debajo"
+    },
+    {
+     "id": "cubierta-4",
+     "kind": "zone",
+     "position": [
+      230.0,
+      3,
+      288.0
+     ],
+     "size": [
+      30,
+      20,
+      40
+     ],
+     "name": "cubierta",
+     "note": "Galería cubierta: el Helicóptero no ve a quien está debajo"
+    },
+    {
+     "id": "heli-spawn-1",
+     "kind": "zone",
+     "position": [
+      200,
+      60,
+      -200
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "heli_spawn",
+     "note": "Punto de aparición del Helicóptero Banana (★5)"
+    },
+    {
+     "id": "heli-spawn-2",
+     "kind": "zone",
+     "position": [
+      0,
+      60,
+      -200
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "heli_spawn",
+     "note": "Punto de aparición del Helicóptero Banana (★5)"
+    },
+    {
+     "id": "payspray-1",
+     "kind": "zone",
+     "position": [
+      0,
+      4,
+      45.0
+     ],
+     "size": [
+      20,
+      8,
+      20
+     ],
+     "name": "payspray",
+     "note": "Lavadero Pay'n'Spray: quita las estrellas por dinero"
+    },
+    {
+     "id": "cop-spawn-1",
+     "kind": "zone",
+     "position": [
+      -200,
+      2,
+      -405.0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-2",
+     "kind": "zone",
+     "position": [
+      200,
+      2,
+      -135.0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-3",
+     "kind": "zone",
+     "position": [
+      -405.0,
+      2,
+      200
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-4",
+     "kind": "zone",
+     "position": [
+      315.0,
+      2,
+      200
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-5",
+     "kind": "zone",
+     "position": [
+      -405.0,
+      2,
+      -200
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-6",
+     "kind": "zone",
+     "position": [
+      -200,
+      2,
+      315.0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-7",
+     "kind": "zone",
+     "position": [
+      -200,
+      2,
+      405.0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-8",
+     "kind": "zone",
+     "position": [
+      0,
+      2,
+      -405.0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "escalera-1",
+     "kind": "truss",
+     "position": [
+      -445.0,
+      55.0,
+      -340.0
+     ],
+     "size": [
+      2,
+      110,
+      2
+     ],
+     "note": "Escalera a la azotea"
+    },
+    {
+     "id": "azotea-1",
+     "kind": "platform",
+     "position": [
+      -340.0,
+      110.5,
+      -340.0
+     ],
+     "size": [
+      200.0,
+      1,
+      200.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8",
+     "note": "Azotea: ruta alterna contra el helicóptero"
+    },
+    {
+     "id": "escalera-2",
+     "kind": "truss",
+     "position": [
+      -445.0,
+      90.0,
+      0.0
+     ],
+     "size": [
+      2,
+      180,
+      2
+     ],
+     "note": "Escalera a la azotea"
+    },
+    {
+     "id": "azotea-2",
+     "kind": "platform",
+     "position": [
+      -340.0,
+      180.5,
+      0.0
+     ],
+     "size": [
+      200.0,
+      1,
+      320.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8",
+     "note": "Azotea: ruta alterna contra el helicóptero"
+    },
+    {
+     "id": "escalera-3",
+     "kind": "truss",
+     "position": [
+      -445.0,
+      51.0,
+      340.0
+     ],
+     "size": [
+      2,
+      102,
+      2
+     ],
+     "note": "Escalera a la azotea"
+    },
+    {
+     "id": "azotea-3",
+     "kind": "platform",
+     "position": [
+      -340.0,
+      102.5,
+      340.0
+     ],
+     "size": [
+      200.0,
+      1,
+      200.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8",
+     "note": "Azotea: ruta alterna contra el helicóptero"
+    },
+    {
+     "id": "limite-1",
+     "kind": "wall",
+     "position": [
+      0,
+      25,
+      -448.0
+     ],
+     "size": [
+      900.0,
+      50,
+      4
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-2",
+     "kind": "wall",
+     "position": [
+      0,
+      25,
+      448.0
+     ],
+     "size": [
+      900.0,
+      50,
+      4
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-3",
+     "kind": "wall",
+     "position": [
+      -448.0,
+      25,
+      0
+     ],
+     "size": [
+      4,
+      50,
+      900.0
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-4",
+     "kind": "wall",
+     "position": [
+      448.0,
+      25,
+      0
+     ],
+     "size": [
+      4,
+      50,
+      900.0
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "portal-pad-lobby",
+     "kind": "platform",
+     "position": [
+      0,
+      0.6,
+      -172
+     ],
+     "size": [
+      14,
+      1,
+      14
+     ],
+     "material": "Neon",
+     "color": "#19D3F3",
+     "note": "Plataforma del portal de regreso a La Guarida"
+    },
+    {
+     "id": "portal-lobby",
+     "kind": "zone",
+     "name": "portal",
+     "target": "lobby",
+     "position": [
+      0,
+      4,
+      -172
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "note": "Viaje a La Guarida (lobby)"
+    }
+   ],
+   "note": "Distrito aislado: se llega por el portal del lobby (La Guarida)."
+  },
+  {
+   "id": "puerto-podrido",
+   "name": "Puerto Podrido",
+   "layout": "hub",
+   "expectedSeconds": 5040,
+   "origin": [
+    -5000,
+    0,
+    5000
+   ],
+   "start": "suelo",
+   "pieces": [
+    {
+     "id": "suelo",
+     "kind": "platform",
+     "position": [
+      0,
+      -1,
+      0
+     ],
+     "size": [
+      1000,
+      2,
+      800
+     ],
+     "material": "Asphalt",
+     "color": "#4A4E69",
+     "note": "Suelo del distrito (calle)"
+    },
+    {
+     "id": "distrito-1",
+     "kind": "zone",
+     "position": [
+      0,
+      30,
+      0
+     ],
+     "size": [
+      1000,
+      60,
+      800
+     ],
+     "name": "distrito",
+     "note": "Límites del distrito; nivel mínimo 40; preset de iluminación 'puerto'"
+    },
+    {
+     "id": "acera-1",
+     "kind": "platform",
+     "position": [
+      -415.0,
+      0.3,
+      -315.0
+     ],
+     "size": [
+      170.0,
+      0.6,
+      170.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "contenedores-1",
+     "kind": "prop",
+     "position": [
+      -415.0,
+      9,
+      -315.0
+     ],
+     "size": [
+      158.0,
+      18,
+      158.0
+     ],
+     "material": "Metal",
+     "color": "#FFD60A",
+     "note": "Pila de contenedores de referencia; el pase de arte la divide en contenedores"
+    },
+    {
+     "id": "acera-2",
+     "kind": "platform",
+     "position": [
+      -415.0,
+      0.3,
+      0.0
+     ],
+     "size": [
+      170.0,
+      0.6,
+      340.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "contenedores-2",
+     "kind": "prop",
+     "position": [
+      -415.0,
+      9,
+      0.0
+     ],
+     "size": [
+      158.0,
+      18,
+      328.0
+     ],
+     "material": "Metal",
+     "color": "#19D3F3",
+     "note": "Pila de contenedores de referencia; el pase de arte la divide en contenedores"
+    },
+    {
+     "id": "acera-3",
+     "kind": "platform",
+     "position": [
+      -415.0,
+      0.3,
+      315.0
+     ],
+     "size": [
+      170.0,
+      0.6,
+      170.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "contenedores-3",
+     "kind": "prop",
+     "position": [
+      -415.0,
+      9,
+      315.0
+     ],
+     "size": [
+      158.0,
+      18,
+      158.0
+     ],
+     "material": "Metal",
+     "color": "#7CC8FF",
+     "note": "Pila de contenedores de referencia; el pase de arte la divide en contenedores"
+    },
+    {
+     "id": "acera-4",
+     "kind": "platform",
+     "position": [
+      -150.0,
+      0.3,
+      -315.0
+     ],
+     "size": [
+      240.0,
+      0.6,
+      170.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "contenedores-4",
+     "kind": "prop",
+     "position": [
+      -150.0,
+      9,
+      -315.0
+     ],
+     "size": [
+      228.0,
+      18,
+      158.0
+     ],
+     "material": "Metal",
+     "color": "#4ADE80",
+     "note": "Pila de contenedores de referencia; el pase de arte la divide en contenedores"
+    },
+    {
+     "id": "acera-5",
+     "kind": "platform",
+     "position": [
+      -150.0,
+      0.3,
+      0.0
+     ],
+     "size": [
+      240.0,
+      0.6,
+      340.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "contenedores-5",
+     "kind": "prop",
+     "position": [
+      -150.0,
+      9,
+      0.0
+     ],
+     "size": [
+      228.0,
+      18,
+      328.0
+     ],
+     "material": "Metal",
+     "color": "#19D3F3",
+     "note": "Pila de contenedores de referencia; el pase de arte la divide en contenedores"
+    },
+    {
+     "id": "acera-6",
+     "kind": "platform",
+     "position": [
+      -150.0,
+      0.3,
+      315.0
+     ],
+     "size": [
+      240.0,
+      0.6,
+      170.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "contenedores-6",
+     "kind": "prop",
+     "position": [
+      -150.0,
+      9,
+      315.0
+     ],
+     "size": [
+      228.0,
+      18,
+      158.0
+     ],
+     "material": "Metal",
+     "color": "#FFD60A",
+     "note": "Pila de contenedores de referencia; el pase de arte la divide en contenedores"
+    },
+    {
+     "id": "acera-7",
+     "kind": "platform",
+     "position": [
+      150.0,
+      0.3,
+      -315.0
+     ],
+     "size": [
+      240.0,
+      0.6,
+      170.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "contenedores-7",
+     "kind": "prop",
+     "position": [
+      150.0,
+      9,
+      -315.0
+     ],
+     "size": [
+      228.0,
+      18,
+      158.0
+     ],
+     "material": "Metal",
+     "color": "#B97CFF",
+     "note": "Pila de contenedores de referencia; el pase de arte la divide en contenedores"
+    },
+    {
+     "id": "acera-8",
+     "kind": "platform",
+     "position": [
+      150.0,
+      0.3,
+      0.0
+     ],
+     "size": [
+      240.0,
+      0.6,
+      340.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "contenedores-8",
+     "kind": "prop",
+     "position": [
+      150.0,
+      9,
+      0.0
+     ],
+     "size": [
+      228.0,
+      18,
+      328.0
+     ],
+     "material": "Metal",
+     "color": "#FFD60A",
+     "note": "Pila de contenedores de referencia; el pase de arte la divide en contenedores"
+    },
+    {
+     "id": "acera-9",
+     "kind": "platform",
+     "position": [
+      150.0,
+      0.3,
+      315.0
+     ],
+     "size": [
+      240.0,
+      0.6,
+      170.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "contenedores-9",
+     "kind": "prop",
+     "position": [
+      150.0,
+      9,
+      315.0
+     ],
+     "size": [
+      228.0,
+      18,
+      158.0
+     ],
+     "material": "Metal",
+     "color": "#FF9F1C",
+     "note": "Pila de contenedores de referencia; el pase de arte la divide en contenedores"
+    },
+    {
+     "id": "acera-10",
+     "kind": "platform",
+     "position": [
+      415.0,
+      0.3,
+      -315.0
+     ],
+     "size": [
+      170.0,
+      0.6,
+      170.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "contenedores-10",
+     "kind": "prop",
+     "position": [
+      415.0,
+      9,
+      -315.0
+     ],
+     "size": [
+      158.0,
+      18,
+      158.0
+     ],
+     "material": "Metal",
+     "color": "#7CC8FF",
+     "note": "Pila de contenedores de referencia; el pase de arte la divide en contenedores"
+    },
+    {
+     "id": "acera-11",
+     "kind": "platform",
+     "position": [
+      415.0,
+      0.3,
+      0.0
+     ],
+     "size": [
+      170.0,
+      0.6,
+      340.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "contenedores-11",
+     "kind": "prop",
+     "position": [
+      415.0,
+      9,
+      0.0
+     ],
+     "size": [
+      158.0,
+      18,
+      328.0
+     ],
+     "material": "Metal",
+     "color": "#7CC8FF",
+     "note": "Pila de contenedores de referencia; el pase de arte la divide en contenedores"
+    },
+    {
+     "id": "acera-12",
+     "kind": "platform",
+     "position": [
+      415.0,
+      0.3,
+      315.0
+     ],
+     "size": [
+      170.0,
+      0.6,
+      170.0
+     ],
+     "material": "Concrete",
+     "color": "#9A9FB8"
+    },
+    {
+     "id": "contenedores-12",
+     "kind": "prop",
+     "position": [
+      415.0,
+      9,
+      315.0
+     ],
+     "size": [
+      158.0,
+      18,
+      158.0
+     ],
+     "material": "Metal",
+     "color": "#FFD60A",
+     "note": "Pila de contenedores de referencia; el pase de arte la divide en contenedores"
+    },
+    {
+     "id": "guarida-1",
+     "kind": "zone",
+     "position": [
+      -300,
+      4,
+      200
+     ],
+     "size": [
+      24,
+      8,
+      24
+     ],
+     "name": "guarida",
+     "note": "Guarida: zona segura. Depósito de Botín, tienda, reaparición y alijo. Los policías no entran. No se entra buscado"
+    },
+    {
+     "id": "afk-1",
+     "kind": "zone",
+     "position": [
+      -278,
+      4,
+      222
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "name": "afk",
+     "note": "Sala de Entrenamiento (AFK, volumen AfkZone, 6 jugadores). Desbloquea el nivel 8"
+    },
+    {
+     "id": "spawn-1",
+     "kind": "spawn",
+     "position": [
+      -300,
+      0.5,
+      200
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": false,
+     "note": "Reaparición de la Guarida más cercana"
+    },
+    {
+     "id": "guarida-2",
+     "kind": "zone",
+     "position": [
+      300,
+      4,
+      -200
+     ],
+     "size": [
+      24,
+      8,
+      24
+     ],
+     "name": "guarida",
+     "note": "Guarida: zona segura. Depósito de Botín, tienda, reaparición y alijo. Los policías no entran. No se entra buscado"
+    },
+    {
+     "id": "afk-2",
+     "kind": "zone",
+     "position": [
+      322,
+      4,
+      -178
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "name": "afk",
+     "note": "Sala de Entrenamiento (AFK, volumen AfkZone, 6 jugadores). Desbloquea el nivel 8"
+    },
+    {
+     "id": "spawn-2",
+     "kind": "spawn",
+     "position": [
+      300,
+      0.5,
+      -200
+     ],
+     "size": [
+      6,
+      1,
+      6
+     ],
+     "enabled": false,
+     "note": "Reaparición de la Guarida más cercana"
+    },
+    {
+     "id": "grua-1",
+     "kind": "prop",
+     "position": [
+      430,
+      45,
+      340
+     ],
+     "size": [
+      8,
+      90,
+      8
+     ],
+     "material": "Metal",
+     "color": "#FF9F1C",
+     "note": "Grúa del puerto (referencia)"
+    },
+    {
+     "id": "grua-brazo-1",
+     "kind": "prop",
+     "position": [
+      380,
+      92,
+      340
+     ],
+     "size": [
+      110,
+      6,
+      8
+     ],
+     "material": "Metal",
+     "color": "#FF9F1C",
+     "note": "Brazo de la grúa"
+    },
+    {
+     "id": "arena-jefe-1",
+     "kind": "zone",
+     "position": [
+      0,
+      4,
+      0
+     ],
+     "size": [
+      180,
+      12,
+      140
+     ],
+     "name": "arena_jefe",
+     "note": "Plaza del Comisario Cerebrote (jefe ★6)"
+    },
+    {
+     "id": "comisario-spawn-1",
+     "kind": "zone",
+     "position": [
+      0,
+      2,
+      0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "comisario_spawn",
+     "note": "Aparición del Comisario Cerebrote"
+    },
+    {
+     "id": "mischief-contenedor-1",
+     "kind": "zone",
+     "position": [
+      270.0,
+      3,
+      354.5
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_contenedor",
+     "note": "Contenedor misterioso. Nivel 40"
+    },
+    {
+     "id": "mischief-contenedor-2",
+     "kind": "zone",
+     "position": [
+      93.0,
+      3,
+      170.0
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_contenedor",
+     "note": "Contenedor misterioso. Nivel 40"
+    },
+    {
+     "id": "mischief-contenedor-3",
+     "kind": "zone",
+     "position": [
+      375.5,
+      3,
+      230.0
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_contenedor",
+     "note": "Contenedor misterioso. Nivel 40"
+    },
+    {
+     "id": "mischief-contenedor-4",
+     "kind": "zone",
+     "position": [
+      207.0,
+      3,
+      230.0
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_contenedor",
+     "note": "Contenedor misterioso. Nivel 40"
+    },
+    {
+     "id": "mischief-contenedor-5",
+     "kind": "zone",
+     "position": [
+      -207.0,
+      3,
+      230.0
+     ],
+     "size": [
+      10,
+      8,
+      10
+     ],
+     "name": "mischief_contenedor",
+     "note": "Contenedor misterioso. Nivel 40"
+    },
+    {
+     "id": "hide-1",
+     "kind": "zone",
+     "position": [
+      375.5,
+      3,
+      -230.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (entre contenedores)"
+    },
+    {
+     "id": "hide-2",
+     "kind": "zone",
+     "position": [
+      -270.0,
+      3,
+      275.5
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (entre contenedores)"
+    },
+    {
+     "id": "hide-3",
+     "kind": "zone",
+     "position": [
+      270.0,
+      3,
+      82.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (entre contenedores)"
+    },
+    {
+     "id": "hide-4",
+     "kind": "zone",
+     "position": [
+      -30.0,
+      3,
+      275.5
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (entre contenedores)"
+    },
+    {
+     "id": "hide-5",
+     "kind": "zone",
+     "position": [
+      -30.0,
+      3,
+      -315.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (entre contenedores)"
+    },
+    {
+     "id": "hide-6",
+     "kind": "zone",
+     "position": [
+      -375.5,
+      3,
+      -230.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (entre contenedores)"
+    },
+    {
+     "id": "hide-7",
+     "kind": "zone",
+     "position": [
+      415.0,
+      3,
+      170.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (entre contenedores)"
+    },
+    {
+     "id": "hide-8",
+     "kind": "zone",
+     "position": [
+      -270.0,
+      3,
+      -354.5
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (entre contenedores)"
+    },
+    {
+     "id": "hide-9",
+     "kind": "zone",
+     "position": [
+      -30.0,
+      3,
+      -82.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (entre contenedores)"
+    },
+    {
+     "id": "hide-10",
+     "kind": "zone",
+     "position": [
+      -330.0,
+      3,
+      -82.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "note": "Escondite (entre contenedores)"
+    },
+    {
+     "id": "cubierta-1",
+     "kind": "zone",
+     "position": [
+      415.0,
+      3,
+      -230.0
+     ],
+     "size": [
+      30,
+      20,
+      40
+     ],
+     "name": "cubierta",
+     "note": "Galpón cubierto: el Helicóptero no ve a quien está debajo"
+    },
+    {
+     "id": "cubierta-2",
+     "kind": "zone",
+     "position": [
+      150.0,
+      3,
+      -170.0
+     ],
+     "size": [
+      30,
+      20,
+      40
+     ],
+     "name": "cubierta",
+     "note": "Galpón cubierto: el Helicóptero no ve a quien está debajo"
+    },
+    {
+     "id": "cubierta-3",
+     "kind": "zone",
+     "position": [
+      -415.0,
+      3,
+      -230.0
+     ],
+     "size": [
+      30,
+      20,
+      40
+     ],
+     "name": "cubierta",
+     "note": "Galpón cubierto: el Helicóptero no ve a quien está debajo"
+    },
+    {
+     "id": "heli-spawn-1",
+     "kind": "zone",
+     "position": [
+      0,
+      60,
+      -200
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "heli_spawn",
+     "note": "Punto de aparición del Helicóptero Banana (★5)"
+    },
+    {
+     "id": "heli-spawn-2",
+     "kind": "zone",
+     "position": [
+      -300,
+      60,
+      200
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "heli_spawn",
+     "note": "Punto de aparición del Helicóptero Banana (★5)"
+    },
+    {
+     "id": "payspray-1",
+     "kind": "zone",
+     "position": [
+      -300,
+      4,
+      275.0
+     ],
+     "size": [
+      20,
+      8,
+      20
+     ],
+     "name": "payspray",
+     "note": "Lavadero Pay'n'Spray: quita las estrellas por dinero"
+    },
+    {
+     "id": "cop-spawn-1",
+     "kind": "zone",
+     "position": [
+      -5.0,
+      2,
+      200
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-2",
+     "kind": "zone",
+     "position": [
+      -5.0,
+      2,
+      -200
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-3",
+     "kind": "zone",
+     "position": [
+      -300,
+      2,
+      -175.0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-4",
+     "kind": "zone",
+     "position": [
+      355.0,
+      2,
+      -200
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-5",
+     "kind": "zone",
+     "position": [
+      265.0,
+      2,
+      200
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-6",
+     "kind": "zone",
+     "position": [
+      300,
+      2,
+      -355.0
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-7",
+     "kind": "zone",
+     "position": [
+      -185.0,
+      2,
+      200
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "cop-spawn-8",
+     "kind": "zone",
+     "position": [
+      355.0,
+      2,
+      200
+     ],
+     "size": [
+      10,
+      4,
+      10
+     ],
+     "name": "cop_spawn",
+     "note": "Punto de aparición de policías de patrulla (fuera de la vista inmediata del jugador)"
+    },
+    {
+     "id": "limite-1",
+     "kind": "wall",
+     "position": [
+      0,
+      25,
+      -398.0
+     ],
+     "size": [
+      1000.0,
+      50,
+      4
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-2",
+     "kind": "wall",
+     "position": [
+      0,
+      25,
+      398.0
+     ],
+     "size": [
+      1000.0,
+      50,
+      4
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-3",
+     "kind": "wall",
+     "position": [
+      -498.0,
+      25,
+      0
+     ],
+     "size": [
+      4,
+      50,
+      800.0
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "limite-4",
+     "kind": "wall",
+     "position": [
+      498.0,
+      25,
+      0
+     ],
+     "size": [
+      4,
+      50,
+      800.0
+     ],
+     "transparency": 1,
+     "color": "#7CC8FF",
+     "note": "Límite del mundo (invisible)"
+    },
+    {
+     "id": "portal-pad-lobby",
+     "kind": "platform",
+     "position": [
+      -300,
+      0.6,
+      228
+     ],
+     "size": [
+      14,
+      1,
+      14
+     ],
+     "material": "Neon",
+     "color": "#19D3F3",
+     "note": "Plataforma del portal de regreso a La Guarida"
+    },
+    {
+     "id": "portal-lobby",
+     "kind": "zone",
+     "name": "portal",
+     "target": "lobby",
+     "position": [
+      -300,
+      4,
+      228
+     ],
+     "size": [
+      14,
+      8,
+      14
+     ],
+     "note": "Viaje a La Guarida (lobby)"
+    }
+   ],
+   "note": "Distrito aislado: se llega por el portal del lobby (La Guarida)."
+  }
+ ]
+}

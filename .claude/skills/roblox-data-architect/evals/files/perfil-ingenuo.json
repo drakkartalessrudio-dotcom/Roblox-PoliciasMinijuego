@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "document": {
+    "store": "PlayerProfiles",
+    "key": "profile_{userid}",
+    "persistence": "persistent"
+  },
+  "version": 2,
+  "sections": {
+    "profile": {
+      "owner": "PlayerManager",
+      "description": "Todo el perfil del jugador",
+      "fields": {
+        "Version": { "type": "integer", "default": 1 },
+        "username": { "type": "string" },
+        "coins": { "type": "integer", "min": 0 },
+        "rareCoins": { "type": "integer", "min": 0 },
+        "worldCups": { "type": "integer", "default": 200 },
+        "clubId": { "type": "integer", "default": 2 },
+        "upgradedNodes": { "type": "list", "maxItems": 500, "items": { "type": "string", "maxLength": 32 } },
+        "mapsAvailable": { "type": "list", "maxItems": 50, "items": { "type": "string", "maxLength": 32 } },
+        "recruitmentTokens": {
+          "type": "map", "key": "class", "maxEntries": 3,
+          "value": { "type": "list", "maxItems": 4, "items": { "type": "integer", "min": 0 } }
+        },
+        "assistants": {
+          "type": "map", "key": "class",
+          "value": {
+            "type": "list", "maxItems": 100,
+            "items": {
+              "type": "record",
+              "fields": {
+                "xp": { "type": "integer", "min": 0 },
+                "affinity": { "type": "integer", "min": 0 },
+                "isThere": { "type": "boolean" }
+              }
+            }
+          }
+        },
+        "isNewPlayer": { "type": "boolean", "default": true },
+        "talkedToMandoFirstTime": { "type": "boolean" },
+        "tookFirstMission": { "type": "boolean" },
+        "tookSecondMission": { "type": "boolean" },
+        "tookThirdMission": { "type": "boolean" },
+        "tookFirstTravel": { "type": "boolean" },
+        "firstTimeSeenQuestScreen": { "type": "boolean" },
+        "playTimeSeconds": { "type": "integer", "min": 0 },
+        "lastTimeEntered": { "type": "integer" }
+      }
+    }
+  }
+}

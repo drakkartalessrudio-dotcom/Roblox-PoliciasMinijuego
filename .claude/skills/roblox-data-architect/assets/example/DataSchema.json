@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 1,
+  "document": {
+    "store": "PlayerData",
+    "key": "player_{UserId}",
+    "persistence": "persistent",
+    "budget": 1000000
+  },
+  "version": 2,
+  "sections": {
+    "meta": {
+      "owner": "PlayerData",
+      "role": "meta",
+      "description": "Fechas, sesiones y tiempo de juego; los mantiene el servicio de datos",
+      "fields": {
+        "firstJoinAt": { "type": "time" },
+        "lastJoinAt": { "type": "time" },
+        "sessions": { "type": "integer", "min": 0 },
+        "playTimeSec": { "type": "integer", "min": 0 }
+      }
+    },
+    "onboarding": {
+      "owner": "Onboarding",
+      "description": "Hitos de los primeros minutos, por ID, con la fecha en que se cumplieron",
+      "fields": {
+        "flags": { "type": "map", "key": "flagId", "maxEntries": 50, "value": { "type": "time" } }
+      }
+    },
+    "economy": {
+      "owner": "Economy",
+      "description": "Saldo de cada moneda",
+      "fields": {
+        "wallet": {
+          "type": "map", "key": "currencyId", "keyMaxLength": 24, "maxEntries": 10,
+          "value": { "type": "integer", "min": 0, "max": 999999999999 }
+        }
+      }
+    },
+    "quests": {
+      "owner": "Quests",
+      "description": "Misiones activas con sus objetivos, misiones completadas y reputación por facción",
+      "fields": {
+        "active": {
+          "type": "map", "key": "questId", "maxEntries": 10,
+          "value": {
+            "type": "record",
+            "fields": {
+              "startedAt": { "type": "time" },
+              "objectives": { "type": "map", "key": "objectiveId", "maxEntries": 8, "value": { "type": "integer", "min": 0, "max": 100000 } }
+            }
+          }
+        },
+        "completed": { "type": "map", "key": "questId", "maxEntries": 1000, "value": { "type": "time" } },
+        "reputation": {
+          "type": "map", "key": "factionId", "keyMaxLength": 24, "maxEntries": 12,
+          "value": { "type": "integer", "min": 0, "max": 100000 }
+        }
+      }
+    },
+    "inventory": {
+      "owner": "Inventory",
+      "description": "Objetos apilables, objetos únicos con su estado y lo equipado",
+      "fields": {
+        "stacks": { "type": "map", "key": "itemId", "maxEntries": 200, "value": { "type": "integer", "min": 0, "max": 9999 } },
+        "items": {
+          "type": "map", "key": "uid", "keyMaxLength": 36, "maxEntries": 300,
+          "value": {
+            "type": "record",
+            "fields": {
+              "itemId": { "type": "string", "maxLength": 32 },
+              "level": { "type": "integer", "min": 1, "max": 100, "default": 1 },
+              "acquiredAt": { "type": "time" }
+            }
+          }
+        },
+        "equipped": { "type": "map", "key": "slot", "keyMaxLength": 16, "maxEntries": 6, "value": { "type": "string", "maxLength": 36 } }
+      }
+    },
+    "companions": {
+      "owner": "Companions",
+      "description": "Compañeros reclutados, por ID, con su experiencia y afinidad",
+      "fields": {
+        "recruited": {
+          "type": "map", "key": "companionId", "maxEntries": 60,
+          "value": {
+            "type": "record",
+            "fields": {
+              "recruitedAt": { "type": "time" },
+              "xp": { "type": "integer", "min": 0, "max": 10000000 },
+              "affinity": { "type": "integer", "min": 0, "max": 1000 }
+            }
+          }
+        },
+        "tokens": {
+          "type": "map", "key": "tokenId", "maxEntries": 12,
+          "description": "Fichas de reclutamiento por clase y rareza (por ejemplo support_rare)",
+          "value": { "type": "integer", "min": 0, "max": 9999 }
+        }
+      }
+    },
+    "rewards": {
+      "owner": "Rewards",
+      "description": "Racha de la recompensa diaria",
+      "fields": {
+        "daily": {
+          "type": "record",
+          "fields": {
+            "streak": { "type": "integer", "min": 0, "max": 3650 },
+            "lastClaimAt": { "type": "time" }
+          }
+        }
+      }
+    },
+    "stats": {
+      "owner": "Stats",
+      "description": "Contadores para logros y KPIs",
+      "fields": {
+        "counters": { "type": "map", "key": "statId", "maxEntries": 50, "value": { "type": "integer", "min": 0 } }
+      }
+    },
+    "purchases": {
+      "owner": "Shop",
+      "role": "purchases",
+      "description": "Recibos de Developer Products ya entregados",
+      "fields": {
+        "processed": { "type": "map", "key": "purchaseId", "keyMaxLength": 40, "maxEntries": 200, "value": { "type": "time" } }
+      }
+    },
+    "entitlements": {
+      "owner": "Shop",
+      "role": "entitlements",
+      "description": "Derechos que duran: compras únicas, regalos y premios de eventos",
+      "fields": {
+        "owned": {
+          "type": "map", "key": "productKey", "maxEntries": 100,
+          "value": {
+            "type": "record",
+            "fields": {
+              "grantedAt": { "type": "time" },
+              "source": { "type": "enum", "values": ["purchase", "gift", "event"] }
+            }
+          }
+        }
+      }
+    }
+  },
+  "migrations": [
+    {
+      "from": 1,
+      "to": 2,
+      "description": "Las monedas pasan a un mapa por moneda, quests.done se llama completed y los booleanos de onboarding pasan a banderas con fecha",
+      "ops": [
+        { "op": "move", "from": "economy.coins", "to": "economy.wallet.coins" },
+        { "op": "move", "from": "quests.done", "to": "quests.completed" },
+        {
+          "op": "custom",
+          "name": "flagsFromBooleans",
+          "sections": ["onboarding"],
+          "description": "Cada booleano tookFirstMission, tookSecondMission y tookThirdMission en true se convierte en la bandera first_mission, second_mission o third_mission con la fecha de meta.lastJoinAt, y se borra el booleano"
+        }
+      ]
+    }
+  ],
+  "history": {
+    "1": {
+      "sections": {
+        "meta": {
+          "owner": "PlayerData",
+          "role": "meta",
+          "fields": {
+            "firstJoinAt": { "type": "time" },
+            "lastJoinAt": { "type": "time" },
+            "sessions": { "type": "integer", "min": 0 },
+            "playTimeSec": { "type": "integer", "min": 0 }
+          }
+        },
+        "onboarding": {
+          "owner": "Onboarding",
+          "fields": {
+            "tookFirstMission": { "type": "boolean" },
+            "tookSecondMission": { "type": "boolean" },
+            "tookThirdMission": { "type": "boolean" }
+          }
+        },
+        "economy": {
+          "owner": "Economy",
+          "fields": {
+            "coins": { "type": "integer", "min": 0 }
+          }
+        },
+        "quests": {
+          "owner": "Quests",
+          "fields": {
+            "active": {
+              "type": "map", "key": "questId", "maxEntries": 10,
+              "value": {
+                "type": "record",
+                "fields": {
+                  "startedAt": { "type": "time" },
+                  "objectives": { "type": "map", "key": "objectiveId", "maxEntries": 8, "value": { "type": "integer", "min": 0 } }
+                }
+              }
+            },
+            "done": { "type": "map", "key": "questId", "maxEntries": 1000, "value": { "type": "time" } }
+          }
+        },
+        "inventory": {
+          "owner": "Inventory",
+          "fields": {
+            "stacks": { "type": "map", "key": "itemId", "maxEntries": 200, "value": { "type": "integer", "min": 0, "max": 9999 } },
+            "items": {
+              "type": "map", "key": "uid", "keyMaxLength": 36, "maxEntries": 300,
+              "value": {
+                "type": "record",
+                "fields": {
+                  "itemId": { "type": "string", "maxLength": 32 },
+                  "level": { "type": "integer", "min": 1, "max": 100, "default": 1 },
+                  "acquiredAt": { "type": "time" }
+                }
+              }
+            },
+            "equipped": { "type": "map", "key": "slot", "keyMaxLength": 16, "maxEntries": 6, "value": { "type": "string", "maxLength": 36 } }
+          }
+        },
+        "rewards": {
+          "owner": "Rewards",
+          "fields": {
+            "daily": {
+              "type": "record",
+              "fields": {
+                "streak": { "type": "integer", "min": 0, "max": 3650 },
+                "lastClaimAt": { "type": "time" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "skill_name": "roblox-level-designer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Armá los niveles de este obby a partir del GDD (evals/files/gdd-obby-hielo.md). Dejá todo listo para que el builder lo construya.",
+      "expected_output": "design/LEVELS.md y src/shared/Levels.json con 5 niveles lineales que respetan el brief y la física del GDD, validados sin errores, con curva de dificultad documentada.",
+      "files": ["evals/files/gdd-obby-hielo.md"],
+      "expectations": [
+        "Existe src/shared/Levels.json con schemaVersion 1 y 5 niveles",
+        "physics en Levels.json es walkSpeed 18, jumpHeight 7.2 y gravity 196.2, como en el GDD",
+        "validate_levels.py sobre el Levels.json final termina con 0 errores",
+        "Cada nivel es linear, tiene start, path que empieza en start y una pieza goal",
+        "Las etapas 2 y 5 usan el material Ice en plataformas del recorrido; la etapa 1 no",
+        "La etapa 3 incluye una pieza truss en su recorrido",
+        "Las etapas 4 y 5 tienen una plataforma con motion de tipo linear y un checkpoint a mitad del recorrido",
+        "Hay un peligro debajo del recorrido de cada etapa",
+        "El primer nivel no tiene saltos de más del 60 % de la capacidad según el validador",
+        "Existe design/LEVELS.md con la tabla de curva de dificultad, la intención de cada nivel y el resultado de la validación",
+        "No se escribió código Luau"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "diseñá el lobby y la arena de mi minijuego de monedas por rondas, el GDD está en evals/files/gdd-rondas-monedas.md. hasta 8 jugadores",
+      "expected_output": "Levels.json con un lobby y una arena de layout arena: spawn habilitado en el lobby, al menos 8 spawns deshabilitados en la arena, zonas con nombre para lobby, arena y área de monedas, sin peligros, validado y documentado.",
+      "files": ["evals/files/gdd-rondas-monedas.md"],
+      "expectations": [
+        "validate_levels.py sobre el Levels.json final termina con 0 errores",
+        "Hay exactamente un spawn habilitado y está en el lobby",
+        "La arena tiene al menos 8 piezas spawn con enabled false",
+        "Hay piezas zone con nombre para el lobby, la arena y el área donde aparecen las monedas",
+        "No hay piezas hazard",
+        "LEVELS.md estima el tiempo para cruzar la arena con walkSpeed 16 y queda por debajo de 8 segundos",
+        "LEVELS.md incluye notas para el builder sobre cómo usar los spawns y las zonas"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Los testers dicen que hay saltos imposibles y que el primer nivel es muy difícil (evals/files/Levels-roto.json). Arreglalo sin cambiar la cantidad de niveles ni lo que enseña cada uno, y contame qué cambiaste.",
+      "expected_output": "Levels.json corregido con 0 errores y sin avisos de onboarding en el primer nivel, mismos 3 niveles y mecánicas, con un resumen de los cambios por salto.",
+      "files": ["evals/files/Levels-roto.json"],
+      "expectations": [
+        "Se ejecutó validate_levels.py antes de cambiar el archivo para encontrar los problemas",
+        "validate_levels.py sobre el archivo corregido termina con 0 errores",
+        "El archivo corregido no tiene advertencias de saltos incómodos en el primer nivel",
+        "Siguen siendo 3 niveles con los mismos ids",
+        "El nivel 3 conserva la plataforma móvil y la barra giratoria",
+        "El resumen nombra cada salto corregido: p4 → p5 del nivel 2, p3 → p4 del nivel 3 y los saltos del nivel 1"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+[
+  {"query": "decorá los niveles de mi obby con árboles, rocas y faroles para que no parezcan blockout", "should_trigger": true},
+  {"query": "mi mapa de roblox se ve vacío y todo gris de plástico, haceme el pase de arte", "should_trigger": true},
+  {"query": "quiero que el nivel de lava tenga volcanes de fondo, niebla y luces en los checkpoints", "should_trigger": true},
+  {"query": "el GDD tiene design.environment en true, armá el Environment.json", "should_trigger": true},
+  {"query": "después de decorar, los jugadores se suben a una roca y se saltean medio nivel, arreglá la decoración", "should_trigger": true},
+  {"query": "ambientá la arena de mi juego de rondas como una ciudad abandonada sin cambiar el mapa", "should_trigger": true},
+  {"query": "tengo unos modelos 3D y texturas propias, quiero que los uses para decorar los niveles de mi juego", "should_trigger": true},
+  {"query": "el piso de mi arena tiene manchas de pasto y los muros se ven lisos de plástico", "should_trigger": true},
+  {"query": "elegí la paleta de colores y las fuentes de mi juego de roblox", "should_trigger": false},
+  {"query": "agregá más etapas a mi obby con saltos más difíciles", "should_trigger": false},
+  {"query": "el botón de la tienda queda detrás del chat, rediseñá el HUD", "should_trigger": false},
+  {"query": "modelá un árbol en blender para mi juego", "should_trigger": false},
+  {"query": "creá un gamepass de doble velocidad para mi juego", "should_trigger": false},
+  {"query": "hazme un juego de roblox completo de carreras", "should_trigger": false}
+]

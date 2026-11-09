@@ -1,0 +1,16 @@
+[
+  {"query": "necesito las 10 etapas de mi obby espacial con la curva de dificultad, dónde van los checkpoints y qué tan largos son los saltos; el GDD ya tiene el brief", "should_trigger": true},
+  {"query": "los jugadores se quedan trabados en la etapa 6 de mi obby, creo que hay un salto imposible. te paso el Levels.json, revisalo", "should_trigger": true},
+  {"query": "diseñame el mapa de la arena para mi juego de escondidas por rondas: 12 jugadores, lobby aparte, varios escondites", "should_trigger": true},
+  {"query": "cómo distribuyo las 6 parcelas de mi tycoon de pizzería y el orden de los botones de compra dentro de cada una?", "should_trigger": true},
+  {"query": "quiero que la etapa 3 tenga una plataforma que se mueva de lado a lado y una barra giratoria, agregalas a los datos de niveles y validá que se pueda pasar", "should_trigger": true},
+  {"query": "armame el hub de mi simulador de minería con 4 zonas desbloqueables y la tienda cerca del spawn", "should_trigger": true},
+  {"query": "convertí este brief de niveles en el Levels.json para que el builder lo pueda construir", "should_trigger": true},
+  {"query": "programá en luau el script que mueve las plataformas y hace que la lava mate al tocarla en mi obby", "should_trigger": false},
+  {"query": "definí la economía de mi tycoon: cuánto cuesta cada horno y cuánto genera por segundo", "should_trigger": false},
+  {"query": "hazme un obby completo de roblox listo para abrir en studio, con todo programado", "should_trigger": false},
+  {"query": "escribí un script de luau que genere terreno procedural con ruido Perlin para mi juego de supervivencia", "should_trigger": false},
+  {"query": "cómo modelo en Blender un castillo low poly para importarlo a Roblox Studio como mesh?", "should_trigger": false},
+  {"query": "qué significa el campo demandingRatio en la configuración de un linter de JavaScript? me aparece en un proyecto", "should_trigger": false},
+  {"query": "escribí el GDD de un obby de dulces con pilares, onboarding y KPIs", "should_trigger": false}
+]

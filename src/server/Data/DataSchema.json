@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "document": {
+    "store": "PlayerData",
+    "key": "player_{UserId}",
+    "persistence": "persistent",
+    "budget": 1000000
+  },
+  "version": 1,
+  "sections": {
+    "meta": {
+      "owner": "PlayerData",
+      "role": "meta",
+      "description": "Fechas, sesiones y tiempo de juego; los mantiene el servicio de datos",
+      "fields": {
+        "firstJoinAt": { "type": "time" },
+        "lastJoinAt": { "type": "time" },
+        "sessions": { "type": "integer", "min": 0 },
+        "playTimeSec": { "type": "integer", "min": 0 }
+      }
+    },
+    "progress": {
+      "owner": "Progress",
+      "description": "Nivel (1 a 50), XP hacia el siguiente nivel y banderas con fecha de hitos y onboarding",
+      "fields": {
+        "level": { "type": "integer", "min": 1, "max": 50, "default": 1 },
+        "xp": { "type": "integer", "min": 0, "max": 100000, "description": "XP acumulada dentro del nivel actual" },
+        "flags": {
+          "type": "map", "key": "flagId", "keyMaxLength": 32, "maxEntries": 40,
+          "value": { "type": "time" },
+          "description": "joined, first_mischief, first_star, first_escape, first_deposit, first_upgrade, first_level_up, tutorial_done y otros hitos"
+        }
+      }
+    },
+    "economy": {
+      "owner": "Economy",
+      "description": "Saldo de cada moneda permanente: dinero (se reinicia con la Ascensión) y cerebros. El Botín sin depositar no se guarda",
+      "fields": {
+        "wallet": {
+          "type": "map", "key": "currencyId", "keyMaxLength": 24, "maxEntries": 4,
+          "value": { "type": "integer", "min": 0, "max": 999999999999 }
+        }
+      }
+    },
+    "upgrades": {
+      "owner": "Upgrades",
+      "description": "Nivel de cada mejora (Zapatillas, Sigilo, Bolsillos, Manos, Fortachón, Cinta, Batería, Gimnasio) y herramientas desbloqueadas",
+      "fields": {
+        "levels": {
+          "type": "map", "key": "upgradeId", "keyMaxLength": 24, "maxEntries": 16,
+          "value": { "type": "integer", "min": 0, "max": 10 }
+        },
+        "tools": {
+          "type": "map", "key": "toolId", "keyMaxLength": 24, "maxEntries": 12,
+          "value": { "type": "time" },
+          "description": "Herramientas compradas, con la fecha de compra"
+        }
+      }
+    },
+    "ascension": {
+      "owner": "Ascension",
+      "description": "Ascensiones hechas (0 a 10), perks de Cerebros y datos de la carrera actual",
+      "fields": {
+        "count": { "type": "integer", "min": 0, "max": 10 },
+        "perks": {
+          "type": "map", "key": "perkId", "keyMaxLength": 24, "maxEntries": 8,
+          "value": { "type": "integer", "min": 0, "max": 5 }
+        },
+        "run": {
+          "type": "record",
+          "fields": {
+            "startedAt": { "type": "time" },
+            "reachedSixStar": { "type": "boolean", "description": "Llegó a 6 estrellas en esta carrera (+1 Cerebro al ascender)" }
+          }
+        }
+      }
+    },
+    "album": {
+      "owner": "Mischief",
+      "description": "Diseños de graffiti desbloqueados (30 normales y los exclusivos de banda)",
+      "fields": {
+        "designs": {
+          "type": "map", "key": "designId", "keyMaxLength": 24, "maxEntries": 80,
+          "value": { "type": "time" }
+        }
+      }
+    },
+    "quests": {
+      "owner": "Quests",
+      "description": "Misiones diarias con su racha, y el cartel Se Busca semanal. Reinician con la hora del servidor (UTC)",
+      "fields": {
+        "daily": {
+          "type": "record",
+          "fields": {
+            "dayStart": { "type": "time", "description": "Inicio (UTC) del día al que pertenecen las misiones activas" },
+            "streak": { "type": "integer", "min": 0, "max": 3650 },
+            "lastCompletedDay": { "type": "time" },
+            "active": {
+              "type": "map", "key": "questId", "keyMaxLength": 24, "maxEntries": 6,
+              "value": {
+                "type": "record",
+                "fields": {
+                  "progress": { "type": "integer", "min": 0, "max": 100000 },
+                  "claimedAt": { "type": "time" }
+                }
+              }
+            }
+          }
+        },
+        "weekly": {
+          "type": "record",
+          "fields": {
+            "weekId": { "type": "string", "maxLength": 12 },
+            "progress": { "type": "integer", "min": 0, "max": 100000 },
+            "claimedAt": { "type": "time" }
+          }
+        }
+      }
+    },
+    "training": {
+      "owner": "Training",
+      "description": "Sala de Entrenamiento (tiempo pagado hoy para el tope diario) y el alijo de la Guarida (última vez reclamado)",
+      "fields": {
+        "dayStart": { "type": "time", "description": "Inicio (UTC) del día al que pertenece usedSeconds" },
+        "usedSeconds": { "type": "integer", "min": 0, "max": 86400 },
+        "stashClaimedAt": { "type": "time" }
+      }
+    },
+    "cosmetics": {
+      "owner": "Cosmetics",
+      "description": "Skins, auras, cintas y etiquetas desbloqueadas y equipadas",
+      "fields": {
+        "owned": {
+          "type": "map", "key": "cosmeticId", "keyMaxLength": 32, "maxEntries": 150,
+          "value": {
+            "type": "record",
+            "fields": {
+              "grantedAt": { "type": "time" },
+              "source": { "type": "enum", "values": ["shop", "level", "quest", "gamepass", "event"] }
+            }
+          }
+        },
+        "equipped": {
+          "type": "map", "key": "slot", "keyMaxLength": 16, "maxEntries": 6,
+          "value": { "type": "string", "maxLength": 32 }
+        }
+      }
+    },
+    "stats": {
+      "owner": "Stats",
+      "description": "Contadores para misiones, logros y KPIs (arrestos, travesuras, derribos, travesuras de banda, rescates)",
+      "fields": {
+        "counters": {
+          "type": "map", "key": "statId", "keyMaxLength": 32, "maxEntries": 50,
+          "value": { "type": "integer", "min": 0, "max": 999999999 }
+        }
+      }
+    },
+    "purchases": {
+      "owner": "Shop",
+      "role": "purchases",
+      "description": "Recibos de Developer Products ya entregados (paquetes de Dinero, Soborno, Fianza)",
+      "fields": {
+        "processed": {
+          "type": "map", "key": "purchaseId", "keyMaxLength": 40, "maxEntries": 500,
+          "value": { "type": "time" }
+        }
+      }
+    }
+  },
+  "migrations": [],
+  "history": {}
+}

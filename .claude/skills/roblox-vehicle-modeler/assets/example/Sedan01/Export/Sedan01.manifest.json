@@ -1,0 +1,425 @@
+{
+ "schema": 2,
+ "asset": "Sedan01",
+ "tier": 1,
+ "bodyType": "sedan",
+ "class": "land / Tier 1 classic family sedan (RWD)",
+ "units": "studs (1 stud = 0.28 m); Roblox model frame: +X right, +Y up, +Z back (nose = -Z); origin = ground under the centre of the car",
+ "frame": "roblox-model",
+ "fbx": "Sedan01_Roblox.fbx",
+ "tris": {
+  "total": 2808,
+  "budget": 3000
+ },
+ "dimensions": {
+  "length": 15.8571,
+  "width": 6.2857,
+  "height": 5.2143,
+  "wheelbase": 8.9286,
+  "wheel_radius": 1.1786
+ },
+ "parts": {
+  "Bumpers": {
+   "kind": "Bumpers",
+   "material": "SmoothPlastic",
+   "color": [
+    142,
+    147,
+    153
+   ],
+   "transparency": 0,
+   "center": [
+    -0.0,
+    1.5,
+    -0.0
+   ],
+   "size": [
+    6.0,
+    0.5714,
+    16.2143
+   ],
+   "tris": 88
+  },
+  "Chassis": {
+   "kind": "Chassis",
+   "material": "SmoothPlastic",
+   "color": [
+    30,
+    136,
+    214
+   ],
+   "transparency": 0,
+   "center": [
+    -0.0,
+    3.125,
+    -0.0179
+   ],
+   "size": [
+    7.2143,
+    4.1071,
+    15.9643
+   ],
+   "tris": 1288
+  },
+  "Lights": {
+   "kind": "Lights",
+   "material": "Neon",
+   "color": [
+    242,
+    226,
+    122
+   ],
+   "transparency": 0,
+   "center": [
+    -0.0,
+    2.5,
+    -0.0179
+   ],
+   "size": [
+    5.3571,
+    0.6429,
+    15.9643
+   ],
+   "tris": 208
+  },
+  "Rim_FL": {
+   "kind": "Rim",
+   "material": "Metal",
+   "color": [
+    154,
+    160,
+    166
+   ],
+   "transparency": 0,
+   "center": [
+    -2.5464,
+    1.1786,
+    -4.1786
+   ],
+   "size": [
+    0.6643,
+    1.3671,
+    1.3671
+   ],
+   "tris": 120
+  },
+  "Rim_FR": {
+   "kind": "Rim",
+   "material": "Metal",
+   "color": [
+    154,
+    160,
+    166
+   ],
+   "transparency": 0,
+   "center": [
+    2.5464,
+    1.1786,
+    -4.1786
+   ],
+   "size": [
+    0.6643,
+    1.3671,
+    1.3671
+   ],
+   "tris": 120
+  },
+  "Rim_RL": {
+   "kind": "Rim",
+   "material": "Metal",
+   "color": [
+    154,
+    160,
+    166
+   ],
+   "transparency": 0,
+   "center": [
+    -2.5464,
+    1.1786,
+    4.75
+   ],
+   "size": [
+    0.6643,
+    1.3671,
+    1.3671
+   ],
+   "tris": 120
+  },
+  "Rim_RR": {
+   "kind": "Rim",
+   "material": "Metal",
+   "color": [
+    154,
+    160,
+    166
+   ],
+   "transparency": 0,
+   "center": [
+    2.5464,
+    1.1786,
+    4.75
+   ],
+   "size": [
+    0.6643,
+    1.3671,
+    1.3671
+   ],
+   "tris": 120
+  },
+  "Tire_FL": {
+   "kind": "Tire",
+   "material": "SmoothPlastic",
+   "color": [
+    28,
+    28,
+    32
+   ],
+   "transparency": 0,
+   "center": [
+    -2.5357,
+    1.1786,
+    -4.1786
+   ],
+   "size": [
+    0.7143,
+    2.3571,
+    2.3571
+   ],
+   "tris": 144
+  },
+  "Tire_FR": {
+   "kind": "Tire",
+   "material": "SmoothPlastic",
+   "color": [
+    28,
+    28,
+    32
+   ],
+   "transparency": 0,
+   "center": [
+    2.5357,
+    1.1786,
+    -4.1786
+   ],
+   "size": [
+    0.7143,
+    2.3571,
+    2.3571
+   ],
+   "tris": 144
+  },
+  "Tire_RL": {
+   "kind": "Tire",
+   "material": "SmoothPlastic",
+   "color": [
+    28,
+    28,
+    32
+   ],
+   "transparency": 0,
+   "center": [
+    -2.5357,
+    1.1786,
+    4.75
+   ],
+   "size": [
+    0.7143,
+    2.3571,
+    2.3571
+   ],
+   "tris": 144
+  },
+  "Tire_RR": {
+   "kind": "Tire",
+   "material": "SmoothPlastic",
+   "color": [
+    28,
+    28,
+    32
+   ],
+   "transparency": 0,
+   "center": [
+    2.5357,
+    1.1786,
+    4.75
+   ],
+   "size": [
+    0.7143,
+    2.3571,
+    2.3571
+   ],
+   "tris": 144
+  },
+  "Trim": {
+   "kind": "Trim",
+   "material": "SmoothPlastic",
+   "color": [
+    142,
+    147,
+    153
+   ],
+   "transparency": 0,
+   "center": [
+    -0.0,
+    2.3571,
+    -7.9643
+   ],
+   "size": [
+    2.2143,
+    0.7857,
+    0.1429
+   ],
+   "tris": 44
+  },
+  "Windows": {
+   "kind": "Windows",
+   "material": "Glass",
+   "color": [
+    43,
+    58,
+    68
+   ],
+   "transparency": 0.35,
+   "center": [
+    -0.0,
+    4.3231,
+    0.6883
+   ],
+   "size": [
+    5.933,
+    1.5034,
+    8.2662
+   ],
+   "tris": 124
+  }
+ },
+ "sockets": {
+  "Socket_Exhaust": [
+   1.76,
+   1.2857,
+   7.9643
+  ],
+  "Socket_FrontBumper": [
+   -0.0,
+   1.3571,
+   -8.1071
+  ],
+  "Socket_RearBumper": [
+   -0.0,
+   1.3571,
+   7.9643
+  ],
+  "Socket_RoofExtra": [
+   -0.0,
+   5.2143,
+   0.6429
+  ],
+  "Socket_Spoiler": [
+   -0.0,
+   3.6429,
+   7.1071
+  ],
+  "Socket_Wheel_FL": [
+   -2.5357,
+   1.1786,
+   -4.1786
+  ],
+  "Socket_Wheel_FR": [
+   2.5357,
+   1.1786,
+   -4.1786
+  ],
+  "Socket_Wheel_RL": [
+   -2.5357,
+   1.1786,
+   4.75
+  ],
+  "Socket_Wheel_RR": [
+   2.5357,
+   1.1786,
+   4.75
+  ]
+ },
+ "rig": {
+  "wheels": {
+   "FL": {
+    "hub": [
+     -2.5357,
+     1.1786,
+     -4.1786
+    ],
+    "radius": 1.1785,
+    "width": 0.7143,
+    "steer": true,
+    "drive": false
+   },
+   "FR": {
+    "hub": [
+     2.5357,
+     1.1786,
+     -4.1786
+    ],
+    "radius": 1.1785,
+    "width": 0.7143,
+    "steer": true,
+    "drive": false
+   },
+   "RL": {
+    "hub": [
+     -2.5357,
+     1.1786,
+     4.75
+    ],
+    "radius": 1.1785,
+    "width": 0.7143,
+    "steer": false,
+    "drive": true
+   },
+   "RR": {
+    "hub": [
+     2.5357,
+     1.1786,
+     4.75
+    ],
+    "radius": 1.1785,
+    "width": 0.7143,
+    "steer": false,
+    "drive": true
+   }
+  },
+  "wheelRadius": 1.1785,
+  "trackWidth": 5.0714,
+  "wheelbase": 8.9286,
+  "axleHeight": 1.1786,
+  "seat": {
+   "position": [
+    -1.4832,
+    1.5785,
+    0.027
+   ],
+   "size": [
+    2.0,
+    0.6,
+    2.0
+   ],
+   "side": "left",
+   "source": "derived from the Windows piece"
+  },
+  "groundClearance": 1.0715,
+  "collision": {
+   "center": [
+    -0.0,
+    3.125,
+    -0.0179
+   ],
+   "size": [
+    7.2143,
+    4.1071,
+    15.9643
+   ],
+   "fidelity": "Box"
+  },
+  "massKg": 1100
+ },
+ "verify": []
+}

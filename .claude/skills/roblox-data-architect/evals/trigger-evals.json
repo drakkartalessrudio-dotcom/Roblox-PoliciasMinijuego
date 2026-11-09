@@ -1,0 +1,18 @@
+[
+  {"query": "cómo guardo el inventario y las misiones de los jugadores de mi juego de roblox para que no se pierdan y pueda agregar misiones nuevas después", "should_trigger": true},
+  {"query": "diseñame la clase del perfil del jugador para mi simulador de mascotas: qué va al datastore y cómo lo organizo", "should_trigger": true},
+  {"query": "a veces mis jugadores pierden el progreso cuando cambian de servidor, revisá cómo tengo pensado guardar los datos", "should_trigger": true},
+  {"query": "tengo que renombrar el campo coins a gold en el datastore sin que los jugadores que ya tienen datos pierdan nada", "should_trigger": true},
+  {"query": "el GDD ya tiene design.data en true, armá el DataSchema.json y el DATA.md del juego", "should_trigger": true},
+  {"query": "quiero que mi obby recuerde el último nivel que pasaste aunque salgas del juego", "should_trigger": true},
+  {"query": "cómo registro qué misiones completó cada jugador y cuántas veces, sin que el perfil crezca sin control", "should_trigger": true},
+  {"query": "mi perfil de jugador ya pesa mucho en el datastore, cómo hago para que no pase el límite de 4 MB", "should_trigger": true},
+  {"query": "diseñá la economía de mi tycoon: cuánto cuesta cada mejora y cuánto tarda un jugador en llegar al final", "should_trigger": false},
+  {"query": "el script de guardado tira 'DataStore request was added to queue' en la línea 40 del servicio, arreglalo", "should_trigger": false},
+  {"query": "agregá un Developer Product de 100 gemas a mi juego con su ProcessReceipt", "should_trigger": false},
+  {"query": "hacé un ranking global de los jugadores con más monedas que se actualice cada minuto", "should_trigger": false},
+  {"query": "quiero medir cuántos jugadores vuelven al día siguiente y en qué paso del tutorial abandonan", "should_trigger": false},
+  {"query": "agregá un evento de Halloween con una tienda especial que dure una semana", "should_trigger": false},
+  {"query": "en mi isla de UEFN guardo el perfil con un weak_map de player a una clase persistable, cómo le agrego un campo en Verse", "should_trigger": false},
+  {"query": "programá un sistema de misiones en mi juego de roblox donde entrar a una zona avance el objetivo", "should_trigger": false}
+]

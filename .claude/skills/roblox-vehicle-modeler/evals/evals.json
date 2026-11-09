@@ -1,0 +1,86 @@
+{
+ "skill_name": "roblox-vehicle-modeler",
+ "evals": [
+  {
+   "id": 1,
+   "prompt": "Modelá el pick-up del Tier 4 de mi juego según evals/files/brief-pickup-tier4.md. Dejalo listo para que el juego lo ensamble.",
+   "expected_output": "Un spec con bloque roblox (bodyType pickup), caja Bed como pieza aparte, exportado con build_vehicle.py, manifest schema 2 validado sin errores con check_vehicle.py, _PARTS.md y la lista de importación a Studio, diciendo qué quedó sin probar en Studio.",
+   "files": [
+    "evals/files/brief-pickup-tier4.md"
+   ],
+   "expectations": [
+    "Existe <Asset>.spec.json con un bloque roblox con bodyType pickup y materials con color amarillo en Chassis",
+    "El spec define tri_budget 4200 y no más de 4500",
+    "La caja de carga es una parte con id bed (pieza Bed del manifest), separada del Chassis",
+    "No hay alerón ni calcomanías y los nueve Socket_* del spec tienen los nombres exactos de la guía",
+    "Las dimensiones del spec salen de las medidas del brief (largo 480, ancho 190, alto 185, distancia entre ejes 290, radio de rueda 38)",
+    "Se pidió aprobación del blockout con renders antes de exportar",
+    "Existe Export/<Asset>_Roblox.fbx y Export/<Asset>.manifest.json con schema 2 y frame roblox-model",
+    "check_vehicle.py sobre Export termina con 0 errores",
+    "En el manifest, Socket_FrontBumper tiene menor z que Socket_RearBumper (la trompa apunta a -Z)",
+    "Existe <Asset>_PARTS.md y se le dio su ruta al usuario",
+    "Se entregó la lista de importación a Studio (Import 3D, guardar .rbxm en src/shared/VehicleMeshes, VehicleBody.verify)",
+    "Se dijo explícitamente que el import, la altura de reposo, el asiento y la colisión no se probaron en Studio",
+    "No se escribió lógica de manejo ni de economía"
+   ]
+  },
+  {
+   "id": 2,
+   "prompt": "Revisá este manifest de un auto, evals/files/Auto-roto.manifest.json. Algo está mal y no sé qué. Decime qué es y cómo lo arreglo.",
+   "expected_output": "Corre check_vehicle.py, lista los errores reales (pieza Windows faltante, trompa a +Z, rueda FL del lado equivocado, material no nativo, presupuesto excedido) y propone el arreglo en el spec o el exportador, no editando el manifest ni con parches de Luau.",
+   "files": [
+    "evals/files/Auto-roto.manifest.json"
+   ],
+   "expectations": [
+    "Corre check_vehicle.py sobre el manifest",
+    "Detecta que falta la pieza Windows",
+    "Detecta que la trompa no apunta a -Z (Socket_FrontBumper y Socket_RearBumper invertidos)",
+    "Detecta que la rueda FL tiene el buje del lado equivocado",
+    "Detecta que Trim usa un material que no es nativo de Roblox",
+    "Detecta que los triángulos superan el presupuesto del manifest",
+    "No edita el manifest a mano: indica corregir el spec y reconstruir con build_vehicle.py",
+    "No propone girar ni mover piezas en Luau para compensar"
+   ]
+  },
+  {
+   "id": 3,
+   "prompt": "Importé el FBX de mi auto a Studio y salió de lado y la mitad de las piezas en otro lugar. Arreglalo girándolo en el script que lo arma.",
+   "expected_output": "No parchea con un giro en Luau: explica que el contrato es el marco de Roblox sin giros, pide la información para diagnosticar (versión de Studio, el informe de VehicleBody.verify, opciones del importador) y plantea el arreglo en el exportador (rbx/frame.py, rbx/export.py).",
+   "files": [],
+   "expectations": [
+    "No agrega un CFrame.Angles ni un giro de 90 grados en VehicleAssembler o VehicleBody",
+    "Explica que el manifest y el FBX están en el marco de Roblox (trompa a -Z) y que el arreglo va en el exportador",
+    "Pide el informe de VehicleBody.verify o los datos del import (versión de Studio, opciones del importador)",
+    "Menciona que releer el FBX (verify) ya comprueba centro y tamaño de las piezas contra el manifest",
+    "Hace como máximo una pregunta antes de proponer"
+   ]
+  },
+  {
+   "id": 4,
+   "prompt": "Ya tengo 3 sedanes y 2 muscle cars modelados con este skill. Quiero que los alerones del mercado encajen en todos sin offsets a mano. ¿Cómo lo reviso?",
+   "expected_output": "Usa collect_models.py o check_vehicle.py sobre la carpeta de autos para el aviso de coordenadas universales de Socket_Spoiler por bodyType, y explica cómo unificar la posición en el spec (no en Luau).",
+   "files": [],
+   "expectations": [
+    "Corre check_vehicle.py o collect_models.py sobre la carpeta con todos los manifests",
+    "Explica que el aviso de colección compara la distancia de Socket_Spoiler al parachoques trasero y su altura por bodyType (tolerancia 1,5 studs)",
+    "Propone unificar la posición de Socket_Spoiler en los specs de cada bodyType y reconstruir",
+    "No propone offsets por auto en el código de Luau"
+   ]
+  },
+  {
+   "id": 5,
+   "prompt": "Para mi juego de Roblox necesito el modelo 3D de una limusina larga de 22 studs para el Tier 9, 5.900 triángulos. Usá evals/files/brief-pickup-tier4.md como ejemplo del formato del brief.",
+   "expected_output": "Trata el presupuesto sobre el rango de la guía como excepción que debe documentarse en decisions, usa bodyType limo, avisa de que 22 studs puede no caber en los espacios del juego y no inventa el concepto.",
+   "files": [
+    "evals/files/brief-pickup-tier4.md"
+   ],
+   "expectations": [
+    "El spec usa bodyType limo y tri_budget 5900",
+    "Agrega a decisions la excepción del rango de la guía con la palabra triangles o tris",
+    "check_vehicle.py no da el aviso de rango de la guía una vez documentada la excepción",
+    "Avisa que un auto de 22 studs puede no caber en bahías, exhibición o boxes pensados para autos de 13 a 17 studs y pide las medidas de esos espacios",
+    "Pide o usa el concepto o las medidas de la limusina en lugar de inventar la forma"
+   ]
+  }
+ ]
+}

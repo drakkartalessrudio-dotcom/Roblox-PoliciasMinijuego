@@ -1,0 +1,51 @@
+{
+  "skill_name": "roblox-ui-designer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Copiá el juego de evals/files/obby-ui-vieja a tu carpeta de salida. El botón de la tienda queda detrás del chat y toda la interfaz parece hecha por un programador. Rehacé la UI del juego, empezando por la tienda (todavía no vende nada).",
+      "expected_output": "design/UI.md con pantallas HUD, Tienda y lo que haga falta, UI nueva en src/client/UI con el kit sin cambios, el botón de la tienda en el riel izquierdo bajo el chat con atajo de teclado y gamepad, la tienda como modal con estado vacío, el HUD viejo eliminado, design.ui activado y check_game.py sin errores ni advertencias de UI.",
+      "files": ["evals/files/obby-ui-vieja"],
+      "expectations": [
+        "Existe design/UI.md con una tabla de pantallas que nombra módulos Screens/<Nombre>.luau",
+        "src/client/UI/Kit es idéntico a la plantilla del skill",
+        "Se eliminó src/client/HUD.client.luau y ningún script del cliente crea ScreenGui o TextButton fuera del kit",
+        "El botón de la tienda se coloca con Kit.slot(\"left\") (o un slot justificado en UI.md), no con posiciones fijas",
+        "El botón de la tienda tiene binding de teclado y de gamepad",
+        "La tienda es un Kit.modal con un estado vacío que explica que todavía no hay artículos, sin inventar productos, precios ni IDs",
+        "El frontmatter del GDD tiene design.ui en true",
+        "check_ui.py y check_game.py sobre la copia terminan sin errores y sin la advertencia de colores o fuentes escritos en el cliente",
+        "No se modificó la lógica del servidor (ObbyService, LevelLoader)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Diseñá la interfaz de este juego antes de programarlo: ../roblox-game-builder/evals/files/gdd-runner-monetizado.md. Se juega mucho en celular y con gamepad en consola. Solo el documento por ahora.",
+      "expected_output": "design/UI.md completo: pantallas, flujos, distribución por plataforma con slots del kit, estados de cada pantalla (incluida la tienda con IDs pendientes), accesibilidad y verificación en Studio, más los pedidos al builder por el estado que falta.",
+      "files": ["../roblox-game-builder/evals/files/gdd-runner-monetizado.md"],
+      "expectations": [
+        "Se escribió design/UI.md con las secciones de la plantilla (principios, pantallas, flujos, distribución, estados, accesibilidad, verificación)",
+        "La tabla de distribución tiene columnas para PC, celular o tableta y consola",
+        "Ningún elemento se ubica en la zona del chat, la barra superior ni sobre los controles táctiles",
+        "La acción principal repetida en celular está en el slot actions o justifica otra ubicación",
+        "La tienda tiene estados para comprado, no disponible por ID pendiente y error, sin inventar precios ni IDs",
+        "Lista en Pendientes el estado o los remotes que el builder debe publicar para la UI",
+        "No se escribió código de UI (lo pidió solo el documento)"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "en celular los jugadores no pueden tocar el botón de comprar vida y a veces compran sin querer cuando saltan. el script es evals/files/BotonCompra.client.luau. qué pasa y cómo lo arreglo?",
+      "expected_output": "Diagnóstico: el botón está en la esquina inferior derecha sobre el botón de salto de Roblox, es más bajo que 44 px, ignora el área segura y usa colores y fuente sueltos con poco contraste. Arreglo con el kit: botón en el slot actions junto al salto, tamaño táctil, colores del tema y la compra abierta desde el servidor o el módulo de monetización.",
+      "files": ["evals/files/BotonCompra.client.luau"],
+      "expectations": [
+        "Identifica que el botón se superpone con el botón de salto táctil en la esquina inferior derecha",
+        "Señala que 36 px de alto está por debajo del tamaño táctil de 44 px",
+        "Señala que IgnoreGuiInset o la falta de ScreenInsets lo saca del área segura",
+        "Menciona el bajo contraste de texto blanco sobre amarillo o la fuente Arial obsoleta",
+        "Propone usar Kit.button en Kit.slot(\"actions\") o explica por qué otra ubicación",
+        "No inventa un ID de producto y deja el PRODUCT_ID como pendiente del usuario"
+      ]
+    }
+  ]
+}

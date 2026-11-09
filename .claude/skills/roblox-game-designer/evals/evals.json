@@ -1,0 +1,72 @@
+{
+  "skill_name": "roblox-game-designer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "quiero hacer un juego de dragones en roblox para chicos de 8 a 12, no sé bien de qué tipo. diseñámelo vos y asumí lo que haga falta, después lo programamos",
+      "expected_output": "GDD.md completo con un loop elegido y justificado como suposición, pilares, onboarding de 60 segundos, progresión, frontmatter con todos los módulos y KPIs con objetivos honestos; sin código.",
+      "files": [],
+      "expectations": [
+        "Se creó un archivo GDD.md",
+        "El GDD elige un loop concreto para el juego de dragones y lo marca como suposición",
+        "El frontmatter declara project.mode, project.genre, project.platforms, design.levels, monetization.enabled, analytics.enabled y liveops.enabled",
+        "Hay como máximo tres pilares de diseño",
+        "La sección de onboarding describe los primeros 60 segundos y lista pasos del funnel con nombres en snake_case",
+        "La progresión desbloquea decisiones o mecánicas nuevas, no solo números más grandes",
+        "Los KPIs tienen definición y su objetivo es una línea base o una hipótesis marcada, no una cifra presentada como dato de la industria",
+        "No se escribió código Luau ni archivos en src/"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "diseñá un simulador de minería: picás rocas, vendés minerales, comprás picos mejores y desbloqueás cuevas. lo quiero publicar en un mes y quiero un pase VIP que dé más plata",
+      "expected_output": "GDD release-candidate con economía completa (fuentes, sumideros, tiempo hasta hitos, regla de apilamiento incluyendo VIP, parámetros para Config), game-passes activado sin inventar ID ni precio vigente, analíticas activadas y KPIs.",
+      "files": [],
+      "expectations": [
+        "project.mode es release-candidate",
+        "monetization.enabled incluye game-passes",
+        "analytics.enabled es true",
+        "La economía tiene una tabla de fuentes y otra de sumideros",
+        "Hay una tabla de tiempo hasta hitos que incluye la primera compra",
+        "Se define cómo se apila el multiplicador del VIP con las demás mejoras",
+        "Hay una lista de parámetros ajustables con nombre y valor inicial para Config",
+        "No aparece un ID de Game Pass inventado; el ID figura como pendiente",
+        "El catálogo, el ID y el flujo de compra se dejan al módulo de Game Passes",
+        "El frontmatter tiene design.data en true",
+        "Estado y economía lista qué se promete conservar (minerales, picos, cuevas desbloqueadas, compras) y qué pasa si la carga falla, sin definir campos ni tablas de datos"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Diseñá un obby de 8 etapas con temática de hielo para PC y celular. Quiero que algunos tramos se sientan resbalosos y que la dificultad suba de a poco. Después se lo paso al que hace los niveles.",
+      "expected_output": "GDD con design.levels true, brief de 8 niveles con mecánica, dificultad y tiempo esperado, física del personaje explícita, funnel de onboarding y KPIs de progresión; sin niveles detallados ni código.",
+      "files": [],
+      "expectations": [
+        "design.levels es true en el frontmatter",
+        "El brief de niveles tiene 8 entradas, cada una con objetivo o mecánica, dificultad buscada de 1 a 10 y tiempo esperado",
+        "La dificultad buscada no baja de golpe ni sube más de 3 puntos entre etapas consecutivas, salvo descansos justificados",
+        "La sección de física declara walkSpeed, jumpHeight y gravity con valores explícitos",
+        "La primera etapa enseña sin castigo fuerte",
+        "Hay un KPI de embudo de progresión por etapa",
+        "No incluye coordenadas, tamaños de piezas ni un Levels.json: eso queda para el level designer"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "revisá este GDD (evals/files/gdd-pesca-incompleto.md) y decime qué le falta antes de pasárselo al builder. no lo reescribas todavía",
+      "expected_output": "Lista de problemas ordenada por impacto con cambios propuestos, sin modificar el archivo; incluye la falta de sumideros y de onboarding, KPIs ausentes, frontmatter incompleto y que el cebo dorado pagado está sujeto a la política de aleatoriedad pagada.",
+      "files": ["evals/files/gdd-pesca-incompleto.md"],
+      "expectations": [
+        "El archivo del GDD no fue modificado",
+        "Los problemas están ordenados por impacto",
+        "Señala que la economía no tiene una tabla de sumideros ni tiempos hasta hitos",
+        "Señala que falta el onboarding de los primeros 60 segundos",
+        "Señala que faltan KPIs objetivo",
+        "Señala que el frontmatter no declara design, analytics ni liveops",
+        "Advierte que el cebo dorado pagado modifica probabilidades y queda sujeto a la política de aleatoriedad pagada",
+        "Advierte que el precio en Robux del GDD no puede usarse como precio mostrado o vigente",
+        "Señala que el criterio de aceptación 'que sea divertido' no es observable y propone criterios verificables"
+      ]
+    }
+  ]
+}

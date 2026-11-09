@@ -1,0 +1,14 @@
+[
+  {"query": "quiero hacer un evento de navidad en mi juego de roblox que ya está publicado: del 20 al 27 de diciembre doble de monedas y nieve en el mapa", "should_trigger": true},
+  {"query": "cómo cambio la vida del jefe final en vivo sin tener que publicar otra versión del juego?", "should_trigger": true},
+  {"query": "necesito un interruptor para apagar la tienda nueva si da problemas, sin publicar", "should_trigger": true},
+  {"query": "armame el calendario de eventos de los próximos dos meses para mi simulador y el runbook para el equipo", "should_trigger": true},
+  {"query": "mi GDD tiene liveops.enabled en true, conectá ConfigService con los ajustes del juego", "should_trigger": true},
+  {"query": "publiqué un config con un valor mal y se rompió el juego, cómo lo revierto rápido?", "should_trigger": true},
+  {"query": "definí la economía de mi juego: cuánto dan las misiones diarias y cuánto cuestan las mejoras", "should_trigger": false},
+  {"query": "quiero vender un pack de 500 gemas con robux, cómo implemento el ProcessReceipt", "should_trigger": false},
+  {"query": "qué eventos de analytics tengo que mandar para medir la retención D1", "should_trigger": false},
+  {"query": "hazme un juego de roblox de supervivencia con oleadas de zombies", "should_trigger": false},
+  {"query": "configurá un pipeline de CI/CD en GitLab para desplegar mi API de Node a producción", "should_trigger": false},
+  {"query": "cómo hago un sistema de recompensas diarias con racha que se guarde en DataStore", "should_trigger": false}
+]

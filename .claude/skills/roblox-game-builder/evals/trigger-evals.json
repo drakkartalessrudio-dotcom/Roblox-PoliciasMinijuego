@@ -1,0 +1,21 @@
+[
+  {"query": "hazme un juego de roblox donde los jugadores escapan de una ola de lava que sube cada 30 segundos, con lobby y ranking del servidor", "should_trigger": true},
+  {"query": "tengo este GDD de un tycoon de dulces (te lo pego abajo) y necesito el proyecto rojo completo para abrirlo en studio y probarlo con mis amigos el finde", "should_trigger": true},
+  {"query": "mi tycoon duplica la plata cuando dos jugadores tocan el botón de compra al mismo tiempo, el script está en ServerScriptService/Server/Shop.luau, me lo arreglás?", "should_trigger": true},
+  {"query": "Quiero prototipar rápido un juego de carreras de karts en Roblox para ver si el loop engancha. Sin monetización, solo PC.", "should_trigger": true},
+  {"query": "agregale a mi obby (está en C:/juegos/obby-neon) un sistema de skip stage con developer product, el GDD ya lo tiene en monetization.enabled", "should_trigger": true},
+  {"query": "necesito un juego estilo 'hide and seek' para roblox con rondas de 3 minutos, el buscador elegido al azar y que funcione en celular", "should_trigger": true},
+  {"query": "convertí este documento de diseño en código luau: es un simulador de pesca con 3 zonas y cañas mejorables, guardar progreso sí o sí", "should_trigger": true},
+  {"query": "build me a small roblox wave defense game, zombies come from 3 lanes and you place turrets with coins", "should_trigger": true},
+  {"query": "en mi juego de roblox el sistema de misiones llama directo al de recompensas y ya no puedo reusar ninguno; separalos como hago en UEFN, con un módulo puente entre los dos", "should_trigger": true},
+  {"query": "solo diseño por ahora: ayudame a definir la economía y la progresión de mi simulador de mascotas, cuántas monedas por minuto y cuánto debería costar cada zona. nada de código todavía", "should_trigger": false},
+  {"query": "armame los 10 niveles de mi obby con la curva de dificultad, distancias de salto y dónde van los checkpoints; el juego ya está programado", "should_trigger": false},
+  {"query": "cómo hago para que el developer product de 'revivir' no se entregue dos veces si el jugador se desconecta justo al comprar? ya tengo el ProcessReceipt", "should_trigger": false},
+  {"query": "explicame cómo funciona Creator Rewards hoy y si me conviene diseñar mi juego para eso o para game passes", "should_trigger": false},
+  {"query": "hazme un juego de plataformas en Unity con C#, estilo obby de roblox pero para PC", "should_trigger": false},
+  {"query": "escribime un script de python que use la Open Cloud API de roblox para bajar las estadísticas diarias de mi experiencia a un csv", "should_trigger": false},
+  {"query": "quiero un plugin de Roblox Studio que me alinee las partes seleccionadas a una grilla de 4 studs con un botón en la toolbar", "should_trigger": false},
+  {"query": "qué KPIs debería mirar en las primeras dos semanas de mi juego de roblox y qué valores de retención D1 serían razonables para un obby", "should_trigger": false},
+  {"query": "revisá mi GDD de un juego de terror en roblox y decime si el loop principal tiene sentido y qué le falta al onboarding, no programes nada", "should_trigger": false},
+  {"query": "necesito vender en mi experiencia unos accesorios UGC que hizo mi amigo, cómo los habilito y cuánto me queda de comisión?", "should_trigger": false}
+]

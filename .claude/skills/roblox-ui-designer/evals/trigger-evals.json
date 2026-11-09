@@ -1,0 +1,14 @@
+[
+  {"query": "el botón de la tienda queda detrás del chat en mi juego de roblox, movelo y rediseñá el HUD", "should_trigger": true},
+  {"query": "mi interfaz se ve de programador, quiero que la tienda y los menús parezcan de un juego profesional", "should_trigger": true},
+  {"query": "en celular los botones de mi juego son muy chicos y quedan encima del joystick", "should_trigger": true},
+  {"query": "hacé que los menús de mi juego de roblox se puedan usar con el control de xbox", "should_trigger": true},
+  {"query": "el GDD tiene design.ui en true, armá las pantallas del juego", "should_trigger": true},
+  {"query": "diseñá el HUD de mi juego de supervivencia: vida, hambre, tiempo de la ronda y un botón de inventario", "should_trigger": true},
+  {"query": "elegí la paleta de colores y las fuentes de mi juego de roblox", "should_trigger": false},
+  {"query": "decorá los niveles de mi obby con árboles y faroles para que no parezcan blockout", "should_trigger": false},
+  {"query": "creá un gamepass de doble velocidad para mi juego", "should_trigger": false},
+  {"query": "diseñá la pantalla de login de mi app en react", "should_trigger": false},
+  {"query": "agregá eventos de analytics para saber dónde abandonan los jugadores", "should_trigger": false},
+  {"query": "hazme un juego de roblox completo de carreras", "should_trigger": false}
+]

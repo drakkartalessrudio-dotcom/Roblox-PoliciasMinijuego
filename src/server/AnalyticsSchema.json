@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "budgetPerPlayerPerMinute": 20,
+  "progressionPaths": [
+    "Ciudad"
+  ],
+  "funnels": [],
+  "currencies": [
+    "dinero",
+    "cerebros"
+  ],
+  "customEvents": [
+    "session_level",
+    "mischief_complete",
+    "band_mischief",
+    "star_reached",
+    "cop_knockdown",
+    "arrest",
+    "band_rescue",
+    "ascension",
+    "upgrade_bought",
+    "district_entered",
+    "afk_enter",
+    "afk_exit",
+    "afk_checkin",
+    "afk_suspect",
+    "travel",
+    "plot_claimed",
+    "achievement_unlocked"
+  ],
+  "customFields": {
+    "CustomField01": "item",
+    "CustomField02": "district",
+    "CustomField03": "stars"
+  }
+}

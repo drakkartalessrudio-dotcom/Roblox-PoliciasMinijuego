@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "physics": {
+    "walkSpeed": 16,
+    "jumpHeight": 7.2,
+    "gravity": 196.2
+  },
+  "defaults": {
+    "material": "SmoothPlastic",
+    "color": "#8FA9C4"
+  },
+  "levels": [
+    {
+      "id": "aldea",
+      "name": "Aldea",
+      "layout": "hub",
+      "start": "inicio",
+      "pieces": [
+        { "id": "suelo", "kind": "platform", "position": [0, -0.5, 0], "size": [100, 1, 100], "material": "Grass", "color": "#6B8E4E" },
+        { "id": "inicio", "kind": "spawn", "position": [0, 0.5, 20], "size": [8, 1, 8], "color": "#C9A66B" },
+        { "id": "muro-n", "kind": "wall", "position": [0, 2, -50.5], "size": [101, 4, 1], "color": "#7A6A55" },
+        { "id": "muro-s", "kind": "wall", "position": [0, 2, 50.5], "size": [101, 4, 1], "color": "#7A6A55" },
+        { "id": "muro-e", "kind": "wall", "position": [50.5, 2, 0], "size": [1, 4, 100], "color": "#7A6A55" },
+        { "id": "muro-o", "kind": "wall", "position": [-50.5, 2, 0], "size": [1, 4, 100], "color": "#7A6A55" },
+        { "id": "poste-bosque", "kind": "wall", "position": [-22, 3, -14], "size": [1, 6, 1], "color": "#4E7A3A" },
+        { "id": "poste-mina", "kind": "wall", "position": [22, 3, -14], "size": [1, 6, 1], "color": "#8A8A8A" },
+        { "id": "plaza", "kind": "zone", "name": "plaza", "position": [0, 4, 12], "size": [24, 8, 24], "note": "Centro de la aldea; entrar no cuenta para ninguna misión" },
+        { "id": "bosque", "kind": "zone", "name": "bosque", "position": [-32, 4, -30], "size": [28, 8, 28], "note": "Zona del gremio de leñadores" },
+        { "id": "mina", "kind": "zone", "name": "mina", "position": [32, 4, -30], "size": [28, 8, 28], "note": "Zona del gremio de mineros" }
+      ]
+    }
+  ]
+}

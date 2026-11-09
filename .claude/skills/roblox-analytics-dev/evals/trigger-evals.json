@@ -1,0 +1,15 @@
+[
+  {"query": "quiero saber en qué paso del tutorial se van los jugadores nuevos de mi juego de roblox, cómo lo mido con analytics?", "should_trigger": true},
+  {"query": "agregá analíticas a mi tycoon: ganancias y gastos de dinero por jugador y qué mejoras compran más", "should_trigger": true},
+  {"query": "en creator analytics no me aparecen los custom events que mando con LogCustomEvent, ya pasó un día", "should_trigger": true},
+  {"query": "mi GDD tiene analytics.enabled en true y el juego ya está hecho, falta conectar AnalyticsService", "should_trigger": true},
+  {"query": "definí la taxonomía de eventos y los nombres para medir la retención y la economía de mi simulador antes de programarlo", "should_trigger": true},
+  {"query": "cuántos eventos por minuto puedo mandar con AnalyticsService sin pasarme del límite? tengo servidores de 30 jugadores", "should_trigger": true},
+  {"query": "qué KPIs debería tener mi juego de rondas y qué valores objetivo son razonables para empezar", "should_trigger": false},
+  {"query": "hazme un juego de roblox de carreras con lobby y ranking", "should_trigger": false},
+  {"query": "integrá Google Analytics en mi página web de react para medir conversiones", "should_trigger": false},
+  {"query": "cuánto voy a ganar con creator rewards si tengo 500 jugadores diarios?", "should_trigger": false},
+  {"query": "el ProcessReceipt de mi juego no entrega las gemas cuando el jugador se desconecta", "should_trigger": false},
+  {"query": "programá un leaderboard global con OrderedDataStore para mi obby", "should_trigger": false},
+  {"query": "armá un evento de Navidad con descuentos en la tienda de mi juego publicado", "should_trigger": false}
+]

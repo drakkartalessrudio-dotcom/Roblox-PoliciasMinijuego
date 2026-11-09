@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "library": "drakkartalessrudio-dotcom/Roblox-Library",
+  "modules": {
+    "Economy": {
+      "kind": "core",
+      "version": "1.0.0",
+      "commit": "69d2018",
+      "path": "src/server/Modules/Economy",
+      "files": {
+        "EconomyData.luau": "0a7138f44f6c7c5b0965687b022248cfdedca6713924d5cdb8bdff95acb7306d",
+        "init.luau": "d267262f637d2c9c875cb20baf6e41d5baf7dcde02b89620135098e7bd6c6ea5"
+      }
+    },
+    "Quests": {
+      "kind": "core",
+      "version": "1.0.0",
+      "commit": "69d2018",
+      "path": "src/server/Modules/Quests",
+      "files": {
+        "init.luau": "129114f2175e7dfc1a7041592e2d4d51d890d13eee6c475d04f19df80c909225",
+        "QuestData.luau": "ce6c08800e157086f4b9845e2bbf7ef05150e3dec9f5b60b57472f40bd10c0d5"
+      }
+    },
+    "Quests_Rewards": {
+      "kind": "bridge",
+      "version": "1.0.0",
+      "commit": "69d2018",
+      "path": "src/server/Bridges/Quests_Rewards",
+      "files": {
+        "init.luau": "e8951794d04f1e8193cbeeb5980e4304b270c02415e3396b7cbbf047981e4a41"
+      }
+    },
+    "Rewards": {
+      "kind": "core",
+      "version": "1.0.0",
+      "commit": "69d2018",
+      "path": "src/server/Modules/Rewards",
+      "files": {
+        "init.luau": "6b211df32b89b163ff73a13bb1731aa8f9e07a0a9cb764491aeeabbf80dee239",
+        "RewardData.luau": "fb7ec6f4a90750d38a2c02977a878e805afdeb8cf62daac7d6e5238739b036e1"
+      }
+    },
+    "Rewards_Economy": {
+      "kind": "bridge",
+      "version": "1.0.0",
+      "commit": "69d2018",
+      "path": "src/server/Bridges/Rewards_Economy",
+      "files": {
+        "init.luau": "0f7646c59b95c05edaf2b1efbc3dde83ba0dd2ede54e64a5787c9aec1ae56564"
+      }
+    },
+    "Zones": {
+      "kind": "core",
+      "version": "1.0.0",
+      "commit": "69d2018",
+      "path": "src/server/Modules/Zones",
+      "files": {
+        "init.luau": "f47530d459011e344b79569e119ae8291bedf49a5ac930a3449802abf7133f26"
+      }
+    },
+    "Zones_Quests": {
+      "kind": "bridge",
+      "version": "1.0.0",
+      "commit": "69d2018",
+      "path": "src/server/Bridges/Zones_Quests",
+      "files": {
+        "init.luau": "7f9d82ccb8114699f67dec9b80e88da6c4f7608740407aeecfd91ba00423c629"
+      }
+    }
+  }
+}

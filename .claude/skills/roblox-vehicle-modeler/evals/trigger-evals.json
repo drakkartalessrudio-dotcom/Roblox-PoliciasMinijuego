@@ -1,0 +1,42 @@
+[
+ {
+  "query": "necesito modelar en Blender los 10 autos de mi tycoon de talleres para Roblox, del sedán básico al hiperdeportivo, con las ruedas separadas y los sockets para alerones",
+  "should_trigger": true
+ },
+ {
+  "query": "importé el FBX de mi auto a Studio y las ruedas no giran en su eje, ¿cómo debería exportarlo desde Blender?",
+  "should_trigger": true
+ },
+ {
+  "query": "quiero que mi auto de Roblox tenga el chasis en una sola malla y los cristales aparte para poder tintarlos por código",
+  "should_trigger": true
+ },
+ {
+  "query": "tengo el manifest del auto y quiero comprobar que los triángulos y los ejes cumplen la guía de arte de vehículos para Roblox",
+  "should_trigger": true
+ },
+ {
+  "query": "hazme una pick-up low-poly para mi juego de Roblox a partir de este concepto, con una caja de carga intercambiable",
+  "should_trigger": true
+ },
+ {
+  "query": "modela un auto con puertas que abren y rig completo para Unreal Engine 5 con Chaos Vehicles",
+  "should_trigger": false
+ },
+ {
+  "query": "escribe el script de manejo de un auto en Roblox con VehicleSeat y suspensión por raycast",
+  "should_trigger": false
+ },
+ {
+  "query": "balancea los precios de los 10 autos de mi tycoon y cuánto debe pagar cada trabajo de reparación",
+  "should_trigger": false
+ },
+ {
+  "query": "modela un helicóptero con rotores animados para Unity",
+  "should_trigger": false
+ },
+ {
+  "query": "diseña el mapa de la ciudad y los garajes de mi juego de Roblox con medidas para que quepan los autos",
+  "should_trigger": false
+ }
+]

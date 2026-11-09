@@ -1,0 +1,337 @@
+{
+  "schemaVersion": 1,
+  "about": "Biblioteca de props hechos solo con Parts. Cada parte ocupa una fracción de la caja del prop: center y size van de -0.5 a 0.5 y de 0 a 1 en cada eje. Los colores son ranuras (primary, secondary, glow, light) que cada juego asigna a nombres de su paleta o roles en Environment.json.",
+  "prefabs": {
+    "rock": {
+      "description": "Roca de dos bloques inclinados",
+      "size": [4, 3, 4],
+      "colors": { "primary": "surface" },
+      "parts": [
+        { "shape": "Block", "center": [0, -0.12, 0], "size": [0.75, 0.65, 0.7], "rotation": [0, 20, 5], "color": "primary", "material": "Rock" },
+        { "shape": "Block", "center": [0.12, 0.22, -0.05], "size": [0.5, 0.4, 0.5], "rotation": [6, -15, 0], "color": "primary", "material": "Rock" }
+      ]
+    },
+    "boulders": {
+      "description": "Grupo de rocas redondeadas",
+      "size": [8, 4, 6],
+      "colors": { "primary": "surface", "secondary": "surfaceAlt" },
+      "parts": [
+        { "shape": "Ball", "center": [-0.2, -0.02, 0.05], "size": [0.45, 0.9, 0.6], "color": "primary", "material": "Rock" },
+        { "shape": "Ball", "center": [0.2, -0.2, -0.1], "size": [0.4, 0.6, 0.5], "color": "primary", "material": "Rock" },
+        { "shape": "Block", "center": [0.3, -0.4, 0.25], "size": [0.2, 0.2, 0.25], "rotation": [0, 30, 0], "color": "secondary", "material": "Rock" }
+      ]
+    },
+    "spire": {
+      "description": "Aguja de roca escalonada, para siluetas y fondos",
+      "size": [3, 10, 3],
+      "colors": { "primary": "surface", "secondary": "surfaceAlt" },
+      "parts": [
+        { "shape": "Block", "center": [0, -0.35, 0], "size": [0.95, 0.3, 0.95], "color": "primary", "material": "Basalt" },
+        { "shape": "Block", "center": [0, -0.05, 0], "size": [0.68, 0.3, 0.68], "rotation": [0, 25, 0], "color": "primary", "material": "Basalt" },
+        { "shape": "Block", "center": [0, 0.2, 0], "size": [0.42, 0.2, 0.42], "rotation": [0, 50, 0], "color": "secondary", "material": "Basalt" },
+        { "shape": "Block", "center": [0, 0.4, 0], "size": [0.24, 0.2, 0.24], "rotation": [0, 15, 0], "color": "secondary", "material": "Basalt" }
+      ]
+    },
+    "pine": {
+      "description": "Pino de pisos escalonados",
+      "size": [6, 14, 6],
+      "colors": { "primary": "success", "secondary": "surface" },
+      "parts": [
+        { "shape": "Cylinder", "axis": "Y", "center": [0, -0.38, 0], "size": [0.15, 0.24, 0.15], "color": "secondary", "material": "Wood" },
+        { "shape": "Block", "center": [0, -0.15, 0], "size": [0.7, 0.22, 0.7], "rotation": [0, 45, 0], "color": "primary", "material": "LeafyGrass" },
+        { "shape": "Block", "center": [0, 0.08, 0], "size": [0.5, 0.22, 0.5], "rotation": [0, 20, 0], "color": "primary", "material": "LeafyGrass" },
+        { "shape": "Block", "center": [0, 0.29, 0], "size": [0.3, 0.2, 0.3], "rotation": [0, 45, 0], "color": "primary", "material": "LeafyGrass" },
+        { "shape": "Block", "center": [0, 0.44, 0], "size": [0.12, 0.1, 0.12], "color": "primary", "material": "LeafyGrass" }
+      ]
+    },
+    "tree": {
+      "description": "Árbol de copa redonda",
+      "size": [8, 12, 8],
+      "colors": { "primary": "success", "secondary": "surface" },
+      "parts": [
+        { "shape": "Cylinder", "axis": "Y", "center": [0, -0.25, 0], "size": [0.14, 0.5, 0.14], "color": "secondary", "material": "Wood" },
+        { "shape": "Ball", "center": [0, 0.18, 0], "size": [0.75, 0.55, 0.75], "color": "primary", "material": "LeafyGrass" },
+        { "shape": "Ball", "center": [0.2, 0.05, 0.15], "size": [0.5, 0.4, 0.5], "color": "primary", "material": "LeafyGrass" }
+      ]
+    },
+    "deadTree": {
+      "description": "Árbol seco con ramas, para paisajes duros",
+      "size": [6, 10, 6],
+      "colors": { "secondary": "surface" },
+      "parts": [
+        { "shape": "Cylinder", "axis": "Y", "center": [0, -0.2, 0], "size": [0.12, 0.6, 0.12], "color": "secondary", "material": "Wood" },
+        { "shape": "Block", "center": [0.12, 0.15, 0], "size": [0.08, 0.35, 0.08], "rotation": [0, 0, -35], "color": "secondary", "material": "Wood" },
+        { "shape": "Block", "center": [-0.1, 0.25, 0.05], "size": [0.07, 0.3, 0.07], "rotation": [25, 0, 30], "color": "secondary", "material": "Wood" },
+        { "shape": "Block", "center": [0.05, 0.38, -0.05], "size": [0.05, 0.2, 0.05], "rotation": [-20, 0, 10], "color": "secondary", "material": "Wood" }
+      ]
+    },
+    "bush": {
+      "description": "Arbusto de dos esferas",
+      "size": [4, 3, 4],
+      "colors": { "primary": "success" },
+      "parts": [
+        { "shape": "Ball", "center": [-0.12, 0, 0], "size": [0.7, 1, 0.7], "color": "primary", "material": "LeafyGrass" },
+        { "shape": "Ball", "center": [0.2, -0.12, 0.1], "size": [0.5, 0.6, 0.5], "color": "primary", "material": "LeafyGrass" }
+      ]
+    },
+    "lamp": {
+      "description": "Farol con luz; marca checkpoints, entradas y caminos",
+      "size": [2, 10, 2],
+      "colors": { "secondary": "surface", "glow": "text", "light": "accent" },
+      "parts": [
+        { "shape": "Cylinder", "axis": "Y", "center": [0, -0.45, 0], "size": [0.7, 0.1, 0.7], "color": "secondary", "material": "Metal" },
+        { "shape": "Cylinder", "axis": "Y", "center": [0, -0.05, 0], "size": [0.2, 0.8, 0.2], "color": "secondary", "material": "Metal" },
+        { "shape": "Block", "center": [0, 0.41, 0], "size": [0.5, 0.1, 0.5], "color": "glow", "material": "Neon", "light": { "type": "Point", "color": "light", "brightness": 1.2, "range": 14 } },
+        { "shape": "Block", "center": [0, 0.48, 0], "size": [0.8, 0.04, 0.8], "color": "secondary", "material": "Metal" }
+      ]
+    },
+    "brazier": {
+      "description": "Brasero con luz, más bajo que el farol",
+      "size": [2, 4, 2],
+      "colors": { "secondary": "surface", "glow": "accent", "light": "accent" },
+      "parts": [
+        { "shape": "Cylinder", "axis": "Y", "center": [0, -0.3, 0], "size": [0.4, 0.4, 0.4], "color": "secondary", "material": "Metal" },
+        { "shape": "Cylinder", "axis": "Y", "center": [0, 0.05, 0], "size": [1, 0.3, 1], "color": "secondary", "material": "Metal" },
+        { "shape": "Ball", "center": [0, 0.3, 0], "size": [0.6, 0.4, 0.6], "color": "glow", "material": "Neon", "light": { "type": "Point", "color": "light", "brightness": 1.5, "range": 12 } }
+      ]
+    },
+    "crystal": {
+      "description": "Cristales inclinados que brillan",
+      "size": [3, 6, 3],
+      "colors": { "glow": "text" },
+      "parts": [
+        { "shape": "Block", "center": [0, 0, 0], "size": [0.35, 0.92, 0.35], "rotation": [0, 30, 8], "color": "glow", "material": "Neon" },
+        { "shape": "Block", "center": [0.18, -0.2, 0.1], "size": [0.25, 0.55, 0.25], "rotation": [0, -20, -12], "color": "glow", "material": "Neon" },
+        { "shape": "Block", "center": [-0.2, -0.25, -0.15], "size": [0.2, 0.45, 0.2], "rotation": [15, 10, 25], "color": "glow", "material": "Neon" }
+      ]
+    },
+    "fence": {
+      "description": "Tramo de cerca con dos postes",
+      "size": [8, 4, 0.6],
+      "colors": { "primary": "surfaceAlt", "secondary": "surface" },
+      "parts": [
+        { "shape": "Block", "center": [-0.45, 0, 0], "size": [0.08, 1, 1], "color": "secondary", "material": "Wood" },
+        { "shape": "Block", "center": [0.45, 0, 0], "size": [0.08, 1, 1], "color": "secondary", "material": "Wood" },
+        { "shape": "Block", "center": [0, 0.2, 0], "size": [1, 0.1, 0.5], "color": "primary", "material": "WoodPlanks" },
+        { "shape": "Block", "center": [0, -0.15, 0], "size": [1, 0.1, 0.5], "color": "primary", "material": "WoodPlanks" }
+      ]
+    },
+    "crate": {
+      "description": "Caja de madera con flejes",
+      "size": [3, 3, 3],
+      "colors": { "primary": "surfaceAlt", "secondary": "surface" },
+      "parts": [
+        { "shape": "Block", "center": [0, 0, 0], "size": [0.96, 0.96, 0.96], "color": "primary", "material": "WoodPlanks" },
+        { "shape": "Block", "center": [0, 0, 0.49], "size": [1, 0.12, 0.02], "color": "secondary", "material": "Wood" },
+        { "shape": "Block", "center": [0, 0, -0.49], "size": [1, 0.12, 0.02], "color": "secondary", "material": "Wood" },
+        { "shape": "Block", "center": [0.49, 0, 0], "size": [0.02, 0.12, 1], "color": "secondary", "material": "Wood" },
+        { "shape": "Block", "center": [-0.49, 0, 0], "size": [0.02, 0.12, 1], "color": "secondary", "material": "Wood" }
+      ]
+    },
+    "barrel": {
+      "description": "Barril con dos zunchos",
+      "size": [2.4, 3, 2.4],
+      "colors": { "primary": "surfaceAlt", "secondary": "surface" },
+      "parts": [
+        { "shape": "Cylinder", "axis": "Y", "center": [0, 0, 0], "size": [0.92, 1, 0.92], "color": "primary", "material": "Wood" },
+        { "shape": "Cylinder", "axis": "Y", "center": [0, 0.3, 0], "size": [1, 0.08, 1], "color": "secondary", "material": "Metal" },
+        { "shape": "Cylinder", "axis": "Y", "center": [0, -0.3, 0], "size": [1, 0.08, 1], "color": "secondary", "material": "Metal" }
+      ]
+    },
+    "ruinPillar": {
+      "description": "Columna en ruinas con escombros",
+      "size": [3, 12, 3],
+      "colors": { "primary": "surfaceAlt", "secondary": "surface" },
+      "parts": [
+        { "shape": "Block", "center": [0, -0.46, 0], "size": [1, 0.08, 1], "color": "secondary", "material": "Slate" },
+        { "shape": "Cylinder", "axis": "Y", "center": [0, -0.05, 0], "size": [0.6, 0.74, 0.6], "color": "primary", "material": "Marble" },
+        { "shape": "Block", "center": [0.05, 0.36, 0], "size": [0.65, 0.1, 0.65], "rotation": [0, 0, 6], "color": "primary", "material": "Slate" },
+        { "shape": "Block", "center": [-0.25, -0.4, 0.3], "size": [0.25, 0.1, 0.25], "rotation": [0, 30, 10], "color": "secondary", "material": "Slate" }
+      ]
+    },
+    "arch": {
+      "description": "Arco para enmarcar entradas o la meta",
+      "size": [12, 12, 2],
+      "colors": { "primary": "surfaceAlt", "secondary": "surface" },
+      "parts": [
+        { "shape": "Block", "center": [-0.42, -0.08, 0], "size": [0.16, 0.84, 1], "color": "primary", "material": "Slate" },
+        { "shape": "Block", "center": [0.42, -0.08, 0], "size": [0.16, 0.84, 1], "color": "primary", "material": "Slate" },
+        { "shape": "Block", "center": [0, 0.42, 0], "size": [1, 0.16, 1], "color": "secondary", "material": "Slate" },
+        { "shape": "Block", "center": [0, 0.3, 0], "size": [0.68, 0.08, 0.8], "color": "primary", "material": "Slate" }
+      ]
+    },
+    "cloud": {
+      "description": "Nube baja de esferas, para el cielo o el fondo",
+      "size": [16, 5, 8],
+      "colors": { "primary": "text" },
+      "parts": [
+        { "shape": "Ball", "center": [-0.2, 0, 0], "size": [0.4, 1, 0.8], "color": "primary", "material": "SmoothPlastic" },
+        { "shape": "Ball", "center": [0.12, 0.07, 0.05], "size": [0.35, 0.85, 0.7], "color": "primary", "material": "SmoothPlastic" },
+        { "shape": "Ball", "center": [0.32, -0.08, -0.05], "size": [0.3, 0.65, 0.6], "color": "primary", "material": "SmoothPlastic" },
+        { "shape": "Ball", "center": [-0.38, -0.12, 0.05], "size": [0.22, 0.6, 0.5], "color": "primary", "material": "SmoothPlastic" }
+      ]
+    },
+    "mushroom": {
+      "description": "Hongo grande de sombrero redondo",
+      "size": [4, 5, 4],
+      "colors": { "primary": "danger", "secondary": "text" },
+      "parts": [
+        { "shape": "Cylinder", "axis": "Y", "center": [0, -0.2, 0], "size": [0.25, 0.6, 0.25], "color": "secondary", "material": "SmoothPlastic" },
+        { "shape": "Cylinder", "axis": "Y", "center": [0, 0.15, 0], "size": [1, 0.2, 1], "color": "primary", "material": "SmoothPlastic" },
+        { "shape": "Ball", "center": [0, 0.25, 0], "size": [0.8, 0.5, 0.8], "color": "primary", "material": "SmoothPlastic" }
+      ]
+    },
+    "sign": {
+      "description": "Cartel en un poste, sin texto",
+      "size": [3, 5, 0.5],
+      "colors": { "primary": "surfaceAlt", "secondary": "surface" },
+      "parts": [
+        { "shape": "Block", "center": [0, -0.15, 0], "size": [0.1, 0.7, 0.6], "color": "secondary", "material": "Wood" },
+        { "shape": "Block", "center": [0, 0.3, 0], "size": [1, 0.35, 1], "color": "primary", "material": "WoodPlanks" }
+      ]
+    },
+    "bench": {
+      "description": "Banco de plaza con respaldo",
+      "size": [6, 3, 2.4],
+      "colors": { "primary": "surfaceAlt", "secondary": "surface" },
+      "parts": [
+        { "shape": "Block", "center": [0, -0.05, 0.05], "size": [1, 0.12, 0.6], "color": "primary", "material": "WoodPlanks" },
+        { "shape": "Block", "center": [0, 0.28, -0.38], "size": [1, 0.35, 0.12], "rotation": [-10, 0, 0], "color": "primary", "material": "WoodPlanks" },
+        { "shape": "Block", "center": [-0.42, -0.3, 0], "size": [0.06, 0.4, 0.75], "color": "secondary", "material": "Metal" },
+        { "shape": "Block", "center": [0.42, -0.3, 0], "size": [0.06, 0.4, 0.75], "color": "secondary", "material": "Metal" }
+      ]
+    },
+    "planter": {
+      "description": "Macetero con arbusto y flores",
+      "size": [4, 4, 4],
+      "colors": { "primary": "success", "secondary": "surface", "flower": "accent" },
+      "parts": [
+        { "shape": "Block", "center": [0, -0.3, 0], "size": [0.92, 0.4, 0.92], "color": "secondary", "material": "Concrete" },
+        { "shape": "Block", "center": [0, -0.07, 0], "size": [1, 0.06, 1], "color": "secondary", "material": "Concrete" },
+        { "shape": "Ball", "center": [-0.12, 0.18, 0.05], "size": [0.6, 0.6, 0.6], "color": "primary", "material": "LeafyGrass" },
+        { "shape": "Ball", "center": [0.18, 0.1, -0.12], "size": [0.45, 0.45, 0.45], "color": "primary", "material": "LeafyGrass" },
+        { "shape": "Ball", "center": [-0.25, 0.4, 0.15], "size": [0.15, 0.15, 0.15], "color": "flower", "material": "SmoothPlastic" },
+        { "shape": "Ball", "center": [0.22, 0.33, 0.12], "size": [0.13, 0.13, 0.13], "color": "flower", "material": "SmoothPlastic" }
+      ]
+    },
+    "streetLamp": {
+      "description": "Farol de calle doble con dos luces",
+      "size": [4, 14, 2],
+      "colors": { "secondary": "surface", "glow": "text", "light": "accent" },
+      "parts": [
+        { "shape": "Cylinder", "center": [0, -0.47, 0], "size": [0.4, 0.06, 0.8], "axis": "Y", "color": "secondary", "material": "Metal" },
+        { "shape": "Cylinder", "center": [0, -0.05, 0], "size": [0.08, 0.82, 0.16], "axis": "Y", "color": "secondary", "material": "Metal" },
+        { "shape": "Block", "center": [0, 0.36, 0], "size": [0.8, 0.02, 0.08], "color": "secondary", "material": "Metal" },
+        { "shape": "Block", "center": [-0.38, 0.31, 0], "size": [0.18, 0.07, 0.6], "color": "glow", "material": "Neon", "light": { "type": "Point", "color": "light", "brightness": 1, "range": 16 } },
+        { "shape": "Block", "center": [0.38, 0.31, 0], "size": [0.18, 0.07, 0.6], "color": "glow", "material": "Neon", "light": { "type": "Point", "color": "light", "brightness": 1, "range": 16 } },
+        { "shape": "Ball", "center": [0, 0.44, 0], "size": [0.15, 0.08, 0.3], "color": "secondary", "material": "Metal" }
+      ]
+    },
+    "fountain": {
+      "description": "Fuente redonda de dos pisos, punto de referencia de una plaza",
+      "size": [12, 7, 12],
+      "colors": { "primary": "surfaceAlt", "secondary": "surface", "water": "textMuted" },
+      "parts": [
+        { "shape": "Cylinder", "center": [0, -0.4, 0], "size": [1, 0.2, 1], "axis": "Y", "color": "secondary", "material": "Concrete" },
+        { "shape": "Cylinder", "center": [0, -0.29, 0], "size": [0.86, 0.04, 0.86], "axis": "Y", "color": "water", "material": "Glass", "transparency": 0.25 },
+        { "shape": "Cylinder", "center": [0, -0.08, 0], "size": [0.16, 0.44, 0.16], "axis": "Y", "color": "secondary", "material": "Concrete" },
+        { "shape": "Cylinder", "center": [0, 0.12, 0], "size": [0.45, 0.06, 0.45], "axis": "Y", "color": "primary", "material": "Concrete" },
+        { "shape": "Cylinder", "center": [0, 0.16, 0], "size": [0.38, 0.02, 0.38], "axis": "Y", "color": "water", "material": "Glass", "transparency": 0.25 },
+        { "shape": "Cylinder", "center": [0, 0.27, 0], "size": [0.05, 0.2, 0.05], "axis": "Y", "color": "water", "material": "Glass", "transparency": 0.25 },
+        { "shape": "Ball", "center": [0, 0.4, 0], "size": [0.15, 0.2, 0.15], "color": "primary", "material": "Concrete" }
+      ]
+    },
+    "stall": {
+      "description": "Puesto de mercado con toldo a rayas",
+      "size": [10, 9, 6],
+      "colors": {
+        "primary": "surfaceAlt",
+        "secondary": "surface",
+        "awning": "accent",
+        "stripe": "text",
+        "goods": "success"
+      },
+      "parts": [
+        { "shape": "Block", "center": [0, -0.3, 0.25], "size": [0.96, 0.4, 0.46], "color": "primary", "material": "WoodPlanks" },
+        { "shape": "Block", "center": [0, -0.08, 0.25], "size": [1, 0.04, 0.5], "color": "secondary", "material": "Wood" },
+        { "shape": "Cylinder", "center": [-0.46, 0, -0.42], "size": [0.04, 0.9, 0.06], "axis": "Y", "color": "secondary", "material": "Wood" },
+        { "shape": "Cylinder", "center": [0.46, 0, -0.42], "size": [0.04, 0.9, 0.06], "axis": "Y", "color": "secondary", "material": "Wood" },
+        { "shape": "Cylinder", "center": [-0.46, -0.05, 0.44], "size": [0.04, 0.8, 0.06], "axis": "Y", "color": "secondary", "material": "Wood" },
+        { "shape": "Cylinder", "center": [0.46, -0.05, 0.44], "size": [0.04, 0.8, 0.06], "axis": "Y", "color": "secondary", "material": "Wood" },
+        { "shape": "Block", "center": [0, 0.4, 0.05], "size": [1, 0.04, 0.9], "rotation": [10, 0, 0], "color": "awning", "material": "Fabric" },
+        { "shape": "Block", "center": [-0.3, 0.4, 0.05], "size": [0.14, 0.06, 0.9], "rotation": [10, 0, 0], "color": "stripe", "material": "Fabric" },
+        { "shape": "Block", "center": [0.0, 0.4, 0.05], "size": [0.14, 0.06, 0.9], "rotation": [10, 0, 0], "color": "stripe", "material": "Fabric" },
+        { "shape": "Block", "center": [0.3, 0.4, 0.05], "size": [0.14, 0.06, 0.9], "rotation": [10, 0, 0], "color": "stripe", "material": "Fabric" },
+        { "shape": "Block", "center": [-0.25, -0.0, 0.25], "size": [0.15, 0.12, 0.2], "color": "goods", "material": "SmoothPlastic" },
+        { "shape": "Ball", "center": [0.05, -0.01, 0.3], "size": [0.1, 0.1, 0.15], "color": "awning", "material": "SmoothPlastic" },
+        { "shape": "Block", "center": [0.28, -0.01, 0.22], "size": [0.18, 0.1, 0.18], "color": "stripe", "material": "Cardboard" }
+      ]
+    },
+    "bunting": {
+      "description": "Guirnalda de banderines para cruzar una plaza o un pasillo",
+      "size": [16, 3, 0.4],
+      "colors": { "secondary": "surface", "flagA": "accent", "flagB": "success", "flagC": "text" },
+      "parts": [
+        { "shape": "Block", "center": [0, 0.42, 0], "size": [1, 0.03, 0.25], "color": "secondary", "material": "Fabric" },
+        { "shape": "Block", "center": [-0.42, 0.12, 0], "size": [0.075, 0.4, 0.25], "rotation": [0, 0, 45], "color": "flagA", "material": "Fabric" },
+        { "shape": "Block", "center": [-0.28, 0.12, 0], "size": [0.075, 0.4, 0.25], "rotation": [0, 0, 45], "color": "flagB", "material": "Fabric" },
+        { "shape": "Block", "center": [-0.14, 0.12, 0], "size": [0.075, 0.4, 0.25], "rotation": [0, 0, 45], "color": "flagC", "material": "Fabric" },
+        { "shape": "Block", "center": [0.0, 0.12, 0], "size": [0.075, 0.4, 0.25], "rotation": [0, 0, 45], "color": "flagA", "material": "Fabric" },
+        { "shape": "Block", "center": [0.14, 0.12, 0], "size": [0.075, 0.4, 0.25], "rotation": [0, 0, 45], "color": "flagB", "material": "Fabric" },
+        { "shape": "Block", "center": [0.28, 0.12, 0], "size": [0.075, 0.4, 0.25], "rotation": [0, 0, 45], "color": "flagC", "material": "Fabric" },
+        { "shape": "Block", "center": [0.42, 0.12, 0], "size": [0.075, 0.4, 0.25], "rotation": [0, 0, 45], "color": "flagA", "material": "Fabric" }
+      ]
+    },
+    "house": {
+      "description": "Casita de techo a dos aguas con puerta, ventanas y chimenea, para fondos",
+      "size": [12, 12, 10],
+      "colors": { "primary": "surfaceAlt", "secondary": "surface", "accent": "accent", "glow": "text" },
+      "parts": [
+        { "shape": "Block", "center": [0, -0.2, 0], "size": [0.9, 0.6, 0.9], "color": "primary", "material": "Plaster" },
+        { "shape": "Block", "center": [0, 0.18, 0], "size": [0.5, 0.15, 0.88], "color": "primary", "material": "Plaster" },
+        { "shape": "Block", "center": [-0.25, 0.25, 0], "size": [0.56, 0.06, 1], "rotation": [0, 0, 32], "color": "secondary", "material": "RoofShingles" },
+        { "shape": "Block", "center": [0.25, 0.25, 0], "size": [0.56, 0.06, 1], "rotation": [0, 0, -32], "color": "secondary", "material": "RoofShingles" },
+        { "shape": "Block", "center": [0, -0.33, 0.455], "size": [0.16, 0.34, 0.02], "color": "accent", "material": "WoodPlanks" },
+        { "shape": "Block", "center": [-0.27, -0.15, 0.455], "size": [0.14, 0.12, 0.02], "color": "glow", "material": "Glass" },
+        { "shape": "Block", "center": [0.27, -0.15, 0.455], "size": [0.14, 0.12, 0.02], "color": "glow", "material": "Glass" },
+        { "shape": "Block", "center": [0.25, 0.36, -0.2], "size": [0.08, 0.2, 0.1], "color": "secondary", "material": "Brick" }
+      ]
+    },
+    "flowerBed": {
+      "description": "Cantero bajo con flores",
+      "size": [6, 1.5, 3],
+      "colors": {
+        "secondary": "surface",
+        "soil": "background",
+        "flowerA": "accent",
+        "flowerB": "text",
+        "flowerC": "success"
+      },
+      "parts": [
+        { "shape": "Block", "center": [0, -0.2, 0], "size": [1, 0.5, 1], "color": "secondary", "material": "Brick" },
+        { "shape": "Block", "center": [0, 0.07, 0], "size": [0.92, 0.04, 0.88], "color": "soil", "material": "Ground" },
+        { "shape": "Ball", "center": [-0.3, 0.3, -0.2], "size": [0.12, 0.35, 0.25], "color": "flowerA", "material": "SmoothPlastic" },
+        { "shape": "Ball", "center": [0.0, 0.3, -0.25], "size": [0.12, 0.35, 0.25], "color": "flowerB", "material": "SmoothPlastic" },
+        { "shape": "Ball", "center": [0.3, 0.3, -0.2], "size": [0.12, 0.35, 0.25], "color": "flowerC", "material": "SmoothPlastic" },
+        { "shape": "Ball", "center": [-0.3, 0.3, 0.2], "size": [0.12, 0.35, 0.25], "color": "flowerA", "material": "SmoothPlastic" },
+        { "shape": "Ball", "center": [0.0, 0.3, 0.22], "size": [0.12, 0.35, 0.25], "color": "flowerB", "material": "SmoothPlastic" },
+        { "shape": "Ball", "center": [0.3, 0.3, 0.2], "size": [0.12, 0.35, 0.25], "color": "flowerC", "material": "SmoothPlastic" }
+      ]
+    },
+    "storefront": {
+      "description": "Fachada de tienda con toldo, vidriera, puerta y cartel sin texto, para el fondo",
+      "size": [16, 14, 3],
+      "colors": { "primary": "surfaceAlt", "secondary": "surface", "accent": "accent", "glow": "text" },
+      "parts": [
+        { "shape": "Block", "center": [0, -0.05, -0.15], "size": [1, 0.9, 0.7], "color": "primary", "material": "Plaster" },
+        { "shape": "Block", "center": [0, 0.44, -0.15], "size": [1, 0.08, 0.7], "color": "secondary", "material": "Concrete" },
+        { "shape": "Block", "center": [0, 0.05, 0.3], "size": [0.9, 0.04, 0.4], "rotation": [15, 0, 0], "color": "accent", "material": "Fabric" },
+        { "shape": "Block", "center": [0.3, -0.3, 0.215], "size": [0.14, 0.4, 0.04], "color": "accent", "material": "WoodPlanks" },
+        { "shape": "Block", "center": [-0.15, -0.25, 0.21], "size": [0.4, 0.3, 0.02], "color": "glow", "material": "Glass" },
+        { "shape": "Block", "center": [0, 0.28, 0.21], "size": [0.6, 0.12, 0.03], "color": "secondary", "material": "WoodPlanks" },
+        { "shape": "Block", "center": [-0.3, 0.2, 0.205], "size": [0.12, 0.1, 0.01], "color": "glow", "material": "Glass" },
+        { "shape": "Block", "center": [0.3, 0.2, 0.205], "size": [0.12, 0.1, 0.01], "color": "glow", "material": "Glass" }
+      ]
+    }
+  }
+}

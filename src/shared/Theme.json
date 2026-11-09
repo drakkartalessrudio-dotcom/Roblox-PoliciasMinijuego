@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "name": "Caramelo Brainrot",
+  "palette": {
+    "skyBlue": "#7CC8FF",
+    "asphalt": "#4A4E69",
+    "curb": "#9A9FB8",
+    "siren": "#FF2D4F",
+    "sunny": "#FFD60A",
+    "cyan": "#19D3F3",
+    "violet": "#B97CFF",
+    "grape": "#2B2250",
+    "grapeLight": "#3B2F6B",
+    "snow": "#F8F5FF",
+    "mist": "#C9C2E8",
+    "ink": "#1A1233",
+    "orange": "#FF9F1C",
+    "coral": "#FF6B8A",
+    "mint": "#4ADE80"
+  },
+  "roles": {
+    "background": "skyBlue",
+    "surface": "asphalt",
+    "surfaceAlt": "curb",
+    "hazard": "siren",
+    "interactive": "sunny",
+    "goal": "cyan",
+    "reward": "violet",
+    "panel": "grape",
+    "panelAlt": "grapeLight",
+    "text": "snow",
+    "textMuted": "mist",
+    "textOnAccent": "ink",
+    "accent": "orange",
+    "danger": "coral",
+    "success": "mint"
+  },
+  "materials": {
+    "surface": "Asphalt",
+    "surfaceAlt": "Concrete",
+    "hazard": "Neon",
+    "interactive": "Neon",
+    "goal": "Neon",
+    "decoration": "SmoothPlastic"
+  },
+  "fonts": {
+    "heading": { "font": "LuckiestGuy", "weight": "Regular" },
+    "body": { "font": "BuilderSans", "weight": "Regular" },
+    "label": { "font": "BuilderSans", "weight": "SemiBold" },
+    "number": { "font": "FredokaOne", "weight": "Bold" }
+  },
+  "ui": {
+    "cornerRadius": 14,
+    "strokeThickness": 3,
+    "spacing": 8,
+    "panelTransparency": 0.1,
+    "minTouchTarget": 48,
+    "textSizeMin": 14,
+    "textSizeMax": 36
+  },
+  "lighting": {
+    "style": "Soft",
+    "prioritizeQuality": true,
+    "presets": {
+      "default": {
+        "clockTime": 15.2,
+        "brightness": 2.6,
+        "exposure": 0.1,
+        "ambient": "#6E6A92",
+        "outdoorAmbient": "#8F8CB8",
+        "colorShiftTop": "#FFE2B0",
+        "atmosphere": { "density": 0.22, "offset": 0.1, "color": "#BFE3FF", "decay": "#8E9FD6", "glare": 0.2, "haze": 0.9 },
+        "colorCorrection": { "brightness": 0.02, "contrast": 0.1, "saturation": 0.2, "tint": "#FFFAF0" },
+        "bloom": { "intensity": 0.5, "size": 22, "threshold": 1.5 },
+        "sunRays": { "intensity": 0.06, "spread": 0.7 }
+      },
+      "playa": {
+        "clockTime": 13.2,
+        "brightness": 3.0,
+        "exposure": 0.15,
+        "ambient": "#7C86A8",
+        "outdoorAmbient": "#9CB6D8",
+        "colorShiftTop": "#FFF0C8",
+        "atmosphere": { "density": 0.18, "offset": 0.08, "color": "#CFEBFF", "decay": "#A9C6EA", "glare": 0.3, "haze": 0.7 },
+        "colorCorrection": { "brightness": 0.03, "contrast": 0.08, "saturation": 0.25, "tint": "#FFFBEA" },
+        "bloom": { "intensity": 0.55, "size": 24, "threshold": 1.5 },
+        "sunRays": { "intensity": 0.08, "spread": 0.8 }
+      },
+      "neon": {
+        "clockTime": 20.4,
+        "brightness": 1.8,
+        "exposure": 0.1,
+        "ambient": "#3C3470",
+        "outdoorAmbient": "#4F4690",
+        "colorShiftTop": "#FFA6D6",
+        "atmosphere": { "density": 0.3, "offset": 0.1, "color": "#B79CF0", "decay": "#4A2F80", "glare": 0.4, "haze": 1.2 },
+        "colorCorrection": { "brightness": 0.02, "contrast": 0.12, "saturation": 0.25, "tint": "#FFF0FA" },
+        "bloom": { "intensity": 0.9, "size": 26, "threshold": 1.2 }
+      },
+      "queso": {
+        "clockTime": 17.4,
+        "brightness": 2.2,
+        "exposure": 0.05,
+        "ambient": "#7A6A88",
+        "outdoorAmbient": "#A28C90",
+        "colorShiftTop": "#FFC878",
+        "atmosphere": { "density": 0.25, "offset": 0.1, "color": "#F6D6A8", "decay": "#B98A7A", "glare": 0.4, "haze": 1.0 },
+        "colorCorrection": { "brightness": 0.0, "contrast": 0.1, "saturation": 0.18, "tint": "#FFF2E0" },
+        "bloom": { "intensity": 0.6, "size": 24, "threshold": 1.4 },
+        "sunRays": { "intensity": 0.1, "spread": 0.6 }
+      },
+      "puerto": {
+        "clockTime": 18.6,
+        "brightness": 1.9,
+        "exposure": 0.0,
+        "ambient": "#5A5878",
+        "outdoorAmbient": "#6E6C90",
+        "colorShiftTop": "#FFB48A",
+        "atmosphere": { "density": 0.38, "offset": 0.12, "color": "#B6B2D2", "decay": "#6A5A80", "glare": 0.3, "haze": 1.8 },
+        "colorCorrection": { "brightness": 0.0, "contrast": 0.12, "saturation": 0.12, "tint": "#F4EEF8" },
+        "bloom": { "intensity": 0.6, "size": 24, "threshold": 1.4 }
+      },
+      "sala": {
+        "clockTime": 14.0,
+        "brightness": 2.0,
+        "exposure": 0.1,
+        "ambient": "#8C84B8",
+        "outdoorAmbient": "#9A94C4",
+        "colorShiftTop": "#FFFFFF",
+        "colorCorrection": { "brightness": 0.02, "contrast": 0.06, "saturation": 0.15, "tint": "#FFFFFF" },
+        "bloom": { "intensity": 0.4, "size": 20, "threshold": 1.6 }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "physics": { "walkSpeed": 16, "jumpHeight": 7.2, "gravity": 196.2 },
+  "levels": [
+    {
+      "id": "plaza",
+      "name": "Plaza",
+      "layout": "arena",
+      "start": "inicio",
+      "pieces": [
+        { "id": "piso", "kind": "platform", "position": [0, -0.5, 0], "size": [120, 1, 120], "material": "SmoothPlastic", "color": "#7B8496" },
+        { "id": "inicio", "kind": "spawn", "position": [0, 0.5, 0], "size": [8, 1, 8], "material": "SmoothPlastic", "color": "#4ADE80" },
+        { "id": "muro-n", "kind": "wall", "position": [0, 8, -61], "size": [124, 16, 2], "material": "SmoothPlastic", "color": "#4E5668" },
+        { "id": "muro-s", "kind": "wall", "position": [0, 8, 61], "size": [124, 16, 2], "material": "SmoothPlastic", "color": "#4E5668" },
+        { "id": "muro-e", "kind": "wall", "position": [61, 8, 0], "size": [2, 16, 120], "material": "SmoothPlastic", "color": "#4E5668" },
+        { "id": "muro-o", "kind": "wall", "position": [-61, 8, 0], "size": [2, 16, 120], "material": "SmoothPlastic", "color": "#4E5668" },
+        { "id": "cobertura-1", "kind": "wall", "position": [-25, 3, -25], "size": [6, 6, 6], "material": "SmoothPlastic", "color": "#7B8496" },
+        { "id": "cobertura-2", "kind": "wall", "position": [25, 3, -25], "size": [6, 6, 6], "material": "SmoothPlastic", "color": "#7B8496" },
+        { "id": "cobertura-3", "kind": "wall", "position": [-25, 3, 25], "size": [6, 6, 6], "material": "SmoothPlastic", "color": "#7B8496" },
+        { "id": "cobertura-4", "kind": "wall", "position": [25, 3, 25], "size": [6, 6, 6], "material": "SmoothPlastic", "color": "#7B8496" }
+      ]
+    }
+  ]
+}

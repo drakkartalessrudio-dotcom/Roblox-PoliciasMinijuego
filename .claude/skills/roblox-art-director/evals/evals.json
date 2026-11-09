@@ -1,0 +1,49 @@
+{
+  "skill_name": "roblox-art-director",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Copiá el juego de ../roblox-game-builder/evals/files/torre-neon a tu carpeta de salida y dale una dirección de arte cyberpunk de neón: ciudad nocturna, mucho brillo pero que se entienda dónde se puede pisar.",
+      "expected_output": "design/ART.md y src/shared/Theme.json para TorreNeon con estilo cyberpunk nocturno, superficies apagadas y roles de juego brillantes, peligro exclusivo, fuentes válidas, preset de iluminación nocturno, design.art activado y check_art.py sin errores.",
+      "files": ["../roblox-game-builder/evals/files/torre-neon"],
+      "expectations": [
+        "Existen design/ART.md y src/shared/Theme.json en la copia",
+        "El frontmatter del GDD tiene design.art en true",
+        "check_art.py sobre la copia termina sin errores",
+        "Las superficies jugables son más apagadas que los colores de peligro, checkpoint y meta",
+        "Ningún rol seguro usa el color del peligro",
+        "Las fuentes son valores de Enum.Font vigentes (no Gotham ni Arial)",
+        "El preset default representa la noche (clockTime entre 18 y 6) y usa atmosphere o fog, no ambos",
+        "ART.md explica que LightingStyle va en default.project.json y no se cambia por script",
+        "No se modificó Levels.json ni el código del juego"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Definí cómo se tiene que ver este juego antes de programarlo (../roblox-game-builder/evals/files/gdd-runner-monetizado.md). Es para chicos de 9 a 14 y se juega mucho en celular.",
+      "expected_output": "ART.md y Theme.json con un estilo brillante y legible en celulares, contraste de texto alto, tamaño táctil de 44 px o más, monedas y peligros distinguibles con daltonismo, y check_art.py sin errores.",
+      "files": ["../roblox-game-builder/evals/files/gdd-runner-monetizado.md"],
+      "expectations": [
+        "Se escribieron design/ART.md y src/shared/Theme.json",
+        "check_art.py --theme sobre el Theme.json termina sin errores",
+        "ui.minTouchTarget es 44 o más",
+        "ART.md justifica decisiones por jugar en celular (tamaño, contraste o siluetas)",
+        "El rol reward (monedas) se distingue del peligro y de la superficie según el validador",
+        "No se copia la identidad visual de otro juego ni se usan IDs de assets"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "un amigo daltónico me dijo que en mi juego no distingue los checkpoints de la lava y que el texto gris casi no se lee. este es mi tema: evals/files/Theme-confuso.json. arreglalo sin cambiar el estilo.",
+      "expected_output": "Diagnóstico con check_art.py que encuentra los pares confundidos y el bajo contraste, tema corregido que conserva la intención y pasa el validador, y explicación de cada cambio.",
+      "files": ["evals/files/Theme-confuso.json"],
+      "expectations": [
+        "Se ejecutó check_art.py sobre el tema original y se reportaron sus errores",
+        "El tema corregido pasa check_art.py sin errores",
+        "Los colores corregidos son pocos y conservan el nombre del estilo y la mayoría de la paleta",
+        "Explica cada cambio con el par afectado y el tipo de daltonismo",
+        "Recomienda una señal además del color para el peligro (material, forma o brillo)"
+      ]
+    }
+  ]
+}

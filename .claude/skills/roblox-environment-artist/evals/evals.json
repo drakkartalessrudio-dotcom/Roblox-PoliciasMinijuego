@@ -1,0 +1,84 @@
+{
+  "skill_name": "roblox-environment-artist",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Copiá el juego de evals/files/obby-blockout a tu carpeta de salida. Los niveles parecen un blockout: todo gris, nada alrededor, sin ambiente. Hacé el pase de arte para que se vea como un juego terminado, sin cambiar cómo se juega.",
+      "expected_output": "design/ENVIRONMENT.md y src/shared/Environment.json con estilo por tipo de pieza (bordes y rocas de apoyo), props fuera del alcance de los saltos, terreno de fondo, luces en meta o checkpoints y el preset del tema; design.environment activado; Levels.json sin cambios; check_environment.py y check_game.py sin errores, con el loader integrado o pedido al builder.",
+      "files": ["evals/files/obby-blockout"],
+      "expectations": [
+        "Existen design/ENVIRONMENT.md y src/shared/Environment.json en la copia",
+        "Busca referencias o assets en assets/ y, como no hay, pregunta una vez o deja constancia en ENVIRONMENT.md de que no hay",
+        "Genera la vista previa con preview_environment.py, mira las imágenes y ENVIRONMENT.md registra qué corrigió a partir de ellas",
+        "El frontmatter del GDD tiene design.environment en true",
+        "src/shared/Levels.json es idéntico al original",
+        "check_environment.py sobre la copia termina sin errores",
+        "Environment.json no tiene colores hexadecimales ni IDs de assets",
+        "Cada nivel tiene al menos un prop o relleno de terreno y ENVIRONMENT.md explica la intención de cada uno",
+        "Las plataformas tienen un estilo con dressing (trim, rock o pillar) o la decisión de no usarlo está explicada",
+        "EnvironmentLoader.luau está copiado sin cambios y Bootstrap llama a EnvironmentLoader.apply después de LevelLoader.build, o Pendientes del GDD lo pide al builder",
+        "No se modificó ObbyService.luau ni la lógica del juego"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Dale ambiente de ciudad nocturna de neón a ../roblox-game-builder/evals/files/torre-neon (copialo primero). Quiero que se sienta como subir una torre entre rascacielos.",
+      "expected_output": "Como el juego no tiene tema, primero se define con roblox-art-director (o queda pedido en Pendientes) y después el pase de arte: rascacielos y luces de fondo hechos con Parts fuera del alcance, plataformas legibles y el peligro con su color de rol.",
+      "files": ["../roblox-game-builder/evals/files/torre-neon"],
+      "expectations": [
+        "Detecta que falta src/shared/Theme.json y lo resuelve con el art director o lo deja pedido en Pendientes del GDD sin inventar colores en Environment.json",
+        "Si hay Theme.json, check_environment.py sobre la copia termina sin errores",
+        "Los edificios o siluetas de fondo están fuera del alcance de los saltos y no usan el color del peligro",
+        "Las luces no proyectan sombras o hay como mucho dos con sombra",
+        "Levels.json no cambió",
+        "ENVIRONMENT.md describe la intención de ciudad nocturna y cómo guía la vista hacia la meta"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Después de decorar mi obby (evals/files/obby-blockout con este Environment.json: evals/files/Environment-atajos.json) los jugadores se saltean un tramo del nivel 2 parándose en unas rocas, en el nivel 1 hay algo en el medio del salto, y un amigo daltónico no distingue las plataformas de la lava. Arreglalo sin perder la decoración.",
+      "expected_output": "Diagnóstico con check_environment.py: rocas con colisión al alcance del checkpoint del nivel 2, cristal en el aire del salto p1 → p2 y color ember de las plataformas que se confunde con la lava en deuteranopia. Arreglo: rocas sin colisión o fuera del alcance, cristal movido fuera de la trayectoria y otro color del tema para las plataformas; el resto de la decoración se conserva.",
+      "files": ["evals/files/obby-blockout", "evals/files/Environment-atajos.json"],
+      "expectations": [
+        "Ejecuta check_environment.py sobre el juego con el Environment.json recibido y reporta sus tres errores",
+        "Las rocas del nivel 2 quedan sin colisión o fuera del alcance de los saltos",
+        "El cristal del nivel 1 sale del aire del salto p1 → p2 sin eliminar el resto de los props",
+        "Las plataformas usan un color del tema que no se confunde con el peligro",
+        "check_environment.py termina sin errores después del arreglo",
+        "No se modificó Levels.json"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Copiá evals/files/obby-blockout a tu carpeta de salida y hacé el pase de arte usando mis assets: la fuente que hice yo (evals/files/modelos-usuario/Fuente.rbxmx) tiene que ir detrás de la meta del nivel 1, y para las plataformas quiero mi textura de baldosas, rbxassetid://14920000001, que subí yo. Todo es mío, licencia propia.",
+      "expected_output": "La fuente copiada a assets/models y declarada en assets con su caja, origen y licencia; la textura declarada y aplicada a las plataformas; ambos en Assets y servicios del GDD; default.project.json con ServerStorage.EnvironmentAssets mapeado (o pedido al builder); la fuente fuera del aire de los saltos; check_environment.py sin errores.",
+      "files": ["evals/files/obby-blockout", "evals/files/modelos-usuario/Fuente.rbxmx"],
+      "expectations": [
+        "assets/models/Fuente.rbxmx existe en la copia",
+        "Environment.json declara la fuente como model con file, size, source y license, y la textura como texture con el ID dado, source y license",
+        "La fuente se usa como prop con asset y size, detrás de la meta del nivel 1 y fuera del aire del último salto",
+        "Las plataformas usan la textura con texture en su estilo",
+        "El ID 14920000001 y el archivo Fuente.rbxmx aparecen en la sección Assets y servicios del GDD",
+        "default.project.json mapea assets/models a ServerStorage.EnvironmentAssets, o Pendientes del GDD se lo pide al builder",
+        "No inventa otros IDs ni busca assets por su cuenta",
+        "check_environment.py sobre la copia termina sin errores"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Copiá evals/files/arena-lisa a tu carpeta de salida. En Studio el piso se ve con manchas de pasto, los muros y el piso parecen de plastilina lisa y los árboles están todos en un anillo. Arreglalo para que parezca un lugar terminado.",
+      "expected_output": "Diagnóstico con check_environment.py: el suelo de terreno a 1 stud del piso asoma por los vóxeles y cinco superficies grandes están lisas. Arreglo: terreno a 4 studs o más con borde en múltiplo de 4 y adorno base bajo piso y muros; muros con material y zócalo, cornisa o pilastras; piso con material, guarda o baldosas; árboles en grupos con intención en lugar del anillo; vista previa revisada; check_environment.py sin errores ni avisos de superficies lisas.",
+      "files": ["evals/files/arena-lisa"],
+      "expectations": [
+        "Ejecuta check_environment.py sobre la arena original y reporta el error del terreno y el aviso de superficies lisas",
+        "El suelo de terreno queda a 4 studs o más de toda pieza y el piso o los muros tienen el adorno base",
+        "Los muros perimetrales tienen material con textura o adornos de muro (baseboard, cornice, pilasters o band)",
+        "El piso tiene material con textura o adornos de piso (border, grid o checker)",
+        "Los árboles ya no forman un anillo parejo: hay grupos o elementos de fondo distintos, explicados en ENVIRONMENT.md",
+        "Se generaron y revisaron vistas previas antes de terminar",
+        "check_environment.py sobre la copia termina sin errores y sin el aviso de superficies lisas",
+        "Levels.json es idéntico al original"
+      ]
+    }
+  ]
+}

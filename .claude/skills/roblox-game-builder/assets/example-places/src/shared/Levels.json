@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "physics": { "walkSpeed": 16, "jumpHeight": 7.2, "gravity": 196.2 },
+  "defaults": { "material": "SmoothPlastic", "color": "#8FA9C4" },
+  "levels": [
+    {
+      "id": "plaza",
+      "name": "Plaza",
+      "place": "plaza",
+      "layout": "hub",
+      "start": "inicio",
+      "pieces": [
+        { "id": "suelo", "kind": "platform", "position": [0, -0.5, 0], "size": [60, 1, 60], "material": "Concrete" },
+        { "id": "inicio", "kind": "spawn", "position": [0, 0.5, 12], "size": [8, 1, 8], "color": "#4CAF50" },
+        { "id": "muro-n", "kind": "wall", "position": [0, 2, -30.5], "size": [61, 4, 1], "color": "#5C6B7A" },
+        { "id": "muro-s", "kind": "wall", "position": [0, 2, 30.5], "size": [61, 4, 1], "color": "#5C6B7A" },
+        { "id": "muro-e", "kind": "wall", "position": [30.5, 2, 0], "size": [1, 4, 60], "color": "#5C6B7A" },
+        { "id": "muro-o", "kind": "wall", "position": [-30.5, 2, 0], "size": [1, 4, 60], "color": "#5C6B7A" },
+        { "id": "arco-izq", "kind": "wall", "position": [-5, 6, -20], "size": [2, 12, 2], "color": "#5C6B7A" },
+        { "id": "arco-der", "kind": "wall", "position": [5, 6, -20], "size": [2, 12, 2], "color": "#5C6B7A" },
+        { "id": "arco-arriba", "kind": "wall", "position": [0, 13, -20], "size": [12, 2, 2], "color": "#5C6B7A" },
+        { "id": "portal", "kind": "zone", "name": "portal:torre", "position": [0, 5, -20], "size": [8, 10, 1], "note": "Al tocarla, el jugador viaja al place torre" }
+      ]
+    },
+    {
+      "id": "torre-1",
+      "name": "Torre: primer tramo",
+      "place": "torre",
+      "layout": "linear",
+      "difficulty": 2,
+      "expectedSeconds": 40,
+      "start": "salida",
+      "path": ["salida", "p1", "p2", "meta"],
+      "pieces": [
+        { "id": "lava", "kind": "hazard", "position": [0, -12, -15], "size": [40, 2, 70], "material": "Neon", "color": "#FF5A1F" },
+        { "id": "salida", "kind": "spawn", "position": [0, 0, 0], "size": [10, 1, 10], "color": "#4CAF50" },
+        { "id": "p1", "kind": "platform", "position": [0, 1, -12], "size": [6, 1, 6] },
+        { "id": "p2", "kind": "platform", "position": [0, 2, -23], "size": [6, 1, 6] },
+        { "id": "meta", "kind": "goal", "position": [0, 3, -35], "size": [10, 1, 10], "material": "Neon", "color": "#2EC4F1" }
+      ]
+    },
+    {
+      "id": "torre-2",
+      "name": "Torre: la cima",
+      "place": "torre",
+      "layout": "linear",
+      "difficulty": 4,
+      "expectedSeconds": 50,
+      "origin": [0, 0, -150],
+      "start": "entrada",
+      "path": ["entrada", "p1", "p2", "meta"],
+      "pieces": [
+        { "id": "lava", "kind": "hazard", "position": [0, -12, -15], "size": [40, 2, 70], "material": "Neon", "color": "#FF5A1F" },
+        { "id": "entrada", "kind": "platform", "position": [0, 0, 0], "size": [8, 1, 8], "color": "#4CAF50" },
+        { "id": "p1", "kind": "platform", "position": [0, 1, -12], "size": [5, 1, 5] },
+        { "id": "p2", "kind": "platform", "position": [5, 2, -23], "size": [5, 1, 5] },
+        { "id": "meta", "kind": "goal", "position": [5, 3, -35], "size": [10, 1, 10], "material": "Neon", "color": "#2EC4F1" }
+      ]
+    }
+  ]
+}

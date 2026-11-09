@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "budgetPerPlayerPerMinute": 20,
+  "progressionPaths": ["Obby"],
+  "funnels": [],
+  "currencies": [],
+  "customEvents": ["death", "obby_finished"],
+  "customFields": {}
+}

@@ -1,0 +1,317 @@
+{
+  "schemaVersion": 1,
+  "physics": {
+    "walkSpeed": 16,
+    "jumpHeight": 7.2,
+    "gravity": 196.2
+  },
+  "defaults": {
+    "material": "SmoothPlastic",
+    "color": "#2B2D42"
+  },
+  "budget": {
+    "maxParts": 200
+  },
+  "levels": [
+    {
+      "id": "base",
+      "name": "Base de la torre",
+      "layout": "linear",
+      "difficulty": 2,
+      "expectedSeconds": 45,
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "start": "inicio",
+      "path": [
+        "inicio",
+        "p1",
+        "p2",
+        "cp1",
+        "escalera",
+        "meta"
+      ],
+      "pieces": [
+        {
+          "id": "vacio",
+          "kind": "hazard",
+          "position": [
+            0,
+            -10,
+            -10
+          ],
+          "size": [
+            60,
+            2,
+            60
+          ],
+          "material": "Neon",
+          "color": "#FF2E63"
+        },
+        {
+          "id": "inicio",
+          "kind": "spawn",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            12,
+            1,
+            12
+          ],
+          "color": "#08D9D6"
+        },
+        {
+          "id": "p1",
+          "kind": "platform",
+          "position": [
+            11,
+            1,
+            0
+          ],
+          "size": [
+            5,
+            1,
+            5
+          ]
+        },
+        {
+          "id": "cristal-1",
+          "kind": "collectible",
+          "value": 1,
+          "shape": "Ball",
+          "position": [
+            11,
+            3,
+            0
+          ],
+          "size": [
+            1.5,
+            1.5,
+            1.5
+          ],
+          "material": "Neon",
+          "color": "#08D9D6"
+        },
+        {
+          "id": "p2",
+          "kind": "platform",
+          "position": [
+            11,
+            3,
+            -9
+          ],
+          "size": [
+            5,
+            1,
+            5
+          ]
+        },
+        {
+          "id": "cp1",
+          "kind": "checkpoint",
+          "order": 1,
+          "position": [
+            1,
+            5,
+            -9
+          ],
+          "size": [
+            6,
+            1,
+            6
+          ],
+          "color": "#EAEAEA"
+        },
+        {
+          "id": "escalera",
+          "kind": "truss",
+          "position": [
+            0,
+            10,
+            -14
+          ],
+          "size": [
+            2,
+            10,
+            2
+          ]
+        },
+        {
+          "id": "meta",
+          "kind": "goal",
+          "position": [
+            0,
+            15.5,
+            -19
+          ],
+          "size": [
+            8,
+            1,
+            8
+          ],
+          "color": "#08D9D6"
+        }
+      ]
+    },
+    {
+      "id": "ascensor",
+      "name": "Ascensor de neón",
+      "layout": "linear",
+      "difficulty": 3,
+      "expectedSeconds": 60,
+      "origin": [
+        0,
+        0,
+        -200
+      ],
+      "start": "entrada",
+      "path": [
+        "entrada",
+        "elevador",
+        "alto",
+        "cp1",
+        "p3",
+        "meta"
+      ],
+      "pieces": [
+        {
+          "id": "vacio",
+          "kind": "hazard",
+          "position": [
+            0,
+            -10,
+            -25
+          ],
+          "size": [
+            60,
+            2,
+            80
+          ],
+          "material": "Neon",
+          "color": "#FF2E63"
+        },
+        {
+          "id": "entrada",
+          "kind": "platform",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            10,
+            1,
+            10
+          ],
+          "color": "#08D9D6"
+        },
+        {
+          "id": "elevador",
+          "kind": "platform",
+          "position": [
+            0,
+            0,
+            -9
+          ],
+          "size": [
+            6,
+            1,
+            6
+          ],
+          "color": "#FFB400",
+          "motion": {
+            "type": "linear",
+            "offset": [
+              0,
+              12,
+              0
+            ],
+            "period": 8
+          }
+        },
+        {
+          "id": "alto",
+          "kind": "platform",
+          "position": [
+            0,
+            12,
+            -17
+          ],
+          "size": [
+            6,
+            1,
+            6
+          ]
+        },
+        {
+          "id": "cp1",
+          "kind": "checkpoint",
+          "order": 1,
+          "position": [
+            0,
+            12,
+            -27
+          ],
+          "size": [
+            6,
+            1,
+            6
+          ],
+          "color": "#EAEAEA"
+        },
+        {
+          "id": "cristal-2",
+          "kind": "collectible",
+          "value": 1,
+          "shape": "Ball",
+          "position": [
+            0,
+            14.5,
+            -27
+          ],
+          "size": [
+            1.5,
+            1.5,
+            1.5
+          ],
+          "material": "Neon",
+          "color": "#08D9D6"
+        },
+        {
+          "id": "p3",
+          "kind": "platform",
+          "position": [
+            6,
+            13,
+            -36
+          ],
+          "size": [
+            4,
+            1,
+            4
+          ]
+        },
+        {
+          "id": "meta",
+          "kind": "goal",
+          "position": [
+            0,
+            13,
+            -46
+          ],
+          "size": [
+            8,
+            1,
+            8
+          ],
+          "color": "#08D9D6"
+        }
+      ]
+    }
+  ]
+}

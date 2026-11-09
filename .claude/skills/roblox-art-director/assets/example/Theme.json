@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "name": "Noche volcánica",
+  "palette": {
+    "night": "#141826",
+    "dusk": "#262C40",
+    "stone": "#4E5668",
+    "stoneLight": "#7B8496",
+    "lava": "#FF5A1F",
+    "ember": "#FFB020",
+    "sun": "#FFE066",
+    "sky": "#2EC4F1",
+    "mint": "#4ADE80",
+    "coral": "#FF6B8A",
+    "violet": "#B794F6",
+    "snow": "#F5F7FA",
+    "mist": "#B8C0CC"
+  },
+  "roles": {
+    "background": "night",
+    "surface": "stone",
+    "surfaceAlt": "stoneLight",
+    "hazard": "lava",
+    "interactive": "sun",
+    "goal": "sky",
+    "reward": "violet",
+    "panel": "dusk",
+    "text": "snow",
+    "textMuted": "mist",
+    "textOnAccent": "night",
+    "accent": "ember",
+    "danger": "coral",
+    "success": "mint"
+  },
+  "materials": {
+    "surface": "Slate",
+    "surfaceAlt": "Basalt",
+    "hazard": "Neon",
+    "interactive": "SmoothPlastic",
+    "goal": "Neon",
+    "decoration": "Rock"
+  },
+  "fonts": {
+    "heading": { "font": "FredokaOne", "weight": "Bold" },
+    "body": { "font": "BuilderSans", "weight": "Regular" },
+    "label": { "font": "BuilderSans", "weight": "SemiBold" },
+    "number": { "font": "BuilderSans", "weight": "Bold" }
+  },
+  "ui": {
+    "cornerRadius": 10,
+    "strokeThickness": 2,
+    "spacing": 8,
+    "panelTransparency": 0.12,
+    "minTouchTarget": 44,
+    "textSizeMin": 14,
+    "textSizeMax": 32
+  },
+  "lighting": {
+    "style": "Soft",
+    "prioritizeQuality": true,
+    "presets": {
+      "default": {
+        "clockTime": 19.6,
+        "brightness": 1.6,
+        "ambient": "#262838",
+        "outdoorAmbient": "#4A4660",
+        "colorShiftTop": "#FFB27A",
+        "exposure": 0.1,
+        "atmosphere": { "density": 0.32, "offset": 0.12, "color": "#C9A3A0", "decay": "#5B3A52", "glare": 0.4, "haze": 1.4 },
+        "colorCorrection": { "brightness": 0.02, "contrast": 0.08, "saturation": 0.12, "tint": "#FFF4EC" },
+        "bloom": { "intensity": 0.7, "size": 24, "threshold": 1.4 }
+      }
+    }
+  }
+}

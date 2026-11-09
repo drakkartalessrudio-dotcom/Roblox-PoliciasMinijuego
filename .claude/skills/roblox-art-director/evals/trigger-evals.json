@@ -1,0 +1,13 @@
+[
+  {"query": "quiero que mi juego de roblox tenga un estilo visual propio, definí la paleta de colores, las fuentes y la iluminación", "should_trigger": true},
+  {"query": "mi obby se ve genérico, todo gris y plástico, quiero una dirección de arte tipo caramelo pastel", "should_trigger": true},
+  {"query": "revisá si los colores de mi juego se leen bien para daltónicos y si el texto tiene buen contraste", "should_trigger": true},
+  {"query": "escribí el documento de arte (art bible) de mi juego de terror en roblox antes de que empecemos a modelar", "should_trigger": true},
+  {"query": "el GDD tiene design.art en true, armá el Theme.json", "should_trigger": true},
+  {"query": "el botón de la tienda queda detrás del chat en mi juego, movelo y rediseñá el HUD", "should_trigger": false},
+  {"query": "decorá los niveles de mi obby con árboles, rocas y faroles para que no parezcan blockout", "should_trigger": false},
+  {"query": "agregá más etapas a mi obby con saltos más difíciles", "should_trigger": false},
+  {"query": "elegí una paleta de colores para mi página web de portfolio en tailwind", "should_trigger": false},
+  {"query": "programá el sistema de skins de mi juego con DataStore", "should_trigger": false},
+  {"query": "hazme un juego de roblox completo de carreras", "should_trigger": false}
+]

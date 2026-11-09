@@ -1,0 +1,29 @@
+{
+  "name": "PlazaYTorre-Torre",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Shared": {
+        "$path": "../src/shared"
+      },
+      "PlaceKey": {
+        "$className": "StringValue",
+        "$properties": {
+          "Value": "torre"
+        }
+      }
+    },
+    "ServerScriptService": {
+      "Server": {
+        "$path": "../src/server"
+      }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "Client": {
+          "$path": "../src/client"
+        }
+      }
+    }
+  }
+}

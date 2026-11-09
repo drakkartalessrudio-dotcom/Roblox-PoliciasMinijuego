@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "physics": { "walkSpeed": 16, "jumpHeight": 7.2, "gravity": 196.2 },
+  "defaults": { "material": "SmoothPlastic", "color": "#8FA9C4" },
+  "budget": { "maxParts": 300 },
+  "levels": [
+    {
+      "id": "nivel-1",
+      "name": "Primeros saltos",
+      "layout": "linear",
+      "difficulty": 1,
+      "expectedSeconds": 40,
+      "origin": [0, 0, 0],
+      "start": "inicio",
+      "path": ["inicio", "p1", "p2", "cp1", "p3", "p4", "meta"],
+      "pieces": [
+        { "id": "lava", "kind": "hazard", "position": [0, -12, -40], "size": [60, 2, 120], "material": "Neon", "color": "#FF5A1F", "note": "Piso de lava: si cae, reaparece enseguida" },
+        { "id": "inicio", "kind": "spawn", "position": [0, 0, 0], "size": [12, 1, 12], "color": "#4CAF50" },
+        { "id": "p1", "kind": "platform", "position": [0, 0, -12], "size": [6, 1, 6], "note": "Salto plano de 3 studs" },
+        { "id": "p2", "kind": "platform", "position": [0, 0, -22], "size": [6, 1, 6] },
+        { "id": "cp1", "kind": "checkpoint", "order": 1, "position": [0, 0, -33], "size": [8, 1, 8], "color": "#FFE066" },
+        { "id": "p3", "kind": "platform", "position": [0, 1, -44], "size": [6, 1, 6], "note": "Primera subida de 1 stud" },
+        { "id": "p4", "kind": "platform", "position": [4, 2, -54], "size": [6, 1, 6] },
+        { "id": "meta", "kind": "goal", "position": [4, 2, -66], "size": [10, 1, 10], "color": "#2EC4F1" }
+      ]
+    },
+    {
+      "id": "nivel-2",
+      "name": "Lava y ritmo",
+      "layout": "linear",
+      "difficulty": 3,
+      "expectedSeconds": 60,
+      "origin": [0, 0, -200],
+      "start": "entrada",
+      "path": ["entrada", "p1", "p2", "p3", "cp1", "p4", "p5", "meta"],
+      "pieces": [
+        { "id": "lava", "kind": "hazard", "position": [0, -12, -50], "size": [60, 2, 140], "material": "Neon", "color": "#FF5A1F" },
+        { "id": "entrada", "kind": "platform", "position": [0, 0, 0], "size": [10, 1, 10], "color": "#4CAF50" },
+        { "id": "p1", "kind": "platform", "position": [0, 0, -13], "size": [5, 1, 5] },
+        { "id": "p2", "kind": "platform", "position": [0, 0, -25], "size": [6, 1, 8], "note": "Lleva una franja de lava que hay que saltar" },
+        { "id": "franja", "kind": "hazard", "position": [0, 0.6, -25], "size": [6, 0.2, 2], "material": "Neon", "color": "#FF5A1F" },
+        { "id": "p3", "kind": "platform", "position": [0, 1, -37], "size": [5, 1, 5] },
+        { "id": "cp1", "kind": "checkpoint", "order": 1, "position": [0, 1, -49], "size": [8, 1, 8], "color": "#FFE066" },
+        { "id": "p4", "kind": "platform", "position": [6, 2, -60], "size": [4, 1, 4], "note": "Cambio de dirección en diagonal" },
+        { "id": "p5", "kind": "platform", "position": [0, 3, -70], "size": [4, 1, 4] },
+        { "id": "meta", "kind": "goal", "position": [0, 3, -82], "size": [10, 1, 10], "color": "#2EC4F1" }
+      ]
+    },
+    {
+      "id": "nivel-3",
+      "name": "Plataforma móvil",
+      "layout": "linear",
+      "difficulty": 4,
+      "expectedSeconds": 75,
+      "origin": [0, 0, -400],
+      "start": "entrada",
+      "path": ["entrada", "p1", "movil", "giro", "cp1", "p3", "p4", "meta"],
+      "pieces": [
+        { "id": "lava", "kind": "hazard", "position": [0, -12, -50], "size": [60, 2, 140], "material": "Neon", "color": "#FF5A1F" },
+        { "id": "entrada", "kind": "platform", "position": [0, 0, 0], "size": [10, 1, 10], "color": "#4CAF50" },
+        { "id": "p1", "kind": "platform", "position": [0, 0, -12], "size": [5, 1, 5] },
+        { "id": "movil", "kind": "platform", "position": [0, 0, -24], "size": [6, 1, 6], "color": "#AB47BC", "motion": { "type": "linear", "offset": [0, 0, -16], "period": 6 }, "note": "Lleva al jugador de un lado al otro del hueco" },
+        { "id": "giro", "kind": "platform", "position": [0, 0, -50], "size": [10, 1, 10], "note": "Las esquinas quedan fuera del alcance de la barra" },
+        { "id": "barra", "kind": "hazard", "position": [0, 1.6, -50], "size": [9, 0.6, 0.6], "material": "Neon", "color": "#FF5A1F", "collide": false, "motion": { "type": "spin", "axis": "Y", "rpm": 8 } },
+        { "id": "cp1", "kind": "checkpoint", "order": 1, "position": [0, 0, -63], "size": [8, 1, 8], "color": "#FFE066" },
+        { "id": "p3", "kind": "platform", "position": [0, 2, -74], "size": [4, 1, 4] },
+        { "id": "p4", "kind": "platform", "position": [0, 4, -84], "size": [4, 1, 4] },
+        { "id": "meta", "kind": "goal", "position": [0, 4, -96], "size": [10, 1, 10], "color": "#2EC4F1" }
+      ]
+    }
+  ]
+}

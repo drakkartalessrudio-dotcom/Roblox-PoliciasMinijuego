@@ -1,0 +1,37 @@
+# Rojo / Roblox builds
+*.rbxl
+*.rbxlx
+*.rbxm
+*.rbxmx
+*.rbxl.lock
+*.rbxlx.lock
+
+# Packages (Wally / Rokit)
+Packages/
+ServerPackages/
+DevPackages/
+sourcemap.json
+
+# Blender / 3D
+*.blend1
+*.blend2
+*.fbx.meta
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Claude local
+.claude/settings.local.json
+
+# Logs / temp
+*.log
+*.tmp

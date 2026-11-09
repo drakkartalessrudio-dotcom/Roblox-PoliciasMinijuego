@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "start": "plaza",
+  "places": {
+    "plaza": { "placeId": 0, "role": "start", "maxPlayers": 30 },
+    "torre": { "placeId": 0, "role": "area", "maxPlayers": 12 }
+  }
+}

@@ -1,0 +1,18 @@
+[
+  {"query": "tengo una idea para roblox: un juego donde cuidás una granja de slimes que se combinan entre sí. ayudame a pensarlo bien antes de programar nada, qué loop tendría y cómo progresaría", "should_trigger": true},
+  {"query": "mi simulador de pesca tiene un problema: a los 20 minutos los jugadores ya compraron todas las cañas y se van. cómo rebalanceo costos y recompensas?", "should_trigger": true},
+  {"query": "escribime el GDD de un tycoon de hamburguesería para roblox, con la economía y qué KPIs mirar después de publicarlo", "should_trigger": true},
+  {"query": "Los jugadores nuevos se van en el primer minuto de mi juego de rondas. Revisá cómo debería ser el onboarding y qué pasos medir.", "should_trigger": true},
+  {"query": "quiero hacer un juego de roblox de carreras de mascotas, por dónde empiezo? no tengo nada definido todavía", "should_trigger": true},
+  {"query": "revisá este documento de diseño de mi obby y decime si la curva de dificultad y la progresión tienen sentido (te lo pego)", "should_trigger": true},
+  {"query": "diseñá la progresión de mi juego de supervivencia por oleadas: cuántas oleadas, qué mejoras y cada cuánto, y qué pasa al morir", "should_trigger": true},
+  {"query": "decidí si mi juego de roblox debería tener game passes, developer products o apostar a creator rewards; es un juego social de roleplay en una escuela", "should_trigger": true},
+  {"query": "programá en luau el sistema de mejoras de mi simulador, ya tengo el GDD con la tabla de costos en la carpeta del juego", "should_trigger": false},
+  {"query": "convertí el brief de niveles de mi obby en el Levels.json con posiciones y tamaños de cada plataforma y validá los saltos", "should_trigger": false},
+  {"query": "el ProcessReceipt de mi juego a veces entrega dos veces el producto de 100 gemas, revisá el código", "should_trigger": false},
+  {"query": "hazme un juego completo de roblox de escondidas, quiero el .rbxlx para abrirlo hoy en studio", "should_trigger": false},
+  {"query": "escribí el game design document de un juego de plataformas 2D para Steam hecho en Godot", "should_trigger": false},
+  {"query": "cómo configuro el panel de Creator Analytics para ver la retención D7 de mi experiencia y exportarla?", "should_trigger": false},
+  {"query": "necesito que mi obby tenga checkpoints que guarden el progreso en DataStore cuando el jugador sale", "should_trigger": false},
+  {"query": "armame un evento de Halloween para mi juego que ya está publicado, con fechas y una tienda temporal", "should_trigger": false}
+]

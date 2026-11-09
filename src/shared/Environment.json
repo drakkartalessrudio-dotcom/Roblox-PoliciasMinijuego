@@ -1,0 +1,4959 @@
+{
+ "schemaVersion": 1,
+ "lighting": {
+  "preset": "default",
+  "clouds": {
+   "cover": 0.45,
+   "density": 0.5,
+   "color": "snow"
+  }
+ },
+ "budget": {
+  "maxParts": 9000,
+  "maxLights": 90,
+  "maxShadowLights": 2
+ },
+ "pieces": {
+  "platform": {
+   "variation": 0.04
+  }
+ },
+ "prefabs": {
+  "tree": {
+   "description": "Árbol de copa redonda",
+   "size": [
+    8,
+    12,
+    8
+   ],
+   "colors": {
+    "primary": "success",
+    "secondary": "surface"
+   },
+   "parts": [
+    {
+     "shape": "Cylinder",
+     "axis": "Y",
+     "center": [
+      0,
+      -0.25,
+      0
+     ],
+     "size": [
+      0.14,
+      0.5,
+      0.14
+     ],
+     "color": "secondary",
+     "material": "Wood"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0,
+      0.18,
+      0
+     ],
+     "size": [
+      0.75,
+      0.55,
+      0.75
+     ],
+     "color": "primary",
+     "material": "LeafyGrass"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0.2,
+      0.05,
+      0.15
+     ],
+     "size": [
+      0.5,
+      0.4,
+      0.5
+     ],
+     "color": "primary",
+     "material": "LeafyGrass"
+    }
+   ]
+  },
+  "bench": {
+   "description": "Banco de plaza con respaldo",
+   "size": [
+    6,
+    3,
+    2.4
+   ],
+   "colors": {
+    "primary": "surfaceAlt",
+    "secondary": "surface"
+   },
+   "parts": [
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      -0.05,
+      0.05
+     ],
+     "size": [
+      1,
+      0.12,
+      0.6
+     ],
+     "color": "primary",
+     "material": "WoodPlanks"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      0.28,
+      -0.38
+     ],
+     "size": [
+      1,
+      0.35,
+      0.12
+     ],
+     "rotation": [
+      -10,
+      0,
+      0
+     ],
+     "color": "primary",
+     "material": "WoodPlanks"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.42,
+      -0.3,
+      0
+     ],
+     "size": [
+      0.06,
+      0.4,
+      0.75
+     ],
+     "color": "secondary",
+     "material": "Metal"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.42,
+      -0.3,
+      0
+     ],
+     "size": [
+      0.06,
+      0.4,
+      0.75
+     ],
+     "color": "secondary",
+     "material": "Metal"
+    }
+   ]
+  },
+  "planter": {
+   "description": "Macetero con arbusto y flores",
+   "size": [
+    4,
+    4,
+    4
+   ],
+   "colors": {
+    "primary": "success",
+    "secondary": "surface",
+    "flower": "accent"
+   },
+   "parts": [
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      -0.3,
+      0
+     ],
+     "size": [
+      0.92,
+      0.4,
+      0.92
+     ],
+     "color": "secondary",
+     "material": "Concrete"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      -0.07,
+      0
+     ],
+     "size": [
+      1,
+      0.06,
+      1
+     ],
+     "color": "secondary",
+     "material": "Concrete"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      -0.12,
+      0.18,
+      0.05
+     ],
+     "size": [
+      0.6,
+      0.6,
+      0.6
+     ],
+     "color": "primary",
+     "material": "LeafyGrass"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0.18,
+      0.1,
+      -0.12
+     ],
+     "size": [
+      0.45,
+      0.45,
+      0.45
+     ],
+     "color": "primary",
+     "material": "LeafyGrass"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      -0.25,
+      0.4,
+      0.15
+     ],
+     "size": [
+      0.15,
+      0.15,
+      0.15
+     ],
+     "color": "flower",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0.22,
+      0.33,
+      0.12
+     ],
+     "size": [
+      0.13,
+      0.13,
+      0.13
+     ],
+     "color": "flower",
+     "material": "SmoothPlastic"
+    }
+   ]
+  },
+  "streetLamp": {
+   "description": "Farol de calle doble con dos luces",
+   "size": [
+    4,
+    14,
+    2
+   ],
+   "colors": {
+    "secondary": "surface",
+    "glow": "text",
+    "light": "accent"
+   },
+   "parts": [
+    {
+     "shape": "Cylinder",
+     "center": [
+      0,
+      -0.47,
+      0
+     ],
+     "size": [
+      0.4,
+      0.06,
+      0.8
+     ],
+     "axis": "Y",
+     "color": "secondary",
+     "material": "Metal"
+    },
+    {
+     "shape": "Cylinder",
+     "center": [
+      0,
+      -0.05,
+      0
+     ],
+     "size": [
+      0.08,
+      0.82,
+      0.16
+     ],
+     "axis": "Y",
+     "color": "secondary",
+     "material": "Metal"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      0.36,
+      0
+     ],
+     "size": [
+      0.8,
+      0.02,
+      0.08
+     ],
+     "color": "secondary",
+     "material": "Metal"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.38,
+      0.31,
+      0
+     ],
+     "size": [
+      0.18,
+      0.07,
+      0.6
+     ],
+     "color": "glow",
+     "material": "Neon",
+     "light": {
+      "type": "Point",
+      "color": "light",
+      "brightness": 1,
+      "range": 16
+     }
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.38,
+      0.31,
+      0
+     ],
+     "size": [
+      0.18,
+      0.07,
+      0.6
+     ],
+     "color": "glow",
+     "material": "Neon",
+     "light": {
+      "type": "Point",
+      "color": "light",
+      "brightness": 1,
+      "range": 16
+     }
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0,
+      0.44,
+      0
+     ],
+     "size": [
+      0.15,
+      0.08,
+      0.3
+     ],
+     "color": "secondary",
+     "material": "Metal"
+    }
+   ]
+  },
+  "bush": {
+   "description": "Arbusto de dos esferas",
+   "size": [
+    4,
+    3,
+    4
+   ],
+   "colors": {
+    "primary": "success"
+   },
+   "parts": [
+    {
+     "shape": "Ball",
+     "center": [
+      -0.12,
+      0,
+      0
+     ],
+     "size": [
+      0.7,
+      1,
+      0.7
+     ],
+     "color": "primary",
+     "material": "LeafyGrass"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0.2,
+      -0.12,
+      0.1
+     ],
+     "size": [
+      0.5,
+      0.6,
+      0.5
+     ],
+     "color": "primary",
+     "material": "LeafyGrass"
+    }
+   ]
+  },
+  "fence": {
+   "description": "Tramo de cerca con dos postes",
+   "size": [
+    8,
+    4,
+    0.6
+   ],
+   "colors": {
+    "primary": "surfaceAlt",
+    "secondary": "surface"
+   },
+   "parts": [
+    {
+     "shape": "Block",
+     "center": [
+      -0.45,
+      0,
+      0
+     ],
+     "size": [
+      0.08,
+      1,
+      1
+     ],
+     "color": "secondary",
+     "material": "Wood"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.45,
+      0,
+      0
+     ],
+     "size": [
+      0.08,
+      1,
+      1
+     ],
+     "color": "secondary",
+     "material": "Wood"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      0.2,
+      0
+     ],
+     "size": [
+      1,
+      0.1,
+      0.5
+     ],
+     "color": "primary",
+     "material": "WoodPlanks"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      -0.15,
+      0
+     ],
+     "size": [
+      1,
+      0.1,
+      0.5
+     ],
+     "color": "primary",
+     "material": "WoodPlanks"
+    }
+   ]
+  },
+  "flowerBed": {
+   "description": "Cantero bajo con flores",
+   "size": [
+    6,
+    1.5,
+    3
+   ],
+   "colors": {
+    "secondary": "surface",
+    "soil": "background",
+    "flowerA": "accent",
+    "flowerB": "text",
+    "flowerC": "success"
+   },
+   "parts": [
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      -0.2,
+      0
+     ],
+     "size": [
+      1,
+      0.5,
+      1
+     ],
+     "color": "secondary",
+     "material": "Brick"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      0.07,
+      0
+     ],
+     "size": [
+      0.92,
+      0.04,
+      0.88
+     ],
+     "color": "soil",
+     "material": "Ground"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      -0.3,
+      0.3,
+      -0.2
+     ],
+     "size": [
+      0.12,
+      0.35,
+      0.25
+     ],
+     "color": "flowerA",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0.0,
+      0.3,
+      -0.25
+     ],
+     "size": [
+      0.12,
+      0.35,
+      0.25
+     ],
+     "color": "flowerB",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0.3,
+      0.3,
+      -0.2
+     ],
+     "size": [
+      0.12,
+      0.35,
+      0.25
+     ],
+     "color": "flowerC",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      -0.3,
+      0.3,
+      0.2
+     ],
+     "size": [
+      0.12,
+      0.35,
+      0.25
+     ],
+     "color": "flowerA",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0.0,
+      0.3,
+      0.22
+     ],
+     "size": [
+      0.12,
+      0.35,
+      0.25
+     ],
+     "color": "flowerB",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0.3,
+      0.3,
+      0.2
+     ],
+     "size": [
+      0.12,
+      0.35,
+      0.25
+     ],
+     "color": "flowerC",
+     "material": "SmoothPlastic"
+    }
+   ]
+  },
+  "crate": {
+   "description": "Caja de madera con flejes",
+   "size": [
+    3,
+    3,
+    3
+   ],
+   "colors": {
+    "primary": "surfaceAlt",
+    "secondary": "surface"
+   },
+   "parts": [
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      0,
+      0
+     ],
+     "size": [
+      0.96,
+      0.96,
+      0.96
+     ],
+     "color": "primary",
+     "material": "WoodPlanks"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      0,
+      0.49
+     ],
+     "size": [
+      1,
+      0.12,
+      0.02
+     ],
+     "color": "secondary",
+     "material": "Wood"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      0,
+      -0.49
+     ],
+     "size": [
+      1,
+      0.12,
+      0.02
+     ],
+     "color": "secondary",
+     "material": "Wood"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.49,
+      0,
+      0
+     ],
+     "size": [
+      0.02,
+      0.12,
+      1
+     ],
+     "color": "secondary",
+     "material": "Wood"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.49,
+      0,
+      0
+     ],
+     "size": [
+      0.02,
+      0.12,
+      1
+     ],
+     "color": "secondary",
+     "material": "Wood"
+    }
+   ]
+  },
+  "barrel": {
+   "description": "Barril con dos zunchos",
+   "size": [
+    2.4,
+    3,
+    2.4
+   ],
+   "colors": {
+    "primary": "surfaceAlt",
+    "secondary": "surface"
+   },
+   "parts": [
+    {
+     "shape": "Cylinder",
+     "axis": "Y",
+     "center": [
+      0,
+      0,
+      0
+     ],
+     "size": [
+      0.92,
+      1,
+      0.92
+     ],
+     "color": "primary",
+     "material": "Wood"
+    },
+    {
+     "shape": "Cylinder",
+     "axis": "Y",
+     "center": [
+      0,
+      0.3,
+      0
+     ],
+     "size": [
+      1,
+      0.08,
+      1
+     ],
+     "color": "secondary",
+     "material": "Metal"
+    },
+    {
+     "shape": "Cylinder",
+     "axis": "Y",
+     "center": [
+      0,
+      -0.3,
+      0
+     ],
+     "size": [
+      1,
+      0.08,
+      1
+     ],
+     "color": "secondary",
+     "material": "Metal"
+    }
+   ]
+  },
+  "bunting": {
+   "description": "Guirnalda de banderines para cruzar una plaza o un pasillo",
+   "size": [
+    16,
+    3,
+    0.4
+   ],
+   "colors": {
+    "secondary": "surface",
+    "flagA": "accent",
+    "flagB": "success",
+    "flagC": "text"
+   },
+   "parts": [
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      0.42,
+      0
+     ],
+     "size": [
+      1,
+      0.03,
+      0.25
+     ],
+     "color": "secondary",
+     "material": "Fabric"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.42,
+      0.12,
+      0
+     ],
+     "size": [
+      0.075,
+      0.4,
+      0.25
+     ],
+     "rotation": [
+      0,
+      0,
+      45
+     ],
+     "color": "flagA",
+     "material": "Fabric"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.28,
+      0.12,
+      0
+     ],
+     "size": [
+      0.075,
+      0.4,
+      0.25
+     ],
+     "rotation": [
+      0,
+      0,
+      45
+     ],
+     "color": "flagB",
+     "material": "Fabric"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.14,
+      0.12,
+      0
+     ],
+     "size": [
+      0.075,
+      0.4,
+      0.25
+     ],
+     "rotation": [
+      0,
+      0,
+      45
+     ],
+     "color": "flagC",
+     "material": "Fabric"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.0,
+      0.12,
+      0
+     ],
+     "size": [
+      0.075,
+      0.4,
+      0.25
+     ],
+     "rotation": [
+      0,
+      0,
+      45
+     ],
+     "color": "flagA",
+     "material": "Fabric"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.14,
+      0.12,
+      0
+     ],
+     "size": [
+      0.075,
+      0.4,
+      0.25
+     ],
+     "rotation": [
+      0,
+      0,
+      45
+     ],
+     "color": "flagB",
+     "material": "Fabric"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.28,
+      0.12,
+      0
+     ],
+     "size": [
+      0.075,
+      0.4,
+      0.25
+     ],
+     "rotation": [
+      0,
+      0,
+      45
+     ],
+     "color": "flagC",
+     "material": "Fabric"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.42,
+      0.12,
+      0
+     ],
+     "size": [
+      0.075,
+      0.4,
+      0.25
+     ],
+     "rotation": [
+      0,
+      0,
+      45
+     ],
+     "color": "flagA",
+     "material": "Fabric"
+    }
+   ]
+  },
+  "sign": {
+   "description": "Cartel en un poste, sin texto",
+   "size": [
+    3,
+    5,
+    0.5
+   ],
+   "colors": {
+    "primary": "surfaceAlt",
+    "secondary": "surface"
+   },
+   "parts": [
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      -0.15,
+      0
+     ],
+     "size": [
+      0.1,
+      0.7,
+      0.6
+     ],
+     "color": "secondary",
+     "material": "Wood"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      0.3,
+      0
+     ],
+     "size": [
+      1,
+      0.35,
+      1
+     ],
+     "color": "primary",
+     "material": "WoodPlanks"
+    }
+   ]
+  },
+  "sakura": {
+   "size": [
+    10,
+    14,
+    10
+   ],
+   "colors": {
+    "trunk": "grapeLight",
+    "bloomA": "coral",
+    "bloomB": "snow"
+   },
+   "parts": [
+    {
+     "shape": "Cylinder",
+     "center": [
+      0,
+      -0.2,
+      0
+     ],
+     "size": [
+      0.1,
+      0.6,
+      0.1
+     ],
+     "color": "trunk",
+     "material": "Wood",
+     "axis": "Y"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0,
+      0.28,
+      0
+     ],
+     "size": [
+      0.7,
+      0.5,
+      0.7
+     ],
+     "color": "bloomA",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0.22,
+      0.2,
+      0.1
+     ],
+     "size": [
+      0.5,
+      0.4,
+      0.5
+     ],
+     "color": "bloomB",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      -0.22,
+      0.2,
+      -0.1
+     ],
+     "size": [
+      0.5,
+      0.4,
+      0.5
+     ],
+     "color": "bloomA",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0.05,
+      0.4,
+      -0.2
+     ],
+     "size": [
+      0.4,
+      0.3,
+      0.4
+     ],
+     "color": "bloomB",
+     "material": "SmoothPlastic"
+    }
+   ]
+  },
+  "torii": {
+   "size": [
+    22,
+    16,
+    3
+   ],
+   "colors": {
+    "main": "orange",
+    "dark": "ink"
+   },
+   "parts": [
+    {
+     "shape": "Cylinder",
+     "center": [
+      -0.3,
+      -0.05,
+      0
+     ],
+     "size": [
+      0.07,
+      0.85,
+      0.5
+     ],
+     "color": "main",
+     "material": "SmoothPlastic",
+     "axis": "Y"
+    },
+    {
+     "shape": "Cylinder",
+     "center": [
+      0.3,
+      -0.05,
+      0
+     ],
+     "size": [
+      0.07,
+      0.85,
+      0.5
+     ],
+     "color": "main",
+     "material": "SmoothPlastic",
+     "axis": "Y"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      0.4,
+      0
+     ],
+     "size": [
+      1.0,
+      0.1,
+      0.9
+     ],
+     "color": "dark",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      0.26,
+      0
+     ],
+     "size": [
+      0.8,
+      0.06,
+      0.5
+     ],
+     "color": "main",
+     "material": "SmoothPlastic"
+    }
+   ]
+  },
+  "vending": {
+   "size": [
+    3,
+    6,
+    2.5
+   ],
+   "colors": {
+    "body": "skyBlue",
+    "glow": "snow",
+    "panel": "coral"
+   },
+   "parts": [
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      0,
+      0
+     ],
+     "size": [
+      1,
+      1,
+      1
+     ],
+     "color": "body",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      0.1,
+      -0.5
+     ],
+     "size": [
+      0.76,
+      0.52,
+      0.04
+     ],
+     "color": "glow",
+     "material": "Neon"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      -0.3,
+      -0.5
+     ],
+     "size": [
+      0.76,
+      0.14,
+      0.04
+     ],
+     "color": "panel",
+     "material": "SmoothPlastic"
+    }
+   ]
+  },
+  "palma": {
+   "size": [
+    10,
+    16,
+    10
+   ],
+   "colors": {
+    "trunk": "grapeLight",
+    "leaf": "mint"
+   },
+   "parts": [
+    {
+     "shape": "Cylinder",
+     "center": [
+      0,
+      -0.1,
+      0
+     ],
+     "size": [
+      0.1,
+      0.8,
+      0.1
+     ],
+     "color": "trunk",
+     "material": "Wood",
+     "axis": "Y"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.22,
+      0.42,
+      0.0
+     ],
+     "size": [
+      0.55,
+      0.05,
+      0.16
+     ],
+     "color": "leaf",
+     "material": "SmoothPlastic",
+     "rotation": [
+      0,
+      0,
+      -18
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.068,
+      0.42,
+      0.209
+     ],
+     "size": [
+      0.55,
+      0.05,
+      0.16
+     ],
+     "color": "leaf",
+     "material": "SmoothPlastic",
+     "rotation": [
+      0,
+      -72,
+      -18
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.178,
+      0.42,
+      0.129
+     ],
+     "size": [
+      0.55,
+      0.05,
+      0.16
+     ],
+     "color": "leaf",
+     "material": "SmoothPlastic",
+     "rotation": [
+      0,
+      -144,
+      -18
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.178,
+      0.42,
+      -0.129
+     ],
+     "size": [
+      0.55,
+      0.05,
+      0.16
+     ],
+     "color": "leaf",
+     "material": "SmoothPlastic",
+     "rotation": [
+      0,
+      -216,
+      -18
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.068,
+      0.42,
+      -0.209
+     ],
+     "size": [
+      0.55,
+      0.05,
+      0.16
+     ],
+     "color": "leaf",
+     "material": "SmoothPlastic",
+     "rotation": [
+      0,
+      -288,
+      -18
+     ]
+    }
+   ]
+  },
+  "sombrilla": {
+   "size": [
+    8,
+    8,
+    8
+   ],
+   "colors": {
+    "pole": "mist",
+    "a": "coral",
+    "b": "snow"
+   },
+   "parts": [
+    {
+     "shape": "Cylinder",
+     "center": [
+      0,
+      -0.05,
+      0
+     ],
+     "size": [
+      0.04,
+      0.9,
+      0.04
+     ],
+     "color": "pole",
+     "material": "SmoothPlastic",
+     "axis": "Y"
+    },
+    {
+     "shape": "Cylinder",
+     "center": [
+      0,
+      0.38,
+      0
+     ],
+     "size": [
+      1,
+      0.1,
+      1
+     ],
+     "color": "a",
+     "material": "SmoothPlastic",
+     "axis": "Y"
+    },
+    {
+     "shape": "Cylinder",
+     "center": [
+      0,
+      0.44,
+      0
+     ],
+     "size": [
+      0.5,
+      0.1,
+      0.5
+     ],
+     "color": "b",
+     "material": "SmoothPlastic",
+     "axis": "Y"
+    }
+   ]
+  },
+  "salvavidas": {
+   "size": [
+    8,
+    12,
+    8
+   ],
+   "colors": {
+    "wood": "grapeLight",
+    "cabin": "snow",
+    "roof": "coral"
+   },
+   "parts": [
+    {
+     "shape": "Cylinder",
+     "center": [
+      -0.35,
+      -0.2,
+      -0.35
+     ],
+     "size": [
+      0.08,
+      0.6,
+      0.08
+     ],
+     "color": "wood",
+     "material": "Wood",
+     "axis": "Y"
+    },
+    {
+     "shape": "Cylinder",
+     "center": [
+      0.35,
+      -0.2,
+      -0.35
+     ],
+     "size": [
+      0.08,
+      0.6,
+      0.08
+     ],
+     "color": "wood",
+     "material": "Wood",
+     "axis": "Y"
+    },
+    {
+     "shape": "Cylinder",
+     "center": [
+      -0.35,
+      -0.2,
+      0.35
+     ],
+     "size": [
+      0.08,
+      0.6,
+      0.08
+     ],
+     "color": "wood",
+     "material": "Wood",
+     "axis": "Y"
+    },
+    {
+     "shape": "Cylinder",
+     "center": [
+      0.35,
+      -0.2,
+      0.35
+     ],
+     "size": [
+      0.08,
+      0.6,
+      0.08
+     ],
+     "color": "wood",
+     "material": "Wood",
+     "axis": "Y"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      0.12,
+      0
+     ],
+     "size": [
+      0.95,
+      0.06,
+      0.95
+     ],
+     "color": "wood",
+     "material": "WoodPlanks"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      0.28,
+      0
+     ],
+     "size": [
+      0.7,
+      0.26,
+      0.7
+     ],
+     "color": "cabin",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      0.46,
+      0
+     ],
+     "size": [
+      0.95,
+      0.08,
+      0.95
+     ],
+     "color": "roof",
+     "material": "SmoothPlastic"
+    }
+   ]
+  },
+  "ruedaFortuna": {
+   "size": [
+    80,
+    92,
+    12
+   ],
+   "colors": {
+    "rim": "snow",
+    "spoke": "mist",
+    "hub": "grapeLight",
+    "leg": "grapeLight",
+    "cabA": "orange",
+    "cabB": "skyBlue",
+    "cabC": "snow",
+    "cabD": "mist"
+   },
+   "parts": [
+    {
+     "shape": "Block",
+     "center": [
+      0.425,
+      0.1,
+      0
+     ],
+     "size": [
+      0.1752,
+      0.0239,
+      0.1333
+     ],
+     "color": "rim",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      90.0
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.3926,
+      0.2414,
+      0
+     ],
+     "size": [
+      0.1752,
+      0.0239,
+      0.1333
+     ],
+     "color": "rim",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      112.5
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.3005,
+      0.3613,
+      0
+     ],
+     "size": [
+      0.1752,
+      0.0239,
+      0.1333
+     ],
+     "color": "rim",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      135.0
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.1626,
+      0.4414,
+      0
+     ],
+     "size": [
+      0.1752,
+      0.0239,
+      0.1333
+     ],
+     "color": "rim",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      157.5
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.0,
+      0.4696,
+      0
+     ],
+     "size": [
+      0.1752,
+      0.0239,
+      0.1333
+     ],
+     "color": "rim",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      180.0
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.1626,
+      0.4414,
+      0
+     ],
+     "size": [
+      0.1752,
+      0.0239,
+      0.1333
+     ],
+     "color": "rim",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      202.5
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.3005,
+      0.3613,
+      0
+     ],
+     "size": [
+      0.1752,
+      0.0239,
+      0.1333
+     ],
+     "color": "rim",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      225.0
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.3926,
+      0.2414,
+      0
+     ],
+     "size": [
+      0.1752,
+      0.0239,
+      0.1333
+     ],
+     "color": "rim",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      247.5
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.425,
+      0.1,
+      0
+     ],
+     "size": [
+      0.1752,
+      0.0239,
+      0.1333
+     ],
+     "color": "rim",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      270.0
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.3926,
+      -0.0414,
+      0
+     ],
+     "size": [
+      0.1752,
+      0.0239,
+      0.1333
+     ],
+     "color": "rim",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      292.5
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.3005,
+      -0.1613,
+      0
+     ],
+     "size": [
+      0.1752,
+      0.0239,
+      0.1333
+     ],
+     "color": "rim",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      315.0
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.1626,
+      -0.2414,
+      0
+     ],
+     "size": [
+      0.1752,
+      0.0239,
+      0.1333
+     ],
+     "color": "rim",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      337.5
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.0,
+      -0.2696,
+      0
+     ],
+     "size": [
+      0.1752,
+      0.0239,
+      0.1333
+     ],
+     "color": "rim",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      360.0
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.1626,
+      -0.2414,
+      0
+     ],
+     "size": [
+      0.1752,
+      0.0239,
+      0.1333
+     ],
+     "color": "rim",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      382.5
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.3005,
+      -0.1613,
+      0
+     ],
+     "size": [
+      0.1752,
+      0.0239,
+      0.1333
+     ],
+     "color": "rim",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      405.0
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.3926,
+      -0.0414,
+      0
+     ],
+     "size": [
+      0.1752,
+      0.0239,
+      0.1333
+     ],
+     "color": "rim",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      427.5
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.2125,
+      0.1,
+      0
+     ],
+     "size": [
+      0.425,
+      0.013,
+      0.0833
+     ],
+     "color": "spoke",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.1503,
+      0.2307,
+      0
+     ],
+     "size": [
+      0.425,
+      0.013,
+      0.0833
+     ],
+     "color": "spoke",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      45
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.0,
+      0.2848,
+      0
+     ],
+     "size": [
+      0.425,
+      0.013,
+      0.0833
+     ],
+     "color": "spoke",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      90
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.1503,
+      0.2307,
+      0
+     ],
+     "size": [
+      0.425,
+      0.013,
+      0.0833
+     ],
+     "color": "spoke",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      135
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.2125,
+      0.1,
+      0
+     ],
+     "size": [
+      0.425,
+      0.013,
+      0.0833
+     ],
+     "color": "spoke",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      180
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.1503,
+      -0.0307,
+      0
+     ],
+     "size": [
+      0.425,
+      0.013,
+      0.0833
+     ],
+     "color": "spoke",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      225
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.0,
+      -0.0848,
+      0
+     ],
+     "size": [
+      0.425,
+      0.013,
+      0.0833
+     ],
+     "color": "spoke",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      270
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.1503,
+      -0.0307,
+      0
+     ],
+     "size": [
+      0.425,
+      0.013,
+      0.0833
+     ],
+     "color": "spoke",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      315
+     ]
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0.4105,
+      0.1674,
+      0
+     ],
+     "size": [
+      0.0625,
+      0.0543,
+      0.4167
+     ],
+     "color": "cabA",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0.3005,
+      0.3331,
+      0
+     ],
+     "size": [
+      0.0625,
+      0.0543,
+      0.4167
+     ],
+     "color": "cabB",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0.11,
+      0.4287,
+      0
+     ],
+     "size": [
+      0.0625,
+      0.0543,
+      0.4167
+     ],
+     "color": "cabC",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      -0.11,
+      0.4287,
+      0
+     ],
+     "size": [
+      0.0625,
+      0.0543,
+      0.4167
+     ],
+     "color": "cabD",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      -0.3005,
+      0.3331,
+      0
+     ],
+     "size": [
+      0.0625,
+      0.0543,
+      0.4167
+     ],
+     "color": "cabA",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      -0.4105,
+      0.1674,
+      0
+     ],
+     "size": [
+      0.0625,
+      0.0543,
+      0.4167
+     ],
+     "color": "cabB",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      -0.4105,
+      -0.0239,
+      0
+     ],
+     "size": [
+      0.0625,
+      0.0543,
+      0.4167
+     ],
+     "color": "cabC",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      -0.3005,
+      -0.1896,
+      0
+     ],
+     "size": [
+      0.0625,
+      0.0543,
+      0.4167
+     ],
+     "color": "cabD",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      -0.11,
+      -0.2852,
+      0
+     ],
+     "size": [
+      0.0625,
+      0.0543,
+      0.4167
+     ],
+     "color": "cabA",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0.11,
+      -0.2852,
+      0
+     ],
+     "size": [
+      0.0625,
+      0.0543,
+      0.4167
+     ],
+     "color": "cabB",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0.3005,
+      -0.1896,
+      0
+     ],
+     "size": [
+      0.0625,
+      0.0543,
+      0.4167
+     ],
+     "color": "cabC",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0.4105,
+      -0.0239,
+      0
+     ],
+     "size": [
+      0.0625,
+      0.0543,
+      0.4167
+     ],
+     "color": "cabD",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0,
+      0.1,
+      0
+     ],
+     "size": [
+      0.0875,
+      0.0761,
+      0.5833
+     ],
+     "color": "hub",
+     "material": "Metal"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.1,
+      -0.19999999999999998,
+      0
+     ],
+     "size": [
+      0.03,
+      0.6,
+      0.1833
+     ],
+     "color": "leg",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      -15
+     ]
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.1,
+      -0.19999999999999998,
+      0
+     ],
+     "size": [
+      0.03,
+      0.6,
+      0.1833
+     ],
+     "color": "leg",
+     "material": "Metal",
+     "rotation": [
+      0,
+      0,
+      15
+     ]
+    }
+   ]
+  },
+  "billboard": {
+   "size": [
+    40,
+    20,
+    2
+   ],
+   "colors": {
+    "frame": "ink",
+    "screen": "orange",
+    "bar": "snow",
+    "glow": "orange"
+   },
+   "parts": [
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      0,
+      0
+     ],
+     "size": [
+      1,
+      1,
+      1
+     ],
+     "color": "frame",
+     "material": "Metal"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      0,
+      0.3
+     ],
+     "size": [
+      0.94,
+      0.88,
+      0.5
+     ],
+     "color": "screen",
+     "material": "Neon",
+     "light": {
+      "type": "Point",
+      "color": "glow",
+      "brightness": 0.8,
+      "range": 28
+     }
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.2,
+      0.15,
+      0.47
+     ],
+     "size": [
+      0.4,
+      0.14,
+      0.06
+     ],
+     "color": "bar",
+     "material": "Neon"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0.15,
+      -0.12,
+      0.47
+     ],
+     "size": [
+      0.5,
+      0.1,
+      0.06
+     ],
+     "color": "bar",
+     "material": "Neon"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      -0.3,
+      -0.12,
+      0.47
+     ],
+     "size": [
+      0.2,
+      0.1,
+      0.06
+     ],
+     "color": "bar",
+     "material": "Neon"
+    }
+   ]
+  },
+  "bolaConfeti": {
+   "size": [
+    18,
+    28,
+    18
+   ],
+   "colors": {
+    "pole": "mist",
+    "ball": "snow",
+    "ring": "skyBlue"
+   },
+   "parts": [
+    {
+     "shape": "Cylinder",
+     "center": [
+      0,
+      -0.3,
+      0
+     ],
+     "size": [
+      0.06,
+      0.4,
+      0.06
+     ],
+     "color": "pole",
+     "material": "Metal",
+     "axis": "Y"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0,
+      0.22,
+      0
+     ],
+     "size": [
+      0.9,
+      0.58,
+      0.9
+     ],
+     "color": "ball",
+     "material": "Neon"
+    },
+    {
+     "shape": "Cylinder",
+     "center": [
+      0,
+      0.22,
+      0
+     ],
+     "size": [
+      0.96,
+      0.05,
+      0.96
+     ],
+     "color": "ring",
+     "material": "Neon",
+     "axis": "Y"
+    }
+   ]
+  },
+  "quesoGigante": {
+   "size": [
+    30,
+    16,
+    22
+   ],
+   "colors": {
+    "cheese": "orange",
+    "hole": "ink"
+   },
+   "parts": [
+    {
+     "shape": "Wedge",
+     "center": [
+      0,
+      0,
+      0
+     ],
+     "size": [
+      1,
+      1,
+      1
+     ],
+     "color": "cheese",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      -0.15,
+      -0.1,
+      -0.48
+     ],
+     "size": [
+      0.18,
+      0.2,
+      0.05
+     ],
+     "color": "hole",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0.1,
+      -0.25,
+      -0.48
+     ],
+     "size": [
+      0.12,
+      0.14,
+      0.05
+     ],
+     "color": "hole",
+     "material": "SmoothPlastic"
+    }
+   ]
+  },
+  "papaMonumento": {
+   "size": [
+    14,
+    14,
+    14
+   ],
+   "colors": {
+    "skin": "mist",
+    "cap": "grapeLight",
+    "eye": "ink"
+   },
+   "parts": [
+    {
+     "shape": "Ball",
+     "center": [
+      0,
+      -0.05,
+      0
+     ],
+     "size": [
+      1,
+      0.9,
+      0.9
+     ],
+     "color": "skin",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Cylinder",
+     "center": [
+      0,
+      0.38,
+      0
+     ],
+     "size": [
+      0.8,
+      0.14,
+      0.8
+     ],
+     "color": "cap",
+     "material": "SmoothPlastic",
+     "axis": "Y"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      -0.18,
+      0.05,
+      -0.44
+     ],
+     "size": [
+      0.14,
+      0.14,
+      0.06
+     ],
+     "color": "eye",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Ball",
+     "center": [
+      0.18,
+      0.05,
+      -0.44
+     ],
+     "size": [
+      0.14,
+      0.14,
+      0.06
+     ],
+     "color": "eye",
+     "material": "SmoothPlastic"
+    }
+   ]
+  },
+  "relojTorre": {
+   "size": [
+    10,
+    28,
+    10
+   ],
+   "colors": {
+    "wall": "snow",
+    "roof": "grapeLight",
+    "face": "skyBlue"
+   },
+   "parts": [
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      -0.1,
+      0
+     ],
+     "size": [
+      0.8,
+      0.75,
+      0.8
+     ],
+     "color": "wall",
+     "material": "Concrete"
+    },
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      0.38,
+      0
+     ],
+     "size": [
+      1,
+      0.1,
+      1
+     ],
+     "color": "roof",
+     "material": "SmoothPlastic"
+    },
+    {
+     "shape": "Cylinder",
+     "center": [
+      0,
+      0.22,
+      -0.41
+     ],
+     "size": [
+      0.5,
+      0.04,
+      0.5
+     ],
+     "color": "face",
+     "material": "SmoothPlastic",
+     "axis": "Z"
+    }
+   ]
+  },
+  "mar": {
+   "size": [
+    800,
+    2,
+    400
+   ],
+   "colors": {
+    "water": "skyBlue"
+   },
+   "parts": [
+    {
+     "shape": "Block",
+     "center": [
+      0,
+      0,
+      0
+     ],
+     "size": [
+      1,
+      1,
+      1
+     ],
+     "color": "water",
+     "material": "SmoothPlastic",
+     "transparency": 0.25
+    }
+   ]
+  }
+ },
+ "levels": {
+  "barrio-papa": {
+   "pieces": {
+    "prop": {
+     "material": "Plaster",
+     "variation": 0.08,
+     "dressing": {
+      "baseboard": {
+       "color": "grapeLight",
+       "height": 2
+      },
+      "cornice": {
+       "color": "snow",
+       "height": 1.5
+      },
+      "band": {
+       "color": "mist",
+       "height": 1.5
+      }
+     }
+    }
+   },
+   "overrides": {
+    "edificio-1": {
+     "color": "mist"
+    },
+    "edificio-2": {
+     "color": "orange"
+    },
+    "edificio-3": {
+     "color": "skyBlue"
+    },
+    "edificio-4": {
+     "color": "snow"
+    },
+    "edificio-5": {
+     "color": "curb"
+    },
+    "edificio-6": {
+     "color": "mist"
+    },
+    "edificio-7": {
+     "color": "orange"
+    },
+    "edificio-8": {
+     "color": "skyBlue"
+    },
+    "edificio-9": {
+     "color": "snow"
+    }
+   },
+   "props": [
+    {
+     "id": "streetLamp-1",
+     "prefab": "streetLamp",
+     "position": [
+      -186.6,
+      7,
+      -137.0
+     ],
+     "yaw": 90
+    },
+    {
+     "id": "bench-2",
+     "prefab": "bench",
+     "position": [
+      -219.9,
+      1.5,
+      -303.0
+     ],
+     "yaw": 90
+    },
+    {
+     "id": "tree-3",
+     "prefab": "tree",
+     "position": [
+      -238.5,
+      6,
+      83.0
+     ],
+     "yaw": 270
+    },
+    {
+     "id": "planter-4",
+     "prefab": "planter",
+     "position": [
+      -137.0,
+      1.5,
+      -31.9
+     ],
+     "yaw": 0
+    },
+    {
+     "id": "streetLamp-5",
+     "prefab": "streetLamp",
+     "position": [
+      -195.2,
+      7,
+      137.0
+     ],
+     "yaw": 0
+    },
+    {
+     "id": "planter-6",
+     "prefab": "planter",
+     "position": [
+      -171.0,
+      1.5,
+      137.0
+     ],
+     "yaw": 270
+    },
+    {
+     "id": "tree-7",
+     "prefab": "tree",
+     "position": [
+      3.2,
+      6,
+      -303.0
+     ],
+     "yaw": 270
+    },
+    {
+     "id": "bench-8",
+     "prefab": "bench",
+     "position": [
+      13.7,
+      1.5,
+      -137.0
+     ],
+     "yaw": 180
+    },
+    {
+     "id": "streetLamp-9",
+     "prefab": "streetLamp",
+     "position": [
+      83.0,
+      7,
+      42.0
+     ],
+     "yaw": 90
+    },
+    {
+     "id": "planter-10",
+     "prefab": "planter",
+     "position": [
+      83.0,
+      1.5,
+      -42.3
+     ],
+     "yaw": 0
+    },
+    {
+     "id": "tree-11",
+     "prefab": "tree",
+     "position": [
+      83.0,
+      6,
+      183.4
+     ],
+     "yaw": 270
+    },
+    {
+     "id": "planter-12",
+     "prefab": "planter",
+     "position": [
+      -2.5,
+      1.5,
+      137.0
+     ],
+     "yaw": 90
+    },
+    {
+     "id": "streetLamp-13",
+     "prefab": "streetLamp",
+     "position": [
+      137.0,
+      7,
+      -191.8
+     ],
+     "yaw": 270
+    },
+    {
+     "id": "bench-14",
+     "prefab": "bench",
+     "position": [
+      137.0,
+      1.5,
+      -221.1
+     ],
+     "yaw": 180
+    },
+    {
+     "id": "tree-15",
+     "prefab": "tree",
+     "position": [
+      303.0,
+      6,
+      -32.2
+     ],
+     "yaw": 0
+    },
+    {
+     "id": "planter-16",
+     "prefab": "planter",
+     "position": [
+      303.0,
+      1.5,
+      39.2
+     ],
+     "yaw": 270
+    },
+    {
+     "id": "streetLamp-17",
+     "prefab": "streetLamp",
+     "position": [
+      223.4,
+      7,
+      137.0
+     ],
+     "yaw": 180
+    },
+    {
+     "id": "planter-18",
+     "prefab": "planter",
+     "position": [
+      222.4,
+      1.5,
+      303.0
+     ],
+     "yaw": 180
+    },
+    {
+     "id": "papaMonumento-19",
+     "prefab": "papaMonumento",
+     "position": [
+      0,
+      29,
+      0
+     ]
+    }
+   ],
+   "lights": [
+    {
+     "id": "luz-1",
+     "type": "Point",
+     "position": [
+      -110,
+      9,
+      -110
+     ],
+     "color": "mist",
+     "brightness": 1.0,
+     "range": 30,
+     "shadows": false
+    },
+    {
+     "id": "luz-2",
+     "type": "Point",
+     "position": [
+      110,
+      9,
+      110
+     ],
+     "color": "mist",
+     "brightness": 1.0,
+     "range": 30,
+     "shadows": false
+    }
+   ]
+  },
+  "colegio": {
+   "pieces": {
+    "prop": {
+     "material": "Plaster",
+     "variation": 0.06,
+     "dressing": {
+      "baseboard": {
+       "color": "mist",
+       "height": 2
+      },
+      "cornice": {
+       "color": "grapeLight",
+       "height": 1.6
+      },
+      "band": {
+       "color": "skyBlue",
+       "height": 1.4,
+       "at": 0.55
+      }
+     }
+    }
+   },
+   "overrides": {
+    "colegio": {
+     "color": "snow",
+     "material": "Concrete",
+     "dressing": {
+      "band": {
+       "color": "skyBlue",
+       "height": 3,
+       "at": 0.55
+      },
+      "cornice": {
+       "color": "grapeLight",
+       "height": 2.5
+      },
+      "baseboard": {
+       "color": "mist",
+       "height": 2
+      },
+      "pilasters": {
+       "color": "mist",
+       "width": 2,
+       "spacing": 14
+      }
+     }
+    },
+    "edificio-1": {
+     "color": "snow"
+    },
+    "edificio-2": {
+     "color": "mist"
+    },
+    "edificio-3": {
+     "color": "skyBlue"
+    },
+    "edificio-4": {
+     "color": "snow"
+    },
+    "edificio-5": {
+     "color": "curb"
+    },
+    "edificio-6": {
+     "color": "snow"
+    },
+    "edificio-7": {
+     "color": "mist"
+    },
+    "edificio-8": {
+     "color": "skyBlue"
+    }
+   },
+   "props": [
+    {
+     "id": "sakura-1",
+     "prefab": "sakura",
+     "position": [
+      -352.0,
+      7,
+      -223.2
+     ],
+     "yaw": 180
+    },
+    {
+     "id": "bench-2",
+     "prefab": "bench",
+     "position": [
+      -229.2,
+      1.5,
+      -160.0
+     ],
+     "yaw": 0
+    },
+    {
+     "id": "sakura-3",
+     "prefab": "sakura",
+     "position": [
+      -158.0,
+      7,
+      -17.5
+     ],
+     "yaw": 0
+    },
+    {
+     "id": "vending-4",
+     "prefab": "vending",
+     "position": [
+      -297.2,
+      3,
+      95.0
+     ],
+     "yaw": 0
+    },
+    {
+     "id": "sakura-5",
+     "prefab": "sakura",
+     "position": [
+      -272.5,
+      7,
+      158.0
+     ],
+     "yaw": 90
+    },
+    {
+     "id": "bench-6",
+     "prefab": "bench",
+     "position": [
+      -160.0,
+      1.5,
+      290.9
+     ],
+     "yaw": 0
+    },
+    {
+     "id": "sakura-7",
+     "prefab": "sakura",
+     "position": [
+      -97.0,
+      7,
+      -270.5
+     ],
+     "yaw": 90
+    },
+    {
+     "id": "vending-8",
+     "prefab": "vending",
+     "position": [
+      95.0,
+      3,
+      -234.0
+     ],
+     "yaw": 90
+    },
+    {
+     "id": "sakura-9",
+     "prefab": "sakura",
+     "position": [
+      29.6,
+      7,
+      352.0
+     ],
+     "yaw": 90
+    },
+    {
+     "id": "bench-10",
+     "prefab": "bench",
+     "position": [
+      8.2,
+      1.5,
+      160.0
+     ],
+     "yaw": 90
+    },
+    {
+     "id": "sakura-11",
+     "prefab": "sakura",
+     "position": [
+      158.0,
+      7,
+      -219.4
+     ],
+     "yaw": 90
+    },
+    {
+     "id": "vending-12",
+     "prefab": "vending",
+     "position": [
+      272.8,
+      3,
+      -350.0
+     ],
+     "yaw": 90
+    },
+    {
+     "id": "sakura-13",
+     "prefab": "sakura",
+     "position": [
+      230.4,
+      7,
+      97.0
+     ],
+     "yaw": 270
+    },
+    {
+     "id": "bench-14",
+     "prefab": "bench",
+     "position": [
+      160.0,
+      1.5,
+      10.9
+     ],
+     "yaw": 270
+    },
+    {
+     "id": "sakura-15",
+     "prefab": "sakura",
+     "position": [
+      301.9,
+      7,
+      352.0
+     ],
+     "yaw": 180
+    },
+    {
+     "id": "vending-16",
+     "prefab": "vending",
+     "position": [
+      160.0,
+      3,
+      251.6
+     ],
+     "yaw": 0
+    },
+    {
+     "id": "relojTorre-17",
+     "prefab": "relojTorre",
+     "position": [
+      62,
+      38,
+      -78
+     ]
+    },
+    {
+     "id": "torii-18",
+     "prefab": "torii",
+     "position": [
+      0,
+      8.5,
+      101
+     ]
+    },
+    {
+     "id": "sakura-19",
+     "prefab": "sakura",
+     "position": [
+      -70,
+      7,
+      70
+     ],
+     "yaw": 90
+    },
+    {
+     "id": "sakura-20",
+     "prefab": "sakura",
+     "position": [
+      -35,
+      7,
+      70
+     ],
+     "yaw": 90
+    },
+    {
+     "id": "sakura-21",
+     "prefab": "sakura",
+     "position": [
+      35,
+      7,
+      70
+     ],
+     "yaw": 90
+    },
+    {
+     "id": "sakura-22",
+     "prefab": "sakura",
+     "position": [
+      70,
+      7,
+      70
+     ],
+     "yaw": 90
+    },
+    {
+     "id": "fence-23",
+     "prefab": "fence",
+     "position": [
+      -60,
+      2.4,
+      91
+     ]
+    },
+    {
+     "id": "fence-24",
+     "prefab": "fence",
+     "position": [
+      60,
+      2.4,
+      91
+     ]
+    }
+   ],
+   "lights": [
+    {
+     "id": "luz-1",
+     "type": "Point",
+     "position": [
+      -127.5,
+      9,
+      127.5
+     ],
+     "color": "mist",
+     "brightness": 1.0,
+     "range": 30,
+     "shadows": false
+    },
+    {
+     "id": "luz-2",
+     "type": "Point",
+     "position": [
+      127.5,
+      9,
+      -127.5
+     ],
+     "color": "mist",
+     "brightness": 1.0,
+     "range": 30,
+     "shadows": false
+    }
+   ]
+  },
+  "playa-podrida": {
+   "pieces": {
+    "prop": {
+     "material": "WoodPlanks",
+     "variation": 0.08,
+     "dressing": {
+      "cornice": {
+       "color": "snow",
+       "height": 1
+      },
+      "baseboard": {
+       "color": "grapeLight",
+       "height": 1
+      }
+     }
+    }
+   },
+   "overrides": {
+    "kiosco-1": {
+     "color": "orange"
+    },
+    "kiosco-2": {
+     "color": "skyBlue"
+    },
+    "kiosco-3": {
+     "color": "snow"
+    },
+    "kiosco-4": {
+     "color": "mist"
+    },
+    "kiosco-5": {
+     "color": "orange"
+    },
+    "kiosco-6": {
+     "color": "skyBlue"
+    },
+    "kiosco-7": {
+     "color": "snow"
+    },
+    "kiosco-8": {
+     "color": "mist"
+    }
+   },
+   "props": [
+    {
+     "id": "ruedaFortuna-1",
+     "prefab": "ruedaFortuna",
+     "position": [
+      300,
+      46,
+      215
+     ]
+    },
+    {
+     "id": "salvavidas-2",
+     "prefab": "salvavidas",
+     "position": [
+      -150,
+      6,
+      40
+     ]
+    },
+    {
+     "id": "salvavidas-3",
+     "prefab": "salvavidas",
+     "position": [
+      480,
+      6,
+      120
+     ]
+    },
+    {
+     "id": "palma-4",
+     "prefab": "palma",
+     "position": [
+      -524,
+      8,
+      -108
+     ],
+     "yaw": 295
+    },
+    {
+     "id": "palma-5",
+     "prefab": "palma",
+     "position": [
+      -436,
+      8,
+      -96
+     ],
+     "yaw": 169
+    },
+    {
+     "id": "palma-6",
+     "prefab": "palma",
+     "position": [
+      -297,
+      8,
+      -100
+     ],
+     "yaw": 306
+    },
+    {
+     "id": "palma-7",
+     "prefab": "palma",
+     "position": [
+      -193,
+      8,
+      -97
+     ],
+     "yaw": 182
+    },
+    {
+     "id": "palma-8",
+     "prefab": "palma",
+     "position": [
+      -71,
+      8,
+      -105
+     ],
+     "yaw": 228
+    },
+    {
+     "id": "palma-9",
+     "prefab": "palma",
+     "position": [
+      49,
+      8,
+      -103
+     ],
+     "yaw": 24
+    },
+    {
+     "id": "palma-10",
+     "prefab": "palma",
+     "position": [
+      191,
+      8,
+      -99
+     ],
+     "yaw": 175
+    },
+    {
+     "id": "palma-11",
+     "prefab": "palma",
+     "position": [
+      302,
+      8,
+      -106
+     ],
+     "yaw": 339
+    },
+    {
+     "id": "palma-12",
+     "prefab": "palma",
+     "position": [
+      416,
+      8,
+      -104
+     ],
+     "yaw": 88
+    },
+    {
+     "id": "palma-13",
+     "prefab": "palma",
+     "position": [
+      541,
+      8,
+      -95
+     ],
+     "yaw": 356
+    },
+    {
+     "id": "sombrilla-14",
+     "prefab": "sombrilla",
+     "position": [
+      -471,
+      4,
+      182
+     ],
+     "yaw": 301
+    },
+    {
+     "id": "sombrilla-15",
+     "prefab": "sombrilla",
+     "position": [
+      -314,
+      4,
+      200
+     ],
+     "yaw": 324
+    },
+    {
+     "id": "sombrilla-16",
+     "prefab": "sombrilla",
+     "position": [
+      364,
+      4,
+      58
+     ],
+     "yaw": 102
+    },
+    {
+     "id": "sombrilla-17",
+     "prefab": "sombrilla",
+     "position": [
+      -448,
+      4,
+      187
+     ],
+     "yaw": 54
+    },
+    {
+     "id": "sombrilla-18",
+     "prefab": "sombrilla",
+     "position": [
+      349,
+      4,
+      -49
+     ],
+     "yaw": 46
+    },
+    {
+     "id": "sombrilla-19",
+     "prefab": "sombrilla",
+     "position": [
+      -459,
+      4,
+      -31
+     ],
+     "yaw": 183
+    },
+    {
+     "id": "sombrilla-20",
+     "prefab": "sombrilla",
+     "position": [
+      476,
+      4,
+      179
+     ],
+     "yaw": 142
+    },
+    {
+     "id": "sombrilla-21",
+     "prefab": "sombrilla",
+     "position": [
+      311,
+      4,
+      215
+     ],
+     "yaw": 39
+    },
+    {
+     "id": "sombrilla-22",
+     "prefab": "sombrilla",
+     "position": [
+      -123,
+      4,
+      200
+     ],
+     "yaw": 185
+    },
+    {
+     "id": "sombrilla-23",
+     "prefab": "sombrilla",
+     "position": [
+      -48,
+      4,
+      239
+     ],
+     "yaw": 359
+    },
+    {
+     "id": "sombrilla-24",
+     "prefab": "sombrilla",
+     "position": [
+      -456,
+      4,
+      235
+     ],
+     "yaw": 84
+    },
+    {
+     "id": "sombrilla-25",
+     "prefab": "sombrilla",
+     "position": [
+      -154,
+      4,
+      226
+     ],
+     "yaw": 109
+    },
+    {
+     "id": "sombrilla-26",
+     "prefab": "sombrilla",
+     "position": [
+      48,
+      4,
+      119
+     ],
+     "yaw": 155
+    },
+    {
+     "id": "sombrilla-27",
+     "prefab": "sombrilla",
+     "position": [
+      -413,
+      4,
+      219
+     ],
+     "yaw": 274
+    },
+    {
+     "id": "streetLamp-28",
+     "prefab": "streetLamp",
+     "position": [
+      -420,
+      8,
+      -128
+     ]
+    },
+    {
+     "id": "streetLamp-29",
+     "prefab": "streetLamp",
+     "position": [
+      -20,
+      8,
+      -128
+     ]
+    },
+    {
+     "id": "streetLamp-30",
+     "prefab": "streetLamp",
+     "position": [
+      380,
+      8,
+      -128
+     ]
+    },
+    {
+     "id": "mar-31",
+     "prefab": "mar",
+     "position": [
+      0,
+      -1,
+      520
+     ]
+    }
+   ],
+   "lights": [
+    {
+     "id": "luz-1",
+     "type": "Point",
+     "position": [
+      -400,
+      9,
+      -170
+     ],
+     "color": "mist",
+     "brightness": 1.0,
+     "range": 30,
+     "shadows": false
+    },
+    {
+     "id": "luz-2",
+     "type": "Point",
+     "position": [
+      0,
+      9,
+      -170
+     ],
+     "color": "mist",
+     "brightness": 1.0,
+     "range": 30,
+     "shadows": false
+    },
+    {
+     "id": "luz-3",
+     "type": "Point",
+     "position": [
+      400,
+      9,
+      -170
+     ],
+     "color": "mist",
+     "brightness": 1.0,
+     "range": 30,
+     "shadows": false
+    }
+   ]
+  },
+  "centro-neon": {
+   "pieces": {
+    "prop": {
+     "material": "Concrete",
+     "variation": 0.06,
+     "dressing": {
+      "baseboard": {
+       "color": "ink",
+       "height": 3
+      },
+      "cornice": {
+       "color": "mist",
+       "height": 2
+      }
+     }
+    }
+   },
+   "overrides": {
+    "edificio-1": {
+     "color": "grape",
+     "dressing": {
+      "band": {
+       "color": "orange",
+       "material": "Neon",
+       "height": 2,
+       "at": 0.4
+      },
+      "baseboard": {
+       "color": "ink",
+       "height": 3
+      },
+      "cornice": {
+       "color": "mist",
+       "height": 2
+      }
+     }
+    },
+    "edificio-2": {
+     "color": "grapeLight",
+     "dressing": {
+      "band": {
+       "color": "skyBlue",
+       "material": "Neon",
+       "height": 2,
+       "at": 0.4
+      },
+      "baseboard": {
+       "color": "ink",
+       "height": 3
+      },
+      "cornice": {
+       "color": "mist",
+       "height": 2
+      }
+     }
+    },
+    "edificio-3": {
+     "color": "ink",
+     "dressing": {
+      "band": {
+       "color": "snow",
+       "material": "Neon",
+       "height": 2,
+       "at": 0.4
+      },
+      "baseboard": {
+       "color": "ink",
+       "height": 3
+      },
+      "cornice": {
+       "color": "mist",
+       "height": 2
+      }
+     }
+    },
+    "edificio-4": {
+     "color": "asphalt",
+     "dressing": {
+      "band": {
+       "color": "mist",
+       "material": "Neon",
+       "height": 2,
+       "at": 0.4
+      },
+      "baseboard": {
+       "color": "ink",
+       "height": 3
+      },
+      "cornice": {
+       "color": "mist",
+       "height": 2
+      }
+     }
+    },
+    "edificio-5": {
+     "color": "grape",
+     "dressing": {
+      "band": {
+       "color": "orange",
+       "material": "Neon",
+       "height": 2,
+       "at": 0.4
+      },
+      "baseboard": {
+       "color": "ink",
+       "height": 3
+      },
+      "cornice": {
+       "color": "mist",
+       "height": 2
+      }
+     }
+    },
+    "edificio-6": {
+     "color": "grapeLight",
+     "dressing": {
+      "band": {
+       "color": "skyBlue",
+       "material": "Neon",
+       "height": 2,
+       "at": 0.4
+      },
+      "baseboard": {
+       "color": "ink",
+       "height": 3
+      },
+      "cornice": {
+       "color": "mist",
+       "height": 2
+      }
+     }
+    },
+    "edificio-7": {
+     "color": "ink",
+     "dressing": {
+      "band": {
+       "color": "snow",
+       "material": "Neon",
+       "height": 2,
+       "at": 0.4
+      },
+      "baseboard": {
+       "color": "ink",
+       "height": 3
+      },
+      "cornice": {
+       "color": "mist",
+       "height": 2
+      }
+     }
+    },
+    "edificio-8": {
+     "color": "asphalt",
+     "dressing": {
+      "band": {
+       "color": "mist",
+       "material": "Neon",
+       "height": 2,
+       "at": 0.4
+      },
+      "baseboard": {
+       "color": "ink",
+       "height": 3
+      },
+      "cornice": {
+       "color": "mist",
+       "height": 2
+      }
+     }
+    }
+   },
+   "props": [
+    {
+     "id": "billboard-1",
+     "prefab": "billboard",
+     "position": [
+      -590.0,
+      28,
+      -39.9
+     ],
+     "yaw": 0,
+     "size": [
+      56.0,
+      20.0,
+      2
+     ],
+     "colors": {
+      "screen": "orange",
+      "glow": "orange"
+     }
+    },
+    {
+     "id": "billboard-2",
+     "prefab": "billboard",
+     "position": [
+      -590.0,
+      43.5,
+      -39.7
+     ],
+     "yaw": 0,
+     "size": [
+      39.2,
+      14.0,
+      2
+     ],
+     "colors": {
+      "screen": "skyBlue",
+      "glow": "skyBlue"
+     }
+    },
+    {
+     "id": "billboard-3",
+     "prefab": "billboard",
+     "position": [
+      -590.0,
+      28,
+      39.9
+     ],
+     "yaw": 180,
+     "size": [
+      56.0,
+      20.0,
+      2
+     ],
+     "colors": {
+      "screen": "skyBlue",
+      "glow": "skyBlue"
+     }
+    },
+    {
+     "id": "billboard-4",
+     "prefab": "billboard",
+     "position": [
+      -590.0,
+      73.4,
+      39.7
+     ],
+     "yaw": 180,
+     "size": [
+      39.2,
+      14.0,
+      2
+     ],
+     "colors": {
+      "screen": "snow",
+      "glow": "snow"
+     }
+    },
+    {
+     "id": "billboard-5",
+     "prefab": "billboard",
+     "position": [
+      -225.0,
+      28,
+      -39.9
+     ],
+     "yaw": 0,
+     "size": [
+      56.0,
+      20.0,
+      2
+     ],
+     "colors": {
+      "screen": "snow",
+      "glow": "snow"
+     }
+    },
+    {
+     "id": "billboard-6",
+     "prefab": "billboard",
+     "position": [
+      -225.0,
+      59.8,
+      -39.7
+     ],
+     "yaw": 0,
+     "size": [
+      39.2,
+      14.0,
+      2
+     ],
+     "colors": {
+      "screen": "mist",
+      "glow": "mist"
+     }
+    },
+    {
+     "id": "billboard-7",
+     "prefab": "billboard",
+     "position": [
+      -225.0,
+      28,
+      39.9
+     ],
+     "yaw": 180,
+     "size": [
+      56.0,
+      20.0,
+      2
+     ],
+     "colors": {
+      "screen": "mist",
+      "glow": "mist"
+     }
+    },
+    {
+     "id": "billboard-8",
+     "prefab": "billboard",
+     "position": [
+      -225.0,
+      36.7,
+      39.7
+     ],
+     "yaw": 180,
+     "size": [
+      39.2,
+      14.0,
+      2
+     ],
+     "colors": {
+      "screen": "orange",
+      "glow": "orange"
+     }
+    },
+    {
+     "id": "billboard-9",
+     "prefab": "billboard",
+     "position": [
+      225.0,
+      28,
+      -39.9
+     ],
+     "yaw": 0,
+     "size": [
+      56.0,
+      20.0,
+      2
+     ],
+     "colors": {
+      "screen": "orange",
+      "glow": "orange"
+     }
+    },
+    {
+     "id": "billboard-10",
+     "prefab": "billboard",
+     "position": [
+      225.0,
+      34.0,
+      -39.7
+     ],
+     "yaw": 0,
+     "size": [
+      39.2,
+      14.0,
+      2
+     ],
+     "colors": {
+      "screen": "skyBlue",
+      "glow": "skyBlue"
+     }
+    },
+    {
+     "id": "billboard-11",
+     "prefab": "billboard",
+     "position": [
+      225.0,
+      28,
+      39.9
+     ],
+     "yaw": 180,
+     "size": [
+      56.0,
+      20.0,
+      2
+     ],
+     "colors": {
+      "screen": "skyBlue",
+      "glow": "skyBlue"
+     }
+    },
+    {
+     "id": "billboard-12",
+     "prefab": "billboard",
+     "position": [
+      225.0,
+      66.6,
+      39.7
+     ],
+     "yaw": 180,
+     "size": [
+      39.2,
+      14.0,
+      2
+     ],
+     "colors": {
+      "screen": "snow",
+      "glow": "snow"
+     }
+    },
+    {
+     "id": "billboard-13",
+     "prefab": "billboard",
+     "position": [
+      590.0,
+      28,
+      -39.9
+     ],
+     "yaw": 0,
+     "size": [
+      56.0,
+      20.0,
+      2
+     ],
+     "colors": {
+      "screen": "snow",
+      "glow": "snow"
+     }
+    },
+    {
+     "id": "billboard-14",
+     "prefab": "billboard",
+     "position": [
+      590.0,
+      55.8,
+      -39.7
+     ],
+     "yaw": 0,
+     "size": [
+      39.2,
+      14.0,
+      2
+     ],
+     "colors": {
+      "screen": "mist",
+      "glow": "mist"
+     }
+    },
+    {
+     "id": "billboard-15",
+     "prefab": "billboard",
+     "position": [
+      590.0,
+      28,
+      39.9
+     ],
+     "yaw": 180,
+     "size": [
+      56.0,
+      20.0,
+      2
+     ],
+     "colors": {
+      "screen": "mist",
+      "glow": "mist"
+     }
+    },
+    {
+     "id": "billboard-16",
+     "prefab": "billboard",
+     "position": [
+      590.0,
+      68.0,
+      39.7
+     ],
+     "yaw": 180,
+     "size": [
+      39.2,
+      14.0,
+      2
+     ],
+     "colors": {
+      "screen": "orange",
+      "glow": "orange"
+     }
+    },
+    {
+     "id": "bolaConfeti-17",
+     "prefab": "bolaConfeti",
+     "position": [
+      -590.0,
+      122,
+      142.5
+     ]
+    }
+   ],
+   "lights": [
+    {
+     "id": "luz-1",
+     "type": "Point",
+     "position": [
+      -450,
+      9,
+      0
+     ],
+     "color": "mist",
+     "brightness": 1.0,
+     "range": 30,
+     "shadows": false
+    },
+    {
+     "id": "luz-2",
+     "type": "Point",
+     "position": [
+      0,
+      9,
+      0
+     ],
+     "color": "mist",
+     "brightness": 1.0,
+     "range": 30,
+     "shadows": false
+    },
+    {
+     "id": "luz-3",
+     "type": "Point",
+     "position": [
+      450,
+      9,
+      0
+     ],
+     "color": "mist",
+     "brightness": 1.0,
+     "range": 30,
+     "shadows": false
+    }
+   ]
+  },
+  "distrito-queso": {
+   "pieces": {
+    "prop": {
+     "material": "Concrete",
+     "variation": 0.06,
+     "dressing": {
+      "baseboard": {
+       "color": "grapeLight",
+       "height": 3
+      },
+      "cornice": {
+       "color": "snow",
+       "height": 2.5
+      },
+      "band": {
+       "color": "orange",
+       "height": 3,
+       "at": 0.5
+      }
+     }
+    }
+   },
+   "overrides": {
+    "edificio-1": {
+     "color": "skyBlue"
+    },
+    "edificio-2": {
+     "color": "snow"
+    },
+    "edificio-3": {
+     "color": "mist"
+    },
+    "edificio-4": {
+     "color": "grapeLight"
+    },
+    "edificio-5": {
+     "color": "skyBlue"
+    },
+    "edificio-6": {
+     "color": "snow"
+    },
+    "edificio-7": {
+     "color": "mist"
+    },
+    "edificio-8": {
+     "color": "grapeLight",
+     "dressing": {
+      "pilasters": {
+       "color": "snow",
+       "width": 3,
+       "spacing": 16
+      },
+      "band": {
+       "color": "orange",
+       "height": 4,
+       "at": 0.3
+      },
+      "cornice": {
+       "color": "snow",
+       "height": 3
+      },
+      "baseboard": {
+       "color": "grapeLight",
+       "height": 3
+      }
+     }
+    },
+    "edificio-9": {
+     "color": "skyBlue"
+    },
+    "edificio-10": {
+     "color": "snow"
+    },
+    "edificio-11": {
+     "color": "mist"
+    },
+    "edificio-12": {
+     "color": "grapeLight"
+    }
+   },
+   "props": [
+    {
+     "id": "quesoGigante-1",
+     "prefab": "quesoGigante",
+     "position": [
+      105.0,
+      184,
+      0.0
+     ]
+    },
+    {
+     "id": "streetLamp-2",
+     "prefab": "streetLamp",
+     "position": [
+      -110,
+      8,
+      -110
+     ]
+    },
+    {
+     "id": "streetLamp-3",
+     "prefab": "streetLamp",
+     "position": [
+      -110,
+      8,
+      0
+     ]
+    },
+    {
+     "id": "streetLamp-4",
+     "prefab": "streetLamp",
+     "position": [
+      -110,
+      8,
+      110
+     ]
+    },
+    {
+     "id": "streetLamp-5",
+     "prefab": "streetLamp",
+     "position": [
+      110,
+      8,
+      -110
+     ]
+    },
+    {
+     "id": "streetLamp-6",
+     "prefab": "streetLamp",
+     "position": [
+      110,
+      8,
+      0
+     ]
+    },
+    {
+     "id": "streetLamp-7",
+     "prefab": "streetLamp",
+     "position": [
+      110,
+      8,
+      110
+     ]
+    }
+   ],
+   "lights": [
+    {
+     "id": "luz-1",
+     "type": "Point",
+     "position": [
+      0,
+      9,
+      -200
+     ],
+     "color": "mist",
+     "brightness": 1.0,
+     "range": 30,
+     "shadows": false
+    },
+    {
+     "id": "luz-2",
+     "type": "Point",
+     "position": [
+      -200,
+      9,
+      200
+     ],
+     "color": "mist",
+     "brightness": 1.0,
+     "range": 30,
+     "shadows": false
+    },
+    {
+     "id": "luz-3",
+     "type": "Point",
+     "position": [
+      200,
+      9,
+      200
+     ],
+     "color": "mist",
+     "brightness": 1.0,
+     "range": 30,
+     "shadows": false
+    }
+   ]
+  },
+  "puerto-podrido": {
+   "pieces": {
+    "prop": {
+     "material": "Metal",
+     "variation": 0.1,
+     "dressing": {
+      "band": {
+       "color": "mist",
+       "height": 1.2,
+       "at": 0.5
+      }
+     }
+    }
+   },
+   "overrides": {
+    "contenedores-1": {
+     "color": "skyBlue"
+    },
+    "contenedores-2": {
+     "color": "orange"
+    },
+    "contenedores-3": {
+     "color": "mist"
+    },
+    "contenedores-4": {
+     "color": "snow"
+    },
+    "contenedores-5": {
+     "color": "curb"
+    },
+    "contenedores-6": {
+     "color": "skyBlue"
+    },
+    "contenedores-7": {
+     "color": "orange"
+    },
+    "contenedores-8": {
+     "color": "mist"
+    },
+    "contenedores-9": {
+     "color": "snow"
+    },
+    "contenedores-10": {
+     "color": "curb"
+    },
+    "contenedores-11": {
+     "color": "skyBlue"
+    },
+    "contenedores-12": {
+     "color": "orange"
+    }
+   },
+   "props": [
+    {
+     "id": "streetLamp-1",
+     "prefab": "streetLamp",
+     "position": [
+      -150,
+      8,
+      0
+     ]
+    },
+    {
+     "id": "streetLamp-2",
+     "prefab": "streetLamp",
+     "position": [
+      150,
+      8,
+      0
+     ]
+    },
+    {
+     "id": "streetLamp-3",
+     "prefab": "streetLamp",
+     "position": [
+      450,
+      8,
+      0
+     ]
+    },
+    {
+     "id": "crate-4",
+     "prefab": "crate",
+     "position": [
+      -360,
+      1.5,
+      -90
+     ],
+     "yaw": 44
+    },
+    {
+     "id": "crate-5",
+     "prefab": "crate",
+     "position": [
+      -360,
+      1.5,
+      90
+     ],
+     "yaw": 267
+    },
+    {
+     "id": "crate-6",
+     "prefab": "crate",
+     "position": [
+      40,
+      1.5,
+      -90
+     ],
+     "yaw": 96
+    },
+    {
+     "id": "crate-7",
+     "prefab": "crate",
+     "position": [
+      40,
+      1.5,
+      90
+     ],
+     "yaw": 187
+    },
+    {
+     "id": "crate-8",
+     "prefab": "crate",
+     "position": [
+      440,
+      1.5,
+      -90
+     ],
+     "yaw": 326
+    },
+    {
+     "id": "crate-9",
+     "prefab": "crate",
+     "position": [
+      440,
+      1.5,
+      90
+     ],
+     "yaw": 230
+    },
+    {
+     "id": "mar-10",
+     "prefab": "mar",
+     "position": [
+      800,
+      -1,
+      0
+     ],
+     "size": [
+      600,
+      2,
+      1000
+     ]
+    }
+   ],
+   "lights": [
+    {
+     "id": "luz-1",
+     "type": "Point",
+     "position": [
+      -300,
+      9,
+      200
+     ],
+     "color": "mist",
+     "brightness": 1.0,
+     "range": 30,
+     "shadows": false
+    },
+    {
+     "id": "luz-2",
+     "type": "Point",
+     "position": [
+      300,
+      9,
+      -200
+     ],
+     "color": "mist",
+     "brightness": 1.0,
+     "range": 30,
+     "shadows": false
+    }
+   ]
+  },
+  "lobby": {
+   "pieces": {
+    "prop": {
+     "variation": 0.04
+    }
+   },
+   "overrides": {},
+   "props": [
+    {
+     "id": "tree-1",
+     "prefab": "tree",
+     "position": [
+      65.4,
+      6,
+      -328.6
+     ],
+     "yaw": 349
+    },
+    {
+     "id": "tree-2",
+     "prefab": "tree",
+     "position": [
+      186.1,
+      6,
+      -278.5
+     ],
+     "yaw": 326
+    },
+    {
+     "id": "tree-3",
+     "prefab": "tree",
+     "position": [
+      278.5,
+      6,
+      -186.1
+     ],
+     "yaw": 304
+    },
+    {
+     "id": "tree-4",
+     "prefab": "tree",
+     "position": [
+      328.6,
+      6,
+      -65.4
+     ],
+     "yaw": 281
+    },
+    {
+     "id": "tree-5",
+     "prefab": "tree",
+     "position": [
+      328.6,
+      6,
+      65.4
+     ],
+     "yaw": 259
+    },
+    {
+     "id": "tree-6",
+     "prefab": "tree",
+     "position": [
+      278.5,
+      6,
+      186.1
+     ],
+     "yaw": 236
+    },
+    {
+     "id": "tree-7",
+     "prefab": "tree",
+     "position": [
+      186.1,
+      6,
+      278.5
+     ],
+     "yaw": 214
+    },
+    {
+     "id": "tree-8",
+     "prefab": "tree",
+     "position": [
+      65.4,
+      6,
+      328.6
+     ],
+     "yaw": 191
+    },
+    {
+     "id": "tree-9",
+     "prefab": "tree",
+     "position": [
+      -65.4,
+      6,
+      328.6
+     ],
+     "yaw": 169
+    },
+    {
+     "id": "tree-10",
+     "prefab": "tree",
+     "position": [
+      -186.1,
+      6,
+      278.5
+     ],
+     "yaw": 146
+    },
+    {
+     "id": "tree-11",
+     "prefab": "tree",
+     "position": [
+      -278.5,
+      6,
+      186.1
+     ],
+     "yaw": 124
+    },
+    {
+     "id": "tree-12",
+     "prefab": "tree",
+     "position": [
+      -328.6,
+      6,
+      65.4
+     ],
+     "yaw": 101
+    },
+    {
+     "id": "tree-13",
+     "prefab": "tree",
+     "position": [
+      -328.6,
+      6,
+      -65.4
+     ],
+     "yaw": 79
+    },
+    {
+     "id": "tree-14",
+     "prefab": "tree",
+     "position": [
+      -278.5,
+      6,
+      -186.1
+     ],
+     "yaw": 56
+    },
+    {
+     "id": "tree-15",
+     "prefab": "tree",
+     "position": [
+      -186.1,
+      6,
+      -278.5
+     ],
+     "yaw": 34
+    },
+    {
+     "id": "tree-16",
+     "prefab": "tree",
+     "position": [
+      -65.4,
+      6,
+      -328.6
+     ],
+     "yaw": 11
+    },
+    {
+     "id": "streetLamp-17",
+     "prefab": "streetLamp",
+     "position": [
+      88.0,
+      7,
+      -122.4
+     ],
+     "yaw": 330
+    },
+    {
+     "id": "streetLamp-18",
+     "prefab": "streetLamp",
+     "position": [
+      150.0,
+      7,
+      15.0
+     ],
+     "yaw": 270
+    },
+    {
+     "id": "streetLamp-19",
+     "prefab": "streetLamp",
+     "position": [
+      62.0,
+      7,
+      137.4
+     ],
+     "yaw": 210
+    },
+    {
+     "id": "streetLamp-20",
+     "prefab": "streetLamp",
+     "position": [
+      -88.0,
+      7,
+      122.4
+     ],
+     "yaw": 150
+    },
+    {
+     "id": "streetLamp-21",
+     "prefab": "streetLamp",
+     "position": [
+      -150.0,
+      7,
+      -15.0
+     ],
+     "yaw": 90
+    },
+    {
+     "id": "streetLamp-22",
+     "prefab": "streetLamp",
+     "position": [
+      -62.0,
+      7,
+      -137.4
+     ],
+     "yaw": 30
+    },
+    {
+     "id": "bench-23",
+     "prefab": "bench",
+     "position": [
+      23.7,
+      1.5,
+      -57.3
+     ],
+     "yaw": 158
+    },
+    {
+     "id": "bench-24",
+     "prefab": "bench",
+     "position": [
+      57.3,
+      1.5,
+      -23.7
+     ],
+     "yaw": 112
+    },
+    {
+     "id": "bench-25",
+     "prefab": "bench",
+     "position": [
+      57.3,
+      1.5,
+      23.7
+     ],
+     "yaw": 68
+    },
+    {
+     "id": "bench-26",
+     "prefab": "bench",
+     "position": [
+      23.7,
+      1.5,
+      57.3
+     ],
+     "yaw": 22
+    },
+    {
+     "id": "bench-27",
+     "prefab": "bench",
+     "position": [
+      -23.7,
+      1.5,
+      57.3
+     ],
+     "yaw": 338
+    },
+    {
+     "id": "bench-28",
+     "prefab": "bench",
+     "position": [
+      -57.3,
+      1.5,
+      23.7
+     ],
+     "yaw": 292
+    },
+    {
+     "id": "bench-29",
+     "prefab": "bench",
+     "position": [
+      -57.3,
+      1.5,
+      -23.7
+     ],
+     "yaw": 248
+    },
+    {
+     "id": "bench-30",
+     "prefab": "bench",
+     "position": [
+      -23.7,
+      1.5,
+      -57.3
+     ],
+     "yaw": 202
+    }
+   ],
+   "lights": [
+    {
+     "id": "luz-portal-1",
+     "type": "Point",
+     "position": [
+      75.0,
+      14,
+      -129.9
+     ],
+     "color": "sunny",
+     "brightness": 1.2,
+     "range": 36,
+     "shadows": false
+    },
+    {
+     "id": "luz-portal-2",
+     "type": "Point",
+     "position": [
+      150.0,
+      14,
+      -0.0
+     ],
+     "color": "mint",
+     "brightness": 1.2,
+     "range": 36,
+     "shadows": false
+    },
+    {
+     "id": "luz-portal-3",
+     "type": "Point",
+     "position": [
+      75.0,
+      14,
+      129.9
+     ],
+     "color": "skyBlue",
+     "brightness": 1.2,
+     "range": 36,
+     "shadows": false
+    },
+    {
+     "id": "luz-portal-4",
+     "type": "Point",
+     "position": [
+      -75.0,
+      14,
+      129.9
+     ],
+     "color": "violet",
+     "brightness": 1.2,
+     "range": 36,
+     "shadows": false
+    },
+    {
+     "id": "luz-portal-5",
+     "type": "Point",
+     "position": [
+      -150.0,
+      14,
+      0.0
+     ],
+     "color": "orange",
+     "brightness": 1.2,
+     "range": 36,
+     "shadows": false
+    },
+    {
+     "id": "luz-portal-6",
+     "type": "Point",
+     "position": [
+      -75.0,
+      14,
+      -129.9
+     ],
+     "color": "coral",
+     "brightness": 1.2,
+     "range": 36,
+     "shadows": false
+    },
+    {
+     "id": "luz-plaza",
+     "type": "Point",
+     "position": [
+      0,
+      24,
+      0
+     ],
+     "color": "cyan",
+     "brightness": 1.4,
+     "range": 60,
+     "shadows": false
+    }
+   ]
+  }
+ }
+}

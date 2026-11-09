@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "document": {
+    "store": "PlayerData",
+    "key": "player_{UserId}",
+    "persistence": "persistent"
+  },
+  "version": 1,
+  "sections": {
+    "meta": {
+      "owner": "PlayerData",
+      "role": "meta",
+      "description": "Fechas, sesiones y tiempo de juego; los mantiene el servicio de datos",
+      "fields": {
+        "firstJoinAt": { "type": "time" },
+        "lastJoinAt": { "type": "time" },
+        "sessions": { "type": "integer", "min": 0 },
+        "playTimeSec": { "type": "integer", "min": 0 }
+      }
+    },
+    "obby": {
+      "owner": "Obby",
+      "description": "Dónde quedó el jugador y su mejor tiempo en cada nivel",
+      "fields": {
+        "current": {
+          "type": "record",
+          "fields": {
+            "levelId": { "type": "string", "maxLength": 32 },
+            "checkpoint": { "type": "integer", "min": 0, "max": 100 }
+          }
+        },
+        "levels": {
+          "type": "map", "key": "levelId", "maxEntries": 100,
+          "value": {
+            "type": "record",
+            "fields": {
+              "completedAt": { "type": "time" },
+              "bestTimeMs": { "type": "integer", "min": 0 }
+            }
+          }
+        },
+        "finishedAt": { "type": "time" }
+      }
+    }
+  },
+  "migrations": []
+}

@@ -1,0 +1,51 @@
+{
+  "skill_name": "roblox-analytics-dev",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Copiá el juego de ../roblox-game-builder/assets/example-obby a tu carpeta de salida y agregale analíticas: quiero ver cuántos jugadores nuevos terminan el nivel 1, en qué nivel se mueren más y cuánto tardan en terminar.",
+      "expected_output": "Copia del obby con analytics.enabled true, Analytics.luau de la plantilla, AnalyticsSchema.json y ANALYTICS.md que cubren onboarding, progresión Obby y muertes por nivel, con check_analytics.py y check_game.py sin errores.",
+      "files": ["../roblox-game-builder/assets/example-obby"],
+      "expectations": [
+        "El GDD de la copia tiene analytics.enabled en true",
+        "src/server/Analytics.luau es idéntico a la plantilla del skill",
+        "AnalyticsSchema.json declara el camino de progresión Obby y los eventos propios que usa el código",
+        "ANALYTICS.md relaciona cada pedido del usuario con eventos y una fórmula con numerador y denominador",
+        "Las muertes por nivel se miden con un evento propio y el nivel como valor o campo, sin crear un nombre de evento por nivel",
+        "check_analytics.py sobre la copia termina sin errores",
+        "check_game.py sobre la copia termina sin errores",
+        "La respuesta aclara que en Studio no se envían eventos y que los paneles tardan hasta 24 horas"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Todavía no hay código, pero quiero dejar definida la medición de este juego antes de programarlo: ../roblox-game-builder/evals/files/gdd-runner-monetizado.md. Qué eventos, con qué nombres y qué miro en cada KPI.",
+      "expected_output": "ANALYTICS.md y AnalyticsSchema.json para el runner: onboarding, economía de monedas con fuentes y sumideros, compras IAP desde recibos, funnel de tienda con sesión, eventos propios mínimos, dentro de los límites y sin datos personales; pedidos al designer por los KPIs que faltan.",
+      "files": ["../roblox-game-builder/evals/files/gdd-runner-monetizado.md"],
+      "expectations": [
+        "Se escribieron design/ANALYTICS.md y src/server/AnalyticsSchema.json",
+        "El esquema declara la moneda del juego en currencies y no supera 10 monedas, 10 funnels ni 100 eventos propios",
+        "La compra de skins con monedas se registra como economía de tipo sumidero y la ganancia de monedas en la carrera como fuente",
+        "La economía por compras con Robux se registra como IAP desde el servicio de recibos y solo después de entregar",
+        "Si hay un funnel de tienda, usa un identificador de sesión por visita",
+        "Ningún evento ni campo usa nombre de usuario, UserId ni texto libre",
+        "Como el GDD no trae KPIs objetivo, se anotan como pendiente para el game designer en lugar de inventarlos",
+        "No se escribió lógica del juego"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "puse analytics en mi juego hace dos días y en creator analytics no veo nada. tengo esto en un LocalScript: AnalyticsService:LogCustomEvent(player, \"compro_\" .. player.Name, 1) y lo probé en studio. qué está mal?",
+      "expected_output": "Diagnóstico que señala que los eventos deben enviarse desde el servidor, que Studio no registra eventos, que un nombre por jugador agota el límite de 100 eventos propios e incluye datos personales, y propone la corrección con Telemetry, esquema y campos de baja cardinalidad.",
+      "files": [],
+      "expectations": [
+        "Señala que AnalyticsService solo registra eventos enviados desde el servidor",
+        "Señala que en Studio no se registran eventos y que hay que probar en una experiencia publicada",
+        "Señala que crear un nombre de evento por jugador agota el límite de 100 nombres y expone el nombre del usuario",
+        "Propone un nombre fijo en snake_case con la información variable en un valor o campo de baja cardinalidad",
+        "Menciona View Events o la demora de hasta 24 horas de los paneles",
+        "No pide publicar la experiencia por su cuenta: indica que es una acción del usuario"
+      ]
+    }
+  ]
+}

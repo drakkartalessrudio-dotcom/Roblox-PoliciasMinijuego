@@ -1,0 +1,86 @@
+{
+  "skill_name": "roblox-data-architect",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Diseñá los datos guardados del juego de evals/files/gdd-rpg-misiones.md. Quiero que se puedan agregar encargos nuevos en cada actualización sin romper los perfiles de los jugadores. Trabajá en una copia en tu carpeta de salida.",
+      "expected_output": "design/DATA.md y src/server/Data/DataSchema.json para Crónicas del Puerto: una sección por core (economía, encargos, inventario, recompensa diaria, onboarding, compras), encargos y materiales por ID estable, banderas con fecha para el onboarding, conteo de encargos diarios, sección de recibos con role purchases, clave player_{UserId}, persistencia persistent en el frontmatter, check_data.py sin errores y pedidos al builder para los cores.",
+      "files": ["evals/files/gdd-rpg-misiones.md"],
+      "expectations": [
+        "Existen design/DATA.md y src/server/Data/DataSchema.json en la copia",
+        "El frontmatter del GDD tiene data.persistence: persistent y design.data sigue en true",
+        "document.key es player_{UserId} (o lleva {UserId} escrito exactamente así)",
+        "Cada sección tiene un owner distinto según su dominio; no hay una sección única con todo el perfil",
+        "Los encargos completados y activos se guardan en mapas por questId, no en listas por posición",
+        "Los encargos diarios guardan cuántas veces se completaron y cuándo, no solo un booleano",
+        "Los materiales son un mapa itemId → cantidad y el equipo fabricado un mapa por uid con su nivel",
+        "El onboarding usa un mapa de banderas con fecha, no un booleano por paso",
+        "Hay una sección con role purchases que registra los PurchaseId procesados",
+        "Todos los mapas, listas y textos tienen límite (maxEntries, maxItems, maxLength)",
+        "DATA.md tiene la tabla Promesas del GDD con una fila por cada dato que el GDD promete conservar",
+        "check_data.py sobre la copia termina sin errores",
+        "Deja pedidos al builder para los cores dueños de las secciones, en lugar de escribir código Luau"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Copiá ../roblox-game-builder/assets/example-obby a tu carpeta de salida. Quiero que el obby recuerde en qué nivel y checkpoint quedaste y tu mejor tiempo por nivel, aunque salgas del juego.",
+      "expected_output": "La copia del obby con design.data y data.persistence persistent, DATA.md y DataSchema.json: progreso por levelId de Levels.json (no por índice), checkpoint actual, mejor tiempo por nivel y meta, con el core Obby como dueño; check_data.py sin errores y un pedido al builder para implementarlo y actualizar el Mapa de módulos.",
+      "files": ["../roblox-game-builder/assets/example-obby"],
+      "expectations": [
+        "El GDD de la copia tiene design.data en true y data.persistence: persistent",
+        "Los niveles se guardan por el id de Levels.json (por ejemplo un mapa levelId → mejor tiempo), no por su posición",
+        "Hay un campo para el nivel y el checkpoint actuales",
+        "La sección de progreso tiene como owner el core Obby del Mapa de módulos",
+        "Existe la sección meta con dueño PlayerData",
+        "check_data.py sobre la copia termina sin errores",
+        "No modifica Levels.json ni el código Luau del juego",
+        "Deja un pedido al builder para guardar el progreso con el servicio de datos y nombrar la sección en el Mapa de módulos"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Tengo un tycoon de forja: el jugador compra nodos (C_NP_B, C_P_HES...) que suben cuánto dinero gana por segundo, tiene dólares y monedas raras, y pasa por un tutorial con un NPC. Hoy guardo los nodos comprados en un array de strings y el dinero por segundo también. Diseñame bien los datos guardados.",
+      "expected_output": "Esquema con nodos comprados como mapa nodeId → nivel o fecha, monedas en un mapa por moneda, banderas del tutorial y meta; el dinero por segundo no se guarda porque se calcula de los nodos y el catálogo; DATA.md lo explica; check_data.py sin errores.",
+      "files": [],
+      "expectations": [
+        "Los nodos comprados se guardan en un mapa por nodeId, no en una lista",
+        "El dinero por segundo no se guarda: DATA.md explica que se calcula con los nodos comprados y el catálogo",
+        "Dólares y monedas raras están en un mapa por moneda o en campos de una sección de economía con dueño",
+        "El tutorial usa banderas con fecha",
+        "Todos los mapas tienen maxEntries",
+        "check_data.py sobre el esquema termina sin errores"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Copiá assets/example/DataSchema.json y assets/example/DATA.md a tu carpeta de salida (en src/server/Data/ y design/). Ahora las misiones se pueden repetir: quiero saber cuántas veces completó cada una y cuándo fue la última. Ya hay jugadores con perfiles guardados.",
+      "expected_output": "Versión 3 del esquema: quests.completed pasa de questId → time a questId → { lastAt, count }; history['2'] guarda la forma anterior; la migración 2→3 mueve la fecha a lastAt y pone count en 1 con operaciones declarativas; DATA.md actualiza la sección y la tabla de migraciones; check_data.py simula las dos migraciones sin errores.",
+      "files": ["assets/example/DataSchema.json", "assets/example/DATA.md"],
+      "expectations": [
+        "version pasa de 2 a 3",
+        "history tiene la clave \"2\" con las secciones de la versión 2, y conserva la \"1\"",
+        "Hay una migración from 2 to 3 que mueve el valor viejo de cada misión completada (con *) y le agrega la cantidad, sin usar custom",
+        "quests.completed es un mapa questId → registro con la fecha de la última vez y la cantidad",
+        "DATA.md actualiza la tabla de la sección quests y agrega la fila de la versión 3 en Migraciones",
+        "check_data.py sobre la copia termina sin errores"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Este es el esquema de datos que armé copiando lo que hacía en UEFN (evals/files/perfil-ingenuo.json). ¿Qué está mal y cómo lo dejarías? Pasámelo a un esquema bien hecho; ya hay jugadores con la versión que tengo.",
+      "expected_output": "Diagnóstico de los problemas (clave sin {UserId}, perfil general con campos de otro juego, booleanos por paso, listas por posición, username, textos y mapas sin límite, Version como campo, sin migración) y un esquema nuevo repartido por core, con banderas, mapas por ID, meta y una migración declarativa desde la forma actual guardada en history; check_data.py sin errores.",
+      "files": ["evals/files/perfil-ingenuo.json"],
+      "expectations": [
+        "Explica que la clave debe llevar {UserId} con esas mayúsculas para el borrado de datos",
+        "Señala que el perfil mezcla dominios y campos de otro juego (worldCups, clubId) y los reparte en secciones por core o propone quitarlos",
+        "Reemplaza los booleanos de cada paso por banderas con fecha",
+        "Reemplaza las listas por posición (asistentes, fichas por rareza, nodos) por mapas por ID estable",
+        "Saca username del perfil",
+        "Guarda la forma actual del usuario en history y escribe la migración hacia la versión nueva",
+        "check_data.py sobre el esquema nuevo termina sin errores",
+        "No escribe código Luau"
+      ]
+    }
+  ]
+}

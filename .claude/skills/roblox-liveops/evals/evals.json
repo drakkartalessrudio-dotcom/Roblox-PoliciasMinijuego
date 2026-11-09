@@ -1,0 +1,48 @@
+{
+  "skill_name": "roblox-liveops",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Copiá ../roblox-game-builder/assets/example-obby a tu carpeta de salida y preparalo para operarlo en vivo: un evento de Halloween del 25 de octubre al 1 de noviembre de 2026 que baje el daño de la lava a la mitad y cambie el mensaje inicial, y que yo pueda acortar el tiempo de reaparición desde Creator Hub sin publicar.",
+      "expected_output": "Copia del obby con liveops activado, LiveConfig.luau de la plantilla, LiveSchema.json con la clave de reaparición y el evento en UTC, LIVEOPS.md con runbook y configs a crear, y check_liveops.py y check_game.py sin errores.",
+      "files": ["../roblox-game-builder/assets/example-obby"],
+      "expectations": [
+        "El GDD de la copia tiene liveops.enabled en true y project.mode release-candidate, o el cambio de modo se justifica",
+        "src/shared/LiveConfig.luau es idéntico a la plantilla del skill",
+        "LiveSchema.json está en src/server y declara Respawn.Time con un nombre de config y un rango",
+        "El evento tiene start y end en UTC con formato ISO terminado en Z y overrides de Hazards.Damage y Hud.HintText",
+        "El override de Hazards.Damage es un número, la mitad del valor de Config",
+        "LIVEOPS.md explica cómo activar, revertir y verificar, y lista los configs que hay que crear en Creator Hub",
+        "check_liveops.py y check_game.py sobre la copia terminan sin errores",
+        "La respuesta no publica nada: indica qué configs debe crear y publicar el usuario"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Armá el calendario de LiveOps del primer mes de este juego (../roblox-game-builder/evals/files/gdd-runner-monetizado.md): quiero un fin de semana de monedas dobles y una oferta especial del pase VIP en el lanzamiento.",
+      "expected_output": "LIVEOPS.md y LiveSchema.json con eventos en UTC; las monedas dobles dependen de un multiplicador en Config que se pide como pendiente si no existe; la oferta del VIP se maneja con un flag y el módulo de Game Passes, sin precios inventados ni urgencia falsa.",
+      "files": ["../roblox-game-builder/evals/files/gdd-runner-monetizado.md"],
+      "expectations": [
+        "Los eventos tienen ventanas en UTC con formato ISO",
+        "Las monedas dobles se aplican mediante una ruta de Config (por ejemplo un multiplicador) y, si el GDD no la tiene, se anota como pendiente para el game designer y el builder",
+        "La oferta del VIP no fija un precio en Robux ni cambia el flujo de compra; se habilita con un flag y deriva al módulo de Game Passes",
+        "No usa urgencia engañosa como 'última oportunidad' para algo que vuelve",
+        "Cada evento dice qué KPI o evento de analíticas se va a comparar",
+        "No se escribió lógica del juego"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "urgente: en creator hub puse hazards_damage en 1000 en vez de 10 y lo publiqué, ahora todos mueren al tocar cualquier cosa. el juego usa el LiveConfig de la fábrica. qué hago?",
+      "expected_output": "Pasos para revertir desde el historial de Configs o volver al valor por defecto y publicar, con la demora esperada, más la explicación de que el rango del esquema recorta valores y la recomendación de agregar o ajustar ese rango.",
+      "files": [],
+      "expectations": [
+        "Indica revertir desde el historial de Configs o devolver el valor por defecto y publicar",
+        "Indica que la publicación llega a los servidores en alrededor de un minuto y a los clientes en unos minutos",
+        "Explica que si LiveSchema.json define max para esa clave, LiveConfig recorta el valor, y recomienda definir o ajustar el rango",
+        "Sugiere verificar con el Output del servidor o LiveConfig.active()",
+        "No pide credenciales ni intenta publicar por su cuenta"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,802 @@
+{
+ "asset": "Sedan01",
+ "tier": 1,
+ "vehicle_class": "land / Tier 1 classic family sedan (RWD)",
+ "brief": "Reference example of the roblox-vehicle-modeler skill: a simple family sedan (3 boxes, rounded edges, grey bumpers), blue. Tuning base: no spoiler or decals.",
+ "dimensions_cm": {
+  "length": 444,
+  "width": 176,
+  "height": 146,
+  "wheelbase": 250,
+  "wheel_radius": 33
+ },
+ "mass_kg": 1100,
+ "tri_budget": 3000,
+ "layer_notes": {
+  "L0_Structure": "Chassis monocoque",
+  "L6_Glass": "Windows mesh (tintable)",
+  "L7_Lights": "Lights mesh (Neon)",
+  "L3_Running": "Tire + Rim per wheel",
+  "L8_Details": "Bumpers, grille, trim"
+ },
+ "decisions": [
+  "Single Chassis mesh (mirrors embedded), separate Windows, Trim, Lights, Tire_xx + Rim_xx per wheel.",
+  "Sockets follow guide section 3.1 naming; wheels pivot at the hub."
+ ],
+ "materials": {
+  "MI_Body": {
+   "base_color": [
+    0.1176,
+    0.5333,
+    0.8392
+   ],
+   "metallic": 0.0,
+   "roughness": 0.35
+  },
+  "MI_Trim": {
+   "base_color": [
+    0.5569,
+    0.5765,
+    0.6
+   ],
+   "metallic": 0.0,
+   "roughness": 0.5
+  },
+  "MI_Glass": {
+   "color": [
+    0.1686,
+    0.2275,
+    0.2667
+   ],
+   "alpha": 0.55
+  },
+  "MI_Lights": {
+   "color": [
+    0.949,
+    0.8863,
+    0.4784
+   ],
+   "strength": 6.0
+  }
+ },
+ "roblox": {
+  "materials": {
+   "Bumpers": {
+    "material": "SmoothPlastic",
+    "color": [
+     142,
+     147,
+     153
+    ]
+   },
+   "Roof": {
+    "material": "SmoothPlastic",
+    "color": [
+     30,
+     136,
+     214
+    ]
+   },
+   "Bed": {
+    "material": "SmoothPlastic",
+    "color": [
+     30,
+     136,
+     214
+    ]
+   },
+   "Neon": {
+    "material": "Neon",
+    "color": [
+     53,
+     232,
+     242
+    ]
+   },
+   "Chassis": {
+    "material": "SmoothPlastic",
+    "color": [
+     30,
+     136,
+     214
+    ]
+   },
+   "Windows": {
+    "material": "Glass",
+    "color": [
+     43,
+     58,
+     68
+    ],
+    "transparency": 0.35
+   },
+   "Trim": {
+    "material": "SmoothPlastic",
+    "color": [
+     142,
+     147,
+     153
+    ]
+   },
+   "Lights": {
+    "material": "Neon",
+    "color": [
+     242,
+     226,
+     122
+    ]
+   },
+   "Tire": {
+    "material": "SmoothPlastic",
+    "color": [
+     28,
+     28,
+     32
+    ]
+   },
+   "Rim": {
+    "material": "Metal",
+    "color": [
+     154,
+     160,
+     166
+    ]
+   }
+  },
+  "bodyType": "sedan"
+ },
+ "lod_drop_layers": {},
+ "motion_check": false,
+ "auto_unwrap": false,
+ "default_space": "cm",
+ "views": {
+  "side": {},
+  "top": {},
+  "front": {}
+ },
+ "parts": [
+  {
+   "id": "body",
+   "type": "hull",
+   "description": "Single-mesh chassis: side ∩ top ∩ front silhouettes (mirrors embedded).",
+   "side": [
+    [
+     8,
+     30
+    ],
+    [
+     436,
+     30
+    ],
+    [
+     446,
+     46
+    ],
+    [
+     447,
+     74
+    ],
+    [
+     440,
+     90
+    ],
+    [
+     322,
+     98
+    ],
+    [
+     266,
+     142
+    ],
+    [
+     152,
+     145
+    ],
+    [
+     114,
+     132
+    ],
+    [
+     86,
+     104
+    ],
+    [
+     10,
+     100
+    ],
+    [
+     0,
+     88
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "top": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     70
+    ],
+    [
+     12,
+     84
+    ],
+    [
+     44,
+     88
+    ],
+    [
+     400,
+     88
+    ],
+    [
+     432,
+     80
+    ],
+    [
+     447,
+     58
+    ],
+    [
+     447,
+     0
+    ]
+   ],
+   "top_half": true,
+   "front": [
+    [
+     0,
+     28
+    ],
+    [
+     86,
+     28
+    ],
+    [
+     88,
+     60
+    ],
+    [
+     87,
+     100
+    ],
+    [
+     72,
+     132
+    ],
+    [
+     60,
+     146
+    ],
+    [
+     0,
+     146
+    ]
+   ],
+   "front_half": true,
+   "bevel_cm": 2.0,
+   "bevel_segments": 1
+  },
+  {
+   "id": "windshield",
+   "type": "panel",
+   "from": "body",
+   "mirror": false,
+   "layer": "L6_Glass",
+   "material": "MI_Glass",
+   "description": "Windshield.",
+   "view": "top",
+   "poly": [
+    [
+     262,
+     56.8
+    ],
+    [
+     330,
+     68.8
+    ],
+    [
+     330,
+     -68.8
+    ],
+    [
+     262,
+     -56.8
+    ]
+   ],
+   "z_from_cm": 100,
+   "gap_cm": 0.4,
+   "bevel_cm": 0
+  },
+  {
+   "id": "rear_window",
+   "type": "panel",
+   "from": "body",
+   "mirror": false,
+   "layer": "L6_Glass",
+   "material": "MI_Glass",
+   "description": "Rear window.",
+   "view": "top",
+   "poly": [
+    [
+     80,
+     55.0
+    ],
+    [
+     132,
+     60.2
+    ],
+    [
+     132,
+     -60.2
+    ],
+    [
+     80,
+     -55.0
+    ]
+   ],
+   "z_from_cm": 106,
+   "gap_cm": 0.4,
+   "bevel_cm": 0
+  },
+  {
+   "id": "win_front_L",
+   "type": "panel",
+   "from": "body",
+   "mirror": true,
+   "layer": "L6_Glass",
+   "material": "MI_Glass",
+   "description": "Front door window.",
+   "view": "side",
+   "poly": [
+    [
+     212,
+     108
+    ],
+    [
+     290,
+     108
+    ],
+    [
+     262,
+     139
+    ],
+    [
+     212,
+     139
+    ]
+   ],
+   "y_from_cm": 60,
+   "gap_cm": 0.4,
+   "bevel_cm": 0
+  },
+  {
+   "id": "win_rear_L",
+   "type": "panel",
+   "from": "body",
+   "mirror": true,
+   "layer": "L6_Glass",
+   "material": "MI_Glass",
+   "description": "Rear door window.",
+   "view": "side",
+   "poly": [
+    [
+     132,
+     108
+    ],
+    [
+     204,
+     108
+    ],
+    [
+     204,
+     139
+    ],
+    [
+     152,
+     139
+    ],
+    [
+     122,
+     126
+    ]
+   ],
+   "y_from_cm": 60,
+   "gap_cm": 0.4,
+   "bevel_cm": 0
+  },
+  {
+   "id": "well_FL",
+   "type": "panel",
+   "from": "body",
+   "cut_only": true,
+   "mirror": true,
+   "description": "F-left wheel arch (recess only).",
+   "view": "side",
+   "poly": [
+    [
+     378.0,
+     33.0
+    ],
+    [
+     374.2,
+     49.5
+    ],
+    [
+     363.7,
+     62.7
+    ],
+    [
+     348.5,
+     70.0
+    ],
+    [
+     331.5,
+     70.0
+    ],
+    [
+     316.3,
+     62.7
+    ],
+    [
+     305.8,
+     49.5
+    ],
+    [
+     302.0,
+     33.0
+    ],
+    [
+     305.8,
+     16.5
+    ],
+    [
+     316.3,
+     3.3
+    ],
+    [
+     331.5,
+     -4.0
+    ],
+    [
+     348.5,
+     -4.0
+    ],
+    [
+     363.7,
+     3.3
+    ],
+    [
+     374.2,
+     16.5
+    ]
+   ],
+   "y_from_cm": 57.0
+  },
+  {
+   "id": "wheel_FL",
+   "type": "wheel",
+   "role": "wheel",
+   "mirror": true,
+   "description": "F-left wheel: TireMesh + RimMesh (guide 2.2).",
+   "driven": false,
+   "center_cm": [
+    340,
+    71,
+    33
+   ],
+   "radius_cm": 33,
+   "width_cm": 20,
+   "rim_ratio": 0.58,
+   "rim_dish": 0.12,
+   "segments": 12,
+   "bevel_cm": 0.0,
+   "motion": {
+    "type": "rotate",
+    "axis": "Y",
+    "min": 0,
+    "max": 360
+   }
+  },
+  {
+   "id": "well_RL",
+   "type": "panel",
+   "from": "body",
+   "cut_only": true,
+   "mirror": true,
+   "description": "R-left wheel arch (recess only).",
+   "view": "side",
+   "poly": [
+    [
+     128.0,
+     33.0
+    ],
+    [
+     124.2,
+     49.5
+    ],
+    [
+     113.7,
+     62.7
+    ],
+    [
+     98.5,
+     70.0
+    ],
+    [
+     81.5,
+     70.0
+    ],
+    [
+     66.3,
+     62.7
+    ],
+    [
+     55.8,
+     49.5
+    ],
+    [
+     52.0,
+     33.0
+    ],
+    [
+     55.8,
+     16.5
+    ],
+    [
+     66.3,
+     3.3
+    ],
+    [
+     81.5,
+     -4.0
+    ],
+    [
+     98.5,
+     -4.0
+    ],
+    [
+     113.7,
+     3.3
+    ],
+    [
+     124.2,
+     16.5
+    ]
+   ],
+   "y_from_cm": 57.0
+  },
+  {
+   "id": "wheel_RL",
+   "type": "wheel",
+   "role": "wheel",
+   "mirror": true,
+   "description": "R-left wheel: TireMesh + RimMesh (guide 2.2).",
+   "driven": true,
+   "center_cm": [
+    90,
+    71,
+    33
+   ],
+   "radius_cm": 33,
+   "width_cm": 20,
+   "rim_ratio": 0.58,
+   "rim_dish": 0.12,
+   "segments": 12,
+   "bevel_cm": 0.0,
+   "motion": {
+    "type": "rotate",
+    "axis": "Y",
+    "min": 0,
+    "max": 360
+   }
+  },
+  {
+   "id": "bumper_front",
+   "type": "box",
+   "layer": "L8_Details",
+   "description": "Front bumper (grey).",
+   "center_cm": [
+    443,
+    0,
+    42
+   ],
+   "size_cm": [
+    14,
+    168,
+    16
+   ],
+   "bevel_cm": 2,
+   "bevel_segments": 1,
+   "material": "MI_Trim"
+  },
+  {
+   "id": "bumper_rear",
+   "type": "box",
+   "layer": "L8_Details",
+   "description": "Rear bumper (grey).",
+   "center_cm": [
+    3,
+    0,
+    42
+   ],
+   "size_cm": [
+    14,
+    168,
+    16
+   ],
+   "bevel_cm": 2,
+   "bevel_segments": 1,
+   "material": "MI_Trim"
+  },
+  {
+   "id": "grille",
+   "type": "box",
+   "layer": "L8_Details",
+   "description": "Integrated grille.",
+   "center_cm": [
+    446,
+    0,
+    66
+   ],
+   "size_cm": [
+    4,
+    62,
+    22
+   ],
+   "bevel_cm": 0.8,
+   "bevel_segments": 1,
+   "material": "MI_Trim"
+  },
+  {
+   "id": "headlight_L",
+   "type": "cylinder",
+   "layer": "L7_Lights",
+   "description": "Round headlight.",
+   "center_cm": [
+    444,
+    60,
+    70
+   ],
+   "radius_cm": 9,
+   "length_cm": 6,
+   "axis": "X",
+   "bevel_cm": 0.0,
+   "mirror": true
+  },
+  {
+   "id": "taillight_L",
+   "type": "box",
+   "layer": "L7_Lights",
+   "description": "Tail light.",
+   "center_cm": [
+    2,
+    62,
+    74
+   ],
+   "size_cm": [
+    4,
+    26,
+    10
+   ],
+   "bevel_cm": 0.8,
+   "bevel_segments": 1,
+   "mirror": true
+  },
+  {
+   "id": "mirror_L",
+   "type": "box",
+   "layer": "L8_Details",
+   "description": "Side mirror (embedded in chassis).",
+   "center_cm": [
+    268,
+    94,
+    108
+   ],
+   "size_cm": [
+    8,
+    14,
+    9
+   ],
+   "bevel_cm": 0.8,
+   "bevel_segments": 1,
+   "material": "MI_Body",
+   "mirror": true
+  }
+ ],
+ "sockets": [
+  {
+   "name": "Socket_Wheel_FL",
+   "at_3d": [
+    340,
+    71,
+    33
+   ],
+   "description": "Wheel hub FL."
+  },
+  {
+   "name": "Socket_Wheel_FR",
+   "at_3d": [
+    340,
+    -71,
+    33
+   ],
+   "description": "Wheel hub FR."
+  },
+  {
+   "name": "Socket_Wheel_RL",
+   "at_3d": [
+    90,
+    71,
+    33
+   ],
+   "description": "Wheel hub RL."
+  },
+  {
+   "name": "Socket_Wheel_RR",
+   "at_3d": [
+    90,
+    -71,
+    33
+   ],
+   "description": "Wheel hub RR."
+  },
+  {
+   "name": "Socket_Spoiler",
+   "at_3d": [
+    24,
+    0,
+    102
+   ],
+   "description": "Universal spoiler base (guide 5.2)."
+  },
+  {
+   "name": "Socket_Exhaust",
+   "at_3d": [
+    0,
+    -49.28,
+    36
+   ],
+   "description": "Exhaust tip (rear, right)."
+  },
+  {
+   "name": "Socket_FrontBumper",
+   "at_3d": [
+    450,
+    0,
+    38
+   ],
+   "description": "Front bumper / splitter."
+  },
+  {
+   "name": "Socket_RearBumper",
+   "at_3d": [
+    0,
+    0,
+    38
+   ],
+   "description": "Rear bumper / diffuser."
+  },
+  {
+   "name": "Socket_RoofExtra",
+   "at_3d": [
+    205,
+    0,
+    146
+   ],
+   "description": "Roof rack, lightbar, horns."
+  }
+ ],
+ "animations": [
+  {
+   "name": "Drive",
+   "preset": "drive_loop",
+   "description": "Wheels roll (reference only)."
+  }
+ ]
+}

@@ -1,0 +1,239 @@
+{
+  "skill_name": "roblox-factory",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Quiero un juego de Roblox tipo 'el piso es lava' por rondas para publicarlo: el piso se va hundiendo en lava y gana el último que queda en pie. Para PC y celular, con un pase VIP solo de cosméticos. Hacelo completo.",
+      "expected_output": "Recorrido completo en orden (designer, art director, level designer, environment artist, Game Passes, builder, UI designer, analíticas) con GDD, tema validado, niveles validados y vestidos, juego que pasa check_game.py, UI hecha con el kit donde el botón del pase no queda en la zona del chat, analíticas validadas, pase con ID pendiente y compras desactivadas, y el estado final de factory_status.py.",
+      "files": [],
+      "expectations": [
+        "Antes de empezar dice qué recorrido va a seguir",
+        "Existe GDD.md con project.mode release-candidate, monetization.enabled con game-passes y analytics.enabled en true",
+        "Existen design/ART.md y src/shared/Theme.json, y check_art.py termina sin errores",
+        "Existen design/LEVELS.md y src/shared/Levels.json, y validate_levels.py termina sin errores",
+        "Si design.environment está activado, existen design/ENVIRONMENT.md y src/shared/Environment.json y check_environment.py termina sin errores",
+        "Si design.ui está activado, existen design/UI.md y src/client/UI con el kit sin cambios, y la tienda o el botón del pase se ubican con Kit.slot",
+        "El pase VIP no da ventajas de juego y su ID queda pendiente con la compra desactivada",
+        "Existen design/ANALYTICS.md, src/server/AnalyticsSchema.json y src/server/Analytics.luau, y check_analytics.py termina sin errores",
+        "check_game.py sobre el juego termina sin errores",
+        "Se ejecutó factory_status.py al final, ninguna etapa queda en error y la respuesta resume su tabla",
+        "La entrega separa lo verificado de lo pendiente (Studio, Creator Hub, publicación), pide capturas en Studio y no publica nada"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "solo quiero probar rápido una idea: un clicker de galletas donde cada click da galletas y podés comprar abuelas que hornean solas. nada de publicar todavía",
+      "expected_output": "Modo rápido: solo el builder con GDD mínimo en prototype, sin analíticas ni LiveOps ni documento completo del designer, con Tuning y Telemetry, check_game.py sin errores y explicación de cómo pasar a la versión completa.",
+      "files": [],
+      "expectations": [
+        "Dice que usa el modo rápido y por qué",
+        "El GDD usa project.mode prototype con analytics.enabled y liveops.enabled en false",
+        "No se crearon design/ANALYTICS.md ni design/LIVEOPS.md",
+        "Existen src/shared/Tuning.luau y src/server/Telemetry.luau",
+        "check_game.py sobre el juego termina sin errores",
+        "Explica cómo completar el juego más adelante con el designer y el script de estado"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "qué le falta a este juego para poder publicarlo? ../roblox-game-builder/assets/example-obby",
+      "expected_output": "Ejecuta factory_status.py sin modificar el juego, muestra la tabla de etapas (con arte, entorno y UI validados) y explica qué falta para publicar: pasar a release-candidate, build actualizado, prueba en Studio de la UI y la decoración y, recomendado, analíticas.",
+      "files": ["../roblox-game-builder/assets/example-obby"],
+      "expectations": [
+        "Se ejecutó factory_status.py",
+        "No se modificó ningún archivo del juego",
+        "Señala que el GDD está en modo prototype y que publicar implica pasar a release-candidate",
+        "Menciona que arte, pase de arte e interfaz ya pasan sus validadores",
+        "Señala la prueba en Studio como pendiente",
+        "Recomienda activar analíticas antes de publicar y nombra el skill roblox-analytics-dev",
+        "Termina con un siguiente paso concreto"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Copiá ../roblox-game-builder/assets/example-obby a tu carpeta de salida y agregale un evento de Halloween para la última semana de octubre de 2026.",
+      "expected_output": "Recorrido parcial que empieza por LiveOps, advierte que el obby es un prototipo sin persistencia, cambia o propone cambiar el modo y termina con check_liveops.py y check_game.py sin errores.",
+      "files": ["../roblox-game-builder/assets/example-obby"],
+      "expectations": [
+        "Dice que el recorrido empieza por LiveOps y no rehace el diseño ni los niveles",
+        "Advierte que LiveOps sobre un prototipo requiere pasar a release-candidate o declarar persistencia",
+        "El evento tiene ventana en UTC con formato ISO",
+        "check_liveops.py y check_game.py sobre la copia terminan sin errores",
+        "No modifica Levels.json"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Copiá ../roblox-ui-designer/evals/files/obby-ui-vieja a tu carpeta de salida. El juego anda, pero se ve de programador: la UI es fea, el botón de la tienda queda detrás del chat y los niveles parecen un blockout. Mejoralo todo sin cambiar cómo se juega.",
+      "expected_output": "Recorrido para mejorar cómo se ve un juego existente: conserva el tema que ya tiene, hace el pase de arte con el environment artist, el builder integra EnvironmentLoader en lugar de la iluminación directa y el UI designer reemplaza el HUD viejo con el kit. Levels.json y la lógica no cambian; factory_status.py sin etapas en error.",
+      "files": ["../roblox-ui-designer/evals/files/obby-ui-vieja"],
+      "expectations": [
+        "Dice qué recorrido sigue y no rehace el diseño, el tema ni los niveles",
+        "El frontmatter del GDD activa design.environment y design.ui",
+        "check_environment.py y check_ui.py sobre la copia terminan sin errores",
+        "Bootstrap llama a EnvironmentLoader.apply después de LevelLoader.build y ya no llama a Style.applyLighting",
+        "Se eliminó src/client/HUD.client.luau y el botón de la tienda se ubica con Kit.slot",
+        "src/shared/Levels.json, src/shared/Theme.json y src/server/ObbyService.luau son idénticos al original",
+        "Se ejecutó factory_status.py al final y ninguna etapa queda en error",
+        "Pide al usuario capturas de antes y después en Studio"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Copiá ../roblox-game-builder/assets/example-obby a tu carpeta de salida. Quiero que deje de ser un volcán de noche: que sea una montaña de hielo al amanecer. Cambiá todo el estilo pero no los niveles.",
+      "expected_output": "Recorrido de cambio de estilo: el art director rehace ART.md y Theme.json (con el peligro distinguible de las superficies de hielo), el environment artist actualiza Environment.json a los nombres nuevos de la paleta y el preset, y se revalidan la UI y el proyecto. Levels.json y la lógica no cambian.",
+      "files": ["../roblox-game-builder/assets/example-obby"],
+      "expectations": [
+        "El recorrido empieza por el art director y sigue con el environment artist",
+        "check_art.py, check_environment.py y check_ui.py sobre la copia terminan sin errores",
+        "Environment.json no nombra colores de la paleta anterior que ya no existen",
+        "El preset de iluminación representa un amanecer (clockTime entre 5 y 8)",
+        "Si un material de hielo se usa en piezas pisables, explica que el loader conserva la física original",
+        "Levels.json y el código de src/client/UI son idénticos al original",
+        "check_game.py sobre la copia termina sin errores"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Copiá ../roblox-game-builder/assets/example-obby a tu carpeta de salida y agregale un cuarto nivel más difícil, con el mismo estilo que los otros.",
+      "expected_output": "Recorrido de cambio de niveles: el level designer agrega el nivel 4 validado, el environment artist lo viste con el mismo estilo y revisa que la decoración existente no quede en el aire de un salto, y el builder verifica. El HUD muestra 4 niveles porque lee LevelCount del servidor.",
+      "files": ["../roblox-game-builder/assets/example-obby"],
+      "expectations": [
+        "El recorrido es level designer → environment artist → builder, sin rehacer el diseño ni el tema",
+        "Levels.json tiene un cuarto nivel con dificultad mayor que la del tercero y validate_levels.py termina sin errores",
+        "Environment.json tiene una entrada para el nuevo nivel con props, luces o terreno, y check_environment.py termina sin errores",
+        "ENVIRONMENT.md describe el nuevo nivel",
+        "No se cambió el código de la UI",
+        "check_game.py y factory_status.py terminan sin errores"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Quiero un juego de Roblox grande de supervivencia por rondas para publicar más adelante: un vestíbulo social donde la gente se junta y partidas de 8 jugadores en un mapa de bosque que corren en servidores aparte. Armá la base del proyecto preparada para crecer.",
+      "expected_output": "Recorrido de juego nuevo con varios places: el designer declara vestíbulo (start) y partida (match) con Places y viajes; el level designer asigna cada nivel a su place; el builder arma un proyecto por place con Place, Travel (servidor reservado para el grupo de la partida) y datos con bloqueo de sesión; factory_status muestra la etapa Places pendiente de los PlaceId del usuario y explica que los viajes se prueban publicados.",
+      "files": [],
+      "expectations": [
+        "Dice que es un juego con varios places y por qué",
+        "project.places lista un place start y uno match, con maxPlayers 8 en la partida",
+        "El GDD tiene la sección Places y viajes con la tabla de viajes y qué pasa si un viaje falla",
+        "Cada nivel de Levels.json declara su place",
+        "Hay un proyecto de Rojo por place con su PlaceKey, y Places.json con PlaceId en 0",
+        "El viaje a la partida usa Travel con un servidor reservado para el grupo",
+        "Si hay datos persistentes, el servicio de datos usa UpdateAsync con bloqueo de sesión y guarda antes de viajar",
+        "check_game.py termina sin errores y factory_status.py muestra la etapa Places pendiente de los PlaceId",
+        "La entrega explica qué debe hacer el usuario: crear los places en la experiencia, cargar los IDs y probar los viajes publicado"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Quiero un RPG de Roblox para publicar: los jugadores toman misiones de dos facciones, juntan materiales para mejorar su equipo y suben reputación con cada facción. Todo eso se tiene que guardar entre sesiones. PC y celular.",
+      "expected_output": "Recorrido de juego nuevo con datos: designer (release-candidate, design.data y promesas de qué se conserva) → data architect (DATA.md, DataSchema.json por core, DataTypes) → art director → level designer si hay niveles → builder (capas con cores dueños de las secciones, servicio PlayerData copiado y fachadas) → UI designer → analíticas; factory_status.py sin etapas en error.",
+      "files": [],
+      "expectations": [
+        "Dice qué recorrido sigue e incluye al data architect después del designer y antes del builder",
+        "El GDD tiene design.data en true, data.persistence persistent y en Estado y economía la lista de lo que se conserva",
+        "Existen design/DATA.md, src/server/Data/DataSchema.json y src/shared/DataTypes.luau, y check_data.py termina sin errores",
+        "Misiones, materiales y reputación se guardan en mapas por ID estable, en secciones con un core dueño cada una",
+        "El código está en capas: un core por sistema en src/server/Modules, puentes donde dos cores se hablan y Game; check_modules.py sin errores",
+        "src/server/Data tiene las plantillas del servicio de datos sin cambios y Bootstrap llama a PlayerData.start antes de Game.start",
+        "Cada core con datos tiene su fachada y solo ella usa PlayerData.section con su sección",
+        "Se ejecutó factory_status.py al final: Datos y Módulos en ok y ninguna etapa en error",
+        "La respuesta separa lo verificado de lo pendiente en Studio (salir y volver con acceso a las APIs)"
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Copiá ../roblox-game-builder/assets/example-obby a tu carpeta de salida. Quiero que al terminar cada nivel el jugador desbloquee una mascota que lo sigue, y que las mascotas desbloqueadas se guarden. No toques lo que ya funciona.",
+      "expected_output": "Recorrido para agregar un sistema que se guarda: designer (promesa y mascotas por nivel) → data architect (sección de mascotas con su core dueño, sin subir la versión porque solo se agrega) → builder (core de mascotas con su fachada, puente Obby_<Mascotas> que escucha Obby.levelCompleted, qué mascota da cada nivel en Game) → UI designer si muestra las mascotas. El core Obby y los datos que ya existen no cambian.",
+      "files": ["../roblox-game-builder/assets/example-obby"],
+      "expectations": [
+        "Dice qué recorrido sigue: designer, data architect, builder y UI designer si hay pantalla",
+        "DataSchema.json tiene una sección nueva para las mascotas con un core dueño, en un mapa por ID, y la versión del esquema no cambió",
+        "Existe un core nuevo de mascotas en src/server/Modules con su fachada de datos",
+        "Existe un puente Obby_<Mascotas> que escucha Obby.levelCompleted; el core Obby no requiere al de mascotas",
+        "Qué mascota da cada nivel está en el contenido de Game, no en el puente ni en los cores",
+        "src/server/Modules/Obby/init.luau, src/shared/Levels.json y la sección obby del esquema no cambiaron",
+        "DataTypes.luau se volvió a generar y check_data.py, check_modules.py y check_game.py terminan sin errores",
+        "Se ejecutó factory_status.py al final y ninguna etapa queda en error"
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "Copiá ../roblox-game-builder/assets/example-places a tu carpeta de salida. Ya lo probé y quiero publicarlo: que se guarde cuántas veces llegó cada jugador a la cima de la torre y su mejor tiempo, aunque cambie de place.",
+      "expected_output": "Recorrido de prototipo a publicar con varios places: designer (release-candidate, design.data, promesas) → data architect (persistent, sección del core Tower, un documento para los dos places) → builder (servicio de datos, fachada de Tower, PlayerData.save en Travel.onBeforeTravel) → recomendaciones de arte, UI y analíticas para publicar; factory_status.py con Datos en ok y Places pendiente solo por los PlaceId.",
+      "files": ["../roblox-game-builder/assets/example-places"],
+      "expectations": [
+        "El GDD pasa a release-candidate con design.data en true y la promesa de conservar las llegadas a la cima y el mejor tiempo",
+        "DataSchema.json tiene persistence persistent y la sección con las llegadas y el mejor tiempo tiene como dueño el core Tower",
+        "Bootstrap llama a PlayerData.start y se guarda antes de cada viaje con Travel.onBeforeTravel y PlayerData.save",
+        "Solo la fachada del core Tower usa PlayerData.section",
+        "No inventa PlaceId: siguen en 0 y el README lo explica",
+        "Menciona que arte, UI y analíticas se recomiendan para publicar, sin activarlos sin preguntar",
+        "factory_status.py muestra Datos en ok y Places pendiente solo por los PlaceId"
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "Copiá evals/files/perdida-de-datos a tu carpeta de salida. Mi juego ya está publicado y los jugadores se quejan: a veces vuelven y tienen 0 monedas, y a uno la bolsa de monedas que compró le llegó dos veces. ¿Por qué pasa y cómo lo arreglo sin perder lo que ya tienen guardado?",
+      "expected_output": "Diagnóstico del data architect y arreglo del builder: la carga fallida deja jugar con valores por defecto que después se guardan encima; SetAsync sin bloqueo de sesión; sin BindToClose; dos lugares escriben el DataStore; el recibo no registra el PurchaseId y un reintento entrega dos veces. Se adopta el servicio PlayerData con el mismo DataStore y patrón de clave, document.legacy y una migración desde la versión 0 para los perfiles { coins, pickaxe }; ProcessReceipt con grantPurchase.",
+      "files": ["evals/files/perdida-de-datos"],
+      "expectations": [
+        "Explica que una carga fallida deja al jugador con valores por defecto que se guardan encima del perfil real al salir",
+        "Explica que SetAsync sin bloqueo de sesión permite que dos servidores se pisen y que falta guardar en BindToClose",
+        "Explica que la compra se duplica porque ProcessReceipt no registra el PurchaseId junto con el beneficio, y que hay dos lugares escribiendo el DataStore",
+        "DataSchema.json usa el DataStore Minas y el patrón de clave Player_{UserId}, con document.legacy en true",
+        "history[\"0\"] describe la forma { coins, pickaxe } y la migración de 0 a 1 mueve ambos campos a sus secciones; check_data.py termina sin errores",
+        "Hay una sección con role purchases y ProcessReceipt devuelve PlayerData.grantPurchase",
+        "DataService ya no escribe el DataStore y DataStoreService solo aparece dentro de src/server/Data",
+        "No promete recuperar las monedas ya perdidas; si menciona recuperarlas, habla de las versiones de la clave (30 días) como acción del dueño"
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "Copiá ../roblox-game-builder/assets/example-obby a tu carpeta de salida. Clona también la librería de módulos (la ruta está en ROBLOX_LIBRARY) dentro de tu carpeta de salida y trabaja sobre ese clon. Quiero que el obby tenga misiones (pasar 3 checkpoints, llegar al final) que dan monedas y una recompensa diaria, y que todo se guarde. Usá lo que ya exista en la librería.",
+      "expected_output": "El builder busca en el catálogo y copia Quests, Economy y Rewards con sus puentes Quests_Rewards y Rewards_Economy sin editarlos; el data architect agrega sus secciones con library_section.py; un puente propio Obby_Quests une el core del obby con Quests; Game pasa el catálogo de misiones y la diaria por init. library.lock.json, columna Origen y etapa Librería en ok.",
+      "files": ["../roblox-game-builder/assets/example-obby"],
+      "expectations": [
+        "Busca en la librería con library.py search antes de escribir los cores de misiones, monedas y recompensas",
+        "Copia Quests, Economy y Rewards (y los puentes Quests_Rewards y Rewards_Economy) con library.py add; library.lock.json los lista con versión, commit y hash",
+        "Las copias no se editan: library.py status dice 'igual a la librería' para cada una y check_modules.py no da avisos M8",
+        "Las secciones quests, economy y rewards entran a DataSchema.json con library_section.py, DataTypes.luau se vuelve a generar y check_data.py termina sin errores",
+        "Las misiones, sus recompensas y la diaria están en Game y llegan por init o connect; un puente propio (por ejemplo Obby_Quests) reporta los checkpoints a Quests sin que un core requiera a otro",
+        "El Mapa de módulos tiene la columna Origen: 'librería <Nombre>@<versión>' en las copias y 'propio' en el core del obby, el puente nuevo y Game",
+        "factory_status.py con --library al clon muestra la etapa Librería en ok y la etapa Módulos sin errores",
+        "No sube nada al remoto de la librería; si anota el uso con library.py record, queda en una branch del clon"
+      ]
+    },
+    {
+      "id": 14,
+      "prompt": "Copiá ../roblox-game-builder/assets/example-quests a tu carpeta de salida. Clona también la librería de módulos (la ruta está en ROBLOX_LIBRARY) dentro de tu carpeta de salida y trabaja sobre ese clon. En Aldea de Gremios quiero misiones con tiempo límite: una misión con duración en segundos que, si no se completa a tiempo, se cancela y se puede volver a tomar. Quests viene de la librería, así que hacelo para que sirva también a otros juegos.",
+      "expected_output": "El cambio se hace en Quests de la librería y no solo en la copia: bump minor a 1.1.0 en una branch, opción en el catálogo de init, CHANGELOG, README y pruebas de Lune nuevas, release con commit y etiqueta Quests@1.1.0; el juego pasa a 1.1.0 con library.py update y, si la sección cambió, library_section.py --since 1.0.0. Los puentes siguen aceptando ^1.0.0. No sube nada.",
+      "files": ["../roblox-game-builder/assets/example-quests"],
+      "expectations": [
+        "El cambio está en modules/Quests del clon de la librería, en una branch que no es main; la copia del juego no queda con cambios propios",
+        "La versión sube a 1.1.0 (cambio compatible): module.json, README y CHANGELOG la dicen, y el README documenta la duración en las opciones o el catálogo",
+        "El módulo no trae contenido de Aldea de Gremios: la duración de cada misión llega desde Game por el catálogo de init",
+        "Si la sección quests guarda algo nuevo, data/section.json lo tiene con valor por defecto y sin migración, y el juego lo recibe con library_section.py --since 1.0.0; check_data.py termina sin errores",
+        "Hay pruebas de Lune nuevas para la expiración; check_library.py y run_tests.py pasan y library.py release deja un commit y la etiqueta Quests@1.1.0",
+        "El juego queda en Quests@1.1.0 con library.py update: library.lock.json y el Mapa de módulos dicen 1.1.0 y usedIn de Quests anota AldeaDeGremios en 1.1.0",
+        "Los puentes Zones_Quests y Quests_Rewards siguen aceptando la versión (^1.0.0) sin cambios",
+        "No sube la branch ni las etiquetas: lo deja como paso que aprueba el usuario"
+      ]
+    },
+    {
+      "id": 15,
+      "prompt": "Copiá ../roblox-game-builder/assets/example-places a tu carpeta de salida. Clona también la librería de módulos (la ruta está en ROBLOX_LIBRARY) dentro de tu carpeta de salida y trabaja sobre ese clon. Ya terminé este juego: publicá en la librería los módulos que sirvan para otros juegos.",
+      "expected_output": "Revisa Plaza y Tower: tienen reglas de este juego (pasos de onboarding, la torre que devuelve a la plaza). Publica solo lo general, por ejemplo un core Portals que lleva al jugador al place de una zona, sacado de Plaza con su contenido por opciones, con publish, README completo, pruebas y release en una branch; o explica por qué no publica nada. El juego adopta la copia con add. No sube nada.",
+      "files": ["../roblox-game-builder/assets/example-places"],
+      "expectations": [
+        "Revisa Plaza y Tower y nombra lo que es de este juego (pasos de onboarding, nombres de places, el regreso a la plaza) antes de decidir qué publicar",
+        "No publica un módulo con contenido del juego: lo general (por ejemplo, llevar a un place desde una zona) se separa con sus datos por opciones, o explica por qué no hay nada para publicar",
+        "Lo que publica pasa por library.py publish en una branch module/<Nombre> del clon, con module.json, README con todas sus secciones, CHANGELOG y pruebas de Lune",
+        "No queda nada marcado '(por completar)'; check_library.py y run_tests.py pasan y library.py release deja un commit y la etiqueta <Nombre>@1.0.0",
+        "El juego adopta lo publicado con library.py add: library.lock.json lo lista y el Mapa de módulos lo marca con Origen 'librería <Nombre>@1.0.0'",
+        "check_game.py del juego sigue sin errores y factory_status.py con --library muestra la etapa Librería",
+        "No sube la branch ni las etiquetas: lo deja como paso que aprueba el usuario"
+      ]
+    }
+  ]
+}

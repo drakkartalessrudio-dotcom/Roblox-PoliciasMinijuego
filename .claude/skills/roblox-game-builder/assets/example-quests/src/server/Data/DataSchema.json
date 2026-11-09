@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "document": {
+    "store": "PlayerData",
+    "key": "player_{UserId}",
+    "persistence": "persistent"
+  },
+  "version": 2,
+  "sections": {
+    "meta": {
+      "owner": "PlayerData",
+      "role": "meta",
+      "description": "Fechas, sesiones y tiempo de juego; los mantiene el servicio de datos",
+      "fields": {
+        "firstJoinAt": { "type": "time" },
+        "lastJoinAt": { "type": "time" },
+        "sessions": { "type": "integer", "min": 0 },
+        "playTimeSec": { "type": "integer", "min": 0 }
+      }
+    },
+    "quests": {
+      "owner": "Quests",
+      "description": "Misiones activas con el progreso de cada objetivo y misiones completadas",
+      "fields": {
+        "active": {
+          "type": "map", "key": "questId", "maxEntries": 20,
+          "value": {
+            "type": "record",
+            "fields": {
+              "startedAt": { "type": "time" },
+              "objectives": { "type": "map", "key": "objectiveId", "maxEntries": 8, "value": { "type": "integer", "min": 0, "max": 1000 } }
+            }
+          }
+        },
+        "completed": { "type": "map", "key": "questId", "maxEntries": 500, "value": { "type": "time" } }
+      }
+    },
+    "economy": {
+      "owner": "Economy",
+      "description": "Saldo de cada moneda",
+      "fields": {
+        "wallet": {
+          "type": "map", "key": "currencyId", "keyMaxLength": 16, "maxEntries": 10,
+          "value": { "type": "integer", "min": 0, "max": 999999999 }
+        }
+      }
+    },
+    "rewards": {
+      "owner": "Rewards",
+      "description": "Racha de la recompensa diaria",
+      "fields": {
+        "daily": {
+          "type": "record",
+          "fields": {
+            "streak": { "type": "integer", "min": 0, "max": 3650 },
+            "lastClaimAt": { "type": "time" }
+          }
+        }
+      }
+    }
+  },
+  "migrations": [
+    {
+      "from": 1,
+      "to": 2,
+      "description": "Las monedas pasan a un mapa por moneda (para sumar gemas) y quests.done se llama completed",
+      "ops": [
+        { "op": "move", "from": "economy.coins", "to": "economy.wallet.coins" },
+        { "op": "move", "from": "quests.done", "to": "quests.completed" }
+      ]
+    }
+  ],
+  "history": {
+    "1": {
+      "sections": {
+        "meta": {
+          "owner": "PlayerData",
+          "role": "meta",
+          "fields": {
+            "firstJoinAt": { "type": "time" },
+            "lastJoinAt": { "type": "time" },
+            "sessions": { "type": "integer", "min": 0 },
+            "playTimeSec": { "type": "integer", "min": 0 }
+          }
+        },
+        "quests": {
+          "owner": "Quests",
+          "fields": {
+            "active": {
+              "type": "map", "key": "questId", "maxEntries": 20,
+              "value": {
+                "type": "record",
+                "fields": {
+                  "startedAt": { "type": "time" },
+                  "objectives": { "type": "map", "key": "objectiveId", "maxEntries": 8, "value": { "type": "integer", "min": 0, "max": 1000 } }
+                }
+              }
+            },
+            "done": { "type": "map", "key": "questId", "maxEntries": 500, "value": { "type": "time" } }
+          }
+        },
+        "economy": {
+          "owner": "Economy",
+          "fields": {
+            "coins": { "type": "integer", "min": 0 }
+          }
+        },
+        "rewards": {
+          "owner": "Rewards",
+          "fields": {
+            "daily": {
+              "type": "record",
+              "fields": {
+                "streak": { "type": "integer", "min": 0, "max": 3650 },
+                "lastClaimAt": { "type": "time" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

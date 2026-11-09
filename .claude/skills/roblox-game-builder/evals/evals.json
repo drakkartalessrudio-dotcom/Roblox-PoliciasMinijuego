@@ -1,0 +1,175 @@
+{
+  "skill_name": "roblox-game-builder",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "hazme un obby de lava con 3 etapas y checkpoints, que se pueda jugar en pc y celular. no quiero monetización por ahora",
+      "expected_output": "Proyecto Rojo de un obby de 3 etapas con checkpoints donde el jugador reaparece, lava validada en el servidor, HUD de progreso, GDD con suposiciones e informe honesto de verificación.",
+      "files": [],
+      "expectations": [
+        "Existe GDD.md con frontmatter que declara project.mode y project.platforms con desktop y mobile",
+        "En el GDD monetization.enabled es una lista vacía",
+        "default.project.json es JSON válido y su campo name no es RobloxGame",
+        "El servidor tiene un único Script de entrada que prepara el núcleo y llama a Game.start, que inicia los módulos en un orden explícito",
+        "Los handlers de Touched de lava y checkpoints obtienen al jugador con Players:GetPlayerFromCharacter y limitan la frecuencia o validan el estado",
+        "Tras morir, el jugador reaparece en su último checkpoint alcanzado",
+        "El código no contiene ningún rbxassetid://",
+        "El README indica cómo abrir y jugar, qué valores ajustar y qué verificaciones quedaron pendientes",
+        "La respuesta final no afirma que el juego fue probado en Studio sin haber tenido acceso a Studio",
+        "Si el GDD activa design.levels, existen design/LEVELS.md y src/shared/Levels.json validados y el mundo se construye con LevelLoader",
+        "Existen src/shared/Tuning.luau y src/server/Telemetry.luau copiados de las plantillas, con su API intacta",
+        "Los valores ajustables se leen con Tuning.get",
+        "Se emiten con Telemetry.onboarding los pasos del funnel con los nombres del GDD",
+        "check_game.py sobre el proyecto final termina sin errores",
+        "El código propio del juego está en src/server/Modules/, Bridges/ y Game/ (ningún core requiere a otro), el GDD tiene el Mapa de módulos y check_modules.py termina sin errores"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "quiero un simulador tipo clicker: hago click para juntar energía, con la energía compro mejoras que dan más energía por click y auto-clicks. que guarde el progreso cuando salgo y vuelvo",
+      "expected_output": "Simulador con clicks validados y limitados en el servidor, tienda de mejoras con precios en configuración, persistencia con manejo de carga fallida y guardado no por cada click.",
+      "files": [],
+      "expectations": [
+        "El cliente solo envía la intención de click o de compra; el servidor calcula la energía y valida el precio",
+        "El handler del click limita la frecuencia en el servidor",
+        "Los precios y multiplicadores de las mejoras están en un módulo de configuración y no repetidos en otros archivos",
+        "El progreso se guarda con DataStoreService con guardado periódico y al salir, no en cada click",
+        "Si la carga del perfil falla, el juego no sobrescribe el perfil guardado con valores por defecto",
+        "El GDD documenta fuentes y sumideros de la energía",
+        "El README separa lo verificado de lo pendiente, incluida la prueba de persistencia en Studio con API Services",
+        "Existen src/shared/Tuning.luau y src/server/Telemetry.luau copiados de las plantillas, con su API intacta",
+        "Cada ganancia y gasto de energía, ya aplicado en el servidor, se registra con Telemetry.economy",
+        "check_game.py sobre el proyecto final termina sin errores",
+        "El código propio del juego está en src/server/Modules/, Bridges/ y Game/ (ningún core requiere a otro), el GDD tiene el Mapa de módulos y check_modules.py termina sin errores"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Crea un tycoon chico de pizzería para servidores de hasta 6 jugadores: cada uno reclama una parcela, compra hornos que hacen pizzas que se venden solas y puede ir mejorando el local. Es un prototipo para probar si es divertido.",
+      "expected_output": "Tycoon prototipo con 6 parcelas reclamables, compras de mejoras validadas en el servidor, ingreso pasivo, liberación de la parcela al salir y GDD en modo prototype.",
+      "files": [],
+      "expectations": [
+        "El GDD usa project.mode prototype",
+        "El mundo tiene al menos 6 parcelas, una por jugador posible",
+        "Reclamar una parcela se valida en el servidor y una parcela no puede tener dos dueños",
+        "Comprar un horno o mejora descuenta el dinero en el servidor tras validar saldo y orden de compra",
+        "La parcela se libera y se limpia cuando su dueño sale",
+        "Los precios, tiempos de horneado y ganancias están en configuración",
+        "El README lista como posteriores los sistemas que no entraron en el MVP",
+        "Existen src/shared/Tuning.luau y src/server/Telemetry.luau copiados de las plantillas, con su API intacta",
+        "Las compras de hornos y mejoras se registran con Telemetry.economy después de descontar el dinero",
+        "check_game.py sobre el proyecto final termina sin errores",
+        "El código propio del juego está en src/server/Modules/, Bridges/ y Game/ (ningún core requiere a otro), el GDD tiene el Mapa de módulos y check_modules.py termina sin errores"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "minijuego por rondas: lobby, después 60 segundos en una arena donde aparecen monedas y gana el que junte más. si alguien entra a mitad de ronda espera en el lobby. tiene que andar bien con 2 jugadores",
+      "expected_output": "Juego por rondas con máquina de estados en el servidor, ingreso tardío al lobby, monedas recogidas y validadas en el servidor, ganador anunciado y temporizador visible.",
+      "files": [],
+      "expectations": [
+        "El estado de la ronda (lobby, juego, resultados) lo controla el servidor",
+        "Un jugador que entra durante la ronda queda en el lobby hasta la siguiente",
+        "Recoger una moneda se valida en el servidor y una moneda no se cuenta dos veces",
+        "El ganador se calcula en el servidor y se muestra a todos los jugadores",
+        "La duración de la ronda y la cantidad de monedas están en configuración",
+        "Al terminar la ronda se limpian monedas, conexiones y estado por jugador",
+        "Las pruebas pendientes incluyen probar con 2 clientes en Studio",
+        "Existen src/shared/Tuning.luau y src/server/Telemetry.luau copiados de las plantillas, con su API intacta",
+        "El inicio y el final de cada ronda se registran con Telemetry (progresión o eventos propios con nombres estables)",
+        "check_game.py sobre el proyecto final termina sin errores",
+        "El código propio del juego está en src/server/Modules/, Bridges/ y Game/ (ningún core requiere a otro), el GDD tiene el Mapa de módulos y check_modules.py termina sin errores"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "supervivencia por oleadas: zombies que vienen en oleadas cada vez más grandes, los jugadores tienen una espada simple, si mueren todos se reinicia desde la oleada 1",
+      "expected_output": "Juego de oleadas con NPCs creados por el servidor, daño de la espada validado en el servidor, escalado de oleadas en configuración y reinicio cuando todos mueren.",
+      "files": [],
+      "expectations": [
+        "Los zombies se crean y controlan desde el servidor",
+        "El daño de la espada se valida en el servidor con distancia y enfriamiento",
+        "El tamaño y la dificultad de cada oleada se calculan con valores de configuración",
+        "Cuando todos los jugadores están muertos el juego vuelve a la oleada 1 y limpia los zombies restantes",
+        "El juego no inventa IDs de animaciones o modelos; usa Parts o assets declarados",
+        "El GDD declara un presupuesto de NPCs simultáneos",
+        "Existen src/shared/Tuning.luau y src/server/Telemetry.luau copiados de las plantillas, con su API intacta",
+        "Cada oleada iniciada, superada o fallida se registra con Telemetry.progressionStart, progressionComplete o progressionFail",
+        "check_game.py sobre el proyecto final termina sin errores",
+        "El código propio del juego está en src/server/Modules/, Bridges/ y Game/ (ningún core requiere a otro), el GDD tiene el Mapa de módulos y check_modules.py termina sin errores"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Te paso el GDD de mi juego (evals/files/gdd-runner-monetizado.md). Constrúyelo tal cual, la idea es publicarlo.",
+      "expected_output": "Juego construido respetando el GDD en modo release-candidate, con solo los módulos game-passes y developer-products, un único ProcessReceipt, compras desactivadas mientras falten los IDs y configuración pendiente en el README.",
+      "files": ["evals/files/gdd-runner-monetizado.md"],
+      "expectations": [
+        "Se conserva project.mode release-candidate y las decisiones del GDD del usuario",
+        "Solo se integran los módulos game-passes y developer-products",
+        "Hay un único MarketplaceService.ProcessReceipt en todo el proyecto",
+        "No se inventan IDs de pase ni de producto; las compras quedan desactivadas mientras los IDs estén pendientes",
+        "El precio mostrado no sale de un valor fijo del GDD",
+        "Monedas, skins y récord se guardan con manejo de carga fallida y bloqueo de sesión o estrategia equivalente",
+        "El README lista los IDs y la configuración de Creator Hub pendientes",
+        "El informe no etiqueta el juego como release-candidate terminado si quedan requisitos sin implementar",
+        "Existen src/shared/Tuning.luau y src/server/Telemetry.luau copiados de las plantillas, con su API intacta",
+        "La entrega de un producto que da moneda se registra con Telemetry.economy de tipo IAP desde el servicio de recibos",
+        "check_game.py sobre el proyecto final termina sin errores",
+        "El código propio del juego está en src/server/Modules/, Bridges/ y Game/ (ningún core requiere a otro), el GDD tiene el Mapa de módulos y check_modules.py termina sin errores"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Implementá el juego que está en evals/files/torre-neon: el GDD y los niveles ya están hechos y validados. Dejalo listo para abrir en Studio.",
+      "expected_output": "Proyecto que construye el mundo desde el Levels.json recibido con LevelLoader, implementa checkpoints, metas, vacío y cristales en el servidor, emite telemetría con los nombres del GDD, completa la Arquitectura sin reescribir el diseño y pasa check_game.py.",
+      "files": ["evals/files/torre-neon/GDD.md", "evals/files/torre-neon/design/LEVELS.md", "evals/files/torre-neon/src/shared/Levels.json"],
+      "expectations": [
+        "src/shared/Levels.json queda idéntico al recibido",
+        "Las secciones de diseño del GDD no se reescriben; la sección Arquitectura queda completa",
+        "Existen LevelLoader.luau, Telemetry.luau y Tuning.luau copiados de las plantillas",
+        "Bootstrap aplica la física y construye los niveles con LevelLoader antes de conectar los sistemas del juego",
+        "Los checkpoints solo avanzan dentro del nivel actual y el jugador reaparece en el último tras morir",
+        "Tocar la meta lleva al inicio del siguiente nivel; la meta del último nivel marca la torre como completa",
+        "Cada cristal suma una sola vez por jugador, validado en el servidor, y se registra con Telemetry.economy con la moneda Cristales",
+        "Los pasos joined, first_checkpoint y level_1_complete se emiten con Telemetry.onboarding",
+        "Cada nivel emite progressionStart y progressionComplete con el camino Torre",
+        "No hay valores de física en Config",
+        "check_game.py sobre el proyecto final termina sin errores",
+        "El README separa lo verificado de lo pendiente y no afirma pruebas en Studio que no se hicieron"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Copiá assets/example-obby a tu carpeta de salida y pasalo a dos places: un vestíbulo nuevo (una sala chica con un portal) como entrada, y los tres niveles del obby en otro place. Al terminar el obby, que el jugador vuelva al vestíbulo. Todavía no creé los places en Roblox.",
+      "expected_output": "Experiencia con dos places que comparten src/: GDD con la lista de places y la sección Places y viajes, Places.json con PlaceId en 0, Place.luau y Travel.luau copiados, un proyecto por place con su PlaceKey, cada nivel con su place, Bootstrap que construye solo los niveles del place, portal y vuelta con Travel, README con los pasos de publicación, y check_game.py sin errores (solo el aviso de PlaceId pendientes).",
+      "files": ["assets/example-obby"],
+      "expectations": [
+        "project.places en el GDD es una lista con un place start (vestíbulo) y otro para el obby, y existe la sección Places y viajes",
+        "src/shared/Places.json tiene los dos places con placeId 0 y no inventa IDs",
+        "src/shared/Place.luau y src/server/Travel.luau son idénticos a las plantillas del builder",
+        "default.project.json tiene PlaceKey del vestíbulo y places/<obby>.project.json mapea las mismas carpetas src/ con su PlaceKey",
+        "Cada nivel de Levels.json tiene place; el vestíbulo es un nivel nuevo y validate_levels.py no da errores",
+        "Bootstrap construye solo Place.levels(Levels) y los viajes usan Travel, no TeleportService directo",
+        "El README explica cómo construir cada place, que los viajes no funcionan en Studio y los pasos de publicación del usuario",
+        "check_game.py termina sin errores"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Copiá assets/skeleton a tu carpeta de salida. Quiero que cada misión completada le dé monedas al jugador y que el total se vea en el leaderstats. Agregalo sin tocar Zones ni Quests, que los uso en otros juegos.",
+      "expected_output": "Un core nuevo de monedas en Modules/ (sin requerir a Quests ni a Zones) y un puente Quests_<Monedas> que escucha Quests.completed y suma con la API del core nuevo; cuántas monedas da cada misión está en el contenido de Game; Game inicia los cores, conecta los puentes y arranca los cores en ese orden; Zones y Quests quedan idénticos; check_modules.py y luau-lsp sin errores.",
+      "files": ["assets/skeleton"],
+      "expectations": [
+        "src/server/Modules/Zones/init.luau y src/server/Modules/Quests/init.luau son idénticos al original",
+        "Existe un core nuevo de monedas en src/server/Modules/ que no requiere a Quests ni a Zones y publica los cambios de saldo o escribe el leaderstats",
+        "Existe un puente src/server/Bridges/Quests_<Monedas>/ que escucha Quests.completed y suma monedas con la API del core nuevo, y requiere solo esos dos cores",
+        "Cuántas monedas da cada misión está en el contenido de Game (por ejemplo Game/Content.luau), no en el puente ni en los cores",
+        "Game hace init de los cores, connect de los puentes y start de los cores, en ese orden",
+        "check_modules.py sobre la copia termina sin errores",
+        "Se corrió luau-lsp sobre la copia sin errores, o la respuesta dice que no pudo correrlo",
+        "La respuesta no afirma que se probó en Studio"
+      ]
+    }
+  ]
+}
