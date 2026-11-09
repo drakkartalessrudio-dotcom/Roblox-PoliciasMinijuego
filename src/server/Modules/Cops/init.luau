@@ -9,7 +9,9 @@
 	de ★1 ve poco y corre lento. Un policía de patrulla solo mira a quien `canEngage` deja:
 	sin estrellas y sin una travesura en curso, un jugador puede pasar delante de la patrulla
 	sin que lo persigan. El ruido de una travesura alerta a los policías cercanos hacia ese
-	punto (Cops.alert).
+	punto (Cops.alert); el que se puso en alerta ("?") recuerda quién hizo el ruido (`suspect`)
+	y, si ese jugador pasa delante antes de que termine la búsqueda, lo detecta (y antes) y lo
+	persigue aunque no tenga estrellas.
 
 	Tres clases de policía de la ciudad:
 	  · Guardias: viven en un puesto de la ciudad (zonas `guard_post` de Levels.json, con un
@@ -122,6 +124,7 @@ export type Cop = {
 	returnAt: number, -- límite para llegar al punto antes de teletransportarse
 	walker: boolean, -- caminante: va de un lugar a otro y desaparece
 	walkerUntil: number,
+	suspect: Player?, -- quien causó el ruido que lo puso en alerta: si pasa delante lo detecta aunque no tenga estrellas
 	rosterFor: Player?, -- para quién se invocó (un cazador puede perseguir a otro jugador)
 }
 
@@ -380,6 +383,7 @@ local function spawnCop(typeId: string, position: Vector3, owner: Player?, ambie
 		returnAt = 0,
 		walker = false,
 		walkerUntil = 0,
+		suspect = nil,
 		rosterFor = nil,
 	}
 	if typeDef.flying then
@@ -690,8 +694,11 @@ local function think(cop: Cop, now: number, tick: number)
 			if root then
 				-- La patrulla ignora a quien no está buscado ni haciendo una travesura; quien ya persigue a su dueño no pierde la vista.
 				local visible, distance = false, math.huge
-				local exposed = options.inMischief(player)
-				if cop.owner == player or options.canEngage(player) then
+				local mischief = options.inMischief(player)
+				-- Un policía alerta ("?") por el ruido de este jugador lo busca aunque no tenga estrellas, y lo nota antes.
+				local alerted = cop.suspect == player and (cop.state == "suspicious" or cop.state == "search")
+				local exposed = mischief or alerted
+				if cop.owner == player or alerted or options.canEngage(player) then
 					visible, distance = canSee(cop, player, root, exposed)
 				end
 				if visible then
@@ -704,7 +711,7 @@ local function think(cop: Cop, now: number, tick: number)
 					cop.detect[player] = value
 					if value >= 1 then
 						table.insert(visibleTo, player)
-						if exposed then
+						if mischief then
 							Cops.spotted:Fire(player, cop) -- corta la travesura; el calor y la persecución siguen su curso
 						end
 						if cop.owner == player or cop.owner == nil then
@@ -723,6 +730,7 @@ local function think(cop: Cop, now: number, tick: number)
 		local target = mostWanted(visibleTo)
 		if target then
 			cop.owner = target
+			cop.suspect = nil
 			cop.ambient = false
 			cop.walker = false
 			cop.state = "chase"
@@ -834,6 +842,7 @@ local function think(cop: Cop, now: number, tick: number)
 		moveTo(cop, cop.destination or cop.root.Position, now)
 		if cop.destination and (cop.root.Position - cop.destination).Magnitude < 5 or now > cop.searchUntil then
 			setAlert(cop, "")
+			cop.suspect = nil
 			if cop.post then
 				cop.state = "return"
 				cop.returnAt = now + Tuning.get("Guard.ReturnSeconds")
@@ -1160,6 +1169,7 @@ function Cops.alert(position: Vector3, radius: number, source: Player?)
 		if (cop.state == "patrol" or cop.state == "search") and now >= cop.blindUntil and not cop.def.flying then
 			if (cop.root.Position - position).Magnitude <= radius * Tuning.get("Detect.HearingScale") then
 				cop.state = "suspicious"
+				cop.suspect = source
 				cop.destination = position
 				cop.searchUntil = now + Tuning.get("Cops.SearchSeconds")
 				setAlert(cop, "?")
