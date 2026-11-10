@@ -108,6 +108,7 @@ export type Cop = {
 	lungeUntil: number,
 	hits: number,
 	lastMoveAt: number,
+	faceAt: number, -- última vez que se giró hacia donde camina
 	lastPosition: Vector3,
 	path: { Vector3 }?,
 	pathAt: number,
@@ -268,7 +269,7 @@ local function canSee(cop: Cop, player: Player, root: BasePart, exposed: boolean
 		if options.isCovered(player) then
 			return false, distance
 		end
-		return flat(offset).Magnitude <= range, distance
+		return flat(offset).Magnitude <= range and lineOfSight(cop, player, cop.root.Position, root.Position), distance
 	end
 	if distance > 8 then
 		local look = flat(cop.root.CFrame.LookVector)
@@ -368,6 +369,7 @@ local function spawnCop(typeId: string, position: Vector3, owner: Player?, ambie
 		lungeUntil = 0,
 		hits = 0,
 		lastMoveAt = now,
+		faceAt = now,
 		lastPosition = root.Position,
 		path = nil,
 		pathAt = 0,
@@ -402,7 +404,7 @@ local function spawnCop(typeId: string, position: Vector3, owner: Player?, ambie
 	end
 	if humanoid then
 		humanoid.WalkSpeed = speedOf(cop, now)
-		humanoid.AutoRotate = true
+		humanoid.AutoRotate = false -- el rig a medida no se gira solo: moveTo los orienta (el cono de visión sigue su marcha)
 	end
 	cops[model] = cop
 	setAlert(cop, if cop.state == "chase" then "!" else "")
@@ -458,6 +460,17 @@ local function setSight(player: Player, seen: boolean)
 	end
 end
 
+-- Giro suave hacia un ángulo (radianes alrededor de Y): la guardia barre con el cono de visión y todos
+-- se orientan hacia donde caminan.
+local function turnToward(cop: Cop, targetYaw: number, tick: number)
+	local look = cop.root.CFrame.LookVector
+	local current = math.atan2(-look.X, -look.Z)
+	local delta = (targetYaw - current + math.pi) % (2 * math.pi) - math.pi
+	local limit = math.rad(Tuning.get("Guard.TurnDegreesPerSecond")) * tick
+	cop.root.CFrame = CFrame.new(cop.root.Position) * CFrame.Angles(0, current + math.clamp(delta, -limit, limit), 0)
+	cop.root.AssemblyAngularVelocity = Vector3.zero
+end
+
 local function moveTo(cop: Cop, goal: Vector3, now: number)
 	local humanoid = cop.humanoid
 	if cop.def.flying then
@@ -501,6 +514,8 @@ local function moveTo(cop: Cop, goal: Vector3, now: number)
 	-- Salta obstáculos bajos.
 	local forward = flat(target - cop.root.Position)
 	if forward.Magnitude > 1 then
+		turnToward(cop, math.atan2(-forward.X, -forward.Z), math.clamp(now - cop.faceAt, 0.02, 0.3))
+		cop.faceAt = now
 		local params = RaycastParams.new()
 		params.FilterType = Enum.RaycastFilterType.Exclude
 		params.FilterDescendantsInstances = { folder }
@@ -593,16 +608,6 @@ local function rosterCops(player: Player): { Cop }
 	return list
 end
 
--- Guardias: giro suave hacia un ángulo (radianes alrededor de Y) para que el cono de visión barra.
-local function turnToward(cop: Cop, targetYaw: number, tick: number)
-	local look = cop.root.CFrame.LookVector
-	local current = math.atan2(-look.X, -look.Z)
-	local delta = (targetYaw - current + math.pi) % (2 * math.pi) - math.pi
-	local limit = math.rad(Tuning.get("Guard.TurnDegreesPerSecond")) * tick
-	cop.root.CFrame = CFrame.new(cop.root.Position) * CFrame.Angles(0, current + math.clamp(delta, -limit, limit), 0)
-	cop.root.AssemblyAngularVelocity = Vector3.zero
-end
-
 local function pointYaw(point: BasePart): number
 	local look = point.CFrame.LookVector
 	return math.atan2(-look.X, -look.Z)
@@ -681,10 +686,6 @@ local function think(cop: Cop, now: number, tick: number)
 		end
 		return
 	end
-	-- La guardia parada no gira sola: mira donde le toca.
-	if cop.post and humanoid then
-		humanoid.AutoRotate = cop.state ~= "patrol" or cop.phase == "walk"
-	end
 	-- Detección: cada jugador cercano llena o vacía su barra.
 	local seenTarget = false
 	local visibleTo: { Player } = {}
@@ -707,7 +708,7 @@ local function think(cop: Cop, now: number, tick: number)
 						Tuning.get("Detect.FillSecondsNear")
 						+ (Tuning.get("Detect.FillSecondsFar") - Tuning.get("Detect.FillSecondsNear")) * math.clamp(distance / range, 0, 1)
 					) * alertOf(player, "AlertFillByStar") * (if exposed then Tuning.get("Detect.MischiefFillMult") else 1)
-					local value = (cop.detect[player] or 0) + tick / fill
+					local value = math.min((cop.detect[player] or 0) + tick / fill, 1)
 					cop.detect[player] = value
 					if value >= 1 then
 						table.insert(visibleTo, player)
@@ -1191,8 +1192,9 @@ function Cops.witnessed(player: Player, position: Vector3, radius: number): bool
 	for _, cop in cops do
 		if now >= cop.blindUntil and now >= cop.knockedUntil then
 			local distance = (cop.root.Position - root.Position).Magnitude
-			if distance <= radius * Tuning.get("Detect.HearingScale") * (1 - math.clamp(options.sigiloFor(player), 0, 0.8)) then
-				return true
+			local hearing = radius * Tuning.get("Detect.HearingScale") * (1 - math.clamp(options.sigiloFor(player), 0, 0.8))
+			if distance <= hearing and lineOfSight(cop, player, cop.root.Position + Vector3.new(0, 2, 0), root.Position) then
+				return true -- lo oye y no hay una pared de por medio (a través de paredes solo se alerta, no se testifica)
 			end
 			local visible = canSee(cop, player, root, true)
 			if visible then
