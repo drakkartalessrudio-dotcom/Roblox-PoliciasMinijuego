@@ -1164,11 +1164,27 @@ function Cops.summon(typeId: string, position: Vector3, target: Player, speed: n
 	return cop
 end
 
+-- ¿Hay una pared entre el ruido y el policía? Un rayo desde quien hizo el ruido (o el punto) hasta su cabeza.
+local function muffled(cop: Cop, position: Vector3, source: Player?): boolean
+	local params = RaycastParams.new()
+	params.FilterType = Enum.RaycastFilterType.Exclude
+	params.FilterDescendantsInstances = { folder, cop.model, if source and source.Character then source.Character else nil }
+	params.RespectCanCollide = true
+	local sourceRoot = if source then rootOf(source) else nil
+	local from = if sourceRoot then sourceRoot.Position else position + Vector3.new(0, 2, 0)
+	local to = cop.root.Position + Vector3.new(0, 2, 0)
+	return Workspace:Raycast(from, to - from, params) ~= nil
+end
+
 function Cops.alert(position: Vector3, radius: number, source: Player?)
 	local now = os.clock()
 	for _, cop in cops do
 		if (cop.state == "patrol" or cop.state == "search") and now >= cop.blindUntil and not cop.def.flying then
-			if (cop.root.Position - position).Magnitude <= radius * Tuning.get("Detect.HearingScale") then
+			local hearing = radius * Tuning.get("Detect.HearingScale")
+			if (cop.root.Position - position).Magnitude <= hearing and muffled(cop, position, source) then
+				hearing *= Tuning.get("Detect.MuffledHearing") -- a través de una pared el ruido llega amortiguado
+			end
+			if (cop.root.Position - position).Magnitude <= hearing then
 				cop.state = "suspicious"
 				cop.suspect = source
 				cop.destination = position
