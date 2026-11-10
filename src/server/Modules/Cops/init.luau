@@ -57,6 +57,7 @@
 	  Cops.bossDefeated                           Signal (cop, attacker?)
 ]]
 
+local Debris = game:GetService("Debris")
 local PathfindingService = game:GetService("PathfindingService")
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -248,8 +249,35 @@ local function raycastParams(cop: Cop, player: Player): RaycastParams
 	return params
 end
 
+-- Depuración (Studio, barra de comandos en servidor: workspace:SetAttribute("CopsDebug", true)): dibuja cada
+-- rayo de visión, verde si está despejado y rojo si algo lo corta, y escribe qué lo cortó.
+local function drawRay(from: Vector3, to: Vector3, hit: RaycastResult?)
+	local length = (to - from).Magnitude
+	if length < 0.5 then
+		return
+	end
+	local beam = Instance.new("Part")
+	beam.Anchored = true
+	beam.CanCollide = false
+	beam.CanQuery = false
+	beam.CanTouch = false
+	beam.CastShadow = false
+	beam.Material = Enum.Material.Neon
+	beam.Color = if hit then Color3.fromRGB(255, 60, 60) else Color3.fromRGB(60, 255, 90)
+	beam.Size = Vector3.new(0.15, 0.15, length)
+	beam.CFrame = CFrame.lookAt((from + to) / 2, to)
+	beam.Parent = folder
+	Debris:AddItem(beam, 0.2)
+	if hit then
+		print(`[Cops] rayo cortado por {hit.Instance:GetFullName()} a {math.floor((hit.Position - from).Magnitude)} studs`)
+	end
+end
+
 local function lineOfSight(cop: Cop, player: Player, from: Vector3, to: Vector3): boolean
 	local hit = Workspace:Raycast(from, to - from, raycastParams(cop, player))
+	if Workspace:GetAttribute("CopsDebug") then
+		drawRay(from, to, hit)
+	end
 	return hit == nil
 end
 
