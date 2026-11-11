@@ -1,0 +1,16 @@
+[
+  {"query": "el .wav que subí a roblox no lo acepta, qué formato tengo que usar para el sonido del timbre?", "should_trigger": true},
+  {"query": "agregá música de fondo y efectos de sonido a mi juego de roblox, no tengo ningún audio todavía", "should_trigger": true},
+  {"query": "subí un audio a Creator Hub pero en el juego no suena nada y en Output sale un error de permisos", "should_trigger": true},
+  {"query": "tengo rbxassetid de sonidos escritos a mano en diez scripts, ordenalos en un solo lugar", "should_trigger": true},
+  {"query": "quiero que el sonido de las explosiones se atenúe con la distancia y no se oiga desde el otro lado del mapa", "should_trigger": true},
+  {"query": "cómo hago para que el jugador pueda bajar el volumen de la música y los efectos por separado", "should_trigger": true},
+  {"query": "armame la mezcla de audio y los cues del juego en un documento design/AUDIO.md", "should_trigger": true},
+  {"query": "convertime este mp3 a ogg y decime si cumple los límites de roblox", "should_trigger": true},
+  {"query": "creá un nivel de obby con 10 plataformas y un checkpoint", "should_trigger": false},
+  {"query": "decorá el mapa con farolas, árboles y niebla", "should_trigger": false},
+  {"query": "agregá un botón de tienda y diseñá la pantalla de compra", "should_trigger": false},
+  {"query": "quiero componer la banda sonora de mi juego con una IA y que me la entregue lista", "should_trigger": false},
+  {"query": "arreglá el bug donde el contador de monedas se reinicia al morir", "should_trigger": false},
+  {"query": "modelá un auto de carreras en Blender para mi juego", "should_trigger": false}
+]

@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "buses": {
+    "sfx": { "volume": 1 },
+    "ui": { "volume": 0.8 },
+    "music": { "volume": 0.5 },
+    "ambience": { "volume": 0.7 }
+  },
+  "assets": {
+    "Doorbell": {
+      "kind": "sfx",
+      "id": "",
+      "file": "assets/audio/doorbell_toyphone.ogg",
+      "durationSeconds": 1.42,
+      "source": "generado con make_doorbell.py (onda cuadrada, sin muestras de terceros)",
+      "license": "propio"
+    },
+    "UiClick": {
+      "kind": "ui",
+      "id": "",
+      "source": "por elegir en la Creator Store",
+      "license": "por confirmar al elegirlo"
+    },
+    "CityLoop": {
+      "kind": "music",
+      "id": "",
+      "source": "por elegir en la Creator Store",
+      "license": "por confirmar al elegirlo"
+    }
+  },
+  "cues": {
+    "SpotDoorbell": {
+      "asset": "Doorbell",
+      "bus": "sfx",
+      "volume": 0.9,
+      "spatial": { "minDistance": 12, "maxDistance": 110 },
+      "pitchVariance": 0.04,
+      "cooldown": 0.3
+    },
+    "UiClick": { "asset": "UiClick", "bus": "ui", "volume": 0.6, "cooldown": 0.05 },
+    "MusicCity": { "asset": "CityLoop", "bus": "music", "volume": 0.6, "looped": true }
+  }
+}

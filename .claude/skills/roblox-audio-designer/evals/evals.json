@@ -1,0 +1,67 @@
+{
+  "skill_name": "roblox-audio-designer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Subí un .wav a Roblox y me dice que no lo acepta. Es el timbre de mi juego (assets/audio/timbre.wav, lo hice con un script de Python). ¿Qué hago?",
+      "expected_output": "Un diagnóstico que no asume que el formato está prohibido: inspecciona el archivo con prepare_audio.py, explica los límites vigentes (mp3, ogg, wav y flac; menos de 20 MB y 7 minutos; 48 kHz o menos), reescribe a .ogg si hace falta y avisa de los permisos y la moderación, sin subir nada.",
+      "files": [],
+      "expectations": [
+        "No afirma que Roblox no acepta .wav: dice que hoy admite .mp3, .ogg, .wav y .flac, o que lo verificó en la documentación",
+        "Corre prepare_audio.py inspect (o equivalente) sobre el archivo antes de decidir",
+        "Si convierte, deja un .ogg al lado del .wav y no borra el original",
+        "Menciona los límites de menos de 20 MB, menos de 7 minutos y 48 kHz o menos",
+        "Dice que Studio transcodifica el audio y que un error suele ser de cabecera o de profundidad de bits",
+        "Explica que tras subirlo hay moderación y que la experiencia necesita permiso para usarlo",
+        "No sube nada, no inventa un ID y deja al usuario la subida"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Copiá ../roblox-game-builder/assets/example-obby a tu carpeta de salida y agregale sonido: un clic en los botones, un sonido al tocar un checkpoint y música de fondo suave. Todavía no tengo ningún audio.",
+      "expected_output": "Copia del obby con design/AUDIO.md, src/shared/Audio.json con tres cues y todos los IDs vacíos, SoundBank.luau de la plantilla, las llamadas conectadas en el código y check_audio.py sin errores (con avisos de IDs pendientes), más la lista de lo que debe hacer el usuario.",
+      "files": ["../roblox-game-builder/assets/example-obby"],
+      "expectations": [
+        "Existe src/shared/Audio.json con schema 1, buses y exactamente los cues pedidos (clic, checkpoint y música)",
+        "Todos los assets tienen id vacío: no inventa ningún rbxassetid",
+        "Cada asset tiene source y license (por elegir o por confirmar)",
+        "La música es un cue con looped true, en su propio bus y con volumen bajo",
+        "src/shared/SoundBank.luau es idéntico a la plantilla del skill",
+        "El código llama a SoundBank.play con los nombres de los cues y no escribe ningún ID de audio",
+        "El checkpoint se anuncia también con texto o un efecto visual: el sonido no es la única señal",
+        "check_audio.py termina sin errores y solo avisa de IDs pendientes",
+        "La respuesta lista qué debe hacer el usuario (elegir o subir los audios, esperar la moderación, dar permiso a la experiencia y escuchar en Studio) y dice que no probó el sonido"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "En mi juego tengo esto en un script del servidor: local s = Instance.new('Sound'); s.SoundId = 'rbxassetid://9120386436'; s.Volume = 1; s.Parent = workspace; s:Play(), repetido en cuatro scripts con IDs distintos. Ordenalo.",
+      "expected_output": "Los cuatro sonidos pasan a cues de Audio.json (los IDs existentes se conservan tal cual), el código llama a SoundBank.play, y se avisa de que los IDs no se pueden verificar desde aquí y de que hay que confirmar permisos y licencia.",
+      "files": [],
+      "expectations": [
+        "Crea Audio.json con un asset y un cue por cada sonido existente y conserva los IDs que dio el usuario sin cambiarlos ni inventar otros",
+        "Deja source y license como por confirmar para los IDs de origen desconocido y lo dice",
+        "Reemplaza el Sound suelto por SoundBank.play en los scripts y el ID desaparece del código",
+        "Decide dónde suena cada cue (cliente o servidor) y explica que los efectos que oye un jugador se reproducen en el cliente",
+        "Avisa de que un ID de audio no concede acceso: la experiencia necesita permiso o el sonido no suena",
+        "Corre check_audio.py y no deja errores",
+        "No afirma que los sonidos suenen bien: dice que no los escuchó"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Quiero que en el mapa de policías cada policía haga un sonido de silbato que se oiga a lo lejos y que suba cuando se acerca, y que el jugador pueda bajar la música desde un menú de ajustes.",
+      "expected_output": "Un cue de silbato espacial con minDistance y maxDistance razonables, un efecto mono, variación de tono y espera; un bus de música ajustable con SoundBank.setBusVolume, y la nota de que guardar el ajuste entre sesiones es un dato nuevo para el data architect y el menú es del UI designer.",
+      "files": [],
+      "expectations": [
+        "El cue del silbato lleva spatial con minDistance mayor que 0 y maxDistance mayor que minDistance",
+        "Pide o indica que el archivo del silbato sea mono",
+        "El silbato lleva cooldown y/o pitchVariance razonables",
+        "El volumen de la música se ajusta con SoundBank.setBusVolume sobre un bus music",
+        "El menú de ajustes se deja al UI designer y guardar el volumen entre sesiones al data architect",
+        "El servidor avisa por un RemoteEvent solo con el nombre del cue y la posición, no con IDs ni volúmenes",
+        "El silbato no es la única señal de que un policía se acerca"
+      ]
+    }
+  ]
+}
