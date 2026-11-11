@@ -169,6 +169,9 @@ local cops: { [Model]: Cop } = {}
 local sight: { [Player]: boolean } = {}
 local decoy: { position: Vector3, until_: number }? = nil
 local nextSpawnAt: { [Player]: number } = {}
+-- Lo que la policía sabe de cada jugador: dónde lo vio algún policía por última vez. Los refuerzos van ahí, no a su posición real.
+local lastKnown: { [Player]: { position: Vector3, at: number } } = {}
+local KNOWN_SECONDS = 60 -- pasado este tiempo sin verlo, un refuerzo nuevo vuelve a ir a su posición
 local nextWalkerAt: { [Player]: number } = {}
 local posts: { Post } = {}
 local bossCooldown: { [Player]: number } = {}
@@ -828,6 +831,7 @@ local function think(cop: Cop, now: number, tick: number)
 					cop.detect[player] = value
 					if value >= 1 then
 						table.insert(visibleTo, player)
+						lastKnown[player] = { position = root.Position, at = now }
 						if mischief then
 							Cops.spotted:Fire(player, cop) -- corta la travesura; el calor y la persecución siguen su curso
 						end
@@ -846,6 +850,11 @@ local function think(cop: Cop, now: number, tick: number)
 	if cop.state == "patrol" or cop.state == "suspicious" or cop.state == "search" or cop.state == "return" then
 		local target = mostWanted(visibleTo)
 		if target then
+			if Workspace:GetAttribute("CopsDebug") then
+				local targetRoot = rootOf(target)
+				local apart = if targetRoot then math.floor((targetRoot.Position - cop.root.Position).Magnitude) else -1
+				print(`[Cops] {cop.id} ({cop.def.id}) pasa de {cop.state} a persecución: te ve a {apart} studs`)
+			end
 			cop.owner = target
 			cop.suspect = nil
 			cop.ambient = false
@@ -1120,7 +1129,8 @@ local function manage(now: number)
 					if position then
 						local cop = spawnCop(typeId, position, player, false)
 						if cop then
-							cop.lastSeen = root.Position
+							local known = lastKnown[player]
+							cop.lastSeen = if known and now - known.at < KNOWN_SECONDS then known.position else root.Position
 							cop.rosterFor = player
 							total += 1
 							nextSpawnAt[player] = now + 0.4
@@ -1239,6 +1249,7 @@ function Cops.start()
 	Players.PlayerRemoving:Connect(function(player)
 		Cops.dismiss(player)
 		sight[player] = nil
+		lastKnown[player] = nil
 		nextSpawnAt[player] = nil
 		nextWalkerAt[player] = nil
 		bossCooldown[player] = nil
