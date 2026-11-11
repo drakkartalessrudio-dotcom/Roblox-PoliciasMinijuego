@@ -182,6 +182,7 @@ local MAX_PATH_JOBS = 3 -- cálculos de ruta a la vez en toda la ciudad
 local NAV_LOOKAHEAD = 14 -- studs que mira hacia delante el rayo de pared
 local NAV_CHECK_SECONDS = 0.3
 local NAV_BLOCK_HEIGHT = 4 -- lo más bajo que cuenta como pared (lo menor se salta)
+local ICON_SEARCH = "🔍" -- sobre el policía que busca tu última posición (el "?" es solo para el que oyó un ruido)
 local CHASE_FORGET = 2.5 -- segundos sin ver al jugador antes de buscar su última posición
 
 local function rootOf(player: Player): BasePart?
@@ -861,7 +862,7 @@ local function think(cop: Cop, now: number, tick: number)
 		if not root then
 			cop.state = "search"
 			cop.searchUntil = now + Tuning.get("Cops.SearchSeconds")
-			setAlert(cop, "?")
+			setAlert(cop, ICON_SEARCH)
 			return
 		end
 		local visible = table.find(visibleTo, owner) ~= nil
@@ -880,7 +881,7 @@ local function think(cop: Cop, now: number, tick: number)
 		if not visible and now - cop.sawTargetAt > CHASE_FORGET then
 			cop.state = "search"
 			cop.searchUntil = now + Tuning.get("Cops.SearchSeconds")
-			setAlert(cop, "?")
+			setAlert(cop, ICON_SEARCH)
 		end
 
 		-- Habilidades.
@@ -1088,7 +1089,7 @@ local function manage(now: number)
 				elseif cop.state ~= "search" and now - cop.sawTargetAt > 1.5 then
 					cop.state = "search"
 					cop.searchUntil = now + 2
-					setAlert(cop, "?")
+					setAlert(cop, ICON_SEARCH)
 				end
 			end
 		elseif now >= (nextSpawnAt[player] or 0) then
