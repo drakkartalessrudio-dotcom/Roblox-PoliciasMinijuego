@@ -24,6 +24,7 @@ local TweenService = game:GetService("TweenService")
 local Workspace = game:GetService("Workspace")
 
 local Catalog = require(ReplicatedStorage.Shared.Catalog)
+local Destinations = require(ReplicatedStorage.Shared.Destinations)
 local Net = require(ReplicatedStorage.Shared.Net)
 local Style = require(ReplicatedStorage.Shared.Style)
 local Tuning = require(ReplicatedStorage.Shared.Tuning)
@@ -38,6 +39,7 @@ type Spot = {
 	def: Catalog.MischiefDef,
 	center: Vector3, -- centro XZ del nivel (respaldo para orientar si no hay un edificio cerca)
 	level: any, -- LevelLoader.BuiltLevel del punto
+	tutorial: boolean, -- el punto del tutorial de su travesura: el único con letrero
 }
 
 -- La cara de edificio más cercana a un punto: hacia dónde mirar y dónde pegarse.
@@ -130,7 +132,8 @@ local function nearestFacade(spot: Spot): Facade?
 			local lateral = if alongX then overZ else overX
 			-- Fuera del edificio, cerca, y frente a la cara (no en una esquina).
 			if distance > 0.5 and distance <= MAX_FACADE_DISTANCE and lateral <= 2 and (best == nil or distance < best.distance) then
-				local axis = if alongX then part.CFrame.RightVector * math.sign(localPoint.X) else part.CFrame.LookVector * math.sign(localPoint.Z)
+				-- LookVector es el eje -Z local: el +Z local es su opuesto.
+				local axis = if alongX then part.CFrame.RightVector * math.sign(localPoint.X) else -part.CFrame.LookVector * math.sign(localPoint.Z)
 				local normal = Vector3.new(axis.X, 0, axis.Z).Unit
 				best = {
 					part = part,
@@ -208,37 +211,40 @@ local function standing(builder: Builder, name: string, diameter: number, height
 	return add(builder, name, Vector3.new(height, diameter, diameter), offset * STAND_Y, tint, material, Enum.PartType.Cylinder)
 end
 
--- Cartel flotante sobre el punto: se ve de lejos y dice qué se hace aquí.
-local function addSign(adornee: BasePart, text: string, lift: number)
-	local gui = Instance.new("BillboardGui")
-	gui.Name = "SpotSign"
-	gui.Adornee = adornee
-	gui.Size = UDim2.fromOffset(200, 44)
-	gui.StudsOffsetWorldSpace = Vector3.new(0, lift, 0)
-	gui.MaxDistance = Tuning.get("SpotFx.SignDistance")
-	gui.AlwaysOnTop = false
-	gui.LightInfluence = 0
+-- Letrero fijo sobre un punto (solo en los del tutorial): un tablero con postes y su texto, legible desde el frente.
+-- `y` es el centro del tablero; los postes bajan hasta donde se apoya.
+local function addSign(builder: Builder, text: string, x: number, y: number, z: number, width: number)
+	local height = 1.8
+	local board = add(builder, "Sign", Vector3.new(width, height, 0.25), CFrame.new(x, y, z), Style.color("panel"))
+	for _, side in { -1, 1 } do
+		add(builder, "SignPost", Vector3.new(0.25, 1, 0.25), CFrame.new(x + side * (width / 2 - 0.6), y - height / 2 - 0.5, z), Style.color("panelAlt"))
+	end
+	local gui = Instance.new("SurfaceGui")
+	gui.Name = "SignGui"
+	gui.Face = Enum.NormalId.Back -- la cara +Z local es la de atrás de la Part: es el frente del prop
+	gui.SizingMode = Enum.SurfaceGuiSizingMode.PixelsPerStud
+	gui.PixelsPerStud = 50
+	gui.Parent = board
 	local frame = Instance.new("Frame")
-	frame.Size = UDim2.fromScale(1, 1)
-	frame.BackgroundColor3 = Style.color("panel")
-	frame.BackgroundTransparency = Style.metric("panelTransparency")
+	frame.AnchorPoint = Vector2.new(0.5, 0.5)
+	frame.Position = UDim2.fromScale(0.5, 0.5)
+	frame.Size = UDim2.fromScale(0.96, 0.86)
+	frame.BackgroundTransparency = 1
 	frame.Parent = gui
-	local corner = Instance.new("UICorner")
-	corner.CornerRadius = UDim.new(0, Style.metric("cornerRadius"))
-	corner.Parent = frame
 	local stroke = Instance.new("UIStroke")
 	stroke.Color = Style.color("interactive")
-	stroke.Thickness = Style.metric("strokeThickness")
+	stroke.Thickness = 5
 	stroke.Parent = frame
 	local label = Instance.new("TextLabel")
+	label.AnchorPoint = Vector2.new(0.5, 0.5)
+	label.Position = UDim2.fromScale(0.5, 0.5)
+	label.Size = UDim2.fromScale(0.9, 0.7)
 	label.BackgroundTransparency = 1
-	label.Size = UDim2.fromScale(1, 1)
 	label.Text = text
 	label.TextColor3 = Style.color("text")
 	label.FontFace = Style.font("heading")
-	label.TextSize = 24
+	label.TextScaled = true
 	label.Parent = frame
-	gui.Parent = adornee
 end
 
 -- ─── Graffiti ──────────────────────────────────────────────────────────────────
@@ -295,7 +301,7 @@ local function buildGraffiti(spot: Spot, ground: number): Prop
 	local wall = add(builder, "Wall", Vector3.new(width, height, thickness), CFrame.new(0, height / 2, 0), Style.color("surfaceAlt"), Enum.Material.Concrete)
 	movePrompt(spot, wall, Vector3.new(0, 3 - height / 2, thickness / 2 + 1))
 	add(builder, "Footing", Vector3.new(width + 0.4, 0.4, thickness + 0.4), CFrame.new(0, 0.2, 0), Style.color("panel"), Enum.Material.Concrete)
-	local coping = add(builder, "Coping", Vector3.new(width + 0.6, 0.5, thickness + 0.6), CFrame.new(0, height + 0.25, 0), Style.color("panelAlt"), Enum.Material.Concrete)
+	add(builder, "Coping", Vector3.new(width + 0.6, 0.5, thickness + 0.6), CFrame.new(0, height + 0.25, 0), Style.color("panelAlt"), Enum.Material.Concrete)
 
 	local canvasW = width - 2.4
 	local canvasH = height - 2.8
@@ -366,12 +372,14 @@ local function buildGraffiti(spot: Spot, ground: number): Prop
 	standing(builder, "Puddle", 2.6, 0.06, CFrame.new(-width / 2 + 1.2, 0.03, front + 3.2), paint("coral"))
 	standing(builder, "Puddle", 2.2, 0.06, CFrame.new(width / 2 - 1.6, 0.03, -front - 1.8), paint("violet"))
 
-	addSign(coping, if coop then "MURAL EN BANDA" else "PINTA AQUÍ", 2.6)
+	if spot.tutorial then
+		addSign(builder, "PINTA AQUÍ", 0, height + 2.4, thickness / 2 - 0.2, 8)
+	end
 
 	-- Estallido de confeti de pintura al terminar.
 	local burst = Instance.new("Attachment")
 	burst.Position = Vector3.new(0, height / 2, 0)
-	burst.Parent = coping
+	burst.Parent = wall
 	local emitter = Instance.new("ParticleEmitter")
 	emitter.Rate = 0
 	emitter.Lifetime = NumberRange.new(0.8, 1.5)
@@ -457,7 +465,7 @@ local function buildDoorbell(spot: Spot, ground: number): Prop
 	-- Cuerpo, zócalo, cornisa y escalón.
 	add(builder, "Facade", Vector3.new(width, height, depth), CFrame.new(0, height / 2, -depth / 2), wallColor, Enum.Material.Concrete)
 	add(builder, "Plinth", Vector3.new(width + 0.2, 0.9, depth + 0.2), CFrame.new(0, 0.45, -depth / 2), Style.color("panelAlt"), Enum.Material.Concrete)
-	local cornice = add(builder, "Cornice", Vector3.new(width + 1.4, 0.8, depth + 1.6), CFrame.new(0, height + 0.4, -depth / 2 + 0.4), Style.color("panel"), Enum.Material.Concrete)
+	add(builder, "Cornice", Vector3.new(width + 1.4, 0.8, depth + 1.6), CFrame.new(0, height + 0.4, -depth / 2 + 0.4), Style.color("panel"), Enum.Material.Concrete)
 	add(builder, "Step", Vector3.new(doorW + 1.8, doorBase, 1.8), CFrame.new(0, doorBase / 2, 0.9), Style.color("surfaceAlt"), Enum.Material.Concrete)
 
 	-- Puerta con marco, tableros, ventanita, pomo y toldo de rayas.
@@ -505,7 +513,7 @@ local function buildDoorbell(spot: Spot, ground: number): Prop
 	glow.Parent = button
 	local number = add(builder, "HouseNumber", Vector3.new(0.9, 0.6, 0.06), CFrame.new(bellX, 4.7, 0.28), Style.color("text"))
 	local numberGui = Instance.new("SurfaceGui")
-	numberGui.Face = Enum.NormalId.Front
+	numberGui.Face = Enum.NormalId.Back
 	numberGui.SizingMode = Enum.SurfaceGuiSizingMode.PixelsPerStud
 	numberGui.PixelsPerStud = 80
 	numberGui.Parent = number
@@ -526,7 +534,9 @@ local function buildDoorbell(spot: Spot, ground: number): Prop
 	add(builder, "Mat", Vector3.new(3, 0.08, 1.6), CFrame.new(0, 0.04, 2.7), paint("orange"), Enum.Material.Fabric)
 	add(builder, "MatStripe", Vector3.new(2.4, 0.09, 0.3), CFrame.new(0, 0.045, 2.7), Style.color("text"), Enum.Material.Fabric)
 
-	addSign(cornice, "TOCA EL TIMBRE", 2.8)
+	if spot.tutorial then
+		addSign(builder, "TOCA EL TIMBRE", 0, height + 2.7, -0.2, 8)
+	end
 	model.Parent = folder
 
 	local busyUntil = 0
@@ -587,35 +597,60 @@ local builders: { [string]: (Spot, number) -> Prop } = {
 	Timbrazo = buildDoorbell,
 }
 
+-- Solo el punto del tutorial de cada travesura lleva letrero: el muro del tutorial y el timbre más cercano
+-- al punto de inicio del primer distrito. Los demás se reconocen ya por su aspecto.
+local function markTutorial(spots: { Spot })
+	local nearest: Spot? = nil
+	local best = math.huge
+	for _, spot in spots do
+		if spot.part:GetAttribute("ZoneName") == "tutorial_graffiti" then
+			spot.tutorial = true
+		elseif spot.def.id == "Timbrazo" and spot.level and spot.level.id == Destinations.START and spot.level.start then
+			local distance = (spot.part.Position - spot.level.start.Position).Magnitude
+			if distance < best then
+				best, nearest = distance, spot
+			end
+		end
+	end
+	if nearest then
+		nearest.tutorial = true
+	end
+end
+
 function SpotProps.start(built: any)
 	local root = Instance.new("Folder")
 	root.Name = "SpotProps"
 	root.Parent = Workspace
 	folder = root
 
+	local spots: { Spot } = {}
 	for zoneName, def in Catalog.mischiefByZone do
-		local builder = builders[def.id]
-		if not builder then
+		if not builders[def.id] then
 			continue
 		end
 		for _, part in Areas.parts(zoneName) do
 			local level = built.byId[tostring(part:GetAttribute("LevelId"))]
 			local origin = if level then level.data.origin else nil
-			local spot: Spot = {
+			table.insert(spots, {
 				key = Mischief.spotKey(part),
 				part = part,
 				def = def,
 				level = level,
+				tutorial = false,
 				center = if type(origin) == "table" then Vector3.new(origin[1] or 0, 0, origin[3] or 0) else Vector3.zero,
-			}
-			local ground = groundAt(part.Position)
-			-- Un fallo al armar un punto no debe detener el arranque del juego: ese punto queda sin props.
-			local ok, result = pcall(builder, spot, ground or (part.Position.Y - part.Size.Y / 2 + 0.6))
-			if ok then
-				props[spot.key] = result
-			else
-				warn(`[SpotProps] No se pudo armar {spot.key}: {result}`)
-			end
+			})
+		end
+	end
+	markTutorial(spots)
+
+	for _, spot in spots do
+		local ground = groundAt(spot.part.Position)
+		-- Un fallo al armar un punto no debe detener el arranque del juego: ese punto queda sin props.
+		local ok, result = pcall(builders[spot.def.id], spot, ground or (spot.part.Position.Y - spot.part.Size.Y / 2 + 0.6))
+		if ok then
+			props[spot.key] = result
+		else
+			warn(`[SpotProps] No se pudo armar {spot.key}: {result}`)
 		end
 	end
 

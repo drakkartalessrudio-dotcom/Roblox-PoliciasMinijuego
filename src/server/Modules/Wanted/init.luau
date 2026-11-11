@@ -9,7 +9,9 @@
 	  · seen       algún policía lo ve: el calor no baja y sube lento (presión de persecución)
 	  · searching  sin ser visto desde hace LoseSightSeconds: el calor baja y las
 	               estrellas parpadean hasta desaparecer
-	Esconderse (Wanted.setHidden) quita una estrella cada Hide.SecondsPerStar.
+	Esconderse (Wanted.setHidden) quita una estrella cada Hide.SecondsPerStar y enfría el
+calor Hide.DecayMult veces más rápido; solo corre mientras ningún policía lo ve (Cops deja de
+reportarlo como visto cuando está oculto a salvo, así que esconderse sí corta la persecución).
 
 	No sabe quién ve al jugador ni qué es un policía: Cops_Wanted llama a setSeen.
 
@@ -156,6 +158,9 @@ function Wanted.start()
 				if state.status == "searching" then
 					assert(options)
 					local decay = Tuning.get("Heat.DecayPerSecond") * (1 + options.decayBonus(player))
+					if state.hidden then
+						decay *= Tuning.get("Hide.DecayMult") -- oculto y sin que lo vean: el calor se enfría mucho más rápido
+					end
 					state.heat = math.max(0, state.heat - decay * step)
 					refresh(player, state)
 					if state.heat <= 0 and state.stars == 0 then

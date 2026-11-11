@@ -36,16 +36,19 @@ Fuente: `GDD.md` (KPIs objetivo, onboarding, progresión, economía). Esquema: `
 | `afk_enter`, `afk_exit` | Propio | Empieza y termina de entrenar en la Sala | 1 | — |
 | `afk_checkin` | Propio | Responde bien un reto | 1 | — |
 | `afk_suspect` | Propio | Se marca una respuesta sospechosa (tiempos casi idénticos) | 1 | — |
+| `hide_entered` | Propio | Un escondite te oculta a salvo (nadie te vio entrar) | Estrellas | `item` = `bush` o `container`; `stars` |
+| `hide_burned` | Propio | Un escondite deja de ocultarte | 1 | `item` = motivo (`seen` te vieron entrar, `discovered` un policía te encontró, `timeout` se acabó el contenedor); `stars` |
+| `hide_escaped` | Propio | Pierdes todas las estrellas estando oculto | Estrellas que tenías | `item` = `bush` o `container`; `stars` |
 
 ## Campos propios
 
 | Ranura | Dimensión | Valores posibles |
 | --- | --- | --- |
-| CustomField01 | `item` | ids de travesuras (14), de policías (6) y de mejoras (8): 28 valores |
+| CustomField01 | `item` | ids de travesuras (14), de policías (6), de mejoras (8) y de escondites (`bush`, `container`, `seen`, `discovered`, `timeout`): 33 valores |
 | CustomField02 | `district` | 6 distritos |
 | CustomField03 | `stars` | 0 a 6 |
 
-Combinaciones máximas: 28 × 6 × 7 = 1.176, muy por debajo de las 8.000 que admite Roblox.
+Combinaciones máximas: 33 × 6 × 7 = 1.386, muy por debajo de las 8.000 que admite Roblox.
 
 ## Presupuesto
 

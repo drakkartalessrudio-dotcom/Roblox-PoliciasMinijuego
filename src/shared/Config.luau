@@ -54,8 +54,16 @@ local Config = {
 		SmallWitness = 8, -- referencia de calor de una travesura pequeña
 	},
 	Hide = {
-		SecondsPerStar = 3, -- segundos escondido para bajar una estrella
-		MinCopDistance = 8, -- distancia mínima de un policía para que cuente esconderse
+		SecondsPerStar = 3, -- segundos escondido (y sin que nadie te vea) para bajar una estrella
+		RevealDistance = 10, -- escondido, un policía solo te ve (y te descubre) a esta distancia o menos
+		MovingRevealMult = 2, -- si te mueves dentro del escondite, el alcance de descubrimiento se multiplica por esto
+		StillSpeed = 4, -- studs/s: por debajo cuenta como quieto
+		WitnessRange = 25, -- un policía que te ve entrar a esta distancia o menos quema el escondite
+		BurnSeconds = 20, -- cuánto dura un escondite quemado (no oculta) para ese jugador
+		DecayMult = 3, -- multiplicador de la bajada de calor mientras estás oculto
+		K9SniffRange = 24, -- la Cafetera K-9 huele un arbusto a esta distancia
+		ContainerSeconds = 12, -- cuánto aguanta un contenedor antes de expulsarte
+		Capacity = 2, -- jugadores por escondite
 	},
 	Detect = {
 		FillSecondsNear = 0.5, -- segundos para detectarte de cerca
@@ -181,7 +189,6 @@ local Config = {
 		DoorbellSoundId = "102559465808384",
 		DoorbellVolume = 0.9, -- volumen del timbre (0 a 1)
 		DoorbellRange = 110, -- studs a los que se oye el timbre
-		SignDistance = 120, -- studs desde los que se ve el cartel sobre cada punto de graffiti y timbre
 		MuralFade = 0.45, -- segundos que tarda en aparecer el mural pintado
 	},
 	Coop = {

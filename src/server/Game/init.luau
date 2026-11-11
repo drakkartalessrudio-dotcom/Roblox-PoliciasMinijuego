@@ -45,8 +45,11 @@ local Wanted = require(script.Parent.Modules.Wanted)
 local Cops_Wanted = require(script.Parent.Bridges.Cops_Wanted)
 local Stats_Quests = require(script.Parent.Bridges.Stats_Quests)
 local Wanted_Band = require(script.Parent.Bridges.Wanted_Band)
+local Compinche = require(script.Compinche)
 local Content = require(script.Content)
 local Effects = require(script.Effects)
+local Hiding = require(script.Hiding)
+local HidingProps = require(script.HidingProps)
 local Hub = require(script.Hub)
 local Intents = require(script.Intents)
 local Movement = require(script.Movement)
@@ -157,6 +160,7 @@ function Game.start(context: Context)
 		isCovered = function(player)
 			return Areas.inside(player, "cubierta") ~= nil
 		end,
+		hideOf = Hiding.stateOf,
 		sigiloFor = PlayerStats.sigilo,
 		difficultyFor = PlayerStats.difficulty,
 		starsFor = Wanted.stars,
@@ -302,6 +306,9 @@ function Game.start(context: Context)
 
 	Movement.start()
 	World.start()
+	Hiding.start()
+	HidingProps.start()
+	Compinche.start(built)
 	Hub.start(built)
 	Effects.start()
 	SpotProps.start(built)

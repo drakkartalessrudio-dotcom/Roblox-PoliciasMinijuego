@@ -73,15 +73,33 @@ function Hud.mount(Kit: any)
 		local state = player:GetAttribute("WantedState")
 		count = if type(count) == "number" then count else 0
 		starLabel.Text = stars(count)
+		-- Escondites (Game/Hiding): a salvo, quemado (te vieron entrar o te descubrieron) o sin sitio.
+		local hideState = player:GetAttribute("HideState")
+		local hideKind = player:GetAttribute("HideKind")
+		local hideLeft = player:GetAttribute("HideLeft")
+		local hideText = ""
+		if player:GetAttribute("Hidden") == true then
+			hideText = if player:GetAttribute("HideMoving") == true then "Escondido · ¡no te muevas!" else "Escondido · quédate quieto"
+			if hideKind == "container" and type(hideLeft) == "number" and hideLeft > 0 then
+				hideText ..= ` · {hideLeft} s`
+			end
+		elseif hideState == "burned" and count > 0 then
+			hideText = "¡Te vieron! Este escondite ya no sirve"
+		elseif hideState == "full" and count > 0 then
+			hideText = "Escondite lleno"
+		end
 		-- "Te están viendo" solo con un policía mirándote de verdad; el estado "seen" sigue unos segundos después.
-		stateLabel.Text = if player:GetAttribute("Spotted") == true
-			then "¡Te están viendo!"
-			elseif state == "seen" or state == "searching" then "Te buscan… sigue escondido"
+		stateLabel.Text = if hideText ~= "" then hideText
+			elseif player:GetAttribute("Spotted") == true then "¡Te están viendo!"
+			elseif state == "seen" or state == "searching" then "Te buscan… busca un escondite"
 			else ""
 	end
 	Kit.bindAttribute(player, "Stars", renderStars)
 	Kit.bindAttribute(player, "WantedState", renderStars)
 	Kit.bindAttribute(player, "Spotted", renderStars)
+	for _, name in { "Hidden", "HideState", "HideKind", "HideLeft", "HideMoving" } do
+		Kit.bindAttribute(player, name, renderStars)
+	end
 
 	-- Las estrellas parpadean mientras te buscan (salvo con movimiento reducido).
 	task.spawn(function()

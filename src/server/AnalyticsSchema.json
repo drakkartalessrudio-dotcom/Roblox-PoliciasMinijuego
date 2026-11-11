@@ -26,7 +26,10 @@
     "afk_suspect",
     "travel",
     "plot_claimed",
-    "achievement_unlocked"
+    "achievement_unlocked",
+    "hide_entered",
+    "hide_burned",
+    "hide_escaped"
   ],
   "customFields": {
     "CustomField01": "item",

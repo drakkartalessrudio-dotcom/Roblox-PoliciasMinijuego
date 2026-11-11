@@ -6,16 +6,15 @@
 	  guarida      zona segura: ProximityPrompt para depositar (se mantiene Deposit.HoldSeconds).
                En el lobby, todo el lobby cuenta como casa (tienda, Ascensión y depósito)
 	  payspray     quita las estrellas por Dinero
-	  hide         escondite: sin policías a menos de Hide.MinCopDistance baja una estrella
+	  hide         escondite: lo gestiona Game/Hiding (aquí solo se declara la zona)
 	  distrito     atributo District del jugador (id del nivel de Levels.json)
 ]]
 
-local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local RunService = game:GetService("RunService")
 local ServerScriptService = game:GetService("ServerScriptService")
 
 local Net = require(ReplicatedStorage.Shared.Net)
+local Signal = require(ReplicatedStorage.Shared.Signal)
 local Telemetry = require(ServerScriptService.Server.Telemetry)
 local Tuning = require(ReplicatedStorage.Shared.Tuning)
 local Areas = require(ServerScriptService.Server.Modules.Areas)
@@ -27,6 +26,9 @@ local Stats = require(ServerScriptService.Server.Modules.Stats)
 local Wanted = require(ServerScriptService.Server.Modules.Wanted)
 
 local World = {}
+
+-- Un jugador depositó su Botín en una Guarida (part) con el prompt: lo escucha Compinche para animarse.
+World.deposited = Signal.new() :: Signal.Signal<Player, number, BasePart>
 
 local function rootOf(player: Player): BasePart?
 	local root = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
@@ -49,7 +51,7 @@ function World.canDeposit(player: Player): (boolean, string?)
 	return true, nil
 end
 
-function World.deposit(player: Player): (boolean, string?)
+function World.deposit(player: Player): (boolean, string?, number?)
 	local ok, reason = World.canDeposit(player)
 	if not ok then
 		return false, reason
@@ -63,7 +65,7 @@ function World.deposit(player: Player): (boolean, string?)
 	end
 	Stats.increment(player, "deposits", 1)
 	Net.send(player, "notify", { kind = "deposit", amount = amount })
-	return true, nil
+	return true, nil, amount
 end
 
 function World.spray(player: Player): (boolean, string?)
@@ -103,9 +105,11 @@ end
 function World.start()
 	for _, part in Areas.parts("guarida") do
 		addPrompt(part, "Depositar Botín", "Guarida", Tuning.get("Deposit.HoldSeconds"), function(player)
-			local ok, reason = World.deposit(player)
+			local ok, reason, amount = World.deposit(player)
 			if not ok and reason ~= "empty" then
 				Net.send(player, "notify", { kind = "error", code = reason })
+			elseif ok and amount then
+				World.deposited:Fire(player, amount, part)
 			end
 		end)
 	end
@@ -117,28 +121,6 @@ function World.start()
 			end
 		end)
 	end
-
-	-- Escondites: hay que estar dentro y sin policías pegados.
-	local elapsed = 0
-	RunService.Heartbeat:Connect(function(dt)
-		elapsed += dt
-		if elapsed < 0.25 then
-			return
-		end
-		elapsed = 0
-		for _, player in Players:GetPlayers() do
-			local root = rootOf(player)
-			local hidden = false
-			if root and Wanted.stars(player) > 0 then
-				local inside = Areas.inside(player, "hide") or Areas.inside(player, "tutorial_hide")
-				if inside then
-					hidden = #Cops.within(root.Position, Tuning.get("Hide.MinCopDistance")) == 0
-				end
-			end
-			Wanted.setHidden(player, hidden)
-			player:SetAttribute("Hidden", hidden)
-		end
-	end)
 
 	Areas.entered:Connect(function(player, name, part)
 		if name == "distrito" then

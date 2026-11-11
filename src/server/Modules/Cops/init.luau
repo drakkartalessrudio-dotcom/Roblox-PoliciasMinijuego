@@ -43,6 +43,8 @@
 	  Cops.alert(position, radius, source?)       los policías cercanos van a ese punto
 	  Cops.witnessed(player, position, radius)    -> boolean ¿algún policía lo vería o lo oiría?
 	  Cops.within(position, radius)               -> { Cop } policías (no volando) cerca de un punto
+	  Cops.watchedBy(player, radio)               -> boolean ¿algún policía de tierra a ese radio lo ve ahora mismo? (escondites)
+	  Cops.discovered                             Signal (player, cop) un policía descubrió a un jugador oculto
 	  Cops.knockdown(cop, seconds, attacker?)     ragdoll; publica knockedDown
 	  Cops.stun(cop, seconds, kind?)              aturde (kind "tarta" o "banana"); suma al combo del jefe
 	  Cops.blind(position, radius, seconds)       los policías pierden la vista
@@ -134,6 +136,9 @@ export type Cop = {
 	rosterFor: Player?, -- para quién se invocó (un cazador puede perseguir a otro jugador)
 }
 
+-- Un jugador oculto en un escondite: de qué tipo (bush | container) y si se está moviendo (se nota más).
+export type Hiding = { kind: string, moving: boolean }
+
 export type Options = {
 	types: { [string]: TypeDef },
 	spawnPoints: { BasePart }, -- zonas cop_spawn
@@ -145,6 +150,7 @@ export type Options = {
 	isProtected: (player: Player) -> boolean, -- Guarida u otro lugar seguro
 	canEngage: (player: Player) -> boolean, -- ¿la patrulla puede detectarlo? (con estrellas o haciendo una travesura)
 	isCovered: (player: Player) -> boolean, -- bajo una cubierta (el helicóptero no ve)
+	hideOf: (player: Player) -> Hiding?, -- escondido y a salvo en un escondite (nil si no): recorta lo que lo ven los policías de tierra
 	sigiloFor: (player: Player) -> number, -- 0 a 1: reducción de visión y ruido
 	difficultyFor: (player: Player) -> number, -- aumento por Ascensión (0 a DifficultyCap)
 	inMischief: (player: Player) -> boolean, -- ¿está en plena travesura? (más visible)
@@ -158,6 +164,7 @@ local Cops = {}
 
 Cops.sightChanged = Signal.new() :: Signal.Signal<Player, boolean>
 Cops.spotted = Signal.new() :: Signal.Signal<Player, Cop> -- un policía lo detectó en plena travesura
+Cops.discovered = Signal.new() :: Signal.Signal<Player, Cop> -- un policía llenó su barra contra un jugador oculto: lo descubrió
 Cops.caught = Signal.new() :: Signal.Signal<Player, Cop>
 Cops.knockedDown = Signal.new() :: Signal.Signal<Cop, Player?>
 Cops.abilityHit = Signal.new() :: Signal.Signal<Player, string, Cop>
@@ -317,6 +324,18 @@ local function canSee(cop: Cop, player: Player, root: BasePart, exposed: boolean
 			return false, distance
 		end
 		return flat(offset).Magnitude <= range and lineOfSight(cop, player, cop.root.Position, root.Position), distance
+	end
+	-- Escondido (arbusto o contenedor) solo lo descubre quien está cerca; quieto se nota menos que en movimiento.
+	-- La K-9 huele un arbusto desde más lejos. El helicóptero no entra aquí: a él solo lo tapa una cubierta.
+	local hide = options.hideOf(player)
+	if hide then
+		local reach = Tuning.get("Hide.RevealDistance") * (if hide.moving then Tuning.get("Hide.MovingRevealMult") else 1)
+		if hide.kind == "bush" and cop.def.id == "cafetera" then
+			reach = math.max(reach, Tuning.get("Hide.K9SniffRange"))
+		end
+		if distance > reach then
+			return false, distance
+		end
 	end
 	if distance > 8 then
 		-- Camina hacia donde mira: en marcha el cono sigue la velocidad (el giro del cuerpo puede ir con retraso).
@@ -828,7 +847,10 @@ local function think(cop: Cop, now: number, tick: number)
 				-- Un policía alerta ("?") por el ruido de este jugador lo busca aunque no tenga estrellas, y lo nota antes.
 				local alerted = cop.suspect == player and (cop.state == "suspicious" or cop.state == "search")
 				local exposed = mischief or alerted
-				if cop.owner == player or alerted or options.canEngage(player) then
+				-- Quien te perseguía solo te sigue mirando mientras sigas buscado (o él esté en plena persecución): sin
+				-- estrellas, un policía que aún "busca" no puede volver a verte y darte una estrella de la nada.
+				local keepsLooking = cop.owner == player and (cop.state == "chase" or options.starsFor(player) > 0)
+				if keepsLooking or alerted or options.canEngage(player) then
 					visible, distance = canSee(cop, player, root, exposed)
 				end
 				if visible then
@@ -842,6 +864,9 @@ local function think(cop: Cop, now: number, tick: number)
 					if value >= 1 then
 						table.insert(visibleTo, player)
 						lastKnown[player] = { position = root.Position, at = now }
+						if options.hideOf(player) then
+							Cops.discovered:Fire(player, cop)
+						end
 						if mischief then
 							Cops.spotted:Fire(player, cop) -- corta la travesura; el calor y la persecución siguen su curso
 						end
@@ -1112,6 +1137,10 @@ local function manage(now: number)
 					cop.state = "search"
 					cop.searchUntil = now + 2
 					setAlert(cop, ICON_SEARCH)
+				elseif cop.state == "search" and now - cop.sawTargetAt > 2 then
+					-- Sin estrellas la búsqueda se acabó (escapaste, p. ej. escondido): se retira ya. Si se quedara hasta
+					-- el final de su búsqueda, te seguiría viendo por ser tu perseguidor y te daría una estrella de la nada.
+					standDown(cop, now)
 				end
 			end
 		elseif now >= (nextSpawnAt[player] or 0) then
@@ -1144,8 +1173,10 @@ local function manage(now: number)
 						if cop then
 							-- Un refuerzo llega buscando, no persiguiendo: va a donde se vio al jugador y solo pasa a "!" si lo ve
 							-- (si no, perder de vista a la policía no serviría de nada: siempre saldría otro sabiendo dónde estás).
+							-- Si está escondido, los refuerzos van adonde lo vieron antes de entrar aunque haya pasado tiempo:
+							-- si no, a los 60 s irían directo al arbusto.
 							local known = lastKnown[player]
-							local goal = if known and now - known.at < KNOWN_SECONDS then known.position else root.Position
+							local goal = if known and (options.hideOf(player) or now - known.at < KNOWN_SECONDS) then known.position else root.Position
 							cop.lastSeen = goal
 							cop.state = "search"
 							local travel = flat(goal - cop.root.Position).Magnitude / math.max(speedOf(cop, now), 1)
@@ -1364,6 +1395,29 @@ function Cops.witnessed(player: Player, position: Vector3, radius: number): bool
 			if visible then
 				return true
 			end
+		end
+	end
+	return false
+end
+
+-- ¿Algún policía de tierra, a `radius` studs o menos, lo vería ahora mismo? (Para saber si «lo vieron entrar» a un escondite.)
+function Cops.watchedBy(player: Player, radius: number): boolean
+	assert(options)
+	local root = rootOf(player)
+	if not root then
+		return false
+	end
+	local now = os.clock()
+	for _, cop in cops do
+		if
+			not cop.def.flying
+			and now >= cop.blindUntil
+			and now >= cop.knockedUntil
+			and now >= cop.stunUntil
+			and (cop.root.Position - root.Position).Magnitude <= radius
+			and canSee(cop, player, root, false)
+		then
+			return true
 		end
 	end
 	return false

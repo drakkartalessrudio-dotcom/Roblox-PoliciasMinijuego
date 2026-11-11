@@ -60,10 +60,25 @@ La calle sigue siendo asfalto liso de `Levels.json`: se lee como superficie de j
 
 Los puntos de `Levels.json` son zonas invisibles; el jugador no sabía dónde pintar ni dónde tocar. Los viste `Game/SpotProps.luau` al arrancar (no son datos de `Environment.json`), con Parts y los colores del tema, y marcados con el color de rol `interactive` (amarillo neón) como el resto de lo que se toca:
 
-- **Graffiti y Mural Gigante:** muro de dos caras con un lienzo **a medio pintar** (manchas, goteras, esquinas de neón), latas de aerosol, charcos y un cartel "PINTA AQUÍ" / "MURAL EN BANDA" visible desde 120 studs. Al completarlo estalla pintura y aparece el mural terminado hasta que pasa el enfriamiento del punto.
-- **Timbrazo:** fachada de casa (puerta, toldo, ventanas, macetas, felpudo) con el timbre justo en el punto del prompt y un cartel "TOCA EL TIMBRE". Al tocarlo el botón se hunde y parpadea, se encienden las ventanas unos segundos y suena un timbre de teléfono de juguete 3D (`SpotFeedback.client.luau`).
+- **Graffiti y Mural Gigante:** muro de dos caras con un lienzo **a medio pintar** (manchas, goteras, esquinas de neón), latas de aerosol y charcos. Al completarlo estalla pintura y aparece el mural terminado hasta que pasa el enfriamiento del punto.
+- **Timbrazo:** fachada de casa (puerta, toldo, ventanas, macetas, felpudo) con el timbre justo en el punto del prompt. Al tocarlo el botón se hunde y parpadea, se encienden las ventanas unos segundos y suena un timbre de teléfono de juguete 3D (`SpotFeedback.client.luau`).
+- **Letrero fijo** ("PINTA AQUÍ" / "TOCA EL TIMBRE", un tablero con postes sobre el prop, no sigue la cámara) solo en el punto del tutorial de cada travesura: el muro `tutorial_graffiti` y el timbre más cercano al inicio de barrio-papa. Los demás se reconocen por su aspecto.
 - Todo es decoración sin colisión ni consulta de rayos: no cambia la visión de los policías, el ruido, las guardias ni las rutas. Unas 1.500 piezas más en todo el mapa; el muro del tutorial (`tutorial_graffiti`) ahora es un graffiti normal.
 - **Sonido:** `assets/audio/doorbell_toyphone.wav` (se regenera con `make_doorbell.py`) se sube a Creator Hub y su ID va en `Config.SpotFx.DoorbellSoundId`. Mientras esté vacío el timbre se ve pero no suena.
+
+## Escondites (arbustos y contenedores)
+
+Las zonas `hide` y `tutorial_hide` de `Levels.json` eran volúmenes invisibles: nadie sabía dónde esconderse. `Game/HidingProps.luau` viste cada una al arrancar con Parts y los colores del tema (mismo enfoque que los puntos de travesura), en la carpeta `Workspace.HideProps`:
+
+- **Arbusto (`bush`):** racimo de siete esferas de follaje (`success`, `LeafyGrass`, con variación de tono) y cuatro florecitas `danger`; ~5 × 4,5 × 5 studs.
+- **Contenedor (`container`):** caja de metal `panelAlt` de 5,6 × 3,6 × 3,2 con franja `accent`, tapa `ink` con asa, tres costillas y dos ruedas; ~6 × 5 × 3,5 studs. Giro múltiplo de 90° estable según el id.
+- Se apoyan en la acera (rayo hacia abajo desde la zona), llevan la etiqueta `HideProp` y el atributo `HideId` (`nivel/id`) y **no tienen colisión ni consulta de rayos**: no cambian la visión de los policías ni las rutas. Son unas 8 a 15 piezas por escondite, ~370 en el Barrio.
+- **Resaltado en el cliente** (`HideFeedback.client.luau`): con ≥ 1 estrella, los 8 escondites más cercanos a ≤ 80 studs brillan en amarillo `interactive` (rojo `danger` si están quemados para ti). El personaje oculto se ve semitransparente solo para su dueño.
+- Sin sonido todavía: falta subir un cue de hojas/metal (ver `design/AUDIO.md`); no se inventó ningún ID.
+
+## Compinche de la Guarida (depósito)
+
+El depósito era un aviso flotante sobre una zona invisible. Ahora cada Guarida (distritos y lobby) tiene a **Sapini Cashini**, un sapo alcancía brainrot armado con Parts (`Game/Compinche.luau`): sobre una plataforma con anillo de neón cian (`goal`), 8 studs hacia dentro del nivel y mirando al punto de aparición. El prompt "Depositar Botín" sale de su boca; al mantenerlo abre la boca, sus ojos siguen al jugador más cercano y, al depositar, las monedas vuelan a su boca, la traga, la panza rebota, el sombrero salta y escupe confeti dorado. Solo anima: el depósito sigue siendo de `World` (señal `World.deposited`). Si se quiere otro personaje, se reemplaza `build` por un modelo del usuario.
 
 ## Iluminación y cielo
 

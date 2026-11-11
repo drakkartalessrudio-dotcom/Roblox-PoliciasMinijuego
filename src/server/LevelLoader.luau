@@ -254,6 +254,9 @@ local function buildPiece(piece: any, level: BuiltLevel, origin: Vector3, defaul
 				part:SetAttribute("CopType", piece.cop)
 			end
 		end
+		if type(piece.hideKind) == "string" then
+			part:SetAttribute("HideKind", piece.hideKind) -- tipo de una zona "hide": "bush" (por defecto) o "container"
+		end
 		if type(piece.target) == "string" then
 			part:SetAttribute("Target", piece.target) -- a dónde lleva una zona "portal" (id de Destinations)
 		end

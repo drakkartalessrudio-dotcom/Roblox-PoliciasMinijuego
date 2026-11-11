@@ -3249,7 +3249,7 @@
      "id": "tutorial-hide-1",
      "kind": "zone",
      "position": [
-      -135,
+      -143.0,
       3,
       -45
      ],
@@ -3259,7 +3259,8 @@
       8
      ],
      "name": "tutorial_hide",
-     "note": "Arbusto resaltado para esconderse en el tutorial"
+     "note": "Arbusto resaltado para esconderse en el tutorial",
+     "hideKind": "bush"
     },
     {
      "id": "mischief-graffiti-1",
@@ -3441,7 +3442,7 @@
      "id": "hide-1",
      "kind": "zone",
      "position": [
-      80.0,
+      77.0,
       3,
       -183.0
      ],
@@ -3451,13 +3452,14 @@
       6
      ],
      "name": "hide",
-     "note": "Escondite (arbusto o contenedor)"
+     "note": "Escondite: arbusto",
+     "hideKind": "bush"
     },
     {
      "id": "hide-2",
      "kind": "zone",
      "position": [
-      -80.0,
+      -77.0,
       3,
       220.0
      ],
@@ -3467,7 +3469,8 @@
       6
      ],
      "name": "hide",
-     "note": "Escondite (arbusto o contenedor)"
+     "note": "Escondite: arbusto",
+     "hideKind": "bush"
     },
     {
      "id": "hide-3",
@@ -3475,7 +3478,7 @@
      "position": [
       -220.0,
       3,
-      -140.0
+      -143.0
      ],
      "size": [
       6,
@@ -3483,13 +3486,14 @@
       6
      ],
      "name": "hide",
-     "note": "Escondite (arbusto o contenedor)"
+     "note": "Escondite: arbusto",
+     "hideKind": "bush"
     },
     {
      "id": "hide-4",
      "kind": "zone",
      "position": [
-      140.0,
+      143.0,
       3,
       -37.0
      ],
@@ -3499,13 +3503,14 @@
       6
      ],
      "name": "hide",
-     "note": "Escondite (arbusto o contenedor)"
+     "note": "Escondite: arbusto",
+     "hideKind": "bush"
     },
     {
      "id": "hide-5",
      "kind": "zone",
      "position": [
-      -140.0,
+      -143.0,
       3,
       0.0
      ],
@@ -3515,7 +3520,8 @@
       6
      ],
      "name": "hide",
-     "note": "Escondite (arbusto o contenedor)"
+     "note": "Escondite: arbusto",
+     "hideKind": "bush"
     },
     {
      "id": "hide-6",
@@ -3523,7 +3529,7 @@
      "position": [
       183.0,
       3,
-      140.0
+      143.0
      ],
      "size": [
       6,
@@ -3531,7 +3537,8 @@
       6
      ],
      "name": "hide",
-     "note": "Escondite (arbusto o contenedor)"
+     "note": "Escondite: arbusto",
+     "hideKind": "bush"
     },
     {
      "id": "hide-7",
@@ -3539,7 +3546,7 @@
      "position": [
       257.0,
       3,
-      80.0
+      77.0
      ],
      "size": [
       6,
@@ -3547,13 +3554,14 @@
       6
      ],
      "name": "hide",
-     "note": "Escondite (arbusto o contenedor)"
+     "note": "Escondite: contenedor",
+     "hideKind": "container"
     },
     {
      "id": "hide-8",
      "kind": "zone",
      "position": [
-      80.0,
+      77.0,
       3,
       220.0
      ],
@@ -3563,13 +3571,14 @@
       6
      ],
      "name": "hide",
-     "note": "Escondite (arbusto o contenedor)"
+     "note": "Escondite: arbusto",
+     "hideKind": "bush"
     },
     {
      "id": "hide-9",
      "kind": "zone",
      "position": [
-      -80.0,
+      -77.0,
       3,
       -220.0
      ],
@@ -3579,13 +3588,14 @@
       6
      ],
      "name": "hide",
-     "note": "Escondite (arbusto o contenedor)"
+     "note": "Escondite: arbusto",
+     "hideKind": "bush"
     },
     {
      "id": "hide-10",
      "kind": "zone",
      "position": [
-      80.0,
+      77.0,
       3,
       -257.0
      ],
@@ -3595,7 +3605,365 @@
       6
      ],
      "name": "hide",
-     "note": "Escondite (arbusto o contenedor)"
+     "note": "Escondite: contenedor",
+     "hideKind": "container"
+    },
+    {
+     "id": "hide-11",
+     "kind": "zone",
+     "position": [
+      -160.0,
+      3,
+      143.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "bush",
+     "note": "Escondite: arbusto"
+    },
+    {
+     "id": "hide-12",
+     "kind": "zone",
+     "position": [
+      70.0,
+      3,
+      77.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "bush",
+     "note": "Escondite: arbusto"
+    },
+    {
+     "id": "hide-13",
+     "kind": "zone",
+     "position": [
+      -70.0,
+      3,
+      -77.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "bush",
+     "note": "Escondite: arbusto"
+    },
+    {
+     "id": "hide-14",
+     "kind": "zone",
+     "position": [
+      225.0,
+      3,
+      -143.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "container",
+     "note": "Escondite: contenedor"
+    },
+    {
+     "id": "hide-15",
+     "kind": "zone",
+     "position": [
+      -65.0,
+      3,
+      77.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "bush",
+     "note": "Escondite: arbusto"
+    },
+    {
+     "id": "hide-16",
+     "kind": "zone",
+     "position": [
+      -245.0,
+      3,
+      77.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "bush",
+     "note": "Escondite: arbusto"
+    },
+    {
+     "id": "hide-17",
+     "kind": "zone",
+     "position": [
+      45.0,
+      3,
+      -77.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "container",
+     "note": "Escondite: contenedor"
+    },
+    {
+     "id": "hide-18",
+     "kind": "zone",
+     "position": [
+      -155.0,
+      3,
+      -143.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "bush",
+     "note": "Escondite: arbusto"
+    },
+    {
+     "id": "hide-19",
+     "kind": "zone",
+     "position": [
+      150.0,
+      3,
+      -143.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "bush",
+     "note": "Escondite: arbusto"
+    },
+    {
+     "id": "hide-20",
+     "kind": "zone",
+     "position": [
+      5.0,
+      3,
+      143.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "container",
+     "note": "Escondite: contenedor"
+    },
+    {
+     "id": "hide-21",
+     "kind": "zone",
+     "position": [
+      143.0,
+      3,
+      60.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "bush",
+     "note": "Escondite: arbusto"
+    },
+    {
+     "id": "hide-22",
+     "kind": "zone",
+     "position": [
+      -40.0,
+      3,
+      -143.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "bush",
+     "note": "Escondite: arbusto"
+    },
+    {
+     "id": "hide-23",
+     "kind": "zone",
+     "position": [
+      -265.0,
+      3,
+      -77.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "container",
+     "note": "Escondite: contenedor"
+    },
+    {
+     "id": "hide-24",
+     "kind": "zone",
+     "position": [
+      -143.0,
+      3,
+      265.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "container",
+     "note": "Escondite: contenedor"
+    },
+    {
+     "id": "hide-25",
+     "kind": "zone",
+     "position": [
+      -143.0,
+      3,
+      -265.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "container",
+     "note": "Escondite: contenedor"
+    },
+    {
+     "id": "hide-26",
+     "kind": "zone",
+     "position": [
+      143.0,
+      3,
+      270.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "container",
+     "note": "Escondite: contenedor"
+    },
+    {
+     "id": "hide-27",
+     "kind": "zone",
+     "position": [
+      240.0,
+      3,
+      -77.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "bush",
+     "note": "Escondite: arbusto"
+    },
+    {
+     "id": "hide-28",
+     "kind": "zone",
+     "position": [
+      77.0,
+      3,
+      150.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "bush",
+     "note": "Escondite: arbusto"
+    },
+    {
+     "id": "hide-29",
+     "kind": "zone",
+     "position": [
+      -160.0,
+      3,
+      -77.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "bush",
+     "note": "Escondite: arbusto"
+    },
+    {
+     "id": "hide-30",
+     "kind": "zone",
+     "position": [
+      -143.0,
+      3,
+      70.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "container",
+     "note": "Escondite: contenedor"
+    },
+    {
+     "id": "hide-31",
+     "kind": "zone",
+     "position": [
+      143.0,
+      3,
+      -235.0
+     ],
+     "size": [
+      6,
+      6,
+      6
+     ],
+     "name": "hide",
+     "hideKind": "bush",
+     "note": "Escondite: arbusto"
     },
     {
      "id": "payspray-1",

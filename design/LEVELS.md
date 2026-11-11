@@ -81,7 +81,7 @@ Todo lo jugable son piezas `zone` con `name`. El builder las convierte en puntos
 | `guard_post` | 3 × 4 × 3 | Punto de ruta de una guardia fija. Campos: `post` (la travesura que vigila), `order` (1, 2…) y `cop` (tipo de policía); el giro Y de la zona es hacia dónde mira |
 | `heli_spawn` | 10 × 4 × 10 | Aparición del Helicóptero Banana (★5) |
 | `comisario_spawn`, `arena_jefe` | 10 × 4 × 10, 180 × 12 × 140 | Jefe ★6 y su plaza |
-| `hide` | 6 × 6 × 6 | Escondite (arbusto o contenedor) para perder las estrellas |
+| `hide` | 6 × 6 × 6 | Escondite para perder las estrellas. Campo opcional `hideKind`: `bush` (arbusto, por defecto) o `container` (contenedor); ver «Escondites» |
 | `cubierta` | 30 × 20 × 40 | Zona cubierta: el Helicóptero no ve a quien está debajo |
 | `sand` | toda la arena | Zona de arena (`World.SandSpeedMult`) |
 | `portal` | lobby (uno por distrito) y junto a una Guarida de cada distrito | Viaje: `target` es el id del destino (ver Viajes) |
@@ -109,11 +109,21 @@ Cada travesura tiene un puesto de dos puntos (`guard_post`, ids `guard-<travesur
 | Distrito Queso | 9 | Tiburón, Cafetera |
 | Puerto Podrido | 5 | Cafetera, Tiburón |
 
+### Escondites
+
+Un escondite no es solo una zona: necesita un **prop visible** que llene la zona (un arbusto grande o un contenedor, del pase de arte), y se coloca para que sea **alcanzable** durante una persecución.
+
+- **Tipos.** `bush` (arbusto) esconde de los policías de tierra salvo la K-9 de cerca; `container` esconde también de la K-9 pero solo 12 s (reglas completas en el GDD, «Esconderse»). Ninguno esconde del Helicóptero: eso lo hace `cubierta`.
+- **Densidad (estándar para todos los distritos).** Desde cualquier punto de calle debe haber un escondite a **≤ 60 studs**: cobertura ≥ 95 % de los puntos transitables y peor punto a ≤ 85 studs. Barrio Papa tenía 10 (29 % de cobertura, peor punto a 234 studs); ahora tiene 31 (95,6 %, peor punto a 82 studs, sin contar la franja exterior de 2 studs junto al muro del límite, que no se puede pisar).
+- **Mezcla.** Al menos 5 `container` por distrito (los contenedores sirven contra la K-9 de ★4+), el resto `bush` en parques, jardines y laterales de las manzanas.
+- **Ubicación.** En esquinas, callejones y traseras, **no en medio de la calle** ni dentro de una Guarida, ni a menos de 12 studs de un `cop_spawn` o un `guard_post`.
+- **Tutorial.** `tutorial_hide` es un `bush` y coincide con el prop resaltado del paso `first_escape`.
+
 Cantidades por distrito:
 
 | Distrito | Guaridas | Escondites | Policías | Travesuras individuales | Travesuras de banda |
 | --- | --- | --- | --- | --- | --- |
-| Barrio Papa | 2 | 10 | 6 | 5 graffiti, 6 timbrazo | — |
+| Barrio Papa | 2 | 31 | 6 | 5 graffiti, 6 timbrazo | — |
 | Colegio | 2 | 10 | 6 | 3 graffiti, 3 timbrazo, 5 hidrante, 4 carrito | 2 Mural Gigante |
 | Playa Podrida | 3 | 10 | 6 | 3 graffiti, 6 castillo, 5 sombrillas | — |
 | Centro Neón | 3 | 10 | 8 | 3 graffiti, 3 hidrante, 4 bocinas, 6 semáforos | 2 Sinfonía |
@@ -125,7 +135,7 @@ Cantidades por distrito:
 ### `barrio-papa` · Barrio Papa
 
 - **Intención:** enseñar el loop sin riesgo: travesura → estrella → escape → depósito.
-- **Recorrido:** se llega por el portal `portal-barrio-papa` del lobby y se aparece en `spawn-1`, junto a la Guarida `guarida-1` (−110, −110) del distrito (sus spawns están deshabilitados: solo el lobby recibe a los jugadores al entrar). El muro del tutorial (`tutorial-graffiti`, a ~26 studs) se ve desde ahí. La Patata guionada aparece en la calle (−110, −230) y el arbusto de escape está cerca (−135, −45).
+- **Recorrido:** se llega por el portal `portal-barrio-papa` del lobby y se aparece en `spawn-1`, junto a la Guarida `guarida-1` (−110, −110) del distrito (sus spawns están deshabilitados: solo el lobby recibe a los jugadores al entrar). El muro del tutorial (`tutorial-graffiti`, a ~26 studs) se ve desde ahí. La Patata guionada aparece en la calle (−110, −230) y el arbusto de escape está cerca (−143, −45), sobre la acera.
 - **Ritmo:** manzanas de 160 × 160 con calles de 60: todo queda a pocos segundos. Sin azoteas, sin sorpresas.
 - **Riesgos justos:** solo la Patata (más lenta que el jugador); no hay peligros de caída.
 - **Notas para el builder:** `portal-lobby` (regreso a La Guarida) está junto a `guarida-1`.

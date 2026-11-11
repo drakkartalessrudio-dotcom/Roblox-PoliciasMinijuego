@@ -72,7 +72,13 @@ liveops:
 - **Techo de estrellas por nivel.** El calor por encima del techo se guarda pero no sube la estrella. Un jugador de nivel 3 no puede llegar a ★5 por accidente; subir de nivel "te hace más buscado". El techo que se acerca también anuncia el contenido nuevo.
 - **Fuentes de calor** (solo si hubo testigo): travesura pequeña +8, mediana +20, grande +45 (valores exactos por minijuego en la tabla de travesuras); derribar un policía +20; estar bajo persecución +1 cada 5 s (la persecución larga escala sola).
 - **Detección.** La patrulla **solo detecta a quien ya está buscado (≥ ★1) o está en plena travesura**: sin estrellas se puede pasar delante de un policía sin que se inmute. Una travesura hecha a la vista (o al oído) de un policía sí suma calor y la primera estrella; no hay otra forma de que un policía sin estrellas te persiga. **Mientras haces el minijuego estás en estado de travesura**: los policías te ven desde más lejos (×1,6 de alcance) y te fijan más rápido (×0,7). Si un policía te detecta a mitad del minijuego, **la travesura se corta** (sin pago, aviso «¡Te vieron!»), cuenta el calor de esa travesura, ganas al menos ★1 y empieza la persecución; si terminas sin que te detecten pero alguien lo presenció, también ganas al menos ★1. Cada policía tiene cono de visión y oído. **Nadie ve ni testifica a través de las paredes**: la visión exige cono, alcance y un rayo despejado hasta el jugador (el helicóptero también: los techos lo tapan), y el oído solo cuenta como testigo si no hay una pared de por medio; a través de una pared el ruido llega amortiguado (30 % del radio) y solo pone al policía en alerta ("?"). Los policías se **giran hacia donde caminan**, así que su cono mira por donde van. **Histéresis:** un policía que ya te persigue ("!") te sigue viendo hasta ×1,5 el alcance con el que te detectó (Patata ★1: de 18 a 27 studs), para no perderte justo en el borde. La barra de detección baja despacio (0,7 por segundo) y los policías comprueban la vista con dos rayos (torso y cabeza), para que un poste o una esquina no la borren cuando caminan. Entrar en el cono llena una barra de detección (0,5 s de cerca, 1,6 s de lejos); al llenarse aparece "!" sobre el policía y te persigue. Los iconos: "?" = oyó un ruido y va hacia quien lo hizo; 🔍 = te perdió de vista y busca tu última posición; "!" = te persigue. El **ruido** de la travesura alerta a policías dentro de su radio hacia el punto (no te ven aún). **El policía en "?" recuerda quién hizo el ruido**: si ese jugador pasa delante mientras va al punto o busca, lo detecta con más alcance y más rápido (×1,6 / ×0,7) y lo persigue aunque no tenga estrellas, sin esperar a llegar al punto. Mejora **Sigilo** reduce el rango de visión y el ruido.
-- **Perder las estrellas.** Pierdes la vista durante 10 s → estado "Buscando" (estrellas parpadeando) → el calor baja 5/s. Esconderse en contenedores/arbustos (sin policías a menos de 8 studs) baja una estrella cada 3 s. El **Lavadero Pay'n'Spray** quita todas las estrellas al instante por dinero (sumidero).
+- **Perder las estrellas.** Pierdes la vista durante 10 s → estado "Buscando" (estrellas parpadeando) → el calor baja 5/s. El **Lavadero Pay'n'Spray** quita todas las estrellas al instante por dinero (sumidero).
+- **Esconderse.** Un escondite no borra las estrellas: te saca de la vista si **rompes el contacto antes de entrar** y **te quedas quieto**. Las zonas `hide` son arbustos y contenedores (`HideKind`: `bush` por defecto, `container`).
+  - **Te ven entrar → escondite quemado.** Al quedar buscado dentro de un escondite (o entrar ya buscado) se decide una sola vez: si un policía de tierra a `Hide.WitnessRange` (25 studs) o menos te ve, el escondite se **quema** para ti durante `Hide.BurnSeconds` (20 s) y no oculta; si ya hay `Hide.Capacity` (2) jugadores a salvo ahí, no hay sitio; si no, quedas **a salvo**.
+  - **A salvo = visión recortada.** Los policías de tierra solo te ven a `Hide.RevealDistance` (10 studs) o menos (×`Hide.MovingRevealMult` = 2 si te mueves a más de `Hide.StillSpeed` = 4 studs/s), sea cual sea su alcance de visión (incluido el ×1,5 de persecución). Quien te perdía pasa a 🔍 y busca el punto donde te vio *antes* de entrar, no el escondite. Los refuerzos nuevos también.
+  - **Recompensa por aguantar.** A salvo y sin que nadie te vea, baja una estrella cada `Hide.SecondsPerStar` (3 s) y el calor se enfría ×`Hide.DecayMult` (3) más rápido.
+  - **Te descubren.** Si la barra de detección de un policía se llena contra ti estando oculto (se acercó a ≤ 10 studs, o 20 si te mueves), te descubre: el escondite se quema y sigue la persecución.
+  - **Cada tipo de policía.** El arbusto esconde de Patata, Capibara y Tiburón (★1–3); la **Cafetera K-9** lo huele a `Hide.K9SniffRange` (24 studs). El contenedor esconde de todos los de tierra, K-9 incluida, pero aguanta solo `Hide.ContainerSeconds` (12 s) y luego te expulsa (se quema). **Ningún** arbusto ni contenedor te esconde del **Helicóptero**: solo una `cubierta` (galería, toldo).
 - **Premio de riesgo.** Cada travesura paga ×(1 + 0,4 × estrellas actuales): ★6 paga ×3,4. Este factor es de **situación** y se aplica sobre el resultado final de los bonos permanentes (regla de apilamiento en Estado y economía).
 - **Agarre.** Un policía agarra si se mantiene a menos de 3,5 studs durante 0,7 s. Si tu velocidad supera la del policía, la distancia crece y no hay agarre: la velocidad es defensa real.
 
@@ -111,7 +117,7 @@ Hay tres clases de policía en la calle, además de los perseguidores de la plan
 | 10–15 | Llega a la Guarida del Barrio Papa. Flecha al muro de graffiti a 25 studs. Texto de una línea: "Pinta el muro". Controles según plataforma | — |
 | 5–20 | Mini-tutorial del graffiti (puntos a seguir con el dedo o el mouse). Termina: +$15 Botín, +25 XP, barra de XP sube | `first_mischief` |
 | 20–40 | Un Patrullero Patata (guionado) lo ve → "!" y sirena → ★1. El texto dice "¡Corre! Eres más rápido que él" (14 < 16) | `first_star` |
-| 40–70 | Se esconde en un arbusto (resaltado) o corre y pierde al policía; las estrellas parpadean y desaparecen | `first_escape` |
+| 40–70 | Se esconde en un arbusto (resaltado) sin que el Patata lo vea entrar, o corre y lo pierde; las estrellas parpadean y desaparecen | `first_escape` |
 | 70–90 | Flecha a la Guarida; mantiene 1,5 s: Botín → Dinero. "¡Compra tus primeras zapatillas! ($100)" con la tienda a un toque | `first_deposit` |
 | ≤ 3 min | Primera compra (Zapatillas 1) y primer nivel (nivel 2 en ~20 s) | `first_upgrade`, `first_level_up` |
 
@@ -159,7 +165,7 @@ La progresión tiene **cuatro capas que se encadenan**:
 | --- | --- | --- |
 | Nivel 1 | 16 | Patata 14: la ganas por poco (fácil) |
 | Nivel 14 (Zapatillas 3) | ≈ 26 | ★3 Tiburón 30: no lo superas en recto, hay que usar obstáculos |
-| Nivel 26 (Zapatillas 6) | ≈ 35 | ★4 Cafetera 38 casi igual; ★5 Helicóptero 46 no se supera: hay que esconderse/usar herramientas |
+| Nivel 26 (Zapatillas 6) | ≈ 35 | ★4 Cafetera 38 casi igual; ★5 Helicóptero 46 no se supera: hay que esconderse (contenedor y cubierta, no arbusto) o usar herramientas |
 | Nivel 40 | ≈ 44 | ★6 Comisario 52 sigue siendo más rápido: hay que tácticas |
 | Nivel 50 + Zapatillas 10 + perks | ≈ 55 | Casi igualas al Comisario; con **Patineta turbo** (×1,35) lo superas |
 
@@ -582,8 +588,16 @@ El builder los copia a `src/shared/Config.luau` y el juego los lee con `Tuning.g
 | `Heat.ChasePressurePer5s` | 1 | Calor extra por persecución larga |
 | `Heat.CopKnockdown` | 20 | Calor por derribar un policía |
 | `Heat.RiskPayoutPerStar` | 0.4 | Premio de riesgo por estrella |
-| `Hide.SecondsPerStar` | 3 | Segundos escondido por estrella que baja |
-| `Hide.MinCopDistance` | 8 | Distancia mínima de policías al esconderse |
+| `Hide.SecondsPerStar` | 3 | Segundos escondido (y sin que nadie te vea) por estrella que baja |
+| `Hide.RevealDistance` | 10 | Escondido, un policía solo te ve (y te descubre) a esta distancia o menos |
+| `Hide.MovingRevealMult` | 2 | Multiplicador del alcance de descubrimiento si te mueves dentro del escondite |
+| `Hide.StillSpeed` | 4 | Velocidad (studs/s) por debajo de la cual cuentas como quieto |
+| `Hide.WitnessRange` | 25 | Un policía que te ve entrar a esta distancia o menos quema el escondite |
+| `Hide.BurnSeconds` | 20 | Cuánto dura un escondite quemado (no oculta) para ese jugador |
+| `Hide.DecayMult` | 3 | Multiplicador de la bajada de calor mientras estás oculto |
+| `Hide.K9SniffRange` | 24 | Distancia a la que la Cafetera K-9 huele un arbusto |
+| `Hide.ContainerSeconds` | 12 | Segundos que aguanta un contenedor antes de expulsarte |
+| `Hide.Capacity` | 2 | Jugadores a salvo por escondite |
 | `Detect.FillSecondsNear` | 0.5 | Detección de cerca |
 | `Detect.FillSecondsFar` | 1.6 | Detección de lejos |
 | `Detect.MischiefVisionMult` | 1.6 | Alcance de visión de los policías hacia quien está en plena travesura |
@@ -843,7 +857,10 @@ La interfaz solo presenta lo que decide el servidor.
 | `Dinero`, `Cerebros` | número | `Economy` | Saldos guardados |
 | `Botin`, `BotinCap` | número | `Economy` | Botín sin depositar y capacidad |
 | `Stars` (0–6), `Heat`, `WantedState` (`clear`, `seen`, `searching`), `Spotted` | número, número, texto, booleano | `Wanted` | Estrellas, calor y estado: `searching` = estrellas parpadeando; `Spotted` = un policía te ve ahora mismo (`seen` dura 10 s más) |
-| `Hidden` | booleano | `Game/World` | Está escondido y bajando estrellas |
+| `Hidden` | booleano | `Game/Hiding` | Está a salvo en un escondite y bajando estrellas |
+| `HideState` | texto | `Game/Hiding` | `none`, `safe`, `burned` (quemado) o `full` (sin sitio) |
+| `HideKind` | texto | `Game/Hiding` | Tipo del escondite donde está (`bush`, `container`; vacío fuera) |
+| `HideLeft` | número | `Game/Hiding` | Segundos que le quedan a un contenedor |
 | `District` | texto | `Game/World` | Id del nivel de `Levels.json` donde está (`lobby` o un distrito) |
 | `PlotId` | texto | `Plots` | Id de la parcela reclamada (vacío si no tiene) |
 | `AchCount`, `Ach_<id>` | número | `Achievements` | Logros logrados y progreso de cada uno (sin pasar de la meta) |
@@ -944,6 +961,18 @@ Los minijuegos (`sequence`, `hold`, `mash`, `timing`, `memory`) y las pantallas 
 31. **Viajes:** cada portal lleva a su distrito solo con el nivel pedido (si no, "se abre en el nivel N"); con estrellas, arrestado, en plena travesura o fuera de una zona segura no se viaja; el fundido a negro cubre el teletransporte y el jugador nunca cae al vacío al llegar; el portal de regreso lleva al lobby.
 32. **Parcelas:** dos jugadores no pueden reclamar la misma parcela ni un jugador dos; al salir, la parcela queda libre; el cartel y la torre siguen el nivel del dueño y tocar una parcela ajena abre su perfil.
 33. **Logros:** cruzar la meta de un logro avisa una sola vez; tras una Ascensión no se pierden; el progreso se ve en el menú de La Guarida.
+34. **Esconderse rompe la persecución:** con ★2 y un Patata a 25 studs que **no** te vio entrar, entrar a un arbusto hace que el Patata pase a 🔍 en ≤ 3 s y las estrellas empiecen a bajar cada 3 s.
+35. **Te ven entrar:** con un policía a 15 studs con línea de vista al entrar, el escondite se quema (rojo), no oculta y avisa «¡Te vieron entrar!».
+36. **Descubrimiento:** un policía que busca llega a 8 studs del arbusto en el que estás oculto → te descubre, el escondite se quema y vuelve la persecución.
+37. **Quieto vs. en movimiento:** oculto y moviéndote a 10 studs/s, un policía te descubre a 20 studs; quieto, solo a 10.
+38. **Contenedor y K-9:** una Cafetera K-9 a 20 studs huele un arbusto (te descubre) pero no un contenedor; el contenedor te expulsa a los 12 s.
+39. **Helicóptero:** ni arbusto ni contenedor te esconden del Helicóptero; la `cubierta` sí.
+40. **Refuerzos:** con ★3 oculto y seguro, los refuerzos nuevos no aparecen yendo hacia el arbusto.
+41. **Capacidad:** un tercer jugador no entra a un escondite con 2; no se apila una banda de 8.
+42. **Densidad:** en `barrio-papa`, ≥ 95 % de los puntos transitables tiene un escondite a ≤ 60 studs; el peor, a ≤ 85.
+43. **Visibilidad:** cada escondite tiene su prop; con ≥ 1 estrella los de ≤ 80 studs se resaltan; el HUD marca «Escondido» y la barra del contenedor.
+44. **Tutorial:** el paso `first_escape` (40–70 s) se puede completar escondiéndose en el arbusto resaltado sin que el Patata guionado te atrape.
+45. **Escapar es escapar:** al perder la última estrella (escondido o corriendo), los policías que te buscaban (refuerzos en 🔍 incluidos) se retiran en ≤ 2 s y ninguno te vuelve a dar una estrella si no haces una travesura ni te ve uno de patrulla estando buscado.
 
 ## Pendientes entre skills
 

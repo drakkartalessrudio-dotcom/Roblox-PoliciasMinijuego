@@ -14,7 +14,7 @@ Fuente: `GDD.md` (loop, onboarding, plataformas y Estado para la UI) y `design/A
 
 | Pantalla | Módulo | Dónde | Qué muestra | Estado que usa |
 | --- | --- | --- | --- | --- |
-| HUD | `Screens/Hud.luau` | Slots `top`, `right` y `bottom` | Estrellas y estado de búsqueda, nivel y barra de XP; Dinero, Botín con tope, Cerebros, distrito y velocidad; pista del tutorial y, en el lobby, qué hacer allí | `Stars`, `WantedState`, `Spotted`, `Level`, `Xp`, `XpNeeded`, `Dinero`, `Botin`, `BotinCap`, `Cerebros`, `District`, `Speed`, `TutorialStep`, `PlotId` |
+| HUD | `Screens/Hud.luau` | Slots `top`, `right` y `bottom` | Estrellas y estado de búsqueda (en un escondite: «Escondido · quédate quieto», «¡no te muevas!», segundos que le quedan al contenedor, «¡Te vieron! Este escondite ya no sirve», «Escondite lleno»), nivel y barra de XP; Dinero, Botín con tope, Cerebros, distrito y velocidad; pista del tutorial y, en el lobby, qué hacer allí | `Stars`, `WantedState`, `Spotted`, `Hidden`, `HideState`, `HideKind`, `HideLeft`, `HideMoving`, `Level`, `Xp`, `XpNeeded`, `Dinero`, `Botin`, `BotinCap`, `Cerebros`, `District`, `Speed`, `TutorialStep`, `PlotId` |
 | Avisos | `Screens/Alerts.luau` | Capa `toast` | Resultado de cada travesura, estrellas, escape, arresto, depósito, subida de nivel, medalla, Ascensión, logros, viajes bloqueados por nivel y errores | Mensaje `notify` |
 | Acciones | `Screens/Actions.luau` | Slot `actions` | Embestida, Empujón, herramientas compradas con su enfriamiento y, con el pase del teléfono, Depositar | `Tool_<id>`, `ToolReady_<id>`, `Pass_phone`, `Botin`, `Stars`; envía `use_tool`, `deposit` |
 | Minijuegos | `Screens/Minigames.luau` | Capa `menu` (ventana arriba) | Los cinco minijuegos de las travesuras (secuencia, mantener, tocar rápido, ritmo, memoria) con temporizador | Mensaje `mischief_start`; envía `mischief_submit` y `mischief_cancel` |
@@ -28,6 +28,7 @@ Fuente: `GDD.md` (loop, onboarding, plataformas y Estado para la UI) y `design/A
 
 - **Travesura:** prompt del mundo (E o toque) → servidor valida → `mischief_start` → Minijuegos → `mischief_submit` → Avisos ("+$ · +XP").
 - **Persecución:** el HUD sube las estrellas → Acciones (Embestida, tarta, banana…) → escondite o Guarida → "¡Escapaste!" con XP.
+- **Esconderse:** con ≥ 1 estrella los escondites a ≤ 80 studs brillan en amarillo (rojo si están quemados) → rompe el contacto, entra y quédate quieto → el HUD dice «Escondido · quédate quieto» y baja una estrella cada 3 s; si te vieron entrar o te descubren, el escondite se pone rojo y el HUD avisa.
 - **Arresto:** Avisos ("¡Te agarraron! … te rescata si llega en 5 s") → resultado con el Botín perdido.
 - **Compra:** HUD → botón Tienda (B / Y) → pestaña → "Comprar" → aviso o error ("Solo se puede en una Guarida") → mismo modal.
 - **Robux:** Tienda → Robux → "Comprar" → aviso nativo de Roblox con el precio; si la oferta no tiene ID, "Disponible pronto".
