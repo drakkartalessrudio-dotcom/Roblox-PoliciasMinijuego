@@ -66,6 +66,7 @@ local Config = {
 		TickSeconds = 0.15, -- cada cuánto piensan los policías
 		MischiefVisionMult = 1.6, -- una travesura a la vista llama la atención: multiplica el alcance de visión
 		MischiefFillMult = 0.7, -- y acorta la barra de detección
+		DecayPerSecond = 0.7, -- cuánto baja la barra por segundo sin verte (antes 1,5: un parpadeo del rayo borraba el avance)
 		ChaseVisionMult = 1.5, -- histéresis: en persecución (!) el policía ve a su objetivo con este múltiplo del alcance normal
 	},
 	Guard = {

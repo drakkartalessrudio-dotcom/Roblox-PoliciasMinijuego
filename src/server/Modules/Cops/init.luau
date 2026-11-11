@@ -333,8 +333,12 @@ local function canSee(cop: Cop, player: Player, root: BasePart, exposed: boolean
 	if options.isCovered(player) and distance > 12 then
 		return false, distance
 	end
+	-- Dos rayos, al torso y a la cabeza: un poste o una esquina que tape uno no basta para perderlo de vista.
 	local eye = cop.root.Position + Vector3.new(0, 2, 0)
-	return lineOfSight(cop, player, eye, root.Position), distance
+	if lineOfSight(cop, player, eye, root.Position) then
+		return true, distance
+	end
+	return lineOfSight(cop, player, eye, root.Position + Vector3.new(0, 1.5, 0)), distance
 end
 
 local function nearestPlayer(position: Vector3, maxDistance: number): (Player?, number)
@@ -846,7 +850,10 @@ local function think(cop: Cop, now: number, tick: number)
 						end
 					end
 				else
-					cop.detect[player] = math.max(0, (cop.detect[player] or 0) - tick * 1.5)
+					cop.detect[player] = math.max(0, (cop.detect[player] or 0) - tick * Tuning.get("Detect.DecayPerSecond"))
+				end
+				if Workspace:GetAttribute("CopsDebug") then
+					cop.model:SetAttribute(`Detect_{player.Name}`, math.floor((cop.detect[player] or 0) * 100)) -- 0 a 100: la barra, en los atributos del policía
 				end
 			end
 		end
