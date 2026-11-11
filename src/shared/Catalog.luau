@@ -113,6 +113,8 @@ for _, def in Catalog.mischiefs do
 	Catalog.mischiefByZone[def.zone] = def
 	Catalog.mischiefById[def.id] = def
 end
+-- El primer muro del tutorial (cerca del spawn de barrio-papa) es un graffiti normal: sin esto no tenía prompt.
+Catalog.mischiefByZone.tutorial_graffiti = Catalog.mischiefById.Graffiti
 
 -- Valores de una travesura (individual en Config.Mischief, de banda en Config.Coop).
 function Catalog.mischiefConfig(def: MischiefDef): { [string]: number }

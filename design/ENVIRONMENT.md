@@ -56,6 +56,15 @@ La calle sigue siendo asfalto liso de `Levels.json`: se lee como superficie de j
 | `distrito-queso` | 7: queso gigante, faroles | — | 3 (Guaridas) + faroles |
 | `puerto-podrido` | 10: cajas, faroles, mar | — | 2 (Guaridas) + faroles |
 
+## Puntos de travesura (graffiti y timbre)
+
+Los puntos de `Levels.json` son zonas invisibles; el jugador no sabía dónde pintar ni dónde tocar. Los viste `Game/SpotProps.luau` al arrancar (no son datos de `Environment.json`), con Parts y los colores del tema, y marcados con el color de rol `interactive` (amarillo neón) como el resto de lo que se toca:
+
+- **Graffiti y Mural Gigante:** muro de dos caras con un lienzo **a medio pintar** (manchas, goteras, esquinas de neón), latas de aerosol, charcos y un cartel "PINTA AQUÍ" / "MURAL EN BANDA" visible desde 120 studs. Al completarlo estalla pintura y aparece el mural terminado hasta que pasa el enfriamiento del punto.
+- **Timbrazo:** fachada de casa (puerta, toldo, ventanas, macetas, felpudo) con el timbre justo en el punto del prompt y un cartel "TOCA EL TIMBRE". Al tocarlo el botón se hunde y parpadea, se encienden las ventanas unos segundos y suena un timbre de teléfono de juguete 3D (`SpotFeedback.client.luau`).
+- Todo es decoración sin colisión ni consulta de rayos: no cambia la visión de los policías, el ruido, las guardias ni las rutas. Unas 1.500 piezas más en todo el mapa; el muro del tutorial (`tutorial_graffiti`) ahora es un graffiti normal.
+- **Sonido:** `assets/audio/doorbell_toyphone.wav` (se regenera con `make_doorbell.py`) se sube a Creator Hub y su ID va en `Config.SpotFx.DoorbellSoundId`. Mientras esté vacío el timbre se ve pero no suena.
+
 ## Iluminación y cielo
 
 Preset `default` del tema para todo el mapa, con nubes de cobertura 0,45. **Roblox aplica una sola iluminación a todos los jugadores**, así que los presets `playa`, `neon`, `queso`, `puerto` y `sala` del tema no se pueden usar por distrito desde el servidor. Cada distrito cuenta su clima con color y luz propia (neón en el Centro, tonos cálidos en Queso) y la iluminación por distrito queda como pedido de interfaz (ver Pendientes).

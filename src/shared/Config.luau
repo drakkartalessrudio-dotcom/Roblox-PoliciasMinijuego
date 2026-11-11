@@ -173,6 +173,15 @@ local Config = {
 		TimbrazoMaxMult = 1.8, -- premio máximo por velocidad
 		DestrozoMoney = 2, -- Dinero por objeto atravesado a gran velocidad
 	},
+	SpotFx = {
+		-- ID del audio del timbre (el archivo está en assets/audio/doorbell_toyphone.wav; súbelo a Creator Hub
+		-- y pega aquí el número o "rbxassetid://número"). Vacío = el timbre se ve pero no suena.
+		DoorbellSoundId = "102559465808384",
+		DoorbellVolume = 0.9, -- volumen del timbre (0 a 1)
+		DoorbellRange = 110, -- studs a los que se oye el timbre
+		SignDistance = 120, -- studs desde los que se ve el cartel sobre cada punto de graffiti y timbre
+		MuralFade = 0.45, -- segundos que tarda en aparecer el mural pintado
+	},
 	Coop = {
 		PayPerExtraMember = 0.25, -- aumento del pago por miembro en travesuras de banda
 		JoinRange = 60, -- distancia para sumar a un compañero a la travesura
