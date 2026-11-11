@@ -112,6 +112,11 @@ export type Cop = {
 	lastPosition: Vector3,
 	path: { Vector3 }?,
 	pathAt: number,
+	pathGoal: Vector3?, -- meta para la que se calculó `path`
+	pathPending: boolean, -- hay un cálculo de ruta en curso
+	blocked: boolean, -- había una pared delante en la última comprobación
+	blockedAt: number,
+	moveCallAt: number, -- última vez que se llamó a moveTo
 	spawnedAt: number,
 	ambient: boolean,
 	alertBox: TextLabel?,
@@ -171,7 +176,12 @@ local serial = 0
 local random = Random.new()
 
 local STUCK_SECONDS = 1.6
-local PATH_COOLDOWN = 3
+local PATH_COOLDOWN = 1.2 -- segundos entre pedidos de ruta de un mismo policía
+local PATH_GOAL_TOLERANCE = 12 -- la ruta sirve mientras la meta no se mueva más que esto
+local MAX_PATH_JOBS = 3 -- cálculos de ruta a la vez en toda la ciudad
+local NAV_LOOKAHEAD = 14 -- studs que mira hacia delante el rayo de pared
+local NAV_CHECK_SECONDS = 0.3
+local NAV_BLOCK_HEIGHT = 4 -- lo más bajo que cuenta como pared (lo menor se salta)
 local CHASE_FORGET = 2.5 -- segundos sin ver al jugador antes de buscar su última posición
 
 local function rootOf(player: Player): BasePart?
@@ -401,6 +411,11 @@ local function spawnCop(typeId: string, position: Vector3, owner: Player?, ambie
 		lastPosition = root.Position,
 		path = nil,
 		pathAt = 0,
+		pathGoal = nil,
+		pathPending = false,
+		blocked = false,
+		blockedAt = 0,
+		moveCallAt = 0,
 		spawnedAt = now,
 		ambient = ambient,
 		alertBox = model:FindFirstChild("Alert", true) :: TextLabel?,
@@ -499,6 +514,81 @@ local function turnToward(cop: Cop, targetYaw: number, tick: number)
 	cop.root.AssemblyAngularVelocity = Vector3.zero
 end
 
+-- Navegación barata: un rayo corto a la altura de la rodilla dice si hay una pared delante; solo entonces (o si
+-- se atasca) se pide una ruta a PathfindingService, en otro hilo y con un tope de pedidos a la vez.
+local navParams: RaycastParams? = nil
+local navParamsAt = 0
+local pathJobs = 0
+
+local function navRayParams(now: number): RaycastParams
+	if not navParams or now - navParamsAt > 2 then
+		local ignore: { Instance } = { folder }
+		for _, player in Players:GetPlayers() do
+			if player.Character then
+				table.insert(ignore, player.Character)
+			end
+		end
+		local params = RaycastParams.new()
+		params.FilterType = Enum.RaycastFilterType.Exclude
+		params.FilterDescendantsInstances = ignore
+		params.RespectCanCollide = true
+		navParams, navParamsAt = params, now
+	end
+	return navParams :: RaycastParams
+end
+
+-- ¿Hay algo alto (una pared, un edificio) entre el policía y su meta, en los próximos NAV_LOOKAHEAD studs?
+local function blockedAhead(cop: Cop, goal: Vector3, now: number): boolean
+	if now - cop.blockedAt < NAV_CHECK_SECONDS then
+		return cop.blocked
+	end
+	cop.blockedAt = now
+	local direction = flat(goal - cop.root.Position)
+	local blocked = false
+	if direction.Magnitude > 3 then
+		local origin = cop.root.Position - Vector3.new(0, 1.5, 0)
+		local hit = Workspace:Raycast(origin, direction.Unit * math.min(direction.Magnitude, NAV_LOOKAHEAD), navRayParams(now))
+		blocked = hit ~= nil and hit.Instance.Size.Y >= NAV_BLOCK_HEIGHT
+	end
+	cop.blocked = blocked
+	return blocked
+end
+
+local function requestPath(cop: Cop, goal: Vector3, now: number)
+	if cop.pathPending or now - cop.pathAt < PATH_COOLDOWN or pathJobs >= MAX_PATH_JOBS then
+		return
+	end
+	cop.pathPending = true
+	cop.pathAt = now
+	pathJobs += 1
+	local from = cop.root.Position
+	task.spawn(function()
+		local path = PathfindingService:CreatePath({ AgentRadius = 2.5, AgentHeight = 5, AgentCanJump = true })
+		local ok = pcall(function()
+			path:ComputeAsync(from, goal)
+		end)
+		pathJobs -= 1
+		cop.pathPending = false
+		if cops[cop.model] ~= cop then
+			return -- se retiró mientras se calculaba
+		end
+		if ok and path.Status == Enum.PathStatus.Success then
+			local points = {}
+			for _, waypoint in path:GetWaypoints() do
+				table.insert(points, waypoint.Position)
+			end
+			cop.path = points
+			cop.pathGoal = goal
+		else
+			cop.path = nil
+			cop.pathGoal = nil
+			if cop.walker then
+				cop.destination = nil -- su meta no se puede alcanzar: el caminante elige otra
+			end
+		end
+	end)
+end
+
 local function moveTo(cop: Cop, goal: Vector3, now: number)
 	local humanoid = cop.humanoid
 	if cop.def.flying then
@@ -512,46 +602,41 @@ local function moveTo(cop: Cop, goal: Vector3, now: number)
 		return
 	end
 	humanoid.WalkSpeed = speedOf(cop, now)
-	-- Atasco: si casi no avanza, se calcula una ruta (como mucho cada PATH_COOLDOWN).
+	-- Si lleva un rato sin llamar a moveTo (estaba parado), el reloj de atasco empieza de cero.
+	if now - cop.moveCallAt > 1 then
+		cop.lastMoveAt = now
+		cop.lastPosition = cop.root.Position
+	end
+	cop.moveCallAt = now
 	if (cop.root.Position - cop.lastPosition).Magnitude > 1.2 then
 		cop.lastPosition = cop.root.Position
 		cop.lastMoveAt = now
-		cop.path = nil
-	elseif now - cop.lastMoveAt > STUCK_SECONDS and now - cop.pathAt > PATH_COOLDOWN then
-		cop.pathAt = now
-		local path = PathfindingService:CreatePath({ AgentRadius = 2, AgentHeight = 5, AgentCanJump = true })
-		local ok = pcall(function()
-			path:ComputeAsync(cop.root.Position, goal)
-		end)
-		if ok and path.Status == Enum.PathStatus.Success then
-			local points = {}
-			for _, waypoint in path:GetWaypoints() do
-				table.insert(points, waypoint.Position)
-			end
-			cop.path = points
-		end
 	end
+	-- Rumbo: en línea recta mientras no haya una pared delante; con pared o atascado, por una ruta calculada.
+	local stuck = now - cop.lastMoveAt > STUCK_SECONDS
 	local target = goal
-	if cop.path and #cop.path > 0 then
-		while #cop.path > 1 and (cop.path[1] - cop.root.Position).Magnitude < 4 do
-			table.remove(cop.path, 1)
+	if blockedAhead(cop, goal, now) or stuck then
+		if stuck and now - cop.pathAt > PATH_COOLDOWN then
+			cop.path = nil -- la ruta que llevaba no lo sacó del atasco: se pide otra
 		end
-		target = cop.path[1]
+		local path = cop.path
+		if path and cop.pathGoal and (goal - cop.pathGoal).Magnitude < PATH_GOAL_TOLERANCE and #path > 0 then
+			while #path > 1 and flat(path[1] - cop.root.Position).Magnitude < 4 do
+				table.remove(path, 1)
+			end
+			target = path[1]
+		else
+			cop.path = nil
+			requestPath(cop, goal, now)
+		end
+	else
+		cop.path = nil
 	end
 	humanoid:MoveTo(target)
 	-- Salta obstáculos bajos.
 	local forward = flat(target - cop.root.Position)
 	if forward.Magnitude > 1 then
-		local params = RaycastParams.new()
-		params.FilterType = Enum.RaycastFilterType.Exclude
-		params.FilterDescendantsInstances = { folder }
-		params.RespectCanCollide = true
-		for _, player in Players:GetPlayers() do
-			if player.Character then
-				table.insert(params.FilterDescendantsInstances, player.Character)
-			end
-		end
-		local hit = Workspace:Raycast(cop.root.Position - Vector3.new(0, 1.5, 0), forward.Unit * 4, params)
+		local hit = Workspace:Raycast(cop.root.Position - Vector3.new(0, 1.5, 0), forward.Unit * 4, navRayParams(now))
 		if hit and hit.Instance.CanCollide and hit.Instance.Size.Y < 9 then
 			humanoid.Jump = true
 		end
@@ -1217,7 +1302,8 @@ function Cops.alert(position: Vector3, radius: number, source: Player?)
 			if (cop.root.Position - position).Magnitude <= hearing then
 				cop.state = "suspicious"
 				cop.suspect = source
-				cop.destination = position
+				local sourceRoot = if source then rootOf(source) else nil
+				cop.destination = if sourceRoot then sourceRoot.Position else position -- el punto de la travesura suele estar pegado a una pared
 				cop.searchUntil = now + Tuning.get("Cops.SearchSeconds")
 				setAlert(cop, "?")
 			end
