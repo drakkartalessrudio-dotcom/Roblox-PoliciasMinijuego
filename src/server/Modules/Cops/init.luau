@@ -224,10 +224,16 @@ local function alertOf(player: Player?, key: string): number
 	return list[math.clamp(stars, 1, #list)]
 end
 
--- Alcance de visión de un policía contra un jugador, sin Sigilo. En plena travesura se nota más.
+-- Alcance de visión de un policía contra un jugador, sin Sigilo. En plena travesura se nota más, y quien ya
+-- persigue a este jugador lo sigue viendo desde más lejos de lo que hizo falta para detectarlo (histéresis:
+-- no pierde al jugador justo en el borde del alcance).
 local function visionRange(cop: Cop, player: Player, exposed: boolean): number
 	local range = def(cop).VisionRange * alertOf(player, "AlertVisionByStar") * (1 + difficulty(cop))
-	return if exposed then range * Tuning.get("Detect.MischiefVisionMult") else range
+	local mult = if exposed then Tuning.get("Detect.MischiefVisionMult") else 1
+	if cop.state == "chase" and cop.owner == player then
+		mult = math.max(mult, Tuning.get("Detect.ChaseVisionMult"))
+	end
+	return range * mult
 end
 
 local function speedOf(cop: Cop, now: number): number
