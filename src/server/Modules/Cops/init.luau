@@ -109,7 +109,6 @@ export type Cop = {
 	lungeUntil: number,
 	hits: number,
 	lastMoveAt: number,
-	faceAt: number, -- última vez que se giró hacia donde camina
 	lastPosition: Vector3,
 	path: { Vector3 }?,
 	pathAt: number,
@@ -300,7 +299,9 @@ local function canSee(cop: Cop, player: Player, root: BasePart, exposed: boolean
 		return flat(offset).Magnitude <= range and lineOfSight(cop, player, cop.root.Position, root.Position), distance
 	end
 	if distance > 8 then
-		local look = flat(cop.root.CFrame.LookVector)
+		-- Camina hacia donde mira: en marcha el cono sigue la velocidad (el giro del cuerpo puede ir con retraso).
+		local velocity = flat(cop.root.AssemblyLinearVelocity)
+		local look = if velocity.Magnitude > 2 then velocity else flat(cop.root.CFrame.LookVector)
 		local direction = flat(offset)
 		if direction.Magnitude > 0.1 and look.Magnitude > 0.1 then
 			local cosine = look.Unit:Dot(direction.Unit)
@@ -397,7 +398,6 @@ local function spawnCop(typeId: string, position: Vector3, owner: Player?, ambie
 		lungeUntil = 0,
 		hits = 0,
 		lastMoveAt = now,
-		faceAt = now,
 		lastPosition = root.Position,
 		path = nil,
 		pathAt = 0,
@@ -432,7 +432,7 @@ local function spawnCop(typeId: string, position: Vector3, owner: Player?, ambie
 	end
 	if humanoid then
 		humanoid.WalkSpeed = speedOf(cop, now)
-		humanoid.AutoRotate = false -- el rig a medida no se gira solo: moveTo los orienta (el cono de visión sigue su marcha)
+		humanoid.AutoRotate = true
 	end
 	cops[model] = cop
 	setAlert(cop, if cop.state == "chase" then "!" else "")
@@ -542,8 +542,6 @@ local function moveTo(cop: Cop, goal: Vector3, now: number)
 	-- Salta obstáculos bajos.
 	local forward = flat(target - cop.root.Position)
 	if forward.Magnitude > 1 then
-		turnToward(cop, math.atan2(-forward.X, -forward.Z), math.clamp(now - cop.faceAt, 0.02, 0.3))
-		cop.faceAt = now
 		local params = RaycastParams.new()
 		params.FilterType = Enum.RaycastFilterType.Exclude
 		params.FilterDescendantsInstances = { folder }
@@ -713,6 +711,10 @@ local function think(cop: Cop, now: number, tick: number)
 			humanoid.WalkSpeed = 0
 		end
 		return
+	end
+	-- La guardia parada no gira sola: mira donde le toca.
+	if cop.post and humanoid then
+		humanoid.AutoRotate = cop.state ~= "patrol" or cop.phase == "walk"
 	end
 	-- Detección: cada jugador cercano llena o vacía su barra.
 	local seenTarget = false
