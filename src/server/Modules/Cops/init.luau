@@ -1129,8 +1129,15 @@ local function manage(now: number)
 					if position then
 						local cop = spawnCop(typeId, position, player, false)
 						if cop then
+							-- Un refuerzo llega buscando, no persiguiendo: va a donde se vio al jugador y solo pasa a "!" si lo ve
+							-- (si no, perder de vista a la policía no serviría de nada: siempre saldría otro sabiendo dónde estás).
 							local known = lastKnown[player]
-							cop.lastSeen = if known and now - known.at < KNOWN_SECONDS then known.position else root.Position
+							local goal = if known and now - known.at < KNOWN_SECONDS then known.position else root.Position
+							cop.lastSeen = goal
+							cop.state = "search"
+							local travel = flat(goal - cop.root.Position).Magnitude / math.max(speedOf(cop, now), 1)
+							cop.searchUntil = now + Tuning.get("Cops.SearchSeconds") + travel * 1.3
+							setAlert(cop, ICON_SEARCH)
 							cop.rosterFor = player
 							total += 1
 							nextSpawnAt[player] = now + 0.4
